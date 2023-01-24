@@ -1,0 +1,30 @@
+<!-- 예외 처리 구문 내부에서 return 사용하기(2) -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>8 1 6</title>
+  </head>
+
+  <script>
+    function test () {
+      try {
+        alert('A 위치 입니다.')
+        throw "예외 강제 발생"
+      } catch (exception) {
+        alert('B 위치입니다.')
+        return
+      } finally {
+        alert('C 위치입니다.')
+      }
+    }
+
+    // 함수를 호출합니다.
+    test()
+  </script>
+
+  <body>
+  </body>
+</html>

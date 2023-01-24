@@ -1,0 +1,25 @@
+<!-- finally 구문 -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>8 1 4</title>
+  </head>
+
+  <script>
+    try {
+      willExcept.byeBye()
+      console.log("try 구문의 마지막 줄")
+    } catch (exception) {
+      console.log("catch 구문의 마지막 줄")
+    } finally {
+      console.log("finally 구문의 마지막 줄") //예외 발생 여부와 상관없이 무조건 실해욉니다. 
+    }
+  </script>
+
+  <body>
+  </body>
+
+</html>

@@ -1,0 +1,24 @@
+<!-- 예외 정보 출력하기 -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>8 2 1</title>
+  </head>
+
+  <script>
+    try {
+      const array = new Array(999999999999999)
+    } catch (exception){
+      console.log(exception)
+      console.log()
+      console.log(`예외이름: ${exception.name}`)
+      console.log(`예외 메시지: ${exception.message}`)
+    }
+  </script>
+
+  <body>
+  </body>
+</html>

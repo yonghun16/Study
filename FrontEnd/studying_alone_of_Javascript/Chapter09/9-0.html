@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>9 0</title>
+  </head>
+
+  <script>
+    function createStudent(이름, 국어, 영어, 수학, 과학) {
+      return {
+        이름: 이름, 
+        국어: 국어,
+        영어: 영어,
+        수학: 수학,
+        과학: 과학,
+        get총점() {
+          return this.국어 + this.영어 + this.수학 + this.과학
+        },
+        get평균() {
+          return this.get총점() / 4
+        }
+      }
+    }
+    const students = [
+      createStudent('구름', 87, 98, 88, 90 ),
+      createStudent('별이', 92, 23, 67, 92 ),
+      createStudent('겨울', 84, 59, 87, 92 ),
+      createStudent('바다', 45, 91, 45, 99 )
+    ]
+
+    let output = '이름\t총점\t평균\t\n'
+    for(const student of students) {
+      output += `${student.이름}\t${student.get총점()}점\t${student.get평균()}점\n`
+    }
+    console.log(output)
+  </script>
+
+  <body>
+  </body>
+</html>

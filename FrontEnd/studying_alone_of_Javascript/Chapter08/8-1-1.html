@@ -1,0 +1,20 @@
+<!-- querySelector()메소드로 추출된 문서 객체가 없는 경우 -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>8 1 1</title>
+  </head>
+  <body>
+    body
+  </body>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', ()=> {
+      const h1 = document.querySelector('h1')
+      h1.textContent = '안녕하세요'
+    })
+  </script>
+</html>
