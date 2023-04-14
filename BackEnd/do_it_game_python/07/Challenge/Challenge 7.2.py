@@ -11,6 +11,7 @@ numMin = 1          #범위 시작 숫자
 numMax = 100        #범위 끝 숫자
 userInput = ""      #사용자 입력 저장하기
 userGuess = 0       #사용자 입력 숫자로 저장하기
+diffNum = 0         #사용자 입력과 점수의 차이
 
 #무작위 숫자 생성하기
 randNum = random.randrange(numMin, numMax+1)
@@ -33,10 +34,15 @@ while randNum != userGuess :
         guesses = guesses + 1
         # 입력한 값을 숫자로 변환하기
         userGuess = int(userInput)
+        diffNum = randNum - userGuess
         # 숫자 확인하기
         if userGuess < numMin or userGuess > numMax:
             print("{}은(는) {}와(과) {} 사이가 아닙니다."\
                   .format(userGuess, numMin, numMax))
+        elif diffNum < 5 and diffNum > 0:
+            print("조금 작습니다. 다시 입력하세요.")
+        elif diffNum > -5 and diffNum < 0:
+            print("조금 큽니다. 다시 입력하세요.")
         elif userGuess < randNum :
             print("너무 작습니다. 다시 입력하세요.")
         elif userGuess > randNum :
