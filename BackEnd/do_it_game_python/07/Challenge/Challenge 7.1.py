@@ -14,11 +14,8 @@ print("입력을 끝내려면 빈칸을 입력하세요.")
 while userInput != "" :
     #입력받기
     userInput = input("동물 종류를 입력하세요. 끝내려면 빈칸으로 두세요: ").strip()
-    #입력한 값이 중복인지 확인하기
-    if userInput in animals :
-        continue
-    #입력한 값이 있는지 확인하기
-    if len(userInput) > 0 :
+    #입력한 값이 있는지 확인하기 and 중복이 없는지 확인하기
+    if len(userInput) > 0 and not userInput in animals:
         #있다면 이를 추가함
         animals.append(userInput)
 
