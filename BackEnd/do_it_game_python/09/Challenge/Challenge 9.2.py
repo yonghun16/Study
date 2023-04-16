@@ -126,7 +126,9 @@ displayWord = maskChar * len(gameWord)
 #게임 시작하기
 #단어를 맞히거나 최대 횟수에 이를 때까지 루프
 while (gameWord != displayWord) and (livesUsed < maxLives):
+    #행맨을 화면에 표시하기
     printHangMan(livesUsed)
+
     #먼저 마스킹한 단어 출력하기
     print(displayWord)
 
@@ -158,7 +160,7 @@ while (gameWord != displayWord) and (livesUsed < maxLives):
     if currGuess in guessedLetters:
         print("이미 추측한 문자입니다:", currGuess)
     else:
-        #새로운 추측 문자이므로 추측 문자 리스트에 저장하기
+        #'새로운 추측 문자'이므로 추측 문자 리스트에 저장하기
         guessedLetters.append(currGuess)
         #리스트 정렬하기
         guessedLetters.sort()
