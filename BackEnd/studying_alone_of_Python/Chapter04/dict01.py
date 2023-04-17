@@ -16,3 +16,16 @@ print()
 #값을 변경합니다.
 dictionary["name"] = "8D 건조 망고"
 print("name", dictionary["name"])
+print()
+
+# 딕셔너리 변수를 큰따옴표 없이 적용
+
+nameDic = "name"
+typeDic = "type"
+
+dictionary2 = {
+    nameDic : "9D 건조 망고",
+    typeDic : "당절임"
+}
+print("name:", dictionary2[nameDic])
+print("type:", dictionary2[typeDic])
