@@ -105,7 +105,7 @@ def printHangMan(livesUsed):
         print("|")
         print("|    I'm alive!")
         print("|")
-        print("|       \O/")
+        print("|      \\O/")
         print("|        |")
         print("---     / \\")
         print()
