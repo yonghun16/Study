@@ -15,13 +15,13 @@ while people <1 or people>20 :
 #서비스 평점에 따라 팁 비율을 결정
 if serviceScore == 1:
     tipPercent = 10
-elif serviceScore ==2:
+elif serviceScore == 2:
     tipPercent = 20
-elif serviceScore ==3:
+elif serviceScore == 3:
     tipPercent = 30
-elif serviceScore ==4:
+elif serviceScore == 4:
     tipPercent = 40
-elif serviceScore ==5:
+elif serviceScore == 5:
     tipPercent = 50
 
 #팁 계산
