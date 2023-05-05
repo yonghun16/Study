@@ -3,7 +3,7 @@
 # 벤 & 쉬무엘 만듦
 ################################
 
-import Strings
+import Strings, Utils
 
 # 플레이어 환영 메시지
 def doWelcome():
@@ -14,8 +14,13 @@ def doWelcome():
 def doStart():
     # 텍스트 출력하기
     print(Strings.get("Start"))
+
+    # 플레이어 행동은?
+    choices = startChoice() 
+
     # 플레이어 행동 선택 프롬프트
-    choice = startChoice()
+    choice = Utils.getUserChoice(choices)
+
     #행동 실행하기
     if choice == 'P':
         doBoulders()
@@ -87,14 +92,12 @@ def doRun():
 
 # 플레이어 선택
 def startChoice():
-    choice = " "
-    while not choice in "PSBR":
-        print("여러분이 할 수 있는 일:")
-        print("P = 바위 더미를 조사한다")
-        print("S = 구조물에 접근한다")
-        print("B = 삐 소리가 나는 곳으로 간다")
-        print("R = 도망간다!")
-        choice = input("무엇을 하고 싶으세요? [P/S/B/R]").strip().upper()
+    choice = [
+            ["P", "바위 더미를 조사한다"],
+            ["S", "구조물에 접근한다"],
+            ["B", "삐 소리가 나는 곳으로 간다"],
+            ["R", "도망간다!"]
+            ]
     return choice
 
 # 게임 끝내기
@@ -104,5 +107,6 @@ def gameOver():
 # 실제 게임 시작은 이곳에서
 # 환영 메시지 출력하기
 doWelcome()
+
 # 게임 시작하기
 doStart()

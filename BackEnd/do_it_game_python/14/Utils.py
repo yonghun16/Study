@@ -17,32 +17,22 @@ def getUserChoice(options):
         validInputs += opt[0]
         # 출력하기
         print(opt[0], "-", opt[1])
-        # 프롬프트 만들기
-        prompt = "무엇을 하고 싶으세요?[" + validInputs + "]: "
-        # 변수 초기화하기
-        choice = ""
-        done = False
-        # 메인 루프
-        while not done:
-            # 대문자 하나 가져오기
-            choice = input(prompt).strip().upper()
-            # 사용자가 2자 이상 입력했을 때
-            if len(choice) > 1:
-                # 첫 문자만 사용
-                choice = choice[0]
-            # 입력한 문자가 유효한지?
-            if len(choice) == 1 and choice in validInputs:
-                # 그렇다면 빠져나가기
-                done = True
-        # 선택한 옵션 반환하기
-        return choice
-    
-# 테스트    
-choices = [["A", "A 선택"],
-           ["B", "B 선택"],
-           ["X", "X 선택"],
-           ["3", "그리고 숫자 하나"] 
-           ]
-
-choice = getUserChoice(choices)
-print(choice)
+    # 프롬프트 만들기
+    prompt = "무엇을 하고 싶으세요? [" + validInputs + "]: "
+    # 변수 초기화하기
+    choice = ""
+    done = False
+    # 메인 루프
+    while not done:
+        # 대문자 하나 가져오기
+        choice = input(prompt).strip().upper()
+        # 사용자가 2자 이상 입력했을 때
+        if len(choice) > 1:
+            # 첫 문자만 사용
+            choice = choice[0]
+        # 입력한 문자가 유효한지?
+        if len(choice) == 1 and choice in validInputs:
+            # 그렇다면 빠져나가기
+            done = True
+    # 선택한 옵션 반환하기
+    return choice
