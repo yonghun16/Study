@@ -69,15 +69,15 @@ def doStructureDoor():
     # 플레이어 행동 선택 프롬프트
     choice = " "
     while not choice in "SR":
-        print("여러분이 할 수 있는 일:")
-        print("S = 구조물로 돌아간다.")
-        print("R = 도망간다!")
-        choice = input("무엇을 하고 싶으세요? [S/R]").strip().upper()
-    # 행동 실행하기
-    if choice == 'S':
-        doStructure()
-    elif choice == 'R':
-        doRun()
+        print("여러분이 할 수 있는 일:") 
+        print("S = 구조물로 돌아간다.") 
+        print("R = 도망간다!") 
+        choice = input("무엇을 하고 싶으세요? [S/R]").strip().upper() 
+    # 행동 실행하기 
+    if choice == 'S': 
+        doStructure() 
+    elif choice == 'R': 
+        doRun() 
         
 # 장소: 삐 소리 탐색하기
 def doBeeping():
