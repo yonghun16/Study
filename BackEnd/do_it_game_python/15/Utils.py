@@ -22,7 +22,7 @@ def getUserChoice(options):
     # 변수 초기화하기
     choice = ""
     done = False
-    # 메인 루프
+    # 메인 루프 
     while not done:
         # 대문자 하나 가져오기
         choice = input(prompt).strip().upper()
