@@ -12,7 +12,7 @@ class Child(Parent):
         Parent.__init__(self)
         print("Child 클래스의 __init()__ 메소드가 호출되었습니다.")
 
-# 자식 클래스의 인스턴스를 생성하고 메소드를 호출합니다.
+# 자식 클래스의 인스턴스를 생성하고 부모의 메소드를 호출합니다.
 child = Child()
 child.test()
 print(child.value)
