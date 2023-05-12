@@ -6,6 +6,8 @@ BLACK = (0, 0, 0)
 padWidth = 480          # 게임 화면의 가로크기
 padHeight = 640         # 게임 화면의 세로크기
 
+#,
+
 def initGame():
     global gamePad, clock
     pygame.init()
