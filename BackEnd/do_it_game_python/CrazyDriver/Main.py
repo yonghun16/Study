@@ -16,6 +16,7 @@ score = 0
 textFonts = ['comicsansms', 'arial']
 textSize = 48
 paused = False
+eNum = -1
 
 # 게임 경로 설정하기
 GAME_ROOT_FOLDER = os.path.dirname(__file__)
@@ -59,7 +60,10 @@ pygame.display.set_caption("Crazy Driver")
 #이미지 불러오기
 IMG_ROAD = pygame.image.load(os.path.join(IMAGE_FOLDER, "Road.png"))
 IMG_PLAYER = pygame.image.load(os.path.join(IMAGE_FOLDER, "Player.png"))
-IMG_ENEMY = pygame.image.load(os.path.join(IMAGE_FOLDER, "Enemy.png"))
+IMG_ENEMIES = []
+IMG_ENEMIES.append(pygame.image.load(os.path.join(IMAGE_FOLDER, "Enemy.png")))
+IMG_ENEMIES.append(pygame.image.load(os.path.join(IMAGE_FOLDER, "Enemy2.png")))
+IMG_ENEMIES.append(pygame.image.load(os.path.join(IMAGE_FOLDER, "Enemy3.png")))
 
 #게임 화면 초기화하기
 screen = pygame.display.set_mode(IMG_ROAD.get_size())
@@ -76,15 +80,15 @@ player.rect = player.surf.get_rect(center = (h, v))
 
 # 적
 # 적 초기 위치 계산하기
-hl = IMG_ENEMY.get_width()//2
-hr = IMG_ROAD.get_width() - (IMG_ENEMY.get_width()//2)
+hl = IMG_ENEMIES[eNum].get_width()//2
+hr = IMG_ROAD.get_width() - (IMG_ENEMIES[eNum].get_width()//2)
 h = random.randrange(hl, hr)
 v = 0
 
 #enemy 스프라이트 만들기
 enemy = pygame.sprite.Sprite()
-enemy.image = IMG_ENEMY
-enemy.surf = pygame.Surface(IMG_ENEMY.get_size())
+enemy.image = IMG_ENEMIES[eNum]
+enemy.surf = pygame.Surface(IMG_ENEMIES[eNum].get_size())
 enemy.rect = enemy.surf.get_rect(center = (h, v))
 
 # 메인 게임 루프
@@ -100,6 +104,22 @@ while True:
 
     # 플레이어 화면에 두기
     screen.blit(player.image, player.rect)
+
+    # 적이 있는지 확인하기
+    if eNum == -1:
+        # 무작위로 적 발생시키기
+        eNum = random.randrange(0, len(IMG_ENEMIES))
+        # 적 초기 위치 계산하기
+        hl = IMG_ENEMIES[eNum].get_width()//2
+        hr = IMG_ROAD.get_width() - (IMG_ENEMIES[eNum].get_width()//2)
+        h = random.randrange(hl, hr)
+        v = 0
+        # enemy 스프라이트 만들기
+        enemy = pygame.sprite.Sprite()
+        enemy.image = IMG_ENEMIES[eNum]
+        enemy.surf = pygame.Surface(IMG_ENEMIES[eNum].get_size())
+        enemy.rect = enemy.surf.get_rect(center = (h, v))
+
 
     # 키보드 눌렀을 때
     keys = pygame.key.get_pressed()
@@ -146,18 +166,22 @@ while True:
 
     # 화면 밖으로 나갔는지 확인하기
     if (enemy.rect.bottom > IMG_ROAD.get_height()):
-        # 새로 무작위 위치 계산하기
-        hl = IMG_ENEMY.get_width()//2
-        hr = IMG_ROAD.get_width() - (IMG_ENEMY.get_width()//2)
-        h = random.randrange(hl, hr)
-        v = 0
-        # 화면에 두기
-        enemy.rect.center = (h, v)
-        # 점수 업데이트하기
+        # enemy 객체 없애기
+        enemy.kill()
+        # 적 없음
+        eNum = -1
+        # 점수 올리기
         score += 1
         # 속도 올리기
         if moveSpeed < maxSpeed:
             moveSpeed += 0.3
+        # 새로 무작위 위치 계산하기
+        hl = IMG_ENEMIES[eNum].get_width()//2
+        hr = IMG_ROAD.get_width() - (IMG_ENEMIES[eNum].get_width()//2)
+        h = random.randrange(hl, hr)
+        v = 0
+        # 화면에 두기
+        enemy.rect.center = (h, v)
 
     # 충돌 확인하기
     if pygame.sprite.collide_rect(player, enemy):
