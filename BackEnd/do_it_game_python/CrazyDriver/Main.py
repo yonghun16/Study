@@ -9,7 +9,9 @@ WHITE = (255, 255, 255)
 RED = (255, 0, 0)
 
 # 게임 변수 초기화하기
-moveSpeed = 2
+startSpeed = 2
+addSpeed = 0.5
+moveSpeed = startSpeed
 maxSpeed = 8
 playerMove = 3
 score = 0
@@ -30,9 +32,16 @@ def GameOver():
     rectGameOver = textGameOver.get_rect()
     rectGameOver.center = (IMG_ROAD.get_width()//2,
                            IMG_ROAD.get_height()//2)
+
+    fontGameOver2 = pygame.font.SysFont(textFonts, textSize//2)
+    textGameOver2 = fontGameOver2.render("Score " + str(score), True, RED)
+    rectGameOver2 = textGameOver2.get_rect()
+    rectGameOver2.center = (IMG_ROAD.get_width()//2,
+                           IMG_ROAD.get_height()//2 + 80)
     #검은색 배경에 게임 오버 메시지 출력하기
     screen.fill(BLACK)
     screen.blit(textGameOver, rectGameOver)
+    screen.blit(textGameOver2, rectGameOver2)
     # 출력 업데이트하기
     pygame.display.update()
     # 객체 없애기
@@ -64,6 +73,7 @@ IMG_ENEMIES = []
 IMG_ENEMIES.append(pygame.image.load(os.path.join(IMAGE_FOLDER, "Enemy.png")))
 IMG_ENEMIES.append(pygame.image.load(os.path.join(IMAGE_FOLDER, "Enemy2.png")))
 IMG_ENEMIES.append(pygame.image.load(os.path.join(IMAGE_FOLDER, "Enemy3.png")))
+IMG_ENEMIES.append(pygame.image.load(os.path.join(IMAGE_FOLDER, "IceCube.png")))
 
 #게임 화면 초기화하기
 screen = pygame.display.set_mode(IMG_ROAD.get_size())
@@ -174,7 +184,7 @@ while True:
         score += 1
         # 속도 올리기
         if moveSpeed < maxSpeed:
-            moveSpeed += 0.3
+            moveSpeed += addSpeed
         # 새로 무작위 위치 계산하기
         hl = IMG_ENEMIES[eNum].get_width()//2
         hr = IMG_ROAD.get_width() - (IMG_ENEMIES[eNum].get_width()//2)
@@ -184,9 +194,14 @@ while True:
         enemy.rect.center = (h, v)
 
     # 충돌 확인하기
-    if pygame.sprite.collide_rect(player, enemy):
-        # 충돌! 게임오버
-        GameOver()
+    if eNum >= 0 and pygame.sprite.collide_rect(player, enemy):
+        # 적 번호가 3인지?
+        if eNum == 3:
+            # 얼음덩어리라면 속도 되돌리기
+            moveSpeed = startSpeed
+        else:
+            # 충돌! 게임오버
+            GameOver()
 
     # 이벤트 확인하기
     for event in pygame.event.get():
