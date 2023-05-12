@@ -89,8 +89,11 @@ enemy.rect = enemy.surf.get_rect(center = (h, v))
 
 # 메인 게임 루프
 while True:
-    #제목 표시줄 설정하기
-    pygame.display.set_caption("Crazy Driver - Score " + str(score))
+    if paused == False :
+        #제목 표시줄 설정하기
+        pygame.display.set_caption("Crazy Driver - Score " + str(score))
+    else:
+        pygame.display.set_caption("Crazy Driver - paused")
 
     # 배경 두기
     screen.blit(IMG_ROAD, (0, 0))
@@ -101,20 +104,39 @@ while True:
     # 키보드 눌렀을 때
     keys = pygame.key.get_pressed()
 
-    # 왼쪽 화살표 키인지 확인하기
-    if keys[K_LEFT] and player.rect.left > 0:
-        # 왼쪽으로 움직이기
-        player.rect.move_ip(-playerMove, 0)
-        # 너무 왼쪽으로 가지 않도록 하기
-        if player.rect.left < 0:
-            player.rect.left = 0        # 너무 갔다면 되돌리기
-    # 오른쪽 화살표 키인지 확인하기
-    if keys[K_RIGHT] and player.rect.right < IMG_ROAD.get_width():
-        # 왼쪽으로 움직이기
-        player.rect.move_ip(+playerMove, 0)
-        # 너무 오른쪽으로 가지 않도록 하기
-        if player.rect.right > IMG_ROAD.get_width():
-            player.rect.right = IMG_ROAD.get_width()        # 너무 갔다면 되돌리기
+    # 일시 정지인지?
+    if paused:
+        # 스페이스 키 확인하기
+        if not keys[K_SPACE]:
+            #일시 정지 끄기
+            # 이전 속도로 되돌리기
+            moveSpeed = tempSpeed
+            # 일시 정지 아니라고 표시하기
+            paused =False
+    else:
+        # 왼쪽 화살표 키인지 확인하기
+        if keys[K_LEFT] and player.rect.left > 0:
+            # 왼쪽으로 움직이기
+            player.rect.move_ip(-playerMove, 0)
+            # 너무 왼쪽으로 가지 않도록 하기
+            if player.rect.left < 0:
+                player.rect.left = 0        # 너무 갔다면 되돌리기
+        # 오른쪽 화살표 키인지 확인하기
+        if keys[K_RIGHT] and player.rect.right < IMG_ROAD.get_width():
+            # 왼쪽으로 움직이기
+            player.rect.move_ip(+playerMove, 0)
+            # 너무 오른쪽으로 가지 않도록 하기
+            if player.rect.right > IMG_ROAD.get_width():
+                player.rect.right = IMG_ROAD.get_width()        # 너무 갔다면 되돌리기
+        if keys[K_SPACE]:
+            #일시 정지 켜기
+            #게임 속도 저장하기
+            tempSpeed = moveSpeed
+            #속도를 0으로 설정하기
+            moveSpeed = 0
+            #일시 정지 중이라 표시하기
+            paused = True
+        
 
     # 적 화면에 두기
     screen.blit(enemy.image, enemy.rect)
