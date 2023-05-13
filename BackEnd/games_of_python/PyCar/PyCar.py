@@ -32,7 +32,7 @@ class Car:
         self.dy = dy
 
     def load_image(self):
-        self.image = pygame.image.load(random.choice(self.image_car))
+        self.image = pygame.image.load(os.path.join(IMAGE_FOLDER, random.choice(self.image_car)))
         self.width = self.image.get_rect().size[0]
         self.height = self.image.get_rect().size[1]
 
@@ -56,14 +56,39 @@ class Car:
         else :
             return False
 
-    if __name__ == '__main__':
-        pygame.init()
-        screen = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_WIDTH))
-        pygame.display.set_caption("PyCar: Racing Car Game")
-        clock = pygame.time.Clock()
+if __name__ == '__main__':
+    pygame.init()
+    screen = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
+    pygame.display.set_caption("PyCar: Racing Car Game")
+    clock = pygame.time.Clock()
 
-        pygame.mixer.music.load(os.path.join(SOUND_FOLDER, "race.wav"))
-        sound_crash = pygame.mixer.Sound(os.path.join(SOUND_FOLDER, "crash.wav"))
-        sound_engine = pygame.mixer.Sound(os.path.join(SOUND_FOLDER, "engine.wav"))
+    # 게임 사운드
+    pygame.mixer.music.load(os.path.join(SOUND_FOLDER, "race.wav"))
+    sound_crash = pygame.mixer.Sound(os.path.join(SOUND_FOLDER, "crash.wav"))
+    sound_engine = pygame.mixer.Sound(os.path.join(SOUND_FOLDER, "engine.wav"))
 
-        player = Car(WINDOW_WIDTH / 2)
+    # 사용자 레이싱 카 생성
+    player = Car(WINDOW_WIDTH / 2, (WINDOW_HEIGHT - 150), 0, 0)
+    player.load_image()
+
+    # 컴퓨터 레이싱 카 생성
+    cars = []
+    car_count = 3
+    for i in range(car_count):
+        x = random.randrange(0, WINDOW_WIDTH-55)
+        y = random.randrange(-150, -50)
+        car = Car(x, y, 0, random.randint(5, 10))
+        car.load_image()
+        cars.append(car)
+
+    # 도로 차선 생성
+    lanes = []
+    lane_width = 10
+    lane_height = 80
+    lane_margin = 20
+    lane_count = 10
+    lane_x = (WINDOW_WIDTH - lane_width) / 2
+    lane_y = -10
+    for i in range(lane_count):
+        lanes.append([lane_x, lane_y])
+        lane_y += lane_height + lane_margin
