@@ -21,7 +21,8 @@ class Game():
         TEXT_SIZE_GAME_OVER = 48
         TEXT_SIZE_SCORE = 36
         GAME_ROOT_FOLDER = os.path.dirname(__file__)
-        SAVE_DATA_FILE = os.path.join(GAME_ROOT_FOLDER, "crazyDriverSave.p")
+        SAVE_DATA_FOLDER = os.path.join(GAME_ROOT_FOLDER, "SaveDataFile")
+        SAVE_DATA_FILE = os.path.join(SAVE_DATA_FOLDER, "crazyDriverSave.p")
 
         # 변수
         startSpeed = 3.0
