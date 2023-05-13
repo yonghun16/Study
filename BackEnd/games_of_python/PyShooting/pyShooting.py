@@ -20,6 +20,7 @@ rockImage = ['rock01.png', 'rock02.png', 'rock03.png', 'rock04.png', 'rock05.png
              'rock16.png', 'rock17.png', 'rock18.png', 'rock19.png', 'rock20.png', \
              'rock21.png', 'rock22.png', 'rock23.png', 'rock24.png', 'rock25.png', \
              'rock26.png', 'rock27.png', 'rock28.png', 'rock29.png', 'rock30.png' ]
+explosionSound = ['explosion01.wav', 'explosion02.wav', 'explosion03.wav', 'explosion04.wav']
 
 # 운석을 맞춘 개수 계산
 def writeScore(count):
@@ -35,6 +36,30 @@ def writePassed(count):
     text = font.render('놓친 운석수: ' + str(count), True, (255, 0, 0))
     gamePad.blit(text, (345, 5))
 
+# 게임 메시지 출력
+def writeMessage(text):
+    global gamePad, gameoverSound
+    font = pygame.font.SysFont(textFonts, 40)
+    text = font.render(text, True, (255, 0, 0))
+    textpos = text.get_rect()
+    textpos.center = (padWidth/2, padHeight/2)
+    gamePad.blit(text, textpos)
+    pygame.display.update()
+    pygame.mixer.music.stop()   # 배경음악 정지
+    # gameoverSound.play()        # 게임오버 사운드 재생
+    sleep(2)
+    # pygame.mixer.music.play(-1) # 배경 음악 재생
+    runGame()
+
+# 전투기가 운석과 충돌했을 대 메시지 출력
+def crash():
+    global gamePad
+    writeMessage("전투기 파괴")
+
+# 게임 오버 메시지 보이기
+def gameOver():
+    global gamePad
+    writeMessage("게임 오버")
 
 # 게임에 등장하는 객체를 드로잉
 def drawObject(obj, x, y):
@@ -105,11 +130,21 @@ def runGame():
                     fighterX = 0
         x += fighterX   # 전투기 x좌표 재설정
 
+        # [전투기]
         # x좌표 넘어 갔을 때 전투기 위치 재조정
         if x < 0:
             x = 0
         elif x > padWidth - fighterWidth:
             x = padWidth - fighterWidth
+        
+        # 전투기가 운석과 충돌했는지 체크
+        if y < rockY + rockHeight:
+            # 운석 왼편과 충돌, 운석 오른편과 충돌, 운석 정면 충돌
+            if (rockX > x and rockX < x + fighterWidth) or \
+                (rockX + rockWidth > x and rockX + rockWidth < x + fighterWidth) or \
+                (rockX + rockWidth > x + fighterWidth and rockX < x):
+                crash()
+
         drawObject(fighter, x, y)    # 전투기 그리기
 
         # [미사일]
@@ -147,6 +182,9 @@ def runGame():
             rockX = random.randrange(0, padWidth - rockWidth)
             rockY = 0
             rockPassed +=1
+            if rockPassed == 5:
+                gameOver()
+
         # 운석이 미사일 맞은 경우
         if isShot:
             # 운석 폭발
@@ -159,6 +197,10 @@ def runGame():
             rockX = random.randrange(0, padWidth - rockWidth)
             rockY = 0
             isShot = False
+            #운석 맞추면 속도증가
+            rockSpeed += 0.1
+            if rockSpeed >= 10:
+                rockSpeed = 10
 
         drawObject(rock, rockX, rockY)  # 운석 그리기
 
