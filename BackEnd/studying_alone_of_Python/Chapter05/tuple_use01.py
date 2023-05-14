@@ -7,7 +7,12 @@ print()
 
 # 괄호가 없는 튜플 활용
 a, b, c = 10, 20, 30
+e, f = [40, 50]
 print("# 괄호가 없는 튜플을 활용한 할당")
 print("a:", a)
 print("b:", b)
 print("c:", c)
+print("e:", e)
+print("f:", f)
+print("type of a: ", type(a))
+print("type of e: ", type(e))
