@@ -1,1 +1,1 @@
-print("1plus1", "=", "Gwi yo mi")
+print("1plus1 = Gwi yo mi")

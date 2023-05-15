@@ -1,4 +1,4 @@
 print("My height")
-print(170)
+print("170")
 print("My weight")
-print(68.6)
+print("68.6")
