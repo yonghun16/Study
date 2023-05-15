@@ -130,16 +130,9 @@ class Game():
             snake.eat()
             feed.create()
 
-    def resource_path(self, relative_path):
-        try:
-            base_path = sys._MEIPASS
-        except Exception:
-            base_path = os.path.abspath(".")
-        return os.path.join(base_path, relative_path)
-
     # 게임 정보 출력
     def draw_info(self, length, speed, screen):
-        info = "Length: " + str(length) + "    " + "Speed: " + str(round(speed, 2))
+        info = "길이: " + str(length) + "    " + "속도: " + str(round(speed, 2))
         font_path = resource_path("assets/NanumGothicCoding-Bold.ttf")
         font = pygame.font.Font(font_path, 26)
         text_obj = font.render(info, True, GRAY)
@@ -147,18 +140,18 @@ class Game():
         text_rect.x, text_rect.y = 10, 10
         screen.blit(text_obj, text_rect)
 
-    # 게임 프레임 처리
+    # 게임 화면 및 프레임 처리
     def display_frame(self, screen):
-        screen.fill(WHITE)
-        self.draw_info(self.snake.length, self.speed, screen)
-        self.snake.draw(screen)
-        self.feed.draw(screen)
-        screen.blit(screen, (0, 0))
+        screen.fill(WHITE)                                      # 배경화면 하얀색으로 채우기
+        self.draw_info(self.snake.length, self.speed, screen)   # 게임 정보 출력
+        self.snake.draw(screen)                                 # 뱀 그리기
+        self.feed.draw(screen)                                  # 먹이 그리기
+        screen.blit(screen, (0, 0))                             # 변경된 화면을 반영
 
 # 리소스 경로 설정
 def resource_path(relative_path):
     try:
-        base_path = sys._MEIPASS
+        base_path = sys._MEIPASS     # pyinstaller 에서 넣어줘야 되는 경로 설정값
     except Exception:
         base_path = os.path.abspath(".")
     return os.path.join(base_path, relative_path)
@@ -180,7 +173,6 @@ def main():
         clock.tick(game.speed)
 
     pygame.quit()
-
 
 if __name__ == '__main__':
     main()
