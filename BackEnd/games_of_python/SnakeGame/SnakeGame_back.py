@@ -1,5 +1,6 @@
 import pygame
-import sys, os
+import os
+import sys
 import random
 from time import sleep
 
@@ -12,19 +13,6 @@ GRID_SIZE = 20
 GRID_WIDTH = SCREEN_WIDTH / GRID_SIZE
 GRID_HEIGHT = SCREEN_HEIGHT / GRID_SIZE
 
-# 리소스 경로 설정
-def resource_path(relative_path):
-    try:
-        base_path = sys._MEIPASS     # pyinstaller 에서 넣어줘야 되는 경로 설정값
-    except Exception:
-        base_path = os.path.abspath(".")
-    return os.path.join(base_path, relative_path)
-FONT_PATH = resource_path("assets/NanumGothicCoding-Bold.ttf")
-IMAGE_PATH = resource_path("assets/images")
-
-# 이미지 불러오기
-IMG_BACK = pygame.image.load(os.path.join(IMAGE_PATH, "background.png"))
-
 # 방향 전역변수
 UP = (0, -1)
 DOWN = (0, 1)
@@ -35,8 +23,6 @@ RIGHT = (1, 0)
 WHITE = (255, 255, 255)
 ORANGE = (250, 150, 0)
 GRAY = (100, 100, 100)
-BLACK = (0, 0, 0)
-RED = (255, 0, 0)
 
 
 # 뱀 객체
@@ -147,8 +133,8 @@ class Game():
     # 게임 정보 출력
     def draw_info(self, length, speed, screen):
         info = "길이: " + str(length) + "    " + "속도: " + str(round(speed, 2))
-        FONT_PATH = resource_path("assets/NanumGothicCoding-Bold.ttf")
-        font = pygame.font.Font(FONT_PATH, 26)
+        font_path = resource_path("assets/NanumGothicCoding-Bold.ttf")
+        font = pygame.font.Font(font_path, 26)
         text_obj = font.render(info, True, GRAY)
         text_rect = text_obj.get_rect()
         text_rect.x, text_rect.y = 10, 10
@@ -162,7 +148,14 @@ class Game():
         self.feed.draw(screen)                                  # 먹이 그리기
         screen.blit(screen, (0, 0))                             # 변경된 화면을 반영
 
-# 메인
+# 리소스 경로 설정
+def resource_path(relative_path):
+    try:
+        base_path = sys._MEIPASS     # pyinstaller 에서 넣어줘야 되는 경로 설정값
+    except Exception:
+        base_path = os.path.abspath(".")
+    return os.path.join(base_path, relative_path)
+
 def main():
     # 게임 초기화
     pygame.init()
@@ -181,36 +174,7 @@ def main():
         clock.tick(game.speed)              # 화면 업데이트 수(깜빡임 수)를 조절 -> 속도 표현
 
     # 게임 종료
-    gameOver()
-
-# 게임 종료
-def gameOver():
-    screen = pygame.display.set_mode(IMG_BACK.get_size())
-    screen.blit(IMG_BACK, (0, 0))
-
-    # 게임오버 문구
-    gameover_font = pygame.font.Font(FONT_PATH, 50)
-    gameover_text_obj = gameover_font.render("게임 끝", True, RED)
-    gameover_text_rect = gameover_text_obj.get_rect()
-    gameover_text_rect.center = (int(SCREEN_WIDTH / 2), int(SCREEN_HEIGHT / 2)) 
-    screen.blit(gameover_text_obj, gameover_text_rect)
-
-    # 제작자 문구
-    man_font = pygame.font.Font(FONT_PATH, 20)
-    mans =[]
-
-    man1 = man_font.render("개발자 : 테스트", True, BLACK)
-    man1_rect = man1.get_rect().center = (600, 400)
-    mans.append( (man1, man1_rect) )
-
-    for man in mans:
-        screen.blit(man[0], man[1])
-
-    # 화면 업데이트
-    pygame.display.flip()
-    sleep(4)
     pygame.quit()
-    sys.exit()
 
 if __name__ == '__main__':
     main()
