@@ -105,9 +105,9 @@ class Game():
     # 게임 이벤트 처리 및 조작
     def process_events(self):
         for event in pygame.event.get():
-            if event.type == pygame.QUIT:
+            if event.type == pygame.QUIT:           # 종료
                 return True
-            elif event.type == pygame.KEYDOWN:
+            elif event.type == pygame.KEYDOWN:      # 방향키 조작
                 if event.key == pygame.K_UP:
                     self.snake.control(UP)
                 elif event.key == pygame.K_DOWN:
@@ -166,11 +166,11 @@ def main():
 
     done = False
     while not done:
-        done = game.process_events()
-        game.run_logic()
-        game.display_frame(screen)
-        pygame.display.flip()
-        clock.tick(game.speed)
+        done = game.process_events()        # 종료 및 방향키 이벤트
+        game.run_logic()                    # 뱀 이동, 먹이, 속도 변경 로직
+        game.display_frame(screen)          # 로직의 내용을 표시 될 스크린에 반영
+        pygame.display.flip()               # 화면 업데이트
+        clock.tick(game.speed)              # 화면 업데이트 수(깜빡임 수)를 조절 -> 속도 표현
 
     pygame.quit()
 
