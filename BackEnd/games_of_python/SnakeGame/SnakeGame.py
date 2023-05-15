@@ -157,13 +157,14 @@ def resource_path(relative_path):
     return os.path.join(base_path, relative_path)
 
 def main():
-    # 게임 초기화 및 환경 설정
+    # 게임 초기화
     pygame.init()
     pygame.display.set_caption('Snake Game')
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
     clock = pygame.time.Clock()
     game = Game()
 
+    # 게임 실행
     done = False
     while not done:
         done = game.process_events()        # 종료 및 방향키 이벤트
@@ -172,6 +173,7 @@ def main():
         pygame.display.flip()               # 화면 업데이트
         clock.tick(game.speed)              # 화면 업데이트 수(깜빡임 수)를 조절 -> 속도 표현
 
+    # 게임 종료
     pygame.quit()
 
 if __name__ == '__main__':

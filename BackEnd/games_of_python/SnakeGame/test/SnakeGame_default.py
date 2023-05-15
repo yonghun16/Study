@@ -25,12 +25,13 @@ ORANGE = (250, 150, 0)
 GRAY = (100, 100, 100)
 
 def main():
-    # 초기화
+    # 게임 초기화
     pygame.init()
     pygame.display.set_caption('Snake Game')
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
     clock = pygame.time.Clock()
 
+    # 게임 실행 
     done = False
     while not done:
         # 윈도우 화면 채우기
@@ -41,12 +42,7 @@ def main():
             if event.type == pygame.QUIT:
                 done = True
 
-
-
-        # 화면 업데이트
         pygame.display.flip()
-
-        # 초당 60 프레임으로 업데이트
         clock.tick(60)
 
     # 게임 종료
