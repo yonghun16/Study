@@ -24,6 +24,28 @@ WHITE = (255, 255, 255)
 ORANGE = (250, 150, 0)
 GRAY = (100, 100, 100)
 
+# 뱀 객체
+class Snake():
+    def __init__(self):
+        self.create()
+
+    # 뱀 생성
+    def create(self):
+        self.length = 2     # 생성 시 길이 2
+        self.positions = [(int(SCREEN_WIDTH/2), int(SCREEN_HEIGHT/2))]  # 생성 시 시작 위치
+        self.direction = random.choice([UP, DOWN, LEFT, RIGHT])         # 생성 시 방향
+
+    # 뱀 방향 조정
+    def control(self, xy):
+        if (xy[0] * -1, xy[1] * -1) == self.direction:
+            return
+        else:
+            self.direction = xy
+    # 뱀 이동
+    # def move(self):
+    #     cur = self.positions[0]
+
+
 def main():
     # 초기화
     pygame.init()
@@ -40,8 +62,6 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 done = True
-
-
 
         # 화면 업데이트
         pygame.display.flip()
