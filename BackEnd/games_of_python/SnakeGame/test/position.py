@@ -19,7 +19,6 @@ for i in range(len(position)):
 print()
 
 # enumerate함수 사용(전달 받은 position리스트 사용) (인덱스 및 전달 받은 리스트 사용)
-# (enumerate함수는 함수 안에 반복문이 삽입되어있음)
 for i, bxy in enumerate(position):
     print(position[i][0], position[i][1])
 print()
@@ -27,4 +26,8 @@ print()
 # enumerate함수 사용('인덱스'와 '원소'로 '튜플' 생성) (인덱스 안사용, 튜플 사용)
 for i, bxy in enumerate(position):
     print(bxy[0], bxy[1])
+print()
 
+# 그냥 사용
+for bxy in position:
+    print(bxy[0], bxy[1])
