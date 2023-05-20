@@ -8,7 +8,7 @@ SCREEN_WIDTH = 480
 SCREEN_HEIGHT = 640
 
 # 색 정의
-WHITE = (255, 25, 255)
+WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
 BLUE = (20, 60, 120)
 ORANGE = (250, 170, 70)
@@ -35,10 +35,9 @@ class Ball():
             self.dx *= -1
             self.rect.left = 0
             self.bounce_sound.play()
-        
         # 공이 게임 화면 오른쪽으로 넘어갈 때
         elif self.rect.right > SCREEN_WIDTH:
-            self.dx += -1
+            self.dx *= -1
             self.rect.right = SCREEN_WIDTH
             self.bounce_sound.play()
 
@@ -52,6 +51,7 @@ class Ball():
     # 공 그리기
     def draw(self, screen):
         pygame.draw.rect(screen, ORANGE, self.rect)
+
 
 # 플레이어 객체
 class Player():
@@ -79,6 +79,7 @@ class Player():
     def draw(self, screen):
         pygame.draw.rect(screen, RED, self.rect)
 
+
 # 적 객체
 class Enemy():
     def __init__(self, pong_sound):
@@ -95,8 +96,8 @@ class Enemy():
             else:
                 self.rect.x -= 4
         # 적보다 공이 오른족에 있을 때
-        if self.rect.centerx < ball.rect.centerx:
-            diff = self.rect.centerx - ball.rect.centerx
+        elif self.rect.centerx < ball.rect.centerx:
+            diff = ball.rect.centerx - self.rect.centerx
             if diff <= 4:
                 self.rect.centerx = ball.rect.centerx
             else:
@@ -118,7 +119,7 @@ class Game():
         bounce_path = resource_path("assets/bounce.wav")
         ping_path = resource_path("assets/ping.wav")
         pong_path = resource_path("assets/pong.wav")
-        font_path = resource_path("assets/NanumGothiCoding-Bold")
+        font_path = resource_path("assets/NanumGothicCoding-Bold.ttf")
         bounce_sound = pygame.mixer.Sound(bounce_path)
         ping_sound = pygame.mixer.Sound(ping_path)
         pong_sound = pygame.mixer.Sound(pong_path)
@@ -158,3 +159,76 @@ class Game():
         # 공이 게임 화면 아래로 넘어간 경우 (적이 이긴경우)
         elif self.ball.rect.y > SCREEN_HEIGHT:
             self.enemy_score += 1
+            self.ball.reset(self.enemy.rect.centerx, self.enemy.rect.centery)
+
+    # 메시지 출력
+    def display_message(self, screen, message, color):
+        label = self.font.render(message, True, color)
+        width = label.get_width()
+        height = label.get_height()
+        pos_x = int((SCREEN_WIDTH/2) - (width/2))
+        pos_y = int((SCREEN_HEIGHT/2) - (height/2))
+        screen.blit(label, (pos_x, pos_y))
+        pygame.display.update()
+
+    # 게임 프레임 출력
+    def display_frame(self, screen):
+        screen.fill(BLUE)
+
+        # 플레이어 점수가 10점일 경우
+        if self.player_score == 10:
+            self.display_message(screen, "승리!", WHITE)
+            self.player_score = 0
+            self.enemy_score = 0
+            pygame.time.wait(2000)
+        # 적 점수가 10점일 경우
+        elif self.enemy_score == 10:
+            self.display_message(screen, "패배!", WHITE)
+            self.player_score = 0
+            self.enemy_score = 0
+            pygame.time.wait(2000)
+        else:
+            self.ball.draw(screen)
+            self.player.draw(screen)
+            self.enemy.draw(screen)
+            # 게임 중앙 점선
+            for x in range(0, SCREEN_WIDTH, 24):
+                pygame.draw.rect(screen, WHITE, [x, int(SCREEN_HEIGHT / 2), 10, 10])
+            # 적 점수 표시
+            enemy_score_label = self.font.render(str(self.enemy_score), True, WHITE)
+            screen.blit(enemy_score_label, (10, 260))
+            # 플레이어 점수 표시
+            player_score_label = self.font.render(str(self.player_score), True, WHITE)
+            screen.blit(player_score_label, (10, 340))
+
+
+# 게임 리소스 경로
+def resource_path(relative_path):
+    try:
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+    return os.path.join(base_path, relative_path)
+
+
+def main():
+    pygame.init()
+    screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+    pygame.display.set_caption("PingPong Game")
+    clock = pygame.time.Clock()
+    game = Game()
+
+    done = False
+    while not done:
+        done = game.process_events()
+        game.run_logic()
+        game.display_frame(screen)
+        pygame.display.flip()
+        clock.tick(FPS)
+
+    pygame.quit()
+
+
+if __name__ == '__main__':
+    main()
+
