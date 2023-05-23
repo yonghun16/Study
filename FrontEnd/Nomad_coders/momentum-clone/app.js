@@ -1,11 +1,11 @@
-const title = document.querySelectorAll(".hello")
+const h1 = document.querySelector("div.hello:last-child")
 
-console.log(title)
-title[2].style.color = "blue";
+console.log(h1)
 
-function handleTitleClick() {
-  console.log("title was clicked!");
-}
 
-title[2].addEventListener("click", handleTitleClick)
+// function handleTitleClick() {
+//   h1.className = "active";
+// }
+
+// h1.addEventListener("click", handleTitleClick)
 
