@@ -48,3 +48,8 @@ const quotes = [
     author : "도로시 사노프",
   },
 ]
+
+const quote = document.querySelector("#quote span:first-child");
+const author = document.querySelector("#quote span:last-child");
+
+console.log(quotes[0]);
