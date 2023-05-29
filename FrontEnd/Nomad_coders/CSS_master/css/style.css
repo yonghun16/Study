@@ -1,6 +1,30 @@
-.box {
-  background: Blue;
-  width: 100px;
-  height: 100px;
-  margin-bottom: 2px;
+/* 1.4 align-self and order */
+
+body {
+
 }
+
+.father {
+  display: flex;
+  /* Main Axis */
+  justify-content: space-around;
+  /* Cross Axis */
+  height: 100vh;
+}
+
+.child {
+  width: 200px;
+  height: 200px;
+  background: Peru;
+  color: White;
+}
+
+.child:nth-child(2) {     /* 자식 하나만 다른 정렬 옵션을 주고 싶을 때 father에 높이가 있어야한다. */
+  align-self: center;
+}
+
+.child:nth-child(3) {     /* 자식 하나만 다른 정렬 옵션을 주고 싶을 때 father에 높이가 있어야한다.  */
+  align-self: flex-end;
+}
+/*
+*/ 

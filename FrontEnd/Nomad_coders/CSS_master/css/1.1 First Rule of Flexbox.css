@@ -1,0 +1,22 @@
+/* 1.1 First Rule of Flexbox */
+
+body {
+
+}
+
+.wrapper {
+  display: flex;
+}
+
+.box {
+  width: 200px;
+  height: 200px;
+  background: Peru;
+  color: White;
+}
+
+/*
+* FlexBox의 첫 번째 규칙
+* box의 부모가 flex container임.
+* flex가 될 수 있는 box는 '바로 위의 부모(parent)'여야 한다.
+*/

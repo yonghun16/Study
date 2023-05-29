@@ -1,0 +1,30 @@
+/* 1.2 Main Axis and Cross Axis */
+
+body {
+
+}
+
+.wrapper {
+  display: flex;
+  /* justify-content 옵션들 */
+  justify-content: center; 
+  justify-content: space-between; 
+  justify-content: space-around; 
+
+  align-items: center;
+  height: 100vh;        /* wrapper는 높이를 가지게 되고 그 세로 높이의 center를 align-items가 설정해줌 */
+  align-items: stretch; /* box의 height가 없을 때 box의 세로 높이 최대까지 늘림
+}
+
+.box {
+  width: 200px;
+  /* height: 200px; */
+  background: Peru;
+  color: White;
+}
+
+/*
+* flex continter의 flex-direction 기본값은 row(가로)다 items을 정렬하기 위해서는 justify-content 사용
+* 수평(row)축 : Mhin axis
+* 수직(column)축 : Cross axis
+*/

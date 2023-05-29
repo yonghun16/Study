@@ -1,0 +1,29 @@
+/* 1.3 Column and Row  */
+
+body {
+
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  /* Main Axis */
+  justify-content: space-between;   /* Main Axis가 column으로 바뀌니깐 justify-content도 세로로 적용됨*/
+  /* Cross Axis */        /* 현재 메인 엑시스(가로)의 크로스방향은 세로다.*/ 
+  align-items: stretch;    /* 아이템들을 세로로 가운데로 맞추게됨 */
+  height: 200vh;
+}
+
+.box {
+  width: 700px;
+  height: 200px;
+  background: Peru;
+  color: White;
+}
+
+/*
+* flex-direction은 기본적으로 row라는 걸 기억해둬.
+* flex-direction가 column이면 main axis가 세로촉이 됨.
+* justify-content 는 Main
+* align-items는 Cross
+*/ 
