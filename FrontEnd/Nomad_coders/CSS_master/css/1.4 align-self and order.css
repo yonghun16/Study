@@ -1,0 +1,32 @@
+/* 1.4 align-self and order */
+
+body {
+
+}
+
+.father {
+  display: flex;
+  /* Main Axis */
+  justify-content: space-around;
+  /* Cross Axis */
+  height: 100vh;
+}
+
+.child {
+  width: 200px;
+  height: 200px;
+  background: Peru;
+  color: White;
+  font-size: 3em;
+}
+
+.child:nth-child(2) {
+  align-self: center;     /* 자식 하나만 다른 정렬 옵션을 주고 싶을 때 father에 높이가 있어야한다. */
+  order: 1;               /* 0이 기본위치 숫자가 높을 수로 한 칸씩 아래 */
+}
+
+.child:nth-child(3) {
+  align-self: flex-end;     /* 자식 하나만 다른 정렬 옵션을 주고 싶을 때 father에 높이가 있어야한다.  */
+}
+/*
+*/ 

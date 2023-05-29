@@ -1,30 +1,42 @@
-/* 1.4 align-self and order */
+/* 1.7 flex-basis */
 
 body {
-
 }
 
 .father {
   display: flex;
   /* Main Axis */
   justify-content: space-around;
+  align-content: center;
   /* Cross Axis */
-  height: 100vh;
+  height: 150vh;
+  flex-wrap: wrap;      /* child에게 크기를 유지하라고 명령함 */
+  flex-wrap: nowrap;
 }
 
 .child {
-  width: 200px;
+  width: 300px;
   height: 200px;
   background: Peru;
   color: White;
+  font-size: 3em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.child:nth-child(2) {     /* 자식 하나만 다른 정렬 옵션을 주고 싶을 때 father에 높이가 있어야한다. */
-  align-self: center;
+.child:nth-child(2) {
+  background: #000;
+  flex-shrink: 2;   /* 다른 노드들 보다 2배 더 찌그러진다. (축소 할 때) */
+  flex-grow: 2;     /* 다른 노드들 보다 여백의 공간을 사용하여 2/3 만큼 넓어진다. */
 }
 
-.child:nth-child(3) {     /* 자식 하나만 다른 정렬 옵션을 주고 싶을 때 father에 높이가 있어야한다.  */
-  align-self: flex-end;
+.child:nth-child(3) {
+  flex-grow: 1;     /* 다른 노드들 보다 여백의 공간을 사용하여 1/3 만큼 넓어진다. */
 }
+
 /*
+flex-basis ==> flexbox의 children 요소에 적용되는 property이며 
+flex-basis는 flex-shrink 와 flex-grow 를 위한 기본 세팅이다.
+flex-basis는 main axis(주축) 쪽 크기를 정해준다. 즉, flex-direction이 row(default)일 때는 width와 같이 작용, column일 때는 height와 같이 작용한다.
 */ 
