@@ -2,75 +2,75 @@
 
 body {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   background-color: White;
   padding:50px 25px;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  max-width: 570px;
+  max-width: 770px;
   width: 100%;
   margin:0 auto;
 }
 
-header {
-  background-color: #f6f6f4;
-}
-
-.headerline {
+.backpaper {
+  background: #f6f6f4;
   display: flex;
-  background-color: #f6f6f4;
-  justify-content: space-between;
-  align-items: flex-end;
-  padding-bottom: 5px;
-  margin: 30px 50px 10px 50px;
-  border-bottom: solid 2px #000;
+  flex-direction: column;
+  align-items: center;
+  width: 560px;
+  height: 800px;
 }
 
-h1 {
+.inside {
+  display: flex;
+  flex-direction: column;
+  padding: 35px;
+}
+
+.subject {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  width: 100%;
   font-size: 5em;
   font-weight: bold;
-}
-h4 {
-  font-size: 2em;
-  font-weight: bold;
-}
-
-#info {
-  background-color: #f6f6f4;
-  display: flex;
-  justify-content: space-between;
-  font-size: 10px;
-  text-transform: uppercase;
-  font-weight: 600;
-  padding: 0px 50px 60px 50px;
+  align-self: flex-start;
+  border-bottom: solid 2px #000;
+  padding-bottom: 3px;
 }
 
-#info > div {
-  display: flex;
-}
-#info > div > ul {
-  padding-right: 60px;
-  width: 100px;
+.six {
+  font-size: 2rem;
 }
 
-#circles {
-  background-color: #f6f6f4;
+.message {
+  padding: 15px 0px 15px 0px;
   display: flex;
+}
+
+.msg {
+  font-size : 8px;
+  width: 33.3%;
+}
+.msgLast {
+  text-align: end;
+}
+
+.circles{
+  display: flex;
+  padding-top: 55px;
   flex-wrap: wrap;
   justify-content: center;
-  padding-bottom: 50px;
 }
-
-.blue {
+.child1 {
 	background-color: #c2deee;
 }
-.gray {
+.child2 {
 	background-color: #616365;
 }
-.green {
+.child3 {
 	background-color: #49a26a;
 }
-.circle {
+.ball {
   width: 140px;
   height: 140px;
   border-radius: 50%;
