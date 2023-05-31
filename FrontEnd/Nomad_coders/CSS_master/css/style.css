@@ -1,4 +1,4 @@
-/* 1.7 flex-basis */
+/* 2.1 Life Before Grid */
 
 body {
 }
@@ -25,14 +25,20 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-}
 
-.child:nth-child(2) {
-  background: #000;
 }
-
+/* 1.7 flex-basis */
 /*
-flex-basis ==> flexbox의 children 요소에 적용되는 property이며 
-flex-basis는 flex-shrink 와 flex-grow 를 위한 기본 세팅이다.
-flex-basis는 main axis(주축) 쪽 크기를 정해준다. 즉, flex-direction이 row(default)일 때는 width와 같이 작용, column일 때는 height와 같이 작용한다.
+Grid
+
+박스들을 옆으로 두거나 가운데로 옮기거나 나누는 등은 쉬운데 그리드 형태를 만드는 것은 어렵다.
+이를 쉽게 하기 위해서 grid가 나왔다.
+
+CSS 그리드 레이아웃은 웹페이지를 위한 이차원 레이아웃 시스템입니다. 이 기능을 통해 콘텐츠를 행과 열에 배치할 수 있으며 복잡한 레이아웃을 직접 직관적으로 구축할 수 있는 많은 기능이 있습니다.
+https://developer.mozilla.org/ko/docs/Learn/CSS/CSS_layout/Grids
+
+그리드 레이아웃이란?
+그리드는 수평선과 수직선으로 이루어진 집합체로, 디자인 요소를 정렬할 수 있는 대상 패턴을 생성한다. 이 디자인은 페이지에서 페이지로 이동할 때 요소가 널뛰거나 너비가 바뀌지 않는 디자인 생성에 도움을 주어 웹 사이트의 일관성을 높여준다.
+https://developer.mozilla.org/ko/docs/Learn/CSS/CSS_layout/Grids#what_is_grid_layout
+
 */ 
