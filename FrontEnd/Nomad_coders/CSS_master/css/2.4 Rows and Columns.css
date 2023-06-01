@@ -1,0 +1,50 @@
+/* 2.4 Rows and Columns */
+
+body {
+  background: White;
+}
+
+.grid {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(4, 100px);
+  grid-template-rows: repeat(4, 100px);
+}
+
+.header {
+  background-color: #2ecc71;
+  grid-column-start: 1;
+  grid-column-end: 5;
+}
+
+.content {
+  background-color: #3498db;
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 2;
+  grid-row-end: 4;
+}
+
+.nav {
+  background-color: #8e44ad;
+  grid-row-start: 2;
+  grid-row-end: 4;
+}
+
+.footer {
+  background-color: #f39c12;
+  grid-column-start: 1;
+  grid-column-end: 5;
+}
+
+/*
+[grid-template-areas와 비슷한 기능을 하는 속성, 자식 grid에 명시한다.]
+1)grid-column-start
+2)grid-column-end
+3)grid-row-start
+4)grid-row-end
+해당 속성은 정수인 숫자가 들어가며, 1부터 column(row)의 최대갯수 + 1까지 사용 가능하다.
+범위를 초과하게 되면 css가 망가져서 생각한 대로 동작하지 않게 되니 꼭 명심하자.. 참고로 상대단위(%, auto)등은 안 먹히는 듯 하다.
+
+이렇게 start, end를 하나하나 다 명시해서 쓰는건 귀찮기도 하기 때문에 다음 강의에 이를 해결하기위한 방법인 shortCuts이 나온다.
+*/ 
