@@ -1,0 +1,42 @@
+/* 2.7 Grid Template */
+
+body {
+  background: White;
+}
+
+.grid {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(4, 1fr);    /* grid에서 가질 수 있는 공간 만큼 가지고 4번 반복 */
+  grid-template-rows: repeat(4, 1fr);
+  height: 50vh;
+}
+
+.header {
+  background-color: #2ecc71;
+}
+
+.content {
+  background-color: #3498db;
+}
+
+.nav {
+  background-color: #8e44ad;
+}
+
+.footer {
+  background-color: #f39c12;
+}
+
+/*
+fr(fraction)은 사용 가능한 공간을 의미한다. 즉 기본적으로 가능한 만큼의 공간을 차지한다.
+fr은 전역으로 결정되는 것이 아닌 grid container에서 결정된다(여기서는 .grid)
+따라서 fr을 쓰기 위해서는 grid container에 height을 명시해야 한다. (3:50)
+이는 더이상 px등의 절대단위를 사용하지 않게끔 해주는 좋은 단위이다.
+니콜라스는 이게 완전 최고라고 하니까 우리도 애용하자!!
+
+[grid-template]
+"...cellNames(grid-area)" (row크기)
+...
+"...cellNames(grid-area)" (row크기) / (각 column의 크기 [repeat()은 쓸 수 없다])
+*/ 

@@ -1,0 +1,45 @@
+/* 2.6 Line Naming */
+
+body {
+  background: White;
+}
+
+.grid {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: [first-line] 100px [second-line] 100px [third-line] 100px [fourth-line] 100px [fifth-line];
+  grid-template-rows: repeat(4, [sexy-line] 100px );
+}
+
+.header {
+  background-color: #2ecc71;
+  grid-column: first-line / fifth-line;
+  grid-column: span 4;
+}
+
+.content {
+  background-color: #3498db;
+  grid-column: first-line / fourth-line;
+  grid-row: sexy-line 2 / sexy-line 4; 
+}
+
+.nav {
+  background-color: #8e44ad;
+  grid-row: span 2;
+}
+
+.footer {
+  background-color: #f39c12;
+  grid-column: 1 / -1;
+  grid-column: span 4;
+}
+
+/*
+라인에 이름을 붙일 수 있다.
+grid-template-columns: [first-line] 100px [second-line] 100px [third-line] 100px [fourth-line] 100px [fifth-line]
+grid-template-rows: repeat(4, [sexy-line] 100px );
+grid-column: first-line / fourth-line;
+grid-row: sexy-line 2 / sexy-line 4;
+이전에 배운 것들과 비교하여 본인이 편한 것 쓰면 됨!
+(*flex는 열만 갖고 있음, 행이 없다. grid는 행과 열 모두 가짐)
+*/ 

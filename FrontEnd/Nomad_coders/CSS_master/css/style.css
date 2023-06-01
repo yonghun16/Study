@@ -1,4 +1,4 @@
-/* 2.6 Line Naming */
+/* 2.8 Place Items */
 
 body {
   background: White;
@@ -7,40 +7,40 @@ body {
 .grid {
   display: grid;
   gap: 10px;
-  grid-template-columns: repeat(4, 100px);
-  grid-template-rows: repeat(4, 100px);
+  height: 50vh;
+  grid-template-columns: repeat(4, 1fr);    /* grid에서 가질 수 있는 공간 만큼 가지고 4번 반복 */
+  grid-template-rows: repeat(4, 1fr);
+  justify-items: stretch;
 }
 
 .header {
   background-color: #2ecc71;
-  grid-column: 1 / 5;
-  grid-column: span 4;
 }
 
 .content {
   background-color: #3498db;
-  grid-column: 1 / -2;
-  grid-row: 2 / 4;
-  grid-row: 2 / span 2;
 }
 
 .nav {
   background-color: #8e44ad;
-  grid-row: span 2;
 }
 
 .footer {
   background-color: #f39c12;
-  grid-column: 1 / -1;
-  grid-column: span 4;
 }
 
 /*
-라인에 이름을 붙일 수 있다.
-grid-template-columns: [first-line] 100px [second-line] 100px [third-line] 100px [fourth-line] 100px [fifth-line]
-grid-template-rows: repeat(4, [sexy-line] 100px );
-grid-column: first-line / fourth-line;
-grid-row: sexy-line 2 / sexy-line 4;
-이전에 배운 것들과 비교하여 본인이 편한 것 쓰면 됨!
-(*flex는 열만 갖고 있음, 행이 없다. grid는 행과 열 모두 가짐)
+● justify-items
+● align-items
+● place-items: (수직) (수평);
+
+▷ stretch : grid를 늘려서 grid를 채우게 한다.
+▷ start : item을 cell 시작에 배치한다.
+▷ center : item을 cell 중앙에 배치한다.
+▷ end : item을 cell 끝에 배치한다.
+
+grid에서 justify-items와 align-items는 grid-cell(grid item)의 내부 contents의 배치 방식을 일괄적으로 적용할 때 사용한다.
+=> flexbox에서의 의미와 다르다는 점을 잊지 말자.
+
+grid에서 justify-items와 align-items를 동시에 지정할 때는 place-items를 사용하면 된다.
 */ 
