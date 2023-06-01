@@ -1,0 +1,37 @@
+/* 1.7 flex-basis */
+
+body {
+  background: White;
+}
+
+.father {
+  display: flex;
+  /* Main Axis */
+  justify-content: space-around;
+  align-content: center;
+  /* Cross Axis */
+  width: 100%;
+}
+
+.child {
+  flex-basis: 300px;
+  background: Peru;
+  color: White;
+  font-size: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.child:nth-child(2) {
+  background: #000;
+  flex-grow: 1;
+}
+
+/*
+flex-basis ==> flexbox의 children 요소에 적용되는 property이며
+flex-basis : flex-shrink 와 flex-grow 를 위한 기본 세팅이다.
+flex-basis : main axis(주축) 쪽 크기를 정해준다. ->  즉, flex-direction이 row(default)일 때는 width와 같이 작용, column일 때는 height와 같이 작용한다.
+flex-basis : flex-shrink 와 flex-grow로 element가 조정되기 전의 처음 크기값.
+flex-direction : row 일때는 width와 동일, column 일 때는 height와 동일
+*/ 

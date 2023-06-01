@@ -1,0 +1,29 @@
+/* 2.1 Life Before Grid */
+
+body {
+  background: White;
+}
+
+.father {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.child {
+  flex-basis: 33%;
+  background: Peru;
+  color: White;
+  font-size: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.child:nth-child(4) {
+  margin-top: 10px;
+}
+
+/*
+* flexbox에서 좌우배치, 중앙배치는 쉽지만 grid형태를 만드는 게 어려움  => grid를 배우는 이유
+*/ 
