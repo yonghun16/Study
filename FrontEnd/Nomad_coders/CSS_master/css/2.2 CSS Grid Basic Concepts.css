@@ -1,0 +1,32 @@
+/* 2.2 CSS Grid Basic Concepts */
+
+body {
+  background: White;
+}
+
+.father {
+  display: grid;
+  grid-template-columns: 250px 250px 250px;
+  grid-template-rows: 100px 50px 300px;
+  column-gap: 10px;
+  row-gap: 10px;
+  gap: 10px;
+}
+
+.child {
+  background: Peru;
+  color: White;
+  font-size: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*
+flexbox와 유사
+대부분이 father에서 설정. grid design은 father에서 함.
+1. grid-templete-columns, grid-templete-rows : grid의 행과 열의 너비를 조절
+   ex) grid-templete-columns: 250px 250px 100px; 2열의 250px, 1열의 100px
+2. gap(column-gap, row-gap): 행과 열 사이 간격
+   ex) column-gap: 5px;
+*/ 
