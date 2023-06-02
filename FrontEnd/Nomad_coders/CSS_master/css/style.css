@@ -1,48 +1,42 @@
-/* 2.8 Place Items */
+/* 2.10 Auto Columns and Rows */
 
 body {
   background: White;
 }
 
 .grid {
+  background: Gray;
+  color: White;
   display: grid;
-  gap: 10px;
+  gap: 5px;
   height: 50vh;
-  grid-template-columns: repeat(4, 1fr);    /* grid에서 가질 수 있는 공간 만큼 가지고 4번 반복 */
-  grid-template-rows: repeat(4, 1fr);
-  justify-items: center;
-  align-items: stretch;
-  place-items: stretch center;    /* 세로 가로 */
+  grid-template-columns: repeat(4, 100px);    /* grid에서 가질 수 있는 공간 만큼 가지고 4번 반복 */
+  grid-template-rows: repeat(4, 100px);
 }
 
-.header {
+.item:nth-child(odd) {
   background-color: #2ecc71;
+  color: White;
 }
 
-.content {
+.item:nth-child(even) {
   background-color: #3498db;
-}
-
-.nav {
-  background-color: #8e44ad;
-}
-
-.footer {
-  background-color: #f39c12;
+  color: White;
 }
 
 /*
-● justify-items
-● align-items
-● place-items: (수직) (수평);
+● align-self
+● justify-self
+● place-self: (수직) (수평);
+▷ child에만 적용돠는 property이다.
 
-▷ stretch : grid를 늘려서 grid를 채우게 한다.
-▷ start : item을 cell 시작에 배치한다.
-▷ center : item을 cell 중앙에 배치한다.
-▷ end : item을 cell 끝에 배치한다.
+● grid-auto-rows: (크기);
+▷ 만들어놓은 row보다 더 많은 content가 있으면, 자동으로 row를 만들어라.
 
-grid에서 justify-items와 align-items는 grid-cell(grid item)의 내부 contents의 배치 방식을 일괄적으로 적용할 때 사용한다.
-=> flexbox에서의 의미와 다르다는 점을 잊지 말자.
+● grid-auto-flow: (방향); [기본값: row]
+▷ flex-direction과 비슷하다.
+▷ row가 끝날 때 새로운 row를 만들지, 새로운 column을 만들지 결정한다.
 
-grid에서 justify-items와 align-items를 동시에 지정할 때는 place-items를 사용하면 된다.
+● grid-auto-columns: (크기);
+▷ grid-auto-flow: column;일때 작동한다.
 */ 

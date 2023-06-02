@@ -1,0 +1,107 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+
+body {
+  background-color: White;
+  padding:15px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  width: 100%;
+  height: 100vh;
+  margin:0 auto;
+}
+
+h1 {
+  font-family: "sans-serif";
+  font-size: 3em;
+  font-weight: bold;
+}
+
+h2 {
+  font-family: "sans-serif";
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);    /* grid에서 가질 수 있는 공간 만큼 가지고 4번 반복 */
+  grid-template-rows: repeat(4, 1fr);
+}
+
+.left_top {
+  background-color: #dae7de;
+  color: #f54401;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-column: 1 / span 2;
+  grid-row: 1 / span 2;
+  height: 25vh;
+}
+
+.right_top {
+  background-color: #008a69;
+  color: #fffeff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-column: 3 / span 2;
+  grid-row: 1 / span 2;
+}
+
+.left_bottom {
+  background-color: #f44607;
+  color: #fffeff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-column: 1 / span 2;
+  grid-row: 3 / span 2;
+}
+
+.right_bottom {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-column: 3 / span 2;
+  grid-row: 3 / span 2;
+}
+
+.left_top_small {
+  background-color: #f7abc5;
+  color: #f54401;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-column: 1 / span 2;
+  grid-row: 1 / span 2;
+}
+
+.right_top_small {
+  background-color: #5f5fa9;
+  color: #fffeff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-column: 3 / span 2;
+  grid-row: 1 / span 2;
+}
+
+.left_bottom_small {
+  background-color: #ffc128;
+  color: #f54401;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-column: 1 / span 2;
+  grid-row: 3 / span 2;
+}
+
+.right_bottom_small {
+  background-color: #f97374;
+  color: #fffeff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-column: 3 / span 2;
+  grid-row: 3 / span 2;
+}

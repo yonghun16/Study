@@ -1,0 +1,51 @@
+/* 2.9 Place Content */
+
+body {
+  background: White;
+}
+
+.grid {
+  background: Gray;
+  color: White;
+  display: grid;
+  gap: 5px;
+  height: 50vh;
+  grid-template-columns: repeat(4, 1fr);    /* grid에서 가질 수 있는 공간 만큼 가지고 4번 반복 */
+  grid-template-rows: repeat(4, 100px);
+  /* justify-items: center; */      /* 셀 내의 아이템을 가운데 정렬 */
+  justify-content: center;          /* 열 전체를 가운데 정렬 */
+  align-content: center;
+  place-content: end center;        /* 맨 아래, 가운데 grid 움직이기 */
+}
+
+.header {
+  background-color: #2ecc71;
+  color: White;
+}
+
+.content {
+  background-color: #3498db;
+  color: White;
+}
+
+.nav {
+  background-color: #8e44ad;
+  color: White;
+}
+
+.footer {
+  background-color: #f39c12;
+  color: White;
+}
+
+/*
+[place content]
+- items은 셀 하나, content는 행 전체를 의미
+- Justify-content : start; (그리드가 놓이는 위치를 뜻하며 기본은 start)
+- Align-content는 수직적으로 그리드를 움직이는 것
+- Start, end, space-evenly, space-around, space-between 사용
+- 컨테이너의 height가 그리드를 담을 만큼 충분해야한다.(높이 지정)
+- Grid-template에서 높이를 fr로 설정하고 align-content를 stretch로 설정하면 쭉 늘어난다.
+- Place items와 마찬가지로 place-content를 통해 수직 수평으로 그리드 이동가능(첫번째가 수직, 두번째 옵션이 수평)
+- Place-items는 셀안에서 항목이 이동하는 것이며, place-content는 그리드가 이동하는 것이다.
+*/ 
