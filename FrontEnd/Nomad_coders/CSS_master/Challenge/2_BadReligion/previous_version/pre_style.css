@@ -1,0 +1,75 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+
+body {
+  background-color:#DDE1D4;
+  padding:15px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  max-width: 650px;
+  width: 100%;
+  height: 100vh;
+  margin:0 auto;
+}
+
+.grid {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: auto 200px;
+  grid-template-rows: 100px repeat(2, 200px) 150px;
+  grid-template-areas:
+    "header header header"
+    "content content nav"
+    "content content nav"
+    "footer footer footer";
+}
+
+.header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #000000;
+  grid-area: header;
+  color: #DDE1D4;
+}
+
+.submemo2 {
+  text-align: left;
+  width: 250px;
+}
+.submemo3 {
+  text-align: left;
+  width: 200px;
+}
+
+.content {
+  display: flex;
+  align-items: flex-end;
+  background-color: #de4f2b;
+  grid-area: content;
+}
+
+.nav {
+  background-color: #de4f2b;
+  grid-area: nav;
+
+}
+
+.footer {
+  background-color: #de4f2b;
+  height: 300px;
+  grid-area: footer;
+}
+
+.contentText {
+  font-size: 12em;
+  font-weight: bold;
+}
+.footerText {
+  font-size: 12em;
+  font-weight: bold;
+}
+.footerText2 {
+  padding-left: 15px;
+  font-size: 2.5em;
+  color: #DDE1D4;
+
+}
