@@ -15,12 +15,14 @@
     "gulp": "^4.0.2",
     "gulp-image": "6.2.1",
     "gulp-pug": "^5.0.0",
+    "gulp-webserver": "^0.9.1",
     "svgo": "1.3.2",
     "uuid": "^9.0.0"
   },
-  "Dependencies": {},
   "dependencies": {
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-sass": "^5.1.0",
     "gulp-util": "^3.0.8",
-    "gulp-webserver": "^0.9.1"
+    "node-sass": "^9.0.0"
   }
 }
