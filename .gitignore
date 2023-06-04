@@ -12,7 +12,6 @@ __pycache__
 build
 node_modules
 yarn-error.log
-yarn.lock
 
 # Icon must end with two \r
 Icon
