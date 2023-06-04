@@ -9,6 +9,7 @@
 __pycache__
 
 # Files of glup temp 
+dest
 build
 node_modules
 yarn-error.log
