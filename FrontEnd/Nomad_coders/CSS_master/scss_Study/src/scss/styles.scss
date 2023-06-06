@@ -4,11 +4,11 @@
 a {
   margin-bottom: 10px;
   &:nth-child(odd) {
-    @include link(red);
+    @include link(odd);    
     font-size: $title;
   }
   &:nth-child(even) {
-    @include link(blue);
+   @include link(even);
     font-size: $title;
   }
 }
