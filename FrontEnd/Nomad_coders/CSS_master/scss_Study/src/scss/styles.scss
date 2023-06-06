@@ -1,10 +1,24 @@
 @import "variables";
 
-body {
-  background: $bg;
-}
-
-a {
+h2 {
   color: $bg;
 }
+
+.box {
+  margin-top: 20px;
+  &:hover {
+    background-color: Green;
+  }
+  h2 {
+    color: Blue;
+    &:hover {
+      color: Red;
+    }
+  }
+  button {
+    color: Red;
+  }
+}
+
+
 
