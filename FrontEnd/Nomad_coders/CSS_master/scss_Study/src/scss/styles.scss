@@ -1,6 +1,10 @@
+@import "variables";
+
 body {
-  background: peru;
-  a {
-    color: blue;
-  }
+  background: $bg;
 }
+
+a {
+  color: $bg;
+}
+
