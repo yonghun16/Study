@@ -1,146 +1,111 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
 
+* {
+  box-sizing:border-box;
+}
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  width: 100%;
+  width: 100vw;
   height: 100vh;
+  padding:15px;
+  background-color:#F1E656;
 }
 
-.grid {
-  box-sizing: border-box;
-  background: #F0E755;
-  color: Tomato;
-  padding: 15px;
-  display: grid;
-  grid-template-columns: 40px 1fr 40px;
-  grid-template-rows: 40px 1fr 1fr 40px;
+main {
+  width:100%;
+  height:100%;
+  display:grid;
+  grid-template-columns:50px 1fr 50px;
+  grid-template-rows:50px repeat(2, 1fr) 50px;
 }
 
-
-/* grid_header */
-.grid_header {
-  grid-column: 1 / 4;
-  grid-row: span 1;
-  border: Tomato 4px solid;
-  background: White;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-weight: bold;
+header,footer{
+  grid-column:1 / -1;
+  background-color:white;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:18px;
+  color:#FD6B3A;
+  font-weight:600;
+  font-style:italic;
+  border:4px solid #FD6B3A;
 }
 
-
-/* grid_nav_left */
-.grid_nav_left {
-  grid-column: 1 / 2;
-  grid-row: 2 / 4;
-  background: White;
-  border: Tomato 4px solid;
-  border-top: 0px;
-  border-bottom: 0px;
-  display: grid;
-  grid-template-rows: minmax(40px, auto) 1fr;
+.nav {
+  background-color:#FD6B3A;
+  font-size:14px;
 }
 
-.grid_nav_left1 {
-  grid-column: 1;
-  grid-row: 1;
-  background: Tomato;
-  color: White;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  writing-mode: tb-rl;
-  text-align: center;
+.under-nav {
+  background-color:white;
+  grid-column:1 / 2;
+  border-left:4px #FD6B3A solid;
+  border-right:4px solid #FD6B3A;
+}
+
+.center {
+  display:grid;
+  grid-template-columns:repeat(2, 1fr);
+  grid-column-start: 2;
+  grid-row:2 / -2;
+  position:relative;
+}
+
+.center__left,
+.center__right {
+  background-size:cover;
+  background-position:center;
+}
+
+.center__left {
+  background-image:url("https://images.unsplash.com/photo-1486548730767-5c679e8eda6b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80");
+}
+
+.center__right {
+  background-image:url("https://images.unsplash.com/photo-1484980972926-edee96e0960d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80");
+ }
+
+.orders,
+.reservations,
+.nav {
+  writing-mode: vertical-rl;
   text-orientation: upright;
-  padding: 10px;
-  font-weight: bold;
+  color:white;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-weight:600;
 }
 
-.grid_nav_left2 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  writing-mode: tb-rl;
-  text-align: center;
-  transform: rotate(-180deg);
-  font-weight: bold;
+.nav  span {
+  margin-bottom:20px;
 }
 
-.grid_nav_left3 {
-  grid-column: 1;
-  grid-row: 3 / 4;
-  border-top: Tomato 4px solid;
+.orders,
+.reservations {
+  grid-column: -2/-1;
+  background-color:#7BB67D;
+  border-left:4px #FD6B3A solid;
+  border-right:4px solid #FD6B3A;
+   
 }
 
-.grid_nav_left3 i {
-  padding: 8px;
-  padding-top: 13px;
-  padding-bottom: 13px;
+.orders {
+   grid-row-start:2;
+   border-bottom:4px #FD6B3A solid;
 }
 
-
-/* grid_contents */
-.grid_contents {
-  grid-column: 2 / 3;
-  grid-row: 2 / 4;
-  background: Pink;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr;
+.title {
+  position:absolute;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:10vw;
+  color:white;
+  width:100%;
+  height:100%;
+  flex-direction:column;
+  background-color:rgba(0, 0, 0, 0.3);
 }
-
-.gird_contents_bg1 {
-  background-image:url("https://images.immediate.co.uk/production/volatile/sites/30/2023/01/30-minute-chicken-curry-4376297.jpg");
-}
-
-.gird_contents_bg2 {
-  background-image:url("https://cdn.wallpapersafari.com/14/1/qiRs4p.png");
-}
-
-/*grid_nav_right*/
-.grid_nav_right {
-  grid-column: 3 / 4;
-  grid-row: 2 / 4;
-  background: #45AA4F;
-  color: White;
-  border: Tomato 4px solid;
-  border-top: 0px;
-  border-bottom: 0px;
-  display: grid;
-  grid-template-rows: 1fr 1fr;
-}
-
-.grid_nav_right1 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  writing-mode: tb-rl;
-  text-align: center;
-  text-orientation: upright;
-  font-weight: bold;
-  border-bottom: tomato 3px solid;
-}
-
-.grid_nav_right2 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  writing-mode: tb-rl;
-  text-align: center;
-  text-orientation: upright;
-  font-weight: bold;
-}
-
-/*grid_footer*/
-.grid_footer {
-  grid-column: 1 / 4;
-  grid-row: 4 / 5;
-  background: White;
-  border: Tomato 4px solid;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-weight: bold;
-}
-
