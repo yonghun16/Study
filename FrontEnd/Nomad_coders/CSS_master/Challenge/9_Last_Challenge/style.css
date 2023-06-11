@@ -1,0 +1,262 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+
+* {
+    box-sizing:border-box;
+  }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: White;
+  width: 100%;
+  height: 100%;
+  padding: 15px;
+}
+
+.mainbox
+{
+    background-color: Black;
+    width: 100%;
+    height: 100%;
+    border: 3px #000 solid;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3px;
+}
+
+.left__nav
+{
+    background-color: Black;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 3px;
+}
+
+
+.left__subnav1
+{
+    background-color: White;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: minmax(100px, 0.3fr) 30px 30px 30px 30px 30px 30px minmax(250px, 0.7fr);
+}
+
+.left__subnav1__main,
+.left__subnav2__main
+{
+    padding-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.left__subnav1__main
+{
+    padding: 10px;
+    border-bottom: 1px #000 solid;
+}
+
+.left__subnav1__main__subject,
+.left__subnav2__content1__subject,
+.left__subnav2__content2__subject
+{
+
+    font-size: 0.8em;
+}
+
+.left__subnav1__main__content
+{
+    font-size: 1.5em;
+}
+
+.left__subnav1__menu1,
+.left__subnav1__menu2,
+.left__subnav1__menu3,
+.left__subnav1__menu4,
+.left__subnav1__menu5,
+.left__subnav1__menu6
+{
+    padding: 5px;
+    padding-left: 10px;
+    font-size: 0.9em;
+    border-bottom: 1px #000 solid;
+}
+
+.left__subnav1__footer
+{
+    padding: 10px;
+    font-size: 0.9em;
+    display: grid;
+    grid-template-rows: minmax(60px, 1fr) 80px 80px 45px;
+    align-items: flex-end;
+}
+
+.left__subnav1__footer > div
+{
+    padding-top: 20px;
+}
+
+.left__subnav1__footer > div > p
+{
+    padding-bottom: 5px;
+}
+
+
+.left__subnav2
+{
+    background-color: White;
+    display: grid;
+    grid-template-rows: minmax(60px, 4fr) minmax(60px, 1fr);
+
+}
+
+.left__subnav2__content1
+{
+    padding: 10px;
+    border-bottom: 3px #000 solid;
+    display: grid;
+    grid-template-rows: minmax(150px,1fr) minmax(100px, 3fr);
+
+}
+
+.left__subnav2__content2
+{
+    padding: 10px;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+}
+
+
+
+.right__section
+{
+    background-color: Black;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: minmax(150px,4fr) minmax(100px, 1fr);
+    gap: 3px;
+}
+
+.right__section__upper
+{
+    background-color: Black;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3px;
+}
+.right__section__upper__left
+{
+    background-image: url(https://colimg2.godohosting.com//goods/22/11/46/1000021817/1000021817_detail_053.jpg);
+    background-size: 400px;
+    min-height: 300px;
+}
+.right__section__upper__right
+{
+
+    display: grid;
+    grid-template-rows: repeat(auto-fit, minmax(300px, 1fr));
+
+}
+
+.right__sec_u_r_top
+{
+    background-image: url(https://housing.com/news/wp-content/uploads/2023/01/a-4.jpg);
+    border-bottom: 3px #000 solid;
+    min-height: 300px;
+}
+
+.right__sec_u_r_down
+{
+    background-color: Black;
+    display: grid;
+    gap: 3px;
+    grid-template-areas:
+    "p3 p3 p4"
+    "p3 p3 p5"
+    "p6 p7 p7"
+    "p6 p7 p7";
+}
+
+.p3 {
+    grid-area: p3;
+    background-image: url(https://source.unsplash.com/random/?funiture);
+    background-size: 300px;
+    min-height: 150px;
+}
+.p4 {
+    grid-area: p4;
+    background-image: url(https://source.unsplash.com/random/?chair);
+    background-size: 150px;
+    min-height: 50px;
+}
+
+.p5 {
+    grid-area: p5;
+    background-image: url(https://source.unsplash.com/random/?light);
+    background-size: 150px;
+    min-height: 50px;
+}
+.p6 {
+    grid-area: p6;
+    background-image: url("https://s30965.pcdn.co/blogs/the-study/wp-content/uploads/x_13__l.jpg");
+    background-size: 150px;
+    min-height: 50px;
+}
+.p7 {
+    grid-area: p7;
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjHcEWodsiwODPVf3sXIeoqkfbZroJTeyd0g&usqp=CAU");
+    background-size: 200px;
+    min-height: 100px;
+}
+
+.right__section__lower
+{
+    background-color: Black;
+    display: grid;
+    gap: 3px;
+    grid-template-areas:
+    "p8  p9 p11 p11 p11 p11"
+    "p8 p10 p11 p11 p11 p11";
+}
+
+.p8 {
+    grid-area: p8;
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjHcEWodsiwODPVf3sXIeoqkfbZroJTeyd0g&usqp=CAU");
+    background-size: 200px;
+    min-height: 30px;
+}
+.p9 {
+    grid-area: p9;
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwYOlBbtKQIpB4mLXN6nml4pm45rVBS0YxEg&usqp=CAU");
+    background-size: 130px;
+    min-height: 30px;
+}
+.p10 {
+    grid-area: p10;
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnbz1CgDhmP0tKXvnSnF3Y0N_Hn7jB3OcEeQ&usqp=CAU");
+    background-size: 100px;
+    min-height: 30px;
+}
+.p11 {
+    grid-area: p11;
+    background-image: url("https://source.unsplash.com/random/?desk");
+    background-size: 300px;
+    min-height: 30px;
+}
+
+.uppercase
+{
+    text-transform: uppercase;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.left__subnav2__contnet1__headline,
+.left__subnav2__contnet2__headline
+{
+    font-size: 1.9em;
+}
