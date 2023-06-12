@@ -1,0 +1,137 @@
+.top{
+  padding:10px;
+  font-size:20px
+}
+.down,
+.top,
+body{
+  display:flex;
+  align-items:center
+}
+
+.down
+{padding:10px;
+  font-weight:bolder;
+  font-size:20px
+}
+body
+{
+  width:100%;
+  height:100vh;
+  margin:0 auto;
+  justify-content:center
+}
+.grid
+{
+  display:grid;
+  grid-template-columns:850px 40px 600px;
+  background-color:#ff0401;
+  position:relative
+}
+.leftGrid{
+  display:grid;
+  grid-template-columns:40px 600px 200px;
+  grid-template-rows:repeat(6,150px);
+  border:3px solid #ff0401;
+  gap:3px
+}
+.left_cell
+{
+  display:flex;
+  align-items:center;
+  background-color:#ff7300;
+  gap:3px
+}
+.category, .title
+{
+  color:#ff0401;
+  display:flex
+}
+.category
+{
+  justify-content:center;
+  white-space:nowrap;
+  writing-mode:vertical-rl;
+  text-orientation:mixed;
+  transform:rotate(180deg);
+  font-size:18px;
+  font-weight:700}.title{font-size:80px;
+  font-weight:bolder;
+  align-items:center;
+  padding:5px 10px}.etc{display:grid;
+  grid-template-columns:1fr;
+  grid-template-rows:repeat(2,1fr);
+  font-size:15px;
+  text-align:center;
+  font-weight:700;
+  place-items:center center;
+  gap:3px}.platform{display:grid;
+  white-space:nowrap;
+  letter-spacing:-1px;
+  color:#ff0401;
+  gap:3px solid black}.btnYear{border-radius:20px;
+  width:150px;
+  height:30px;
+  font-size:15px;
+  color:#ff7300;
+  border:0;
+  background-color:#ff0401;
+  margin:10px
+}
+.fontWhite
+{
+  color:#fff
+}
+.borderWhite
+{
+  outline-style:solid;
+  outline-color:#fff;
+  outline-width:2px
+}
+#white{
+  background-color:#fff
+}
+.center_line
+{
+  display:grid;
+  grid-template-columns:40px;
+  grid-template-rows:repeat(2,1fr)
+}
+
+.down,.top
+{
+  writing-mode:vertical-rl;
+  text-orientation:mixed}.top{font-weight:bolder;
+  background-color:#fa02fb}.down{background-color:#1a00ff;
+  transform:rotate(180deg)}.rightGrid{display:grid;
+  grid-template-columns:repeat(2,300px);
+  grid-template-rows:50px repeat(6,1fr)
+}
+
+.header
+{
+  grid-column:1/3;
+  grid-row:1/2;
+  display:flex;
+  flex-direction:row;
+  justify-content:space-between;
+  align-items:center;
+  padding:5px 10px;
+  font-size:20px;
+  font-weight:700
+}
+.content
+{
+  padding:10px;
+  border-top:solid 3px #000;
+  width:95%
+}
+.rightTitle
+{
+  font-size:30px;
+  letter-spacing:-2px
+}
+.desc{
+  line-height:15px;
+  font-weight:700
+}
