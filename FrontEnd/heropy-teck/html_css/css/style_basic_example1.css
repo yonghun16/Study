@@ -1,0 +1,65 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* float 사용 */
+.header {
+  background-color: White; 
+  border-bottom: 1px solid Lightgray;
+}
+
+.container {
+  width: 400px;
+  margin: auto;
+}
+
+.container-left {
+  padding: 20px 0;
+}
+
+.logo {
+  float: left;
+  margin-right: 5px;
+}
+
+.logo img {
+  display: block;
+}
+
+.menu {
+  float: left;
+}
+
+.menu-item {
+  float: left;
+  padding: 8px;
+}
+
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+/* flex 사용 */
+.header-flex {
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid Lightgray;
+}
+
+.container-flex {
+  padding: 20px 0;
+  display: flex;
+  align-items: center;
+}
+
+.item {
+  padding: 8px;
+}
+
+
+
+
+
