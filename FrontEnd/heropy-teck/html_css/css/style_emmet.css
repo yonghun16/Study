@@ -1,0 +1,10 @@
+.box  {
+  /* m10 */
+  margin: 10px;
+
+  /* h10 */
+  height: 10px;
+
+  /* w10% */ 
+  width: 100%;
+}
