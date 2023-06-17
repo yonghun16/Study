@@ -1,0 +1,35 @@
+.fruits li:first-child {
+  color: red;
+  font-weight: bold;
+}
+
+.fruits li:last-child {
+  color: blue;
+  font-weight: bold;
+}
+
+.fruits li:nth-child(3) {
+  color: green;
+  font-weight: bold;
+}
+
+.fruits li:nth-child(2n) {
+  color: peru;
+}
+
+/*
+* E:first-child
+* '선택된 객체'가 형제 요소 중 첫번째 요소라면 선택
+*
+* E:last-child
+* '선택된 객체'가 형제 요소 중 미지막 요소라면 선택
+*
+* E:nth-child(n)
+* '선택된 객체'가 형제 요소가 n번째 요소라면 선택
+*
+* E:nth-child(2n)
+* '선택된 객체'가 형제 요소가 짝수 요소라면 선택
+*
+* E:nth-child(n+3)
+* '선택된 객체'가 3번째 요소 이후라면 선택
+*/
