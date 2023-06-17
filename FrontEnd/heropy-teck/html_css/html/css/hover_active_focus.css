@@ -1,0 +1,41 @@
+a:hover {
+  font-family: bold;
+  font-size: 20px;
+}
+
+.box, .box2{
+  width: 100px;
+  height: 100px;
+  margin-bottom:5px;
+  background: tomato;
+  transition: 1s;
+}
+
+.box:hover {
+  width: 200px;
+}
+
+.box2:active {
+  width: 500px;
+  background: yellowgreen;
+}
+
+input {
+  width: 100px;
+  outline: none;
+  border: 3px solid lightgreen;
+  padding: 5px 10px;
+  transition: 0.4s;
+}
+
+input:focus {
+  border-color: Red;
+  width: 200px;
+}
+
+/*
+* : 가상 클래스 선택자
+* :hover 마우스를 올리면 적용됨
+* :active 마우스를 누르고 있으면 적용됨
+* :focus 포커스 된 동안에만 적용, 대화형 콘텐츠에서 사용 가능 
+*/

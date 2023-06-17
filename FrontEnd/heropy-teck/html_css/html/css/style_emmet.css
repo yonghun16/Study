@@ -1,0 +1,15 @@
+.box  {
+  /* m10 */
+  margin: 10px;
+
+  /* p10   */
+  padding: 10px;
+
+  /* h50 */
+  height: 50px;
+
+  /* w50% */ 
+  width: 50%;
+
+  background: Red;
+}

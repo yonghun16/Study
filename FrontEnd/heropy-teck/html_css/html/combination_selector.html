@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>selector</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/combination_selector.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="basic_selector">
+      <ul>
+        <li id="apple">사과</li>
+        <li>딸기</li>
+        <li>오렌지</li>
+      </ul>
+      <div class="carrot">당근</div>
+      <p>토마토</p>
+      <span>오렌지</span>
+    </div>
+
+    <hr>
+
+    <div>
+      <ul class="banana">
+        <li class="banana1">바나나1</li> <!--일치 선택자-->
+        <li class="banana2">바나나2</li> <!--자식 선택자-->
+        <li>바나나3</li>
+        <li class="banana4">바나나4</li>
+        <li>바나나5</li>                 <!--다음 형제들 선택자-->
+        <li>바나나6</li>                 <!--다음 형제들 선택자-->
+      </ul>
+      <ul>
+        <li class="painapple">파인애플1</li>  <!-- 후손(하위) 선택자-->
+        <li>파인애플2</li> <!-- 다음 형제 선택자-->
+        <li>파인애플3</li>
+      </ul>
+      <span class="painapple">파인애플4</span> <!-- 후손(하위) 선택자-->
+    </div>
+
+  </body>
+</html>

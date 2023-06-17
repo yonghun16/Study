@@ -1,0 +1,63 @@
+/* https://codepen.io/yonghun16/pen/poQyeBK */
+
+/* --------------------------- */
+/* -- 기본 선택자(Selector) -- */
+/* --------------------------- */
+
+/* 전체 선택자 Universal Selector */
+*{
+  background: yellowgreen;
+}
+
+/* 태그 선택자(Type Selector) */
+span {
+  background-color: tomato;
+}
+li {
+  color: Red;
+}
+li:nth-child(3) {
+  color: Pink;
+}
+
+/* 클래스 선택자 */
+.carrot {
+  color: Orange;
+}
+
+/* 아이디 선택자 */
+#apple {
+  background: olive;
+}
+
+
+/* ----------------------------- */
+/* -- 복합 선택자(Combinator) -- */
+/* ----------------------------- */
+
+/* 일치 선택자(Basic Combinator) */
+li.banana1 {        /* 선택자들의 and 연산 */
+  background-color: pink;
+}
+
+/* 후손(하위) 선택자  */
+div .painapple {
+  background-color: Skyblue;
+}
+
+/* 자식 선택자 > */
+.banana > .banana2 {
+  background-color: green;
+}
+
+/* 다음 형제들 선택자(general sibling Combinator) ~ */
+.banana4 ~ li {
+  background-color: deeppink;
+}
+
+
+/* 다음 형제 선택자 + */
+.painapple + li {
+  background-color: gray;
+}
+

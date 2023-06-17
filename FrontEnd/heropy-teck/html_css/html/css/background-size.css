@@ -1,0 +1,19 @@
+/* https://codepen.io/yonghun16/pen/WNYwpqM */
+
+.box {
+  width: 400px;
+  height: 500px;
+  border: 2px solid red;
+  margin: 50px;
+  background-image: url("https://heropy.blog/css/images/logo.png"); /* 500x 500x */
+  background-repeat: no-repeat;
+  /* background-size: 200px; */
+  /* background-size: cover;  */
+  background-size: contain; 
+
+}
+
+/* 
+* cover는 가로 세로중 큰 길이에 그림을 맞춘다 : 공백없이 잘 덮지만, 잘린 화면이 보임
+* contain 는 짧은 길이에 그림을 맞춘다 : 잘리지 않지만 공백이 보임
+*/
