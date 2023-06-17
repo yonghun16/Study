@@ -1,0 +1,30 @@
+.fruits {
+  font-size: 30px;
+}
+
+.fruits p:nth-child(1) {  /* 형제요소 4개 중 1 번째 요소가 p타입이 아니니 어떤 것도 선택되지 않음 */
+  color: red;
+}
+.fruits p:nth-of-type(1) {
+  color: red;
+}
+
+.fruits .red:nth-of-type(1) { /* red는 클래스라 선택되지 않음 */
+  color: Green;
+}
+.fruits li:nth-of-type(2) {
+  color: Green;
+}
+
+.fruits li:not(.red) {
+  color: peru;
+}
+
+/*
+* E:nth-of-type(n)
+* E의 타입(태그이름)과 동일한 타입인 형제 요소 중 E가 n번째 요소라면 선택
+*
+* 부정 선택자
+* E:not(s)
+* s가 아닌 E를 선택함
+*/
