@@ -1,0 +1,38 @@
+.box1 {
+  width: 100px;
+  height: 100px;
+  background: tomato;
+  margin: 20px;
+  transition: 1s;
+}
+.box1:hover {
+  transform: rotate(90deg);
+}
+
+.box2 {
+  width: 100px;
+  height: 100px;
+  background: dodgerblue;
+  margin: 20px;
+  transition: 1s;
+}
+.box2:hover {
+  transform: translate(100px, 30px) scale(2.5);  /* 가로 100, 세로 30 옮기기 */
+
+}
+
+.box3 {
+  width: 100px;
+  height: 100px;
+  background: greenyellow;
+  margin: 20px;
+  transition: 1s;
+}
+.box3:hover {
+  transform: skewX(45deg);
+
+}
+
+/*
+https://developer.mozilla.org/ko/docs/Web/CSS/transform
+*/
