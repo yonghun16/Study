@@ -1,0 +1,48 @@
+.img1 {
+  width: 200px;
+  border: 1px solid lightgray;
+  transition: 1s;
+}
+.img1:hover {
+  transform: rotate(45deg);
+  transform-origin: 0% 0%;
+}
+
+.perspective {
+  width: 200px;
+  perspective: 500px;
+  padding: 70px;
+
+}
+
+.grand-parent {
+  width: 200px;
+  border: 3px solid dodgerblue;
+  transition: 1s;
+  transform: rotateX(-45deg);
+  transform-style: preserve-3d;
+
+}
+
+.parent {
+  width: 200px;
+  border: 3px solid tomato;
+  transition: 1s;
+  transform: rotateY(45deg);
+  transform-style: preserve-3d;
+}
+
+.img2 {
+  width: 200px;
+  border: 3px solid lightgray;
+  transition: 1s;
+  transform: rotateX(45deg);
+}
+
+/*
+https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin
+https://developer.mozilla.org/en-US/docs/Web/CSS/transform-style
+
+transform-origin  -  요소 변환의 기준점을 설정
+transform-style   -  3D 변환 요소의 자식 요소도 3D 변환을 사용할지 설정
+*/

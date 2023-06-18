@@ -1,0 +1,11 @@
+img {
+  width: 300px;
+  border: 2px solid lightgray;
+  transition: 1s;
+}
+img:hover{
+  transform: perspective(500px) rotateY(45deg);
+}
+/*
+  perspective(거리값)  사물을 보는 거리 설정
+*/
