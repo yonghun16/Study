@@ -1,0 +1,26 @@
+* {
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+.section {
+  width: 200px;
+  height: 200px;
+}
+
+.section1 {
+  background: #57B947;
+}
+
+.section2 {
+  background: #FFE70B;
+  border: 10px solid #9E968D;
+}
+
+/*
+content-box
+너비만으로 요소의 크기를 계산
+
+border-box 
+너비에 안쪽 여백과 테두리 선을 포함하여 요소의 크기를 계산
+*/
