@@ -1,0 +1,45 @@
+.box1 {
+  width: 100px;
+  height: 100px;
+  background: Tomato;
+  margin-bottom: 20px;
+}
+.box1:hover {
+  animation: first-animation 2s linear infinite;
+}
+@keyframes first-animation {
+  0% { width: 100px }
+  50% { width: 500px }
+}
+
+.box2 {
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+  background: Dodgerblue;
+}
+.box2:hover {
+  animation: my-animation 3s infinite alternate;
+}
+
+@keyframes my-animation {
+  0% {
+    width: 100px;
+    background: Dodgerblue;
+  }
+  75% {
+    width: 500px;
+    background: Tomato;
+  }
+  100% {
+    width: 300px;
+    background: Yellowgreen;
+  }
+}
+
+
+/*
+* animation: 애니메이션이름 지속시간 [타이밍함수 대기시간 반복횟수 반복방향 전후 상태 재생/정지]
+*
+* @keyframes : 2개 이상의 애니메이션 중간 상태(프레임)을 지정
+*/
