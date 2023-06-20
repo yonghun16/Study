@@ -1,3 +1,38 @@
+.box {
+  width: 150px;
+  height: 100px;
+  border-radius: 10px;
+  margin: 10px;
+  color: white;
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.box1 { background: tomato; }
+.box2 { background: dodgerblue; }
+.box3 { background: yellowgreen; }
+
+.box1:hover {
+  animation: size-up 1s 2 alternate;
+  animation-timing-function: linear;
+  animation-delay: 0s;
+}
+.box2:hover {
+  animation: size-up 1s 2 alternate ease 1s;   /* 단축 속성으로 작성 가능 */
+  animation-timing-function: ease;
+  animation-delay: 1s;
+}
+.box3:hover {
+  animation: size-up 1s -1s 2 ease-out alternate;  /* duration 뒤에 delay가 와야 됨 */
+  animation-timing-function: ease-out;
+  animation-delay: -1s;   /* 1초가 지난 상태에서 시작함 (1초를 건너 뛰고 재생함)*/
+}
+
+@keyframes size-up {
+  0% { width: 150px; }
+  100% { width: 500px; }
+}
 
 /*
 * https://developer.mozilla.org/en-US/docs/Web/CSS/animation-timing-function
