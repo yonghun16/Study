@@ -1,0 +1,22 @@
+.box {
+  width: 100px;
+  height: 100px;
+  background: Tomato;
+  border-radius: 10px;
+}
+.box:hover {
+  animation: my-animation 3s infinite alternate;
+  animation-name: my-animation;
+  animation-duration: 3000ms;
+}
+
+@keyframes my-animation {
+  0% { width: 100px; }
+  50% { width: 300px; }
+}
+
+/*
+* animation-name  -  @keyframes 규칙(애니메이션 프레임)의 이름을 지정
+*
+* animation-duration  -  애니메이션의 지속시간 설정
+*/
