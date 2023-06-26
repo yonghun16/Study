@@ -1,0 +1,17 @@
+p {
+  column-count: 3;
+  column-width: 200px;
+  columns: 200px 3;
+
+  color: red;
+  text-align: justify;
+  column-rule: 2px solid blue;
+  column-gap: 50px;
+}
+
+/* columns : https://developer.mozilla.org/en-US/docs/Web/CSS/columns
+* auto  :  브라우저가 단의 너비와 개수를 설정
+* column-width  :  단의 최적 너비를 설정
+* column-count  :  단의 개수를 설정
+* column-color  :  선의 색상을 지정
+*/
