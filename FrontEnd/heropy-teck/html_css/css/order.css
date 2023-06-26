@@ -1,0 +1,30 @@
+.container {
+  border: 4px solid;
+  display: flex;
+}
+.container .item {
+  width: 100px;
+  height: 100px;
+  background: Tomato;
+  border: 4px dashed Red;
+  border-radius: 10px;
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.item1 {
+  order: 1;
+}
+
+.item4 {
+  order: -1;
+}
+
+/*
+* https://developer.mozilla.org/ko/docs/Web/CSS/order
+*
+* 사용법은 z-index를 생각하면 이해하기 쉽습니다.
+* item들의 기본값은 order:0 이고 음수 양수를 지원하고 오름차순 정렬됩니다. 만약 order 갑이 같으면 순서대로 표시됩니다.
+*/
