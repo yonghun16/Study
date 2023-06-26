@@ -1,0 +1,48 @@
+.container {
+  border: 2px solid red;
+  display: flex;
+  margin-bottom: 30px;
+  padding: 10px;
+}
+
+.box {
+  height: 100px;
+  width: 100px;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5em;
+  font-weight: 700;
+}
+
+.box1 { background-color: tomato; }
+.box2 { background-color: dodgerblue; }
+.box3 { background-color: greenyellow; }
+.box4 { background-color: plum; }
+.box5 { background-color: orange; }
+
+.con1 {
+  flex-direction: column;
+}
+.con2 {
+  flex-direction: row-reverse;
+}
+.con3 {
+  flex-direction: column-reverse;
+}
+.con4 {
+  flex-wrap: wrap-reverse;
+}
+
+.con6 {
+  flex-flow: row-reverse wrap;
+}
+
+
+/*
+flex-wrap
+nowrap   :    모든 items를 여러 줄로 묵지 않음9 한 줄에 표시) // 기본값
+wrap     :    아이템들을 줄로 묶음
+wrap-reverse : Items를 wrap의 역 방향으로 여러 줄로 묶음
+*/
