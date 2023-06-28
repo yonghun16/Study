@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  border: 4px solid;
+}
+
+.container .item {
+  width: 100px;
+  height: 100px;
+  background: Tomato;
+  border: 4px dashed red;
+  border-radius: 10px;
+
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0;
+  flex: 1 1 0;
+}
+
+.container .item3 {
+  flex-grow: 2;
+}
+
+/*
+자식 속성
+flex : 증가너비(grow) 감소너비(shink) 기본너비(basis);  // flex: 0 1 0;  //기본 옵션
+*/
