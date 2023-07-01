@@ -30,4 +30,5 @@ footer {
   grid-area: footer;
 }
 
+/* https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template */
 /* grid-template-rows, grid-template-columns, grid-template-areas 의 단축 속성  */
