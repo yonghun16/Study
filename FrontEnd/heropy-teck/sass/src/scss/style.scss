@@ -2,5 +2,16 @@
 @import "_variables";
 
 .container {
-  
+  // 주석 테스트
+  /* 여러 줄 주석 테스트 1
+  * 여러 줄 주석 테스트 2
+  * 여러 줄 주석 테스트 3
+  */
+  $size: 100px;
+  .item {
+    width: $size * 2;
+    height: $size;
+    background: Tomato;
+  }
 }
+
