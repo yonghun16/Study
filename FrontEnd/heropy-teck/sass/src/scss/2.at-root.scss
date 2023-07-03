@@ -1,0 +1,15 @@
+.list {
+  $w: 100px;
+  $h: 50px;
+  li {
+    width: $w;
+    height: $h;
+  }
+  @at-root .box {
+    width: $w;
+    height: $h;
+    background: Tomato;
+  }
+}
+
+/* .list 안의 변수를 사용하면서 .list 밖의 요소를 작성 할 때 */

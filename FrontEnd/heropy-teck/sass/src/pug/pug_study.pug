@@ -158,3 +158,9 @@ block content
   ul
     while n < 4
       li= n++
+  //- 4) Javascript 코드 조합
+  - for (let x = 0; x < 3; x++)
+    li item
+  - let list = ["Uno", "Dos", "Tres"] 
+  each item in list 
+    li= item 

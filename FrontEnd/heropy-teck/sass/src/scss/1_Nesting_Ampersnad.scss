@@ -1,0 +1,39 @@
+@import "_reset";
+@import "_variables";
+
+// 1.Nesting
+.container {
+  // 주석 테스트
+  /* 여러 줄 주석 테스트 1
+  * 여러 줄 주석 테스트 2
+  * 여러 줄 주석 테스트 3
+  */
+  $size: 100px;
+  .item {
+    width: $size * 2;
+    height: $size;
+    background: Tomato;
+  }
+}
+
+// 2. Ampersand (상위 선택자 참조)
+.btn {
+  width: 100px;
+  height: 100px;
+  &.active {
+    color: red;
+  }
+}
+
+.fs {
+  &-small {
+    font-size: 14px;
+  }
+  &-medium {
+    font-size: 16px;
+  }
+  &-large {
+    font-size: 18px;
+  }
+}
+
