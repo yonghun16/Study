@@ -1,24 +1,21 @@
-from requests import get
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 from bs4 import BeautifulSoup
+from extractors.wwr import extract_wwr_jobs
 
-base_url = "https://weworkremotely.com/remote-jobs/search?utf8=%E2%9C%93&term="
+options =  Options()
+options.add_argument("--no-sandbox")
+options.add_argument("--disable-dev-shm-usage")
+browser = webdriver.Chrome(options=options)
+
+base_url = "https://kr.indeed.com/jobs?q="
 search_term = "python"
+browser.get(f"{base_url}{search_term}")
 
-response = get(f"{base_url}{search_term}")
-if response.status_code != 200:
-    print("Cant' request website")
-else :
-    soup = BeautifulSoup(response.text, "html.parser")
-    jobs = soup.find_all('section', class_="jobs")
-    for job_section in jobs:
-        job_posts = job_section.find_all('li')
-        job_posts.pop(-1)
-        for post in job_posts:
-            anchors = post.find_all('a')
-            anchor = anchors[1]
-            link = anchor['href']
-            company, kind, region = anchor.find_all('span', class_="company")
-            title = anchor.find('span', class_='title')
-            print(company, kind, region, title)
-            print("//////////////")
+soup = BeautifulSoup(browser.page_source, "html.parser")
+job_list = soup.find("ul", class_="jobsearch-ResultsList")
+jobs = job_list.find_all('li', recursive=False)
+print(len(jobs))
+for job in jobs:
+    zone = job.find("div", class_="mosaic-zone")
 
