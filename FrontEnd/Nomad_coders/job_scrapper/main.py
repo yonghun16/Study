@@ -18,4 +18,8 @@ app = Flask("JobScrapper")
 def home():
     return render_template("home.html", name="nico")
 
+@app.route("/search")
+def search():
+    return render_template("search.html")
+
 app.run("0.0.0.0", port=5050)
