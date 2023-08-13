@@ -10,12 +10,12 @@
 
 # save_to_file(keyword, jobs)
 
-from flask import Flask
+from flask import Flask, render_template
 
 app = Flask("JobScrapper")
 
 @app.route("/")
 def home():
-    return 'hey there!'
+    return render_template("home.html", name="nico")
 
 app.run("0.0.0.0", port=5050)
