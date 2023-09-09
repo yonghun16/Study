@@ -1,22 +1,15 @@
+body {
+  display: flex;
+  height: 2000px;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+
 .box {
   width: 200px;
   height: 200px;
-  background-color: Tomato;
-  display: inline-block;
+  background-color: tomato;
 }
 
-/* .box:first-child { */
-/*   display: block; */
-/* } */
-
-.box:last-child {
-  float: right;
-}
-
-.box:first-child {
-  float: left;
-}
-
-.box:nth-child(2) {
-  margin-left: 25%;
-}

@@ -9,6 +9,9 @@
     "preview": "vite preview"
   },
   "devDependencies": {
-    "vite": "^4.4.5"
+    "pug": "^3.0.2",
+    "sass": "^1.66.1",
+    "vite": "^4.4.5",
+    "vite-plugin-pug": "^0.3.2"
   }
 }
