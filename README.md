@@ -11,7 +11,6 @@
 <!-- C --><a href="https://devdocs.io/c/"><img src="https://img.shields.io/badge/C-659AD1?style=flat&logo=C&logoColor=white" /></a> 
 <!-- Java --><a href="https://www.java.com/"><img src="https://img.shields.io/badge/Java-3D82A1?style=flat&logo=Conda-Forge&logoColor=white" /></a> 
 <!-- Node.js --><a href="https://nodejs.org/"><img src="https://img.shields.io/badge/Node.js-44843D?style=flat&logo=Node.js&logoColor=white" /></a>
-<!-- Scratch --><a href="https://scratch.mit.edu/"><img src="https://img.shields.io/badge/Scratch-F6A619?style=flat&logo=Scratch&logoColor=white" /></a> 
 
 ### 프론트엔드
 <!-- HTML --><a href="https://html.spec.whatwg.org/"><img src="https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=HTML5&logoColor=white" /></a>
