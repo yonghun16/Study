@@ -5,6 +5,7 @@ console.log(document);
 console.log(document.title);
 document.title = "test";
 console.log(document.title);
+console.log(document.body);
 
 console.log(hello);
 console.log(hello.length);
