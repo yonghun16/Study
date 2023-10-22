@@ -13,7 +13,7 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   max-width: 660px;
-  margin: 0 auto;
+  margin: 0 auto;       /* 블럭 요소 일 때, margin auto는 가운데 정렬을 하게끔 함*/
   padding: 40px 20px;
 }
 .hero {
