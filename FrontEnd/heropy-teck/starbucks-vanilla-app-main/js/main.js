@@ -1,3 +1,4 @@
+/* 헤더 돋보기 이펙트*/
 const searchEl = document.querySelector('.search');
 const searchInputEl = searchEl.querySelector('input');
 
@@ -17,3 +18,11 @@ searchInputEl.addEventListener('blur', function () {
   searchEl.classList.remove('focused');
   searchInputEl.setAttribute('placeholder', '');
 });
+
+
+/* 뱃지 */
+const badgeEl = document.querySelector('header .badges');
+
+window.addEventListener('scroll', function () {
+  console.log("scrool");
+})
