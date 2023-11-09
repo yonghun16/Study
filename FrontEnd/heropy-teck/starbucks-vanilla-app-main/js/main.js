@@ -19,15 +19,15 @@ searchInputEl.addEventListener("blur", function () {
   searchInputEl.setAttribute("placeholder", "");
 });
 
-/* 뱃지 */
+
+/* 뱃지 이펙트 */
 const badgeEl = document.querySelector("header .badges");
 
 window.addEventListener(
   "scroll",
+  // _.throttle(함수, 시간(밀리세컨 단위))
+  // lodash.js 사용, 0.3초 마다 부하를 줘서 스크롤 이벤트 중복 발생 억제
   _.throttle(function () {
-    // _.throttle(함수, 시간(밀리세컨 단위))
-    // lodash.js 사용, 0.3초 마다 부하를 줘서 스크롤 이벤트 중복 발생 억제
-    console.log(window.scrollY);
     if (window.scrollY > 500) {
       // 배지 숨기기
       // 요소를 자연스럽게 숨기기 위해서 and 숨김 요소를 클릭을 방지하기 위해 gsap.js 사용 
@@ -47,6 +47,7 @@ window.addEventListener(
 );
 
 
+/* fade in 이펙트 */
 const fadeEls = document.querySelectorAll('.visual .fade-in');
 fadeEls.forEach(function (fadeEl, index) {
   // gasp.to(요소, 지속시간, 옵션);
@@ -54,4 +55,13 @@ fadeEls.forEach(function (fadeEl, index) {
     delay: (index + 1) * .7,  // 0.7s, 1.4s, 2.1s, 2.7s 딜레이되면서 작동
     opacity: 1
   });
+});
+
+
+/* Swiper 이펙트 */
+// new Swiper(선택자, 옵션) 
+const swiper = new Swiper('.swiper', {
+  direction: 'vertical',
+  autoplay: true,
+  loop: true
 });
