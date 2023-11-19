@@ -83,3 +83,20 @@ const swiper2 = new Swiper('.promotion .swiper', {
     nextEl: '.promotion .swiper-next'
   }
 });
+
+
+/* 토글 프로모션 */
+const promotionEl = document.querySelector('.promotion');
+const promotionToogleBtn = document.querySelector('.toggle-promotion');
+let isHidePromotion = false;
+
+promotionToogleBtn.addEventListener('click', function() {
+  isHidePromotion = !isHidePromotion;  
+  if (isHidePromotion) {
+    // 숨김 처리!
+    promotionEl.classList.add('hide');
+  } else {
+    // 보임 처리!
+    promotionEl.classList.remove('hide');
+  }
+});
