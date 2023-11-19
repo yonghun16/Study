@@ -79,7 +79,7 @@ const swiper2 = new Swiper('.promotion .swiper', {
     clickable: true // 사용자의 페이지 번호 요소 제어
   },
   navigation: {
-    prevEl: 'promotion .swiper-prev',
-    nextEl: 'promotion .swiper-next'
+    prevEl: '.promotion .swiper-prev',
+    nextEl: '.promotion .swiper-next'
   }
 });
