@@ -35,4 +35,6 @@ int answer(int* arr, int inputVal_a) {
       printf("\n");
     printf("%d ", arr[i]);
   }
+
+  return 0;
 }
