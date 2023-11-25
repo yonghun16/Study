@@ -323,9 +323,6 @@ header .badges .badge {
 
 
 /* NOTICE */
-.notice {
-
-}
 
 .notice .notice-line {
   position: relative;
@@ -582,12 +579,11 @@ header .badges .badge {
 
 .youtube .youtube__area {
   width: 1920px;
-  background-color: orange;
   position: absolute;
   left: 50%;
   margin-left: calc(1920px / -2);   /* position 값이 정해져 있으면 flexbox 사용 불가능 */
   top: 50%;                         /* 그럼에도 불구하고 가운데 정렬을 하기 위한 방법 */
-  margin-top: calc(1920px * (9 / 16) / -2);
+  margin-top: calc(1920px * 9 / 16 / -2);
 }
 
 .youtube .youtube__area::before {
@@ -599,11 +595,20 @@ header .badges .badge {
 }
 
 .youtube .youtube__cover {
-  background-image: url("../images/video_cover_pattern.png");
-  background-color: rgba(0, 0, 0, .3);
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  background-color: rgba(0, 0, 0, .3);
+  background-image: url("../images/video_cover_pattern.png");
 }
+
+#player {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
