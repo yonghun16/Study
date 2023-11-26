@@ -71,9 +71,9 @@ const swiper2 = new Swiper('.promotion .swiper', {
   spaceBetween: 10,  // 슬라이드 사이 여백
   centeredSlides: true, // 1번 슬라이드가 가운데 보이기
   loop: true,
-  // autoplay: {
-  //   delay: 5000     // 5초에 한 번씩 슬라이딩
-  // },
+  autoplay: {
+    delay: 5000     // 5초에 한 번씩 슬라이딩
+  },
   pagination: {
     el: '.promotion .swiper-pagination', // 페이지 번호 요소 선택자 
     clickable: true // 사용자의 페이지 번호 요소 제어
@@ -128,3 +128,6 @@ function floatingObject(selector, delay, size) {
 floatingObject('.floating1',   1, 15);
 floatingObject('.floating2',  .5, 15);
 floatingObject('.floating3', 1.5, 20);
+
+
+
