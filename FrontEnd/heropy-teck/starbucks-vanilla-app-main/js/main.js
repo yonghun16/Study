@@ -131,3 +131,8 @@ floatingObject('.floating3', 1.5, 20);
 
 
 
+/* Scroll Magic */
+const spyEls = document.querySelectorAll('section.scroll-spy');
+
+
+
