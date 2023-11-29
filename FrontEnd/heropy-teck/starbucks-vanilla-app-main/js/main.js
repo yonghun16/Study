@@ -84,6 +84,17 @@ const swiper2 = new Swiper('.promotion .swiper', {
   }
 });
 
+const swiper3 = new Swiper('.awards .swiper', {
+  autoplay: true,
+  loop: true,
+  spaceBetween: 30,
+  slidesPerView: 5,
+  navigation: {
+    prevEl: '.awards .swiper-prev',
+    nextEl: '.awards .swiper-next'
+  }
+});
+
 
 /* 토글 프로모션 */
 const promotionEl = document.querySelector('.promotion');
@@ -143,3 +154,6 @@ spyEls.forEach(function (spyEl){
 });
 
 
+/* Copy Right year */
+const thisYear = document.querySelector('.this-year');
+thisYear.textContent = new Date().getFullYear();
