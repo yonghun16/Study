@@ -108,12 +108,10 @@ ipads.forEach(function (ipad) {
   const itemEl = document.createElement("div");
   itemEl.classList.add("item");
 
-
   let colorList = '';
   ipad.colors.forEach(function (color) {
     colorList += `<li style="background-color: ${color};"></li>`
   });
-
 
   itemEl.innerHTML = /* HTML */ `
     <div class="thumbnail">
