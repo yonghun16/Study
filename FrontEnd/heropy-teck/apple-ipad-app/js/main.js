@@ -1,4 +1,5 @@
 import ipads from "../data/ipads.js";
+import navigations from "../data/navigations.js";
 
 /*  장바구니  */
 const basketStarterEl = document.querySelector("header .basket-starter");
@@ -108,9 +109,9 @@ ipads.forEach(function (ipad) {
   const itemEl = document.createElement("div");
   itemEl.classList.add("item");
 
-  let colorList = '';
+  let colorList = "";
   ipad.colors.forEach(function (color) {
-    colorList += `<li style="background-color: ${color};"></li>`
+    colorList += `<li style="background-color: ${color};"></li>`;
   });
 
   itemEl.innerHTML = /* HTML */ `
@@ -122,9 +123,34 @@ ipads.forEach(function (ipad) {
     </ul>
     <h3 class="name">${ipad.name}</h3>
     <p class="tagline">${ipad.tagline}</p>
-    <p class="price">₩${ipad.price.toLocaleString('en-US')}부터</p>
+    <p class="price">₩${ipad.price.toLocaleString("en-US")}부터</p>
     <button class="btn">구입하기</button>
     <a href="${ipad.url}" class="link">더 알아보기</a>
   `;
   itemsEl.append(itemEl);
+});
+
+
+/* 네비게이션 */
+const navigationsEl = document.querySelector("footer .navigations");
+
+navigations.forEach(function (nav) {
+  const mapEl = document.createElement("div");
+  mapEl.classList.add("map");
+
+  let mapList = "";
+  nav.maps.forEach(function (map) {
+    mapList += /* HTML */ ` <li><a href="${map.url}">${map.name}</a></li> `;
+  });
+
+  mapEl.innerHTML = /* HTML */ `
+    <h3>
+      <span class="text">${nav.title}</span>
+    </h3>
+    <ul>
+      ${mapList}
+    </ul>
+  `;
+
+  navigationsEl.append(mapEl);
 });
