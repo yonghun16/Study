@@ -154,3 +154,9 @@ navigations.forEach(function (nav) {
 
   navigationsEl.append(mapEl);
 });
+
+
+/* copyright */
+
+const thisYearEl = document.querySelector("footer .this-year");
+thisYearEl.textContent = new Date().getFullYear();
