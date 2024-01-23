@@ -1,6 +1,7 @@
 import ipads from "../data/ipads.js";
 import navigations from "../data/navigations.js";
 
+
 /*  장바구니  */
 const basketStarterEl = document.querySelector("header .basket-starter");
 const basketEl = basketStarterEl.querySelector(".basket");
@@ -31,6 +32,7 @@ basketEl.addEventListener("click", function (event) {
   event.stopPropagation(); // '이벤트 버를링'이 basketEl가 최고단계
 });
 
+
 /*  검색  */
 const headerEl = document.querySelector("header");
 const headerMenuEls = [...headerEl.querySelectorAll("ul.menu > li")]; // 얕은 복사(전개 연산자 사용)
@@ -43,7 +45,7 @@ const searchDelayEls = [...searchWrapEl.querySelectorAll("li")]; // 배열로 �
 
 function showSearch() {
   headerEl.classList.add("searching");
-  document.documentElement.classList.add("fixed");
+  stopScroll();
   headerMenuEls.reverse().forEach(function (el, index) {
     el.style.transitionDelay = (index * 0.4) / headerMenuEls.length + "s"; // 요소마다 차등으로 delay를 변경하는 식
   });
@@ -57,7 +59,7 @@ function showSearch() {
 }
 function hideSearch() {
   headerEl.classList.remove("searching");
-  document.documentElement.classList.remove("fixed");
+  playScroll();
   headerMenuEls.reverse().forEach(function (el, index) {
     el.style.transitionDelay = (index * 0.4) / headerMenuEls.length + "s"; // 요소마다 차등으로 delay를 변경하는 식
   });
@@ -72,6 +74,28 @@ searchStarterEl.addEventListener("click", showSearch);
 searchCloserEl.addEventListener("click", hideSearch);
 searchShadowEl.addEventListener("click", hideSearch);
 
+function playScroll() {
+  document.documentElement.classList.remove("fixed");
+}
+
+function stopScroll() {
+  document.documentElement.classList.add("fixed");
+}
+
+
+/* 헤더 메뉴 토글! */
+const menuStarterEl = document.querySelector("header .menu-starter");
+menuStarterEl.addEventListener("click", function () {
+  if (headerEl.classList.contains("menuing")) {
+    headerEl.classList.remove("menuing");
+    playScroll();
+  } else {
+    headerEl.classList.add("menuing");
+    stopScroll();
+  }
+})
+
+
 /* 요소의 가시성 관찰 */
 const io = new IntersectionObserver(function (entries) {
   entries.forEach(function (entry) {
@@ -85,6 +109,7 @@ const infoEls = document.querySelectorAll(".info");
 infoEls.forEach(function (el) {
   io.observe(el);
 });
+
 
 /* 비디오 재생! */
 const video = document.querySelector(".stage video");
@@ -102,6 +127,7 @@ pauseBtn.addEventListener("click", function () {
   pauseBtn.classList.add("hide");
   playBtn.classList.remove("hide");
 });
+
 
 /* 당신에게 맞는 iPad는? 렌더링 */
 const itemsEl = document.querySelector("section.compare .items");
@@ -157,6 +183,5 @@ navigations.forEach(function (nav) {
 
 
 /* copyright */
-
 const thisYearEl = document.querySelector("footer .this-year");
 thisYearEl.textContent = new Date().getFullYear();
