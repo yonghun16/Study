@@ -122,6 +122,33 @@ window.addEventListener("resize", function() {
 });
 
 
+/* menu-toggler 토글*/
+const navEl = document.querySelector("nav");
+const navMenuToggleEl = document.querySelector(".menu-toggler");
+const navShadowEl = navEl.querySelector(".shadow");
+
+navMenuToggleEl.addEventListener("click", function () {
+  if (navEl.classList.contains("menuing")) {
+    hideNavMenu();
+  } else {
+    showNavMenu();
+  }
+})
+
+navEl.addEventListener("click", function (event) {
+  event.stopPropagation();
+})
+navShadowEl.addEventListener("click", hideNavMenu)
+window.addEventListener("click", hideNavMenu)
+
+function showNavMenu() {
+  navEl.classList.add("menuing");
+}
+function hideNavMenu() {
+  navEl.classList.remove("menuing");
+}
+
+
 /* 요소의 가시성 관찰 */
 const io = new IntersectionObserver(function (entries) {
   entries.forEach(function (entry) {
