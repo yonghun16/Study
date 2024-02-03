@@ -29,4 +29,3 @@ def solve():
   print(rst)
  
 solve()
- 
