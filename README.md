@@ -12,6 +12,8 @@
 <!-- Node.js --><a href="https://nodejs.org/"><img src="https://img.shields.io/badge/Node.js-44843D?style=flat&logo=Node.js&logoColor=white" /></a>
 <!-- C --><a href="https://devdocs.io/c/"><img src="https://img.shields.io/badge/C-659AD1?style=flat&logo=C&logoColor=white" /></a> 
 <!-- Java --><a href="https://www.java.com/"><img src="https://img.shields.io/badge/Java-3D82A1?style=flat&logo=Conda-Forge&logoColor=white" /></a>
+<br />
+<!-- Flask --><a href="https://flask.palletsprojects.com/"><img src="https://img.shields.io/badge/Flask-0C7963?style=flat&logo=Flask&logoColor=white" /></a>
 
 
 ### 프론트엔드
