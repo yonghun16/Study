@@ -1,10 +1,10 @@
-/* Nullish 병합(Nullish Coalescing)*/
+/* Nullish 병합(nullish coalescing)*/
 
 const n = 0;
 
 // OR (||) 연산자를 사용한 경우
 const num1 = n || 9 || 8
-console.log(num1)   // 7
+console.log(num1)   // 9
 
 // Nullish (??) 병합 연산자를 사용한 경우
 const num2 = n ?? 7
@@ -22,7 +22,7 @@ console.log("--------------")
 console.log()
 
 
-// 삼항(Ternary)
+// 삼항 연산자(ternary operator)
 // 조건 ? 참 : 거짓
 const a = 1
 
