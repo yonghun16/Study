@@ -30,4 +30,5 @@
 
 
 ### 기타
+<!-- JayPro --><a href=""><img src="https://img.shields.io/badge/JayPro-252F38?style=flat&logo=JayPro&logoColor=white" /></a>
 <!-- Scratch --><a href="https://scratch.mit.edu/"><img src="https://img.shields.io/badge/Scratch-F6A619?style=flat&logo=Scratch&logoColor=white" /></a>
