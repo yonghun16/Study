@@ -8,6 +8,8 @@ function hello() {
 console.log(hello())
 
 
+// return 아래 코드는 실행되지 않는다.
+
 
 function plus(num) {
   if (typeof num !== 'number') {
