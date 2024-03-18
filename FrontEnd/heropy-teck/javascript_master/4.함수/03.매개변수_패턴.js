@@ -48,8 +48,8 @@ console.log(getSecondItem(numbers))
 
 console.log()
 // 나머지 매개변수(rest parameter)
-function sum2(...est) {
-  return est.reduce(function (acc, cur) {
+function sum2(...rest) {
+  return rest.reduce(function (acc, cur) {
     return acc + cur
   }, 0)
 }
