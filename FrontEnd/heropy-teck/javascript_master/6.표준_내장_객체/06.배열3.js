@@ -49,3 +49,14 @@ console.log(fruits)
 const fruits2 = ['Apple', 'Banana', 'Cherry']
 console.log(fruits2.push('Orange', 'Kiwi'))
 console.log(fruits2)
+
+
+// .reduce()
+// 대상 배열의 길이만큼 주어진 콜백을 실행하고, 마지막에 호출되는 콜백의 반환 값을 반환합니다.
+// ★각 콜백의 반환 값은 다음 콜백으로 전달됩니다.★
+
+const numbers2 = [1, 2, 3, 4]
+const sum = numbers2.reduce((accumulator, currentValue) => {
+  return accumulator + currentValue
+}, 0)
+console.log(sum)
