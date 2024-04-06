@@ -61,4 +61,3 @@ console.log(users2.includes({ name: 'Neo', age: 85 }))    // false
 const neo = users2[0]
 console.log(users2.includes(neo))      // true , includes()의 인자는 '참조형' 변수를 받는다.
 
-
