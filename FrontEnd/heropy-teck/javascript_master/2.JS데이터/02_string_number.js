@@ -17,7 +17,7 @@ console.log(typeof(pi))
 console.log(typeof(number + undefined))
 
 
-/* 숫자 세이터2 */
+/* 숫자 데이터2 */
 const a = 0.1
 const b = 0.2
 
