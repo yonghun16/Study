@@ -1,7 +1,7 @@
 /* 문자 데이터 */
 const string1 = "Hello1"
 const string2 = 'Hello2'
-const string3 = `Hello3 ${string1} ?!`
+const string3 = `Hello3 ${string1} ?!`     // 보간 (template literal)
  
 console.log(string3)
 

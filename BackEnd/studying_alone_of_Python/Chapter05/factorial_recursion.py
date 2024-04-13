@@ -1,4 +1,5 @@
-# 함수를 선언합니다.
+# 재귀 함수로 팩토리얼 구하기
+
 def factorial(n):
     # n이 0이라면 1을 리턴
     if n == 0:
@@ -7,7 +8,6 @@ def factorial(n):
     else:
         return n * factorial(n-1)
 
-# 함수를 호출합니다.
 print("1!:", factorial(1))
 print("2!:", factorial(2))
 print("3!:", factorial(3))

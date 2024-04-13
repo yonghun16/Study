@@ -15,5 +15,5 @@ print()
 print("# 딕셔너리의 items() 함수와 반복문 조합하기")
 
 for key, element in example_dictionary.items():
-    print("dictionary[{}] = {}".format(key, element))
+    #print("dictionary[{}] = {}".format(key, element))  # 이런 방식도 가능
     print(f"dictionary[{key}] = {element}")             # dictionary[키A] = 값A
