@@ -13,8 +13,8 @@ if (b) {
 
 
 /* null */
-let age = null   // 명시적(변수의 값이 존재하지 않음을 표시)
-console.log(age)
+let age = null         // 명시적(변수의 값이 존재하지 않음을 표시)
+console.log(age)       // null
 
 setTimeout(function () {
   age = 85;
@@ -39,5 +39,5 @@ const user = {
 
 console.log(user.name)
 console.log(user.age)
-console.log(user.email)
-console.log(user.abc)
+console.log(user.email)    // null
+console.log(user.abc)      // undefined
