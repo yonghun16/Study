@@ -1,5 +1,5 @@
-#리스트를 선언합니다.
-array = [i * i for i in range(0, 20, 2)]
+# 리스트 안에 for 문 사용
 
-#출력합니다.
-print(array)
+list_b = [i * i for i in range(0, 20, 2)]
+
+print(list_b)                     # [0, 4, 16, 36, 64, 100, 144, 196, 256, 324]
