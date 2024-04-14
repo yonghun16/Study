@@ -1,8 +1,8 @@
-// import * as abc from './module.js'
-// console.log(abc)
+// main.js
 
-setTimeout(() => {
-  import('./module.js').then(abc => {
-  console.log(abc)
-  })
-}, 1000)
+/* import 하자마자 export 하기 */
+
+import { a, b } from './utils.js'
+
+console.log(a())
+console.log(b())
