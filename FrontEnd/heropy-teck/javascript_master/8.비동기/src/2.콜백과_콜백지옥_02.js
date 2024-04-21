@@ -1,5 +1,4 @@
-// 콜백(Callback) 패턴
-// 콜백 지옥의 다른 예
+// 콜백(Callback) 패턴2 - 영화 검색 예시
 
 const getMovies = (movieName, callback) => {
   fetch(`https://www.omdbapi.com/?apikey=7035c60c&s=${movieName}`)

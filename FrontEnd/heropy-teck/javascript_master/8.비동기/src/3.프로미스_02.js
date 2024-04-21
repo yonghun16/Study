@@ -1,4 +1,4 @@
-// Promise 2
+// Promise2 - 영화 검색 예시
 
 const getMovies = movieName => {
   return new Promise(resolve => {
