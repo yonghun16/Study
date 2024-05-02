@@ -21,5 +21,3 @@ console.dir(E.__proto__)
 console.dir(Element)
 console.dir(Node)
 console.dir(Element.__proto__)
-
-
