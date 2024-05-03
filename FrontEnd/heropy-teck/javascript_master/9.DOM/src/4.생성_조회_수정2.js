@@ -38,16 +38,16 @@ el2.innerHTML = `
 // E.dataset
 // 요소의 각 `data-` 속성 값을 얻거나 지정합니다.
 
-// const el3 = document.querySelector('.child')
-// const str = 'Hello world!'
-// const obj = { a: 1, b: 2 }
-//
-// el3.dataset.helloWorld = str
-// el3.dataset.object = JSON.stringify(obj)
-//
-// console.log(el3.dataset.helloWorld)
-// console.log(el3.dataset.object)
-// console.log(JSON.parse(el.dataset.object))
+const el3 = document.querySelector('.child')
+const str = 'Hello world!'
+const obj = { a: 1, b: 2 } 
+
+el3.dataset.helloWorld = str
+el3.dataset.object = JSON.stringify(obj)
+
+console.log(el3.dataset.helloWorld)
+console.log(el3.dataset.object)
+console.log(JSON.parse(el.dataset.object))
 
 
 // E.tagName
@@ -66,7 +66,7 @@ console.log(document.body.tagName)
 // E.id
 // 요소의 `id` 속성 값을 얻거나 지정합니다.
 
-const el5 document.querySelector('.child')
+const el5 = document.querySelector('.child')
 console.log(el5.id)
 
 el5.id = 'child1'
