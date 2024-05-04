@@ -7,6 +7,7 @@
 const parentEl = document.querySelector('.parent');
 const childEl = document.querySelector('.child');
 
+
 parentEl.addEventListener('click', () => {
   console.log('Parent!')
 })
