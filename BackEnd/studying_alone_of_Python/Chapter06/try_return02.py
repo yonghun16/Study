@@ -1,3 +1,6 @@
+# try 구문 내부에서 return 키워드를 사용하는 경우
+# try 구문 내부에서 return 키워드를 만나도 finally 구문은 무조건 실행됨.
+
 # 함수를 선언합니다.
 def write_text_file(filename, text):
     #try except 구문을 사용합니다.

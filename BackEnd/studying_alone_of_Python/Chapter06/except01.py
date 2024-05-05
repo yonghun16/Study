@@ -13,3 +13,7 @@ except Exception as exception:
     # 예외 객체를 출력해봅니다.
     print("type(exception):", type(exception))
     print("exception:", exception)
+
+# 정수 입력> a
+# type(exception): <class 'ValueError'>
+# exception: invalid literal for int() with base 10: 'a'

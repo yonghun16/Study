@@ -1,4 +1,5 @@
 # try except 구문으로 예외를 처리합니다.
+
 try:
   # 숫자로 변환합니다.
   number_input_a = int(input("정수 입력> "))

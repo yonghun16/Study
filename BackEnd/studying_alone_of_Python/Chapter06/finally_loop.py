@@ -1,3 +1,6 @@
+# 반복문과 함께 finally 구문을 사용하는 경우
+# break구문으로 try를 빠져나가도 finally 구문이 실행됨.
+
 print("프로그램이 시작되었습니다.")
 
 while True:
