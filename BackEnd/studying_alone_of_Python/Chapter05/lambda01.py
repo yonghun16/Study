@@ -10,7 +10,7 @@ list_input_a = [1, 2, 3, 4, 5]
 
 # map() 함수를 사용합니다.
 output_a = map(power, list_input_a)
-print("#map() 함수의 실행결과")
+print("# map() 함수의 실행결과")
 print("map(power, list_input_a):", output_a)
 print("man(power, list_input_a):", list(output_a))
 print()
