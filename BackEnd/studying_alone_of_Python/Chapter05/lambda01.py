@@ -1,5 +1,5 @@
 # 람다
-# "  lambda 매개변수:  리턴값  "
+# " lambda 매개변수: 리턴값 "
 
 # 함수를 선언합니다.
 power = lambda x: x*x
