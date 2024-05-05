@@ -1,3 +1,5 @@
+# 반복문으로 파일 한 줄씩 읽기
+
 with open("info.txt", "r") as file:
     for line in file:
         # 변수를 선언합니다.
