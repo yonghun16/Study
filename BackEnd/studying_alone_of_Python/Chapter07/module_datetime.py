@@ -1,3 +1,6 @@
+# datetime 모듈
+# date(날짜), time(시간)과 관련된 모듈로, 날자 형식을 만들 때 자주 사용됨.
+
 # 모듈을 읽어 들입니다.
 import datetime
 
