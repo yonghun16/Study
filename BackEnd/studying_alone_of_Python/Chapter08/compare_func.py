@@ -1,3 +1,11 @@
+# 크기 비교 함수
+# __eq__ : 같다
+# __ne__ : 다르다
+# __gt__ : 크다
+# __ge__ : 크거나 같다
+# __lt__ : 작다
+# __le__ : 작거나 같다.
+
 # 클래스를 선언합니다.
 class Student:
     def __init__(self, name, korean, math, english, science):
