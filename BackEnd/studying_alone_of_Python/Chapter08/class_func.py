@@ -1,3 +1,9 @@
+# 클래스 함수
+# 그냥 클래스가 가진 함수.
+# 일반적인 함수로 만드나 클래스 함수로 만드나 사용에는 큰 차이가 없음
+# 다만 '클래스가 가진 기능'이라고 명시적으로 나타내는 것일 뿐
+# @데코레이터로 작성.
+
 # 클래스를 선언합니다.
 class Student:
     # 클래스 변수
@@ -6,7 +12,7 @@ class Student:
 
     # 클래스 함수
     @classmethod
-    def print(cls):
+    def print_object(cls):
         print("------ 학생목록 ------")
         print("이름\t총점\t평균")
         for student in cls.students:
@@ -43,4 +49,4 @@ Student("윤아린", 87, 84, 66, 92),
 Student("윤명월", 87, 98, 78, 85),
 
 # 현재 생성된 학생을 모두출력합니다.
-Student.print()
+Student.print_object()

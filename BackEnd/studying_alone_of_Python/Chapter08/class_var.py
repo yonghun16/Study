@@ -1,3 +1,5 @@
+# 클래스 변수
+
 # 클래스를 선언합니다.
 class Student:
     count = 0
@@ -24,6 +26,6 @@ students = [
         Student("윤명월", 87, 98, 78, 85),
         ]
 
-# 출력합니다.
+# "클래스_이름.변수" 출력합니다.
 print()
 print("현재 생성된 총 학생 수는 {}명입니다.".format(Student.count))
