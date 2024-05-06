@@ -1,3 +1,5 @@
+# 게터와 세터
+
 # 모듈을 가져옵니다.
 import math
 
@@ -25,13 +27,15 @@ print("원의 둘레:", circle.get_circumference())
 print("원의 넓이:", circle.get_area())
 print()
 
-# 간접적으로 __radius에 접근합니다.
+# 게터 사용 : 간접적으로 __radius에 접근합니다.
 print("#__radius에 접근합니다.")
 print(circle.get_radius())
-print()
+# 게터에 의해 10 출력 (내부 변수명인 radius에 직접 값을 할당하지 않음)
+print()   
 
-# 원의 둘레와 넓이를 구합니다.
-circle.set_radius(-2)
+# 세터 사용 : 원의 둘레와 넓이를 구합니다.
+# 세터에 의해 예외 발생
+circle.set_radius(-2) 
 print("# 반지름을 변경하고 원의 둘레와 넓이를 구합니다.")
 print("원의 둘레:", circle.get_circumference())
 print("원의 넓이:", circle.get_area())

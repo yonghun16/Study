@@ -1,3 +1,11 @@
+# 데코레이터를 사용한 Getter와 Setter
+
+# 데코레이터를 사용하면 쉽게 게터와 세터를 만들 수 있다.(게터와 세터를 같은 함수명으로 사용 가능)
+# 1) 변수 이름과 같은 함수를 정의하고
+# 2) 위에 @property 라는 데코레이터를 붙여준다. -> getter
+# 3) @변수이름.setter 라는 데코레이터를 붙여준다. -> setter
+
+
 # 모듈을 가져옵니다.
 import math
 
@@ -27,7 +35,6 @@ print("원래 원의 반지름: ", circle.radius)
 circle.radius = 2
 print("변경된 원의 반지름: ", circle.radius)
 print()
-
 
 # 강제로 예외를 발생시킵니다.
 print("# 강제로 예외를 발생시킵니다.")
