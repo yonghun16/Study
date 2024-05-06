@@ -53,9 +53,9 @@ student_a = Student("윤인성", 87, 98, 88, 95),
 student_b = Student("윤인성", 92, 98, 96, 98),
 
 # 출력합니다.
-print("student_a == student_b = ", student_a == student_b)
-print("student_a != student_b = ", student_a != student_b)
-print("student_a >  student_b = ", student_a >  student_b)
-print("student_a >= student_b = ", student_a >= student_b)
-print("student_a <  student_b = ", student_a <  student_b)
-print("student_a <= student_b = ", student_a <= student_b)
+print("student_a == student_b = ", student_a == student_b)  # False
+print("student_a != student_b = ", student_a != student_b)  # True
+print("student_a >  student_b = ", student_a >  student_b)  # False
+print("student_a >= student_b = ", student_a >= student_b)  # False
+print("student_a <  student_b = ", student_a <  student_b)  # True
+print("student_a <= student_b = ", student_a <= student_b)  # True

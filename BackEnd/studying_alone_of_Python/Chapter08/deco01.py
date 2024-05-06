@@ -28,14 +28,15 @@ class Circle:
             raise TypeError("길이는 양의 숫자여야 합니다.")
         self.__radius = value
 
-# 원의 둘레와 넓이를 구합니다.
-print("# 데코레이터를 사용한 Getter와 Setter")
+print("<< 데코레이터를 사용한 Getter와 Setter >>")
 circle = Circle(10)
 print("원래 원의 반지름: ", circle.radius)
+
+# 게터 호출
 circle.radius = 2
 print("변경된 원의 반지름: ", circle.radius)
 print()
 
-# 강제로 예외를 발생시킵니다.
+# 세터 호출
 print("# 강제로 예외를 발생시킵니다.")
 circle.radius = -10
