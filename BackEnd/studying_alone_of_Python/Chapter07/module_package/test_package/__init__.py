@@ -1,4 +1,6 @@
-# "from test_package import *"로
+# __init__.py
+# main.py에서 "from test_package import *"로 사용가능
+
 # 모듈을 읽어 들일 때 가져올 모듈
 __all__ = ["module_a", "module_b"]
 

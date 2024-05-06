@@ -1,3 +1,5 @@
+# beautifulsoup로 날씨 정보 불러오기
+
 # 모듈을 읽어 들입니다.
 from urllib import request
 from bs4 import BeautifulSoup

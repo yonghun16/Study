@@ -1,3 +1,5 @@
+# Beautifulsoup를 활용하여 스크래핑 실행
+
 # 모듈을 읽어 들입니다.
 from flask import Flask
 from urllib import request

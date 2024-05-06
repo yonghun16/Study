@@ -1,3 +1,5 @@
+# test_module.py
+
 PI = 3.141592
 
 def number_input():
@@ -10,7 +12,7 @@ def get_circumference(radius):
 def get_circle_area(radius):
     return PI * radius * radius
 
-# 활용 예
+# 활용 예 (모듈은 엔트리포인트가 아니므로 아래 코드는 실행되지 않음.)
 if __name__ == "__main__":
     print("get_circumference(10):", get_circumference(10))
     print("get_circle_area(10):", get_circle_area(10))
