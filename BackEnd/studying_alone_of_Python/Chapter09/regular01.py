@@ -6,6 +6,7 @@
 
 import re
 
+
 p1 = re.compile('[abc]')
 p2 = re.compile('[0-9]')
 p3 = re.compile('[\d]')
