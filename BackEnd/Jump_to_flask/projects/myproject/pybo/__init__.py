@@ -22,5 +22,9 @@ def create_app():                               # Flask app생성 함수 (애플
     app.register_blueprint(question_views.bp)            # question_views에 작성한 블루프린트를 등록함.
     app.register_blueprint(answer_views.bp)              # answer_views에 작성한 블루프린트를 등록함.
 
+    # 필터
+    from .filter import format_datetime
+    app.jinja_env.filters['datetime'] = format_datetime  # 날짜 포멧 필터
+
     return app                                           # app 객체 반환
 
