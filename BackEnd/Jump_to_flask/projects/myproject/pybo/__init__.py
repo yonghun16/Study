@@ -17,10 +17,11 @@ def create_app():                               # Flask app생성 함수 (애플
     from . import models
 
     # 블루프린트
-    from .views import main_views, question_views, answer_views        # main_views, question_views를 불러옴 (화면을 구성하는 메인뷰 파일)
+    from .views import main_views, question_views, answer_views, auth_views        # main_views, question_views를 불러옴 (화면을 구성하는 메인뷰 파일)
     app.register_blueprint(main_views.bp)                # main_views에 작성한 블루프린트를 등록함.
     app.register_blueprint(question_views.bp)            # question_views에 작성한 블루프린트를 등록함.
     app.register_blueprint(answer_views.bp)              # answer_views에 작성한 블루프린트를 등록함.
+    app.register_blueprint(auth_views.bp)                # auth_views에 작성한 블루프린트를 등록함.
 
     # 필터
     from .filter import format_datetime
