@@ -6,8 +6,12 @@
 .DS_Store
 .AppleDouble
 .LSOverride
+
+# Python
 __pycache__
-venvs
+.idea
+pybo.db
+*.pyc
 
 # Files of glup temp 
 dest
