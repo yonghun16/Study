@@ -11,11 +11,12 @@ public class WriteExample {
         byte b = 20;
         byte c = 30;
 
+        // 1byte 씩 출력
         os.write(a);
         os.write(b);
         os.write(c);
 
         os.flush();  // 내부 버퍼에 잔류된 바이트를 모두 출력하는 역할을 함. 
-        os.close();
+        os.close();  // 출력 스트림 닫음
     }
 }

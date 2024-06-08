@@ -15,6 +15,7 @@ public class CharacterConvertStreamExample {
     }
     public static void write(String str) throws Exception {
         FileOutputStream fos = new FileOutputStream("test12.txt");
+        // OutputStreamWriter 보조 스트림 연결
         Writer writer = new OutputStreamWriter(fos);
         writer.write(str);
         writer.flush();
@@ -23,6 +24,7 @@ public class CharacterConvertStreamExample {
 
     public static String read() throws Exception {
         FileInputStream fis = new FileInputStream("test12.txt");
+        // InputStreamReader 보조 스트림 연결
         Reader reader = new InputStreamReader(fis);
         char[] buffer = new char[100];
         int readCharNum = reader.read(buffer);
