@@ -1,11 +1,15 @@
+// A + B
 // https://www.acmicpc.net/problem/1000
 
 let fs = require('fs');
 let inputData = fs.readFileSync('/dev/stdin').toString().split('\n');
-let inputVal = inputData[0].split(' ');
+let inputNum = inputData[0].split(' ').map(Number);
 
-const a = parseInt(inputVal[0]);
-const b = parseInt(inputVal[1]);
+const a = inputNum[0];
+const b = inputNum[1];
 
-console.log(a + b);
+function getSum(a, b) {
+  return a + b
+}
 
+console.log(getSum(a, b));

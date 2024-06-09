@@ -3,19 +3,22 @@
 
 #include <stdio.h>
 
-int getSub(int inputVal_a, int inputVal_b);
+// 뺄셈 함수
+int getSub(int a, int b) {
+    return a - b;
+}
 
-int main()
+int main(void)
 {
-    int inputVal_a, inputVal_b;
-    scanf("%d %d", &inputVal_a, &inputVal_b);
+    int a, b;
+    int answer;
+
+    scanf("%d %d", &a, &b);
     
-    int answer = getSub(inputVal_a, inputVal_b);
+    answer = getSub(a, b);
+
     printf("%d", answer);
 
     return 0;
 }
 
-int getSub(int inputVal_a, int inputVal_b) {
-    return inputVal_a - inputVal_b;
-}
