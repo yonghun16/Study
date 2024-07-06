@@ -8,8 +8,10 @@ const parentEl = document.querySelector('.parent')
 
 parentEl.addEventListener('click', event => {
   console.log(event.target, event.currentTarget)
+  // event 목록을 볼 수 있다.
   console.log(event)
 })
+// wheel를 돌릴 때마다 event콜백 함수를 실행한다.
 parentEl.addEventListener('wheel', event => {
   console.log(event)
 })
