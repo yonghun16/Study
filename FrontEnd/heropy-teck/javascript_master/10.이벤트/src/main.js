@@ -1,29 +1,22 @@
-// 이벤트 추가 및 제거
+// 이벤트 객체
 
-// .addEventListener
-// 대상에 이벤트 청취(Listen)를 등록합니다.
-// 대상에 지정한 이벤트가 발생했을 때 지정한 함수(Handlerr)가 호출됩니다.
+// 이벤트 객체는 대상에서 발생한 이벤트 정보를 담고 있습니다.
+// 예를들어 마우스 이벤트 객체에는 마우의 이벤트 정보를 가지고 있습니다.
+// click, wheel 등
 
-const parentEl = document.querySelector('.parent');
-const childEl = document.querySelector('.child');
+const parentEl = document.querySelector('.parent')
 
-parentEl.addEventListener('click', () => {
-  console.log('Parent!')
+parentEl.addEventListener('click', event => {
+  console.log(event.target, event.currentTarget)
+  console.log(event)
 })
-childEl.addEventListener('click', () => {
-  console.log('Child!')
+parentEl.addEventListener('wheel', event => {
+  console.log(event)
 })
 
+const inputEl = document.querySelector('input')
 
-// .removeEventListener
-// 대상에 이벤트 청취(Listen)을 삭제합니다.
-// 대상에 지정한 이벤트가 발생했을 때 지정한 함수(Handlerr)가 실행됩니다.
-
-const handler = () => {
-  console.log('Handler!')
-}
-
-parentEl.removeEventListener('click', handler)
-childEl.removeEventListener('click', () => {
-  parentEl.removeEventListener('click', handler)  
+// key를 누를 때 마다 event콜백 함수를 실행한다.
+inputEl.addEventListener('keydown', event => {
+  console.log(event.key)
 })
