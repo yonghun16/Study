@@ -22,6 +22,8 @@ public class b1330 {
         int a = scanner.nextInt();
         int b = scanner.nextInt();
 
+        scanner.close();
+
         System.out.println(compare(a, b));
     }
 }
