@@ -1,5 +1,5 @@
-// A+B -4
-// https://www.acmicpc.net/problem/10951
+// A+B - 6
+// https://www.acmicpc.net/problem/10953
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -11,11 +11,14 @@ int getSum(int a, int b) {
 
 int main() {
     int a, b;
-    int n = 0;
+    int n;
+
+    scanf("%d", &n);
     int *results = (int *)malloc(n * sizeof(int));
 
-    while (scanf("%d %d", &a, &b) != EOF) {
-        results[n++] = getSum(a, b);
+    for (int i = 0; i < n; i++) {
+        scanf("%d,%d", &a, &b);
+        results[i] = getSum(a, b);
     }
 
     for (int i = 0; i < n; i++) {
