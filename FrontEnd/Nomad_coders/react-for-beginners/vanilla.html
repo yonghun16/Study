@@ -2,18 +2,22 @@
 <html lang="en">
 
   <body>
-    <span>Total clicks: 0</span>
+    <h3>Total clicks: 0</h3>
     <button id="btn">Click me</button>
   </body>
 
   <script>
     let counter = 0
     const button = document.getElementById("btn")
-    const span = document.querySelector("span")
+    const h3 = document.querySelector("h3")
     function handleClick() {
       counter = counter +1
-      span.innerText = `Total clicks: ${counter}`
+      h3.innerText = `Total clicks: ${counter}`
     }
+    function handleMove() {
+      console.log("mouse enter")
+    }
+    h3.addEventListener("mouseenter", handleMove)
     button.addEventListener("click", handleClick)
   </script>
 
