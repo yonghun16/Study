@@ -1,4 +1,6 @@
 /* 함수 */
+console.log()
+console.log(' * 함수 * ')
 // function hello() {
 //   console.log('hello!');
 // }
@@ -22,6 +24,8 @@ console.log(typeof getNumber())    // number
 
 
 // 매개변수 활용
+console.log()
+console.log('* 매개변수 활용 *')
 
 const a = function () {
   console.log('A')

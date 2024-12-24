@@ -1,5 +1,5 @@
 /* 참과 거짓(Truthy and Falsy) */
-
+console.log('거짓 값들')
 // 1) false
 // 2) 0
 // 3) null

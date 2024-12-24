@@ -1,4 +1,6 @@
 /* boolean */
+console.log()
+console.log(' * boolean *')
 const a = true
 const b = false
 
@@ -13,6 +15,8 @@ if (b) {
 
 
 /* null */
+console.log()
+console.log(' * null * ')
 let age = null         // 명시적(변수의 값이 존재하지 않음을 표시)
 console.log(age)       // null
 
@@ -23,14 +27,17 @@ setTimeout(function () {
 
 
 /* undefined */
+console.log()
+console.log(' * undefined * ')
 let age2 = undefined   // 암시적
-let age3               // 암시적(자동으로 들어감)
-                       // (값이 할당되지 않은 상태임을 표시)
+let age3               // 암시적(자동으로 들어감) : (값이 할당되지 않은 상태임을 표시)
 console.log(age2)
 console.log(age3)
 
 
 /* ex */
+console.log()
+console.log(' * ex * ')
 const user = {
   name: 'HEROPY',
   age: 85,
