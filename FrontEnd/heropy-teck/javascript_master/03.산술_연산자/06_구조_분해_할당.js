@@ -5,14 +5,15 @@ const arr = [1, 2, 3]
 
 
 // 1. 변수를 생성하는 경우
+console.log()
+console.log('변수를 생성하는 경우')
 const [d, e, f] = arr    // 1 2 3
-
 console.log(d, e, f)
 
 
-
-
 // 2. 미리 변수가 존재하는 경우
+console.log()
+console.log('미리 변수가 존재하는 경우')
 let a = 0
 let b = 0
 let c = 0
@@ -24,10 +25,9 @@ console.log(b, c)
 // ;[] ;() ;{} 등 괄호가 시작하면 세미콜론을 붙이기
 
 
-
-
-
 // 3. 배열 데이터로 할당 받기
+console.log()
+console.log('배열 데이터로 할당 받기')
 const [k, ...rest] = arr    // 1 [2, 3]
 console.log(k, ...rest)     // 1, 2, 3
 // arr = [1, 2, 3] 에서 1 제외한 나머지 변수들을 rest에 할당하기
@@ -38,6 +38,8 @@ console.log(k, ...rest)     // 1, 2, 3
 
 
 // 4. 객체에서의 사용
+console.log()
+console.log('객체에서의 사용')
 const obj = {
   x: 1,
   y: 2,

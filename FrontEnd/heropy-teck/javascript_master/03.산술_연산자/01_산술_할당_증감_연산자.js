@@ -1,4 +1,6 @@
 /* 산술(Arithmetic) */
+console.log()
+console.log('* 산술 *')
 
 console.log(1 + 2)
 console.log(5 - 7)
@@ -12,10 +14,11 @@ function isEven(num) {
 
 console.log(isEven(3))
 console.log(isEven(4))
-console.log()
 
 
 /* 할당(Assignment) */
+console.log()
+console.log('* 할당 *')
 
 const a = 3
 console.log("a = " + a)
@@ -28,11 +31,11 @@ console.log(b)
 let c = 3
 c += 2          // +, -, *, /, %
 console.log(c)
-console.log()
-
 
 
 /* 증감(Assertion) */
+console.log()
+console.log('* 증감 *')
 
 let d = 3
 
