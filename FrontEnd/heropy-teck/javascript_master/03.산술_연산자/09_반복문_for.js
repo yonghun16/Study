@@ -26,14 +26,18 @@ const user = {
 
 
 // For 반복문
+console.log()
+console.log('* For 반복문 *')
+
 for (let i = 0; i < fruits.length; i++) {
   console.log(fruits[i])
 }
-console.log()
-
 
 
 // For of 반복문
+console.log()
+console.log('* For of 반복문 *')
+
 for (let fruit of fruits) {
   console.log(fruit)
 }
@@ -41,11 +45,12 @@ for (let fruit of fruits) {
 for (const user of users) {
   console.log(user)
 }
-console.log()
-
 
 
 // For in 반복문
+console.log()
+console.log('* For in 반복문 *')
+
 for (let i in fruits) {
   console.log(fruits[i])
 }

@@ -1,3 +1,15 @@
+const userB = {
+  name: 'Neo',
+  age: 22
+}
+
+function getCity(user) {
+  return user.address?.city || '주소 없음'
+}
+
+console.log(getCity(userB))
+
+
 const arr1 = [1, 2, 3]
 const arr2 = [3, 5, 6]
 const arr3 = [...arr1, ...arr2]
