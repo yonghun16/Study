@@ -29,6 +29,7 @@ console.log(b, c)
 console.log()
 console.log('배열 데이터로 할당 받기')
 const [k, ...rest] = arr
+console.log(k, rest)        // 1, [2, 3]
 console.log(k, ...rest)     // 1, 2, 3
 // arr = [1, 2, 3] 에서 1 제외한 나머지 변수들을 rest에 할당하기
 // spread operator를 사용하면 배열데이터를 만들 수 있다.(?)
