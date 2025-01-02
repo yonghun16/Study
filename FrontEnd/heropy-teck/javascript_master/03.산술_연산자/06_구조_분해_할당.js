@@ -28,13 +28,11 @@ console.log(b, c)
 // 3. 배열 데이터로 할당 받기
 console.log()
 console.log('배열 데이터로 할당 받기')
-const [k, ...rest] = arr    // 1 [2, 3]
+const [k, ...rest] = arr
 console.log(k, ...rest)     // 1, 2, 3
 // arr = [1, 2, 3] 에서 1 제외한 나머지 변수들을 rest에 할당하기
 // spread operator를 사용하면 배열데이터를 만들 수 있다.(?)
 // 그 배열을 다시 전개(spread) 해주면 값만 나온다.
-
-
 
 
 // 4. 객체에서의 사용
@@ -47,11 +45,10 @@ const obj = {
   t: 7,
   o: 8
 }
-const {x, y: heropy, z, t = 4, p: ten = 10} = obj    // 1 2 3 7 10
-console.log(x, heropy, z, t, ten)
-
+const {x, y: heropy, z, t = 4, p: ten = 10} = obj
+console.log(x, heropy, z, t, ten)                  // 1 2 3 7 10
 const { o, ...rest2} = obj
-console.log(o, rest2)
+console.log(o, rest2)                              // 8 { x: 1, y: 2, z: 3, t: 7 }
 // 만약 obj 객체에 t값이 없다면 4를 출력, 
 // 객체 데이터에 초기값이 없을 경우를 대비하여 Destructuring Assignment 할 때 기본값을 설정 가능
 // y의 변수 이름을 heropy로 쓰고 싶을 때는 y: heropy로 사용 가능
