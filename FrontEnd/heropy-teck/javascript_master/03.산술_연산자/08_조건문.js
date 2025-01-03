@@ -11,7 +11,6 @@ function isPositive(number) {
 }
 
 // Switch 
-
 switch (number) {
   case 1:
     return '양수'

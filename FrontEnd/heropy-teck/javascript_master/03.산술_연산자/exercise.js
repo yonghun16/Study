@@ -1,12 +1,5 @@
-// 6 구조분해 할당
+array2 = [1, 2, 3, 4, 5, 6]
 
-
-
-const obj = {
-  x: 101,
-  y: 202,
-  z: 303
+for (let i=0; i<array2.length; i++) {
+  console.log(array2[i])
 }
-
-const {x, y: y2, z: z3=100} = obj
-console.log(x, y2, z3)

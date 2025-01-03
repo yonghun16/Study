@@ -5,10 +5,8 @@ function hello() {
   console.log('Wow')  // 출력되지 않음
 }
 
-console.log(hello())
+console.log(hello())    // hello~
 
-
-// return 아래 코드는 실행되지 않는다.
 
 
 function plus(num) {
@@ -19,6 +17,6 @@ function plus(num) {
   return num + 1
 }
 
-console.log(plus(2))
-console.log(plus(7))
-console.log(plus())
+console.log(plus(2))    // 3
+console.log(plus(7))    // 8
+console.log(plus())     // 숫자를 입력해주세요!   0

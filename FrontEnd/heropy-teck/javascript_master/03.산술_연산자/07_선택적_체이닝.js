@@ -1,4 +1,6 @@
 /* 선택적 체이닝 (Optional Chaining) */
+console.log()
+console.log('* 선택적 체이닝 (Optional Chaining) *')
 
 const user = undefined
 
