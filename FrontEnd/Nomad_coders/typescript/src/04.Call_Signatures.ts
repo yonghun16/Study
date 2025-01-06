@@ -2,7 +2,7 @@
 console.log()
 console.log('/* Call Signatures */');
 
-type Add = (a: number, b: number) => number
+type Add = (a: number, b: number) => number  // Signature
 
 const add: Add = (a, b) => a + b;
 

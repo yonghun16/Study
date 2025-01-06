@@ -7,7 +7,10 @@ type Name = string;
 
 type Player = {
   name: Name,
-  age?: Age
+  age?: Age    // *Optional chaining (?.)**은 JavaScript에서 
+               // 객체나 배열, 함수 등이 존재하지 않을 수도 
+               // 있는 상황에서 안전하게 접근할 수 있도록 
+               // 도와주는 연산자입니다.
 }
 
 const nico : Player = {
@@ -19,9 +22,9 @@ const lynn : Player = {
   name : "lynn",
 }
 
-console.log(nico.name);
-console.log(nico.age);
-console.log(lynn.name);
+console.log(nico.name);  // nico
+console.log(nico.age);   // 34
+console.log(lynn.name);  // lynn
 
 
 
