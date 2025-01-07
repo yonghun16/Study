@@ -30,20 +30,20 @@ sum(3, 7, (value)=>{
 
 // 콜백 Callback 
 // https://www.gstatic.com/webp/gallery/4.jpg
-const loadImage = (url, cb) => {
-  const imgEl = document.createElement('img')
-  imgEl.src = url
-  imgEl.addEventListener('load', () => {
-    setTimeout(() => {
-      cb(imgEl)
-    }, 1000)
-  })
-}
-
-const containerEl = document.querySelector('.container')
-containerEl.addEventListener('click', () => {
-  loadImage('https://www.gstatic.com/webp/gallery/4.jpg', imgEl => {
-    containerEl.innerHTML = ''
-    containerEl.append(imgEl)
-  })
-})
+//const loadImage = (url, cb) => {
+//  const imgEl = document.createElement('img')
+//  imgEl.src = url
+//  imgEl.addEventListener('load', () => {
+//    setTimeout(() => {
+//      cb(imgEl)
+//    }, 1000)
+//  })
+//}
+//
+//const containerEl = document.querySelector('.container')
+//containerEl.addEventListener('click', () => {
+//  loadImage('https://www.gstatic.com/webp/gallery/4.jpg', imgEl => {
+//    containerEl.innerHTML = ''
+//    containerEl.append(imgEl)
+//  })
+//})

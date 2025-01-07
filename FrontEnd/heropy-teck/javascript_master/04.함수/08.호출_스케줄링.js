@@ -5,6 +5,7 @@ const hello = () => {
 }
 
 const timeout = setInterval(hello, 1000)
+
 const h1El = document.querySelector('h1')
 h1El.addEventListener('click', () => {
   console.log('Clear!')
