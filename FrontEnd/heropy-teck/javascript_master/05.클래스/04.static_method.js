@@ -1,5 +1,6 @@
 // 정적 메소드(Static Method)
-
+// 정적 매소드는 클래스에서만 쓸 수 있다.
+// (객체의 함수호출로 사용 불가)
 class User {
   constructor(first, last) {
     this.firstName = first
@@ -24,6 +25,8 @@ const lewis = {
 }
 
 console.log(heropy.getFullName())
+//console.log(heropy.isUser())     // error
 console.log(neo.getFullName())
+
 console.log(User.isUser(heropy))
 console.log(User.isUser(lewis))
