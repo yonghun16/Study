@@ -1,4 +1,4 @@
-// 상속(Inheritance)
+/* 상속(Inheritance) */
 
 // 운송수단
 class Vehicle {
@@ -21,7 +21,7 @@ class Vehicle {
 // 자전거
 class Bicycle extends Vehicle {
   constructor(price = 100, accelerationOfBicycle) {
-    super(accelerationOfBicycle)      // 부모의 생성자를 호출함.
+    super(accelerationOfBicycle)  // 부모의 constructor를 그대로 가져옴.
     this.price = price
     this.wheel = 2
   }
@@ -45,13 +45,20 @@ class Car extends Bicycle {
   }
 }
 
+console.log()
+console.log('- 자동차 출력')
 const CarA = new Car(true, 7000, 10)
 const CarB = new Car(false, 4000, 20)
-console.log(CarA.accelerate())
-console.log(CarA.accelerate())
-console.log(CarB.accelerate())
+CarA.accelerate()        // 가속! 10
+CarA.accelerate()        // 가속! 20
+CarB.accelerate()        // 무면허
+console.log(CarA.price)  // 7000
 
+
+/* instanceof */
 // 보트
+console.log()
+console.log('- 보트 출력')
 class Boat extends Vehicle {
   constructor(price, accelerationOfBoat) {
     super(accelerationOfBoat)
@@ -62,4 +69,4 @@ class Boat extends Vehicle {
 
 const boat = new Boat(10000, 5)
 console.log(boat)
-console.log(boat instanceof Vehicle)
+console.log(boat instanceof Vehicle)   // true
