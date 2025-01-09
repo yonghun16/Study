@@ -17,7 +17,6 @@ class Bicycle extends Vehicle {
 }
 
 
-
 const car1 = new Bicycle(200, 54)
 console.log(car1.speed)
 console.log(car1.accel)
