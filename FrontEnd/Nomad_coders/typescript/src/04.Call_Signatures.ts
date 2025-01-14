@@ -1,8 +1,8 @@
 /* Call Signatures */
 console.log()
-console.log('/* Call Signatures */');
+console.log('== Call Signatures ==');
 
-type Add = (a: number, b: number) => number  // Signature
+type Add = (a: number, b: number) => number  //  call Signature
 
 const add: Add = (a, b) => a + b;
 
