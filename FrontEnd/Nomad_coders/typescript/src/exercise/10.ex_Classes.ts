@@ -21,3 +21,4 @@ class Mail extends Human {
 
 const nico = new Mail(1.80, 70, "mail");
 console.log(nico.bmi())
+
