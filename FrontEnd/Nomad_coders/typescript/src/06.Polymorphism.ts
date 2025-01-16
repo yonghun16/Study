@@ -12,3 +12,21 @@ const superPrint: SuperPrintType = (arr) => arr[0];
 console.log(superPrint([1, 2, 3, 4]))
 console.log(superPrint([true, false, true]))
 console.log(superPrint(["a", "b", "c"]))
+
+
+
+/* without generics */
+console.log()
+console.log("== without generics ==")
+
+type SuperPrintType2 = {
+  (arr: string[]): void
+  (arr: number[]): void
+  (arr: boolean[]): void
+}
+
+const superPrint2: SuperPrintType2 = (arr) => arr[0];
+
+console.log(superPrint2([1, 2, 3, 4]))
+console.log(superPrint2([true, false, true]))
+console.log(superPrint2(["a", "b", "c"]))

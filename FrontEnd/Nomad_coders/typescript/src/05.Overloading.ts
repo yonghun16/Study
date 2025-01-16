@@ -5,7 +5,7 @@ console.log("== Overloading ==");
 console.log("-- ex1) --");
 
 type Add = {
-  (a: number, b: number): number  // a를 숫자, b를 숫자를 받아 : 숫자를 반환
+  (a: number, b: number): number    // a를 숫자, b를 숫자를 함수의 인자로 받아 : 숫자를 반환
   (a: number, b: string): number
 }
 
