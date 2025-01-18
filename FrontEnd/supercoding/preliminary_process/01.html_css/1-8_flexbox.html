@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<style>
+  body {
+    border: 1px solid black;
+    height: 700px;
+    background-color: beige;
+    display: flex;
+
+    /* 가로 위치 : main-axis 방향 */
+    justify-content: start;        /* 왼쪽 이동 */
+    justify-content: end;          /* 오른쪽 이동*/
+    justify-content: center;       /* 가운데 이동 */
+
+    /* 세로 위치 : cross-axis 방향*/
+    align-items: start;            /* 위로 이동 */
+    align-items: end;              /* 아래로 이동 */
+    align-items: center;           /* 중앙 이동 */
+
+    /* 정렬 방향(main-axis 방향 변경 */
+    flex-direction: row;           /* 요소들의 가로 정렬 */
+    flex-direction: column;        /* 요소들의 세로 정렬 */
+  }
+
+  div {
+    background-color: yellowgreen;
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+  }
+</style>
+
+<body>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+</body>
+
+</html>
