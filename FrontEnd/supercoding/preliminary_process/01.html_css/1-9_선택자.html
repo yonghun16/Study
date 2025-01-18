@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>선택자(selector)</title>
+  <!--<link href="css/style.css" rel="stylesheet">-->
+  <style>
+    button {
+      margin: 2px;
+    }
+
+    #btn-1 {
+      /*id 선택자가 class선택자보다 우선순위 */
+      background-color: tomato;
+    }
+
+    .selector .btn {
+      /* 후손 선택자 : 모든 자식 요소 선택 */
+      background-color: yellow;
+    }
+
+    .btn.btn-blue {
+      /* 결합 선택자 : 두 클래스 모두를 동시에 가진 경우*/
+      background-color: skyblue;
+    }
+
+    .selector>.btn-green {
+      /* 자식 선택자 : 직접 자식 요소 선택 */
+      background-color: green;
+    }
+
+    .btn:nth-child(4) {
+      /* 구조적 가상클래스 선택자 */
+      background-color: aqua;
+    }
+
+    .selector2>button:nth-child(4) {
+      background-color: blue;
+    }
+    .selector2 button:hover {
+      background-color: white;
+    }
+    .selector2 button:active {
+      background-color: tomato;
+    }
+    .btn-request {
+      width: 150px;
+      border: none;
+      outline: none;
+      background-color: black;
+      color: white;
+      padding: 5px 10px 5px 10px;
+      font-size: 20px;
+      border-radius: 5px;
+    }
+    .btn-request:hover {
+      background-color: blue;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="selector">
+    <button class="btn" id="btn-1">1번 버튼</button>
+    <button class="btn btn-blue">2번 버튼</button>
+    <button class="btn btn-green">3번 버튼</button>
+    <button class="btn">4번 버튼</button>
+    <button class="btn">로그인</button>
+    <button class="btn">뒤로가기</button>
+  </div>
+  <div class="selector2">
+    <button class="btn-1">1번 버튼</button>
+    <button class="btn-2">2번 버튼</button>
+    <button class="btn-3">3번 버튼</button>
+    <button class="btn-4">4번 버튼</button>
+    <button class="btn-login">로그인</button>
+    <button class="btn-back">뒤로가기</button>
+  </div>
+  <div calss="request">
+    <button class="btn-request">Click me!</button>
+  </div>
+</body>
+
+</html>
