@@ -1,5 +1,7 @@
 /* Overloading */
 // 오버로딩은 여러 call signatures가 있는 함수
+
+// ex1)
 console.log();
 console.log("== Overloading ==");
 console.log("-- ex1) --");
@@ -18,7 +20,7 @@ const add: Add = (a, b) => {
 console.log(add(1, '2'))
 
 
-
+// ex2)
 console.log();
 console.log("-- ex2) --");
 

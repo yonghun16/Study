@@ -5,7 +5,8 @@
   •	제약 조건(extends)과 기본값을 사용할 수 있어 더욱 강력하고 유연한 타입 시스템을 제공합니다.
 */
 
-// 함수에서 제네릭 사용
+
+/* 함수에서 제네릭 사용 */
 console.log()
 console.log("== 함수에서 제네릭 사용 ==")
 function identity<T>(arg: T): T {
@@ -18,7 +19,7 @@ const result2 = identity<number>(42); // T를 number로 지정
 console.log(result2);
 
 
-// 제네릭의 클래스 사용
+/* 제네릭의 클래스 사용 */
 console.log()
 console.log("== 제네릭의 클래스 사용 == ")
 class Box<T> {
@@ -40,7 +41,7 @@ const numberBox = new Box<number>(123);
 console.log(numberBox.getContents()); // 123
 
 
-// 인터페이스에서 제네릭 사용
+/* 인터페이스에서 제네릭 사용 */
 console.log()
 console.log("== 인터페이스에서 제네릭 사용 ==")
 interface Pair<K, V> {

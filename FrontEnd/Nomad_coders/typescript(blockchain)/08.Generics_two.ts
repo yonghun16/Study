@@ -1,6 +1,7 @@
 /* Generic_two */
 // 제네릭은 타입을 함수의 매개변수처럼 동적으로 받을 수 있게 해줍니다.
 
+
 /* 타입의 정의 */
 console.log()
 console.log("== 타입의 정의 ==")
@@ -20,7 +21,7 @@ console.log(superPrint<boolean>([true, false, true]))
 
 
 
-// 타입의 확장
+/* 타입의 확장 */
 console.log()
 console.log("== 타입의 확장 ==")
 
