@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+
+/*푸터 */
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  border-top: 1px solid #edede0;
+}
+
+.footer-bar {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 35px;
+  align-items: center;
+  text-align: center;
+  font-family: "Noto Sans KR", serif;
+  font-optical-sizing: auto;
+  font-style: bold;
+}
+
+
+.footer-bar img {
+  width: 50px;
+  padding-bottom: 7px;
+  cursor: pointer;
+} 
