@@ -14,9 +14,12 @@ build
 node_modules
 yarn-error.log
 
-# Icon must end with two \r
-Icon
-
+# python venv files
+__pycache__
+bin
+include
+lib
+pyvenv.cfg
 
 # Thumbnails
 ._*
