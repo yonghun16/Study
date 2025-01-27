@@ -1,8 +1,25 @@
-function createMemo(event) {
+async function createMemo(value) {
+  const res = await fetch("/memos", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      id: new Date(),
+      content: value,
+    }),
+  });
+  const jsonRes = await res.json();
+  console.log(jsonRes);
+} 
+
+function handleSubmit(event) {
   event.preventDefault();
-  console.log("test");
+  const input = document.querySelector("#memo-input");
+  createMemo(input.value);
+  input.value = "";
 }
 
-const form = document.querySelector("#memo-form")
+const form = document.querySelector("#memo-form");
 
-form.addEventListener("submit", createMemo)
+form.addEventListener("submit", handleSubmit);
