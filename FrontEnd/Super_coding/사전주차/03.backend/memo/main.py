@@ -8,16 +8,35 @@ class Memo(BaseModel):
 
 memos = []
 
+
 app = FastAPI()
 
+# 메모 생성
 @app.post("/memos")
 def create_memo(memo: Memo):
     memos.append(memo)
-    return "성공공"
 
+# 메모 읽기
 @app.get("/memos")
 def read_memo():
     return memos
 
-app.mount("/", StaticFiles(directory="static", html=True), name="static")
+# 메모 수정
+@app.put("/memos/{memo_id}")
+def put_memo(req_memo: Memo):
+    for memo in memos:
+        if memo.id == req_memo.id:
+            memo.content = req_memo.content
+            return '성공'
+    return '그런 메모는 없습니다.'
 
+# 메모 삭제
+@app.delete("/memos/{memo_id}")
+def delete_memo(memo_id: int):
+    for memo in memos:
+        if memo.id == memo_id:
+            memos.remove(memo)
+            return '성공'
+    return '그런 메모는 없습니다.'
+
+app.mount("/", StaticFiles(directory="static", html=True), name="static")
