@@ -16,7 +16,8 @@ CREATE TABLE items (
   - items이라는 테이블을 생성
   - id 컬럼 생성, 자료형은 INTEGER, PRIMARY KEY로 지정
   - title 컬럼 생성, 자료형은 TEXT, NOT NULL로 지정
-  - image 컬럼 생성, 자료형은 BLOB
+  - image 컬럼 생성, 자료형은 BLOB  
+    : BLOB는 바이너리 형태의 자료형, 이미지, 음원 데이터 등를 저장하는 자료형
   - price 컬럼 생성, 자료형은 INTEGER, NOT NULL로 지정
   - description 컬럼 생성, 자료형은 TEXT
   - place 컬럼 생성, 자료형는 TEXT, NOT NULL로 지정
