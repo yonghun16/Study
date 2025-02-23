@@ -14,11 +14,10 @@ print()
 
 # 2차원 array
 B = list(
-    [          # core python
-        [1, 2, 3],
-        [4, 5, 6],
-        [7, 8, 9]
-    ])
+    [[1, 2, 3],
+     [4, 5, 6],
+     [7, 8, 9]]
+    )
 print(B)
 print()
 
@@ -26,18 +25,27 @@ A = np.array([[1,0,3,4], [5,6,0,8], [9,10,11,12]])
 print(A)
 print(A.shape)      # (3, 4) ->  (행 수, 열 수)
 print(A.ndim)       # 2      ->  2차원
+print(A.dtype)      # int64  ->  array의 data type
 print(A.itemsize)   # 8      ->  한 요소의 byte 개수 (int64 = 8byte)
 print(A.size)       # 12     ->  array의 전체 요소의 개수
-print(A.dtype)      # int64  ->  array의 data type
+print(A.nbytes)     # 96     ->  array의 전체 byte 개수
+print(A.T)          # transpose ->  array의 행열을 바꿈
+print(A.T.shape)    # (4, 3)
 print()
 
 
 # 3차원 array
-C = np.array([
-    [[1, 2, 3], [4, 5, 6], [7, 8, 9]],
-    [[10, 11, 12], [13, 14, 15], [16, 17, 18]],
-    [[19, 20, 21], [22, 23, 24], [25, 26, 27]]
-    ])
+C = np.array(
+    [[[1, 2, 3],
+      [4, 5, 6],
+      [7, 8, 9]],
+     [[10, 11, 12],
+      [13, 14, 15],
+      [16, 17, 18]],
+     [[19, 20, 21],
+      [22, 23, 24],
+      [25, 26, 27]]]
+    )
 
 # C = np.array(
 #     [                           3차원
@@ -60,3 +68,7 @@ C = np.array([
 print(C)
 print(C.shape)      # (3, 3, 3)   
 print(C.ndim)       # 3
+print(C.dtype)      # int64
+print(C.itemsize)   # 8
+print(C.size)       # 27
+print(C.nbytes)     # 216

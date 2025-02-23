@@ -8,6 +8,7 @@ print(np.complex64(1))                      # 복소수 형 scalar
 print(np.array([1, 2], dtype='complex'))    # 복소수형 수열
 print()
 
+
 ''' numpy의 장점 '''
 # 한 array에 속한 모든 요소들에 대해 일률적인 연산을 하기가 편하다.
 x = [1, 3, 4]
