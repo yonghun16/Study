@@ -57,6 +57,8 @@ function appStart() {
   // 엔터
   const handleEnterKey = async () => {
     let correct_count = 0;      // 맞은 갯수
+
+    // backend로 답변 단어 전송
     const request_word = await fetch('/answer')
     const answer_word = await request_word.json()
 
