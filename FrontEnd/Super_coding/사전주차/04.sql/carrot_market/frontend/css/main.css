@@ -1,5 +1,6 @@
 main {
   padding: 30px 0;
+  margin-bottom: 60px;
 }
 
 .item-list {
@@ -14,11 +15,13 @@ main {
 }
 
 .item-list__img {
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 12px;
   margin-right: 20px;
   width: 35%;
-  max-width: 300px;
+  img {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    max-width: 150px;
+    border-radius: 12px;
+  }
 }
 
 .item-list__info {
