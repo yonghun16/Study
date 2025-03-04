@@ -1,6 +1,5 @@
 const form = document.querySelector("#login-form");
 
-let accessToken = null;
 
 const handleSubmit = async (event) => {
   event.preventDefault();
@@ -15,7 +14,10 @@ const handleSubmit = async (event) => {
     body: formData,
   });
   const data = await res.json();
-  accessToken = data.access_token;
+  const accessToken = data.access_token;
+
+  window.localStorage.setItem("accessToken", accessToken);
+  window.sessionStorage.setItem("accessToken", accessToken);
 
 
   if (res.status === 200) {
