@@ -1,11 +1,14 @@
-from fastapi import FastAPI, UploadFile, Form, Response
+from fastapi import FastAPI, UploadFile, Form, Response, Depends, Request
 from fastapi.responses import JSONResponse
 from fastapi.encoders import jsonable_encoder
 from fastapi.staticfiles import StaticFiles
 from fastapi_login import LoginManager
 from fastapi_login.exceptions import InvalidCredentialsException
 from typing import Annotated, clear_overloads
+from fastapi.middleware.cors import CORSMiddleware
 import sqlite3
+
+
 
 con = sqlite3.connect('dd.db', check_same_thread=False)
 cur = con.cursor()
@@ -35,18 +38,34 @@ cur.execute(
 
 app = FastAPI()
 
-SERCRET = "super-coding";
-manager = LoginManager(SERCRET, '/login')
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # 모든 도메인 허용 (테스트용)
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+
+SECRET = "super-coding"
+manager = LoginManager(SECRET, '/login')
 
 @manager.user_loader()
 
-def query_user(id):
+def query_user(data):
+    print(f"🔍 Querying User with Data: {data}")  # 디버깅용 로그 추가
+    WHERE_STATEMENTS = f' id="{data}" '
+    if type(data) == dict:
+        WHERE_STATEMENTS = f''' id="{data['id']}" '''
     con.row_factory = sqlite3.Row  # 컬럼명도 같이 가져옴
     cur = con.cursor()             # cursor 오브젝트 갱신
     user = cur.execute(
         f"""
-        SELECT * from users WHERE id='{id}' 
+        SELECT * from users WHERE {WHERE_STATEMENTS}
         """).fetchone()    # fetchone() → 결과 집합에서 첫 번째 행을 반환. 만약 결과가 없으면 None을 반환.
+    
+    print(f"✅ Found User: {user}")  # 유저 데이터 출력
     return user
 
 @app.post('/login')
@@ -59,9 +78,11 @@ def login(
     elif password != user['password']:
         raise InvalidCredentialsException
     access_token = manager.create_access_token(data={
-        "name": user['name'],
-        "email": user['email'],
-        "id": user['id'],
+        'sub': {
+            "id": user['id'],
+            "name": user['name'],
+            "email": user['email'],
+        }
     })
     return {'access_token': access_token}
 
@@ -100,6 +121,7 @@ async def create_item(
     return '200'
 
 @app.get("/items")
+# async def get_items(request: Request, user=Depends(manager)):
 async def get_items():
     con.row_factory = sqlite3.Row
     cur = con.cursor()
@@ -107,7 +129,8 @@ async def get_items():
         """
         SELECT * FROM items
         """).fetchall()
-    return JSONResponse(jsonable_encoder( dict(rows) for rows in rows))
+
+    return JSONResponse(jsonable_encoder( dict(row) for row in rows))
 
 
 @app.get("/images/{item_id}")
