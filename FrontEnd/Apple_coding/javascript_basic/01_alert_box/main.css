@@ -1,7 +1,46 @@
 .alert-box {
-  background-color: skyblue;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 20px;
-  color: white;
   border-radius: 5px;
-  display: none;
+  margin: 10px;
+}
+
+.yellow {
+  background-color: #FEF5D2;
+  color: #77571A;
+}
+
+.blue {
+  background-color: #D4E6FF;
+  color: #0F478B;
+}
+
+.gray {
+  background-color: #E6E5E7;
+  color: #4F5158;
+}
+
+.btn-flow-box {
+  width: 50px;
+  margin: 10px;
+  background-color: tomato;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.btn-flow-box:hover {
+  background-color: #C23343;
+}
+
+.close {
+  cursor: pointer;
+  color: #96989e;
+}
+.close:hover {
+  color: #4F5158;
 }
