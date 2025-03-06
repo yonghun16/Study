@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Document</title>
+    <link href="css/02_main.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <div class="alert-box" id="alert">
+      알림창임
+      <button onclick="handleClose()">닫기</button>
+    </div>
+    <button onclick="handleOpen()">버튼</button>
+
+
+    <script>
+      function handleOpen() {
+        document.getElementById('alert').style.display = 'block';
+      }
+      function handleClose() {
+        document.getElementById('alert').style.display = 'none';
+      }
+    </script>
+
+  </body>
+</html>
