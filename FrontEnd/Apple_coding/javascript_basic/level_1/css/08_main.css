@@ -1,5 +1,19 @@
+/* 애니메이션 적용 3단계 
+ * 1. 시작점 상태
+ * 2. 종료점 상태
+ * 3. 시작점에 transition
+ */
 .modal {
-  display: none;
+  display: block;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s ease-out;
+}
+
+.show-modal {
+  visibility: visible;
+  opacity: 1;
+  transition: all 0.3s ease-in;
 }
 
 .black-bg {
