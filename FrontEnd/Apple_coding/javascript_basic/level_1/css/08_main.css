@@ -1,0 +1,17 @@
+.modal {
+  display: none;
+}
+
+.black-bg {
+  width : 100vw;
+  height : 100vh;
+  background : rgba(0,0,0,0.5);
+  z-index : 5;
+  padding-top: 10px;
+}
+.white-bg {
+  background: white;
+  border-radius: 5px;
+  padding: 30px;
+  margin: 30px;
+} 
