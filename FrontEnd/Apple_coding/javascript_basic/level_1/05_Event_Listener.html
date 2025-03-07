@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Document</title>
+    <link href="css/02_main.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <div class="alert-box" id="alert">
+      <p class="title1">알림창임</p>
+      <button id="close">닫기</button>
+    </div>
+    <button onclick="handleOpen('ID입력하셈', 'skyblue', 'block')">버튼1</button>
+    <button onclick="handleOpen('PW입력하셈', 'tomato', 'block')">버튼2</button>
+
+
+    <script>
+      function handleOpen(message, color, open) {
+        document.getElementsByClassName('title1')[0].innerHTML = message; 
+        document.getElementById('alert').style.backgroundColor = color;
+        document.getElementById('alert').style.display = open;
+      }
+
+      document.getElementById('close').addEventListener('click', function() {
+        handleOpen('', '', 'none');
+      });
+      // 콜백함수
+    </script>
+
+  </body>
+</html>
