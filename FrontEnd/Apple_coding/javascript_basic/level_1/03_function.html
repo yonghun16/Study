@@ -4,17 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Document</title>
-    <link href="css/02_main.css" rel="stylesheet">
+
+    <style>
+      .alert-box {
+        background-color: skyblue;
+        padding: 20px;
+        border-radius: 5px;
+        display: none;
+      }
+    </style>
+
   </head>
 
   <body>
-
-    <div class="alert-box" id="alert">
-      알림창임
-      <button onclick="handleClose()">닫기</button>
-    </div>
-    <button onclick="handleOpen()">버튼</button>
-
+    
+    <main>
+      <div class="alert-box" id="alert">
+        알림창임
+        <button onclick="handleClose()">닫기</button>
+      </div>
+      <button onclick="handleOpen()">버튼</button>
+    </main>
 
     <script>
       function handleOpen() {

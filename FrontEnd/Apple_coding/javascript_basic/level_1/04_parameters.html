@@ -4,18 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Document</title>
-    <link href="css/02_main.css" rel="stylesheet">
+
+    <style>
+      .alert-box {
+        background-color: skyblue;
+        padding: 20px;
+        border-radius: 5px;
+        display: none;
+      }
+    </style>
+
   </head>
 
   <body>
 
-    <div class="alert-box" id="alert">
-      <p id="title">알림창임</p>
-      <button onclick="handleOpen('', '', 'none')">닫기</button>
-    </div>
-    <button onclick="handleOpen('ID입력하셈', 'skyblue', 'block')">버튼1</button>
-    <button onclick="handleOpen('PW입력하셈', 'tomato', 'block')">버튼2</button>
-
+    <main>
+      <div class="alert-box" id="alert">
+        <p id="title">알림창임</p>
+        <button onclick="handleOpen('', '', 'none')">닫기</button>
+      </div>
+      <button onclick="handleOpen('ID입력하셈', 'skyblue', 'block')">버튼1</button>
+      <button onclick="handleOpen('PW입력하셈', 'tomato', 'block')">버튼2</button>
+    </main>
 
     <script>
       function handleOpen(message, color, open) {
