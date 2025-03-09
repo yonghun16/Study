@@ -69,6 +69,16 @@
        * .value 속성(property)
       */
 
+      /*
+       * input 이벤트 : 입력 중 실행, 연속감지
+       *   예 : 실시간 입력 값 검증(패스워드 충족 조건 출력), 검색어 입력시 자동완성
+       * change 이벤트 : 입력 중에는 실행되지 않음. 입력필드에서 포커스 잃었을 때, 발동
+       *   예 : 드롭다운, 체크박스, 라디오버튼 안에서 선택이 바뀌었을 때 감지. 
+      */
+
+      document.getElementById("id").addEventListener('input', () => { console.log("input") });
+      document.getElementById("pw").addEventListener('input', () => { console.log("change") });
+
       // [로그인] 버튼 누름
       document.querySelector("#login").onclick = () => {
         document.querySelector(".modal").classList.add("show-modal");    // classList.add()

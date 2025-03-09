@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+      .white-bg {
+        background: white;
+        border-radius: 5px;
+        padding: 30px;
+        margin: 30px;
+        transition: all 0.2s ease-in;
+      }
+      .dark-mode {
+        background: #444444;
+        color: white;
+        transition: all 0.2s ease-in;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+          <span class="navbar-brand">Navbar</span>
+          <span class="badge bg-dark">Switch Theme</span>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <div class="themebox white-bg">
+        <h4>369게임 업그레이드 버전이 등장했습니다.</h4>
+        <p> 369게임 업그레이드 버전은 3의 배수에서 박수를 치는건 맞지만, <br>
+          9의 배수에서는 박수를 두번 쳐야합니다. <br>
+          철수는 역시나 이것도 프로그래밍으로 이 문제를 해결하려고 합니다.</p>
+        <form class="question1">
+          <div class="my-3">
+            <input type="text" class="form-control" id="input_box1", placeholder="숫자">
+          </div>
+          <button type="submit" class="btn btn-primary" id="submitLogin">실행</button>
+        </form> 
+      </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      /*
+      * Variable (var)
+      */
+
+      // badge 클릭횟수가 홀수면 내부 글자를 Light로 변경
+      // badge 클릭횟수가 홀수면 내부 글자를 Dark로 변경
+
+      var count = 0;
+      document.querySelector('.badge').addEventListener('click', () =>{
+        count += 1;
+        if (count % 2 === 1) {
+          document.querySelector('.themebox').classList.add('dark-mode');
+        }else{
+          document.querySelector('.themebox').classList.remove('dark-mode');
+        }
+      })
+
+
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+      .white-bg {
+        background: white;
+        border-radius: 5px;
+        padding: 30px;
+        margin: 30px;
+        transition: all 0.2s ease-in;
+      }
+      .dark-mode {
+        background: #444444;
+        color: white;
+        transition: all 0.2s ease-in;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+          <span class="navbar-brand">Navbar</span>
+          <span class="badge bg-dark">Switch Theme</span>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <div class="themebox white-bg">
+        <h4>369게임 업그레이드 버전이 등장했습니다.</h4>
+        <p> 369게임 업그레이드 버전은 3의 배수에서 박수를 치는건 맞지만, <br>
+          9의 배수에서는 박수를 두번 쳐야합니다. <br>
+          철수는 역시나 이것도 프로그래밍으로 이 문제를 해결하려고 합니다.</p>
+        <form class="question1">
+          <div class="my-3">
+            <input type="text" class="form-control" id="input_box1", placeholder="숫자">
+          </div>
+          <button type="submit" class="btn btn-primary" id="submitLogin">실행</button>
+        </form> 
+      </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      /*
+      *  선언(Decleation) : 변수를 사용할 수 있도록 이름을 정의하는 과정
+      *  할당(Assignment) : 변수에 값을 저장하는 과정
+      *  범위(Scope) : 변수의 유효한 범위
+      *    - Global scpope : 전체 프로그램의 전체 범위
+      *    - Local scope : 함수의 전체 범위
+      *    - Block scope : {}와 같은 제어문의 전체 범위
+      *
+      *  var   : 재선언 O, 재할당 O, Function-scope
+      *  let   : 재선언 X, 재할당 O, {Block-scope}
+      *  const : 재선언 X, 재할당 X, {Block-scope}, 선언과 할당 동시 필요
+      *
+      *  변수 할당 vs 참조 할당
+      */
+
+      var name = 'kim';  // 선언, 할당, (global scope)
+      var name2;         // 선언, (global scope)
+      name2 = 'song';    // 할당, (global scope)
+      name2 - 'park';    // 재할당, (global scope)
+
+      function func() {
+        var name3 = 'kim';  // 선언, 할당, (local scope)
+        var name4 = 'song'; // 선언, 할당, (local scope)
+        name4 = 'park';     // 재할당, (local scope)
+      }
+      //console.log(name3);  // <error> : name3 is not defined
+
+
+      // 변수 할당 : value assignment
+      let varA = 10;
+
+      const constA = varA;
+      let varB = varA
+
+      varA = 20;
+
+      console.log(varA);   // 20
+      console.log(varB);   // 10
+      console.log(constA); // 10
+
+
+      // 참조 할당 : reference assignment
+      let arrA = [10];
+
+      let arrB = arrA;
+      const arrC = arrA;
+
+      arrA[0] = 20;
+
+      console.log(arrA[0]); // 20
+      console.log(arrB[0]); // 20
+      console.log(arrC[0]); // 20
+
+    </script>
+
+  </body>
+</html>

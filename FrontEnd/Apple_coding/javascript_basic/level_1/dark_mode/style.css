@@ -1,0 +1,51 @@
+.white-bg {
+  background: white;
+  border-radius: 5px;
+  padding: 30px;
+  margin: 30px;
+  transition: all 0.2s ease-in;
+
+  input,
+  input:focus {
+    transition: all 0.2s ease-in;
+  }
+}
+
+.dark-mode {
+  background: #3B3B3F;
+  color: #F1F3F4;
+
+  input,
+  input:focus {
+    background: #252529;
+    color: #E3E3E8;
+    border-color: #252529;
+    transition: all 0.2s ease-in;
+  }
+
+  transition: all 0.2s ease-in;
+}
+
+.badge {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.img-sun,
+.img-moon {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  padding-right: 5px;
+}
+
+.bg-white {
+  background: gray;
+  color: black;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.hidden {
+  display: none;
+}
