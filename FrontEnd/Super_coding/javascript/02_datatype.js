@@ -1,3 +1,13 @@
+// Data Type
+/* -------------------------------------------
+  * Number
+  * String
+  * Boolean
+  * Undefined
+  * Null
+  * Symbol
+  * BigInt
+------------------------------------------- */
 // 1.Number
 console.log(10);
 let num = 12;
