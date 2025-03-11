@@ -88,20 +88,21 @@ counter(); // 3
 	•	조건에 따라 '다른 함수'를 반환해야 하기 때문.
 	•	동적 함수 생성이 가능해서 유연한 코드 작성이 가능!
 */
-function getOperation(type) {
-  if (type === "add") {
-    return function(a, b) { return a + b; };        // 함수 표현식
-  } else if (type === "multiply") {
-    return function(a, b) { return a * b; };        // 함수 표현식
+function getWariorSkill(level) {
+  if (level === 12) {
+    return function(weaponDamage, skillDamage) { return `MegaSlushDmage: ${weaponDamage * skillDamage}`; };            // 함수 표현식
+  } 
+  if (level === 20) {
+    return function(weaponDamage, skillDamage) { return `GigaSulshDmage: ${weaponDamage * (skillDamage * 2)}`; };            // 함수 표현식
   }
-  return function() { return "Invalid operation"; }; // 기본 반환
+  return function() { return "스킬 습득 레벨이 아닙니다."; }; // 기본 반환
 }
 
-const addA = getOperation("add");
-console.log(addA(3, 5));      // 8
+const megaSlush = getWariorSkill(12);
+console.log(megaSlush(3, 5));      // 15
 
-const multiplyA = getOperation("multiply");
-console.log(multiplyA(3, 5)); // 15
+const gigaSlush = getWariorSkill(20);
+console.log(gigaSlush(3, 5));     // 30
 
 
 // 5. 일회성 함수 사용에 적합
