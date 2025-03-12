@@ -1,9 +1,9 @@
 // Objects
 
 /*-----------------------------------------------------
- * 객체(Object)는 **키(key)와 값(value)**으로 구성된 데이터 구조.
-   여러 값을 하나의 단위로 관리할 수 있는 자료형.
-   순서를 고려하지 않는다.
+ * 객체(Object)는 
+   - 키 기반의 Key-Value Pair로 구성된 데이터 구조.
+   - 순서를 고려하지 않는다.
 
    1.	키-값 쌍(Key-Value Pair) : 속성(property)이라고 하며, 키는 문자열 또는 심볼, 값은 어떤 자료형이든 가능.
    2.	동적 변경 가능           : 속성을 추가, 수정, 삭제할 수 가능.
@@ -61,35 +61,66 @@ const person = {
   age: 25,
   greet: function() {
     console.log(`Hello, my name is ${this.name}.`);
+  },
+  eat: function() {
+    console.log(`${this.name} now eating.`);
   }
 };
 person.greet(); // Hello, my name is Alice.
+person.eat();
 
-// 2. 생성자 함수 방식
-function Person(name, age) {
+
+// 2. Object.create() 이용 방식
+const personPrototype = {
+  greet() {
+    console.log(`Hello, my name is ${this.name}.`);
+  },
+  eat() {
+    console.log(`${this.name} now eating.`);
+  }
+};
+const jack = Object.create(personPrototype);
+jack.name = "Jack";
+jack.greet();
+jack.eat();
+
+
+// 3. 생성자 함수 방식
+function Person1(name, age) {
   this.name = name;
   this.age = age;
 }
-const person1 = new Person("Bob", 30);
-console.log(person1.name); // Bob
+Person1.prototype.greet = function() {
+  console.log(`Hello, my name is ${this.name}.`);
+};
+Person1.prototype.eat = function() {
+  console.log(`${this.name} now eating.`);
+};
 
-// 3. class 문법 (ES6)
-class Animal {
-  constructor(type) {
-    this.type = type;
+const bob = new Person1("Bob", 25);
+bob.greet();
+bob.eat();
+
+
+// 4. class 문법 (ES6)
+class Person2 {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
   }
-  speak() {
-    console.log(`${this.type} is making a sound.`);
+
+  // 메서드는 자동으로 프로토타입에 추가됨
+  greet() {
+    console.log(`Hello, my name is ${this.name}.`);
+  }
+
+  eat() {
+    console.log(`${this.name} now eating.`);
   }
 }
-const dog = new Animal("Dog");
-dog.speak(); // Dog is making a sound.
 
-// 4. Object.create() 이용
-const prototypeObj = {
-  greet() {
-    console.log("Hello!");
-  }
-};
-const obj = Object.create(prototypeObj);
-obj.greet();   // Hello!
+// 새로운 객체 생성
+const jake = new Person2("Jake", 23);
+
+jake.greet();
+jake.eat();
