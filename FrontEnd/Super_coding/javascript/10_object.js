@@ -79,8 +79,10 @@ const personPrototype = {
     console.log(`${this.name} now eating.`);
   }
 };
-const jack = Object.create(personPrototype);
-jack.name = "Jack";
+const jack = Object.create(personPrototype, {
+  name: { value: "jack" }
+});
+jack.age = 39;
 jack.greet();
 jack.eat();
 
