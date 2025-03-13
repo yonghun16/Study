@@ -1,4 +1,4 @@
-// Data Type
+// Data Type - Primitive
 /* -------------------------------------------
   * Number
   * String
