@@ -5,7 +5,7 @@
    - function statement() {}
 
  * 함수 표현식(변수에 저장 O)
-   - expression = function() {}     // '익명 함수' function() {}을 '변수' expression에 할당
+   - expression = function() {}        // '익명 함수' function() {}을 '변수' expression에 할당
 
  * '함수 표현식'이 필요한 이유
    - 클로저(외부 변수를 기억하는 내부 함수) : 실행 후에도 상태 유지 가능
@@ -41,7 +41,7 @@ console.log()
 // 2. 콜백에 익명함수 할당
 /*
   - greet을 변수에 할당해서 필요할 때 전달 가능.
-	- 익명 함수도 사용 가능 (processUserInput(function(name) { ... })).
+  - 익명 함수도 사용 가능 (processUserInput(function(name) { ... })).
 */
 function processUserInput(name, callback1, callback2, callback3) {
   callback1(name);   // 전달된 함수 실행
