@@ -40,8 +40,8 @@ function functionStatement(name) {
 console.log()
 // 2. 콜백에 익명함수 할당
 /*
-	•	greet을 변수에 할당해서 필요할 때 전달 가능.
-	•	익명 함수도 사용 가능 (processUserInput(function(name) { ... })).
+  - greet을 변수에 할당해서 필요할 때 전달 가능.
+	- 익명 함수도 사용 가능 (processUserInput(function(name) { ... })).
 */
 function processUserInput(name, callback1, callback2, callback3) {
   callback1(name);   // 전달된 함수 실행
@@ -64,9 +64,9 @@ processUserInput("Bark", greet, bye, function(name){  // '함수 표현식' 구�
 
 // 3. 클로저에 익명함수 할당
 /*
-  •	클로저(Closure) : 함수가 실행된 후에도 외부 함수의 변수를 기억하고 접근할 수 있는 함수
-	•	return function() {...}는 익명 함수 표현식으로 외부 count 변수를 기억함.
-	•	counter가 생성된 후에도 count 값을 유지하는 클로저 역할을 함.
+  - 클로저(Closure) : 함수가 실행된 후에도 외부 함수의 변수를 기억하고 접근할 수 있는 함수
+  - return function() {...}는 익명 함수 표현식으로 외부 count 변수를 기억함.
+  - counter가 생성된 후에도 count 값을 유지하는 클로저 역할을 함.
 */
 function makeCounter() {
   let count = 0;
@@ -85,8 +85,8 @@ counter(); // 3
 
 // 4. 함수를 동적으로 정의
 /*
-	•	조건에 따라 '다른 함수'를 반환해야 하기 때문.
-	•	동적 함수 생성이 가능해서 유연한 코드 작성이 가능!
+  - 조건에 따라 '다른 함수'를 반환해야 하기 때문.
+  - 동적 함수 생성이 가능해서 유연한 코드 작성이 가능!
 */
 function getWariorSkill(level) {
   if (level === 12) {
@@ -107,8 +107,8 @@ console.log(gigaSlush(3, 5));     // 30
 
 // 5. 일회성 함수 사용에 적합
 /*
-	•	한 번쓰고 말 함수에 굳이 이름을 붙일 필요는 없음.
-	•	이벤트핸들러 등에 유용함
+  - 한 번쓰고 말 함수에 굳이 이름을 붙일 필요는 없음.
+  - 이벤트핸들러 등에 유용함
 */
 document.getElementById("btn").addEventListener("click", function() {
   console.log("Button clicked!");
