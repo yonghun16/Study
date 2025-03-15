@@ -23,7 +23,6 @@ console.log('\n--- 1. ');
 console.log("전역 컨텍스트의 this : ", this);    // {} 빈 객체 출력
 
 
-
 // 2.
 const calcAge = function(birthYear) {
   console.log('\n--- 2. ');

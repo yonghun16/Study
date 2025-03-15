@@ -1,4 +1,5 @@
 // Data Type - Primitive
+
 /* -------------------------------------------
   * Number
   * String
@@ -8,10 +9,12 @@
   * Symbol
   * BigInt
 ------------------------------------------- */
+
 // 1.Number
 console.log(10);
 let num = 12;
 console.log(typeof num);
+
 
 // 2.String
 console.log("hello");
@@ -22,25 +25,30 @@ console.log(str + " " + nameA);
 let templeteLiteral = `hello hi ${nameA}`;
 console.log(templeteLiteral);
 
+
 // 3.Boolean
 let isTrue = true;
 console.log(isTrue);
 console.log(typeof isTrue);
+
 
 // 4.Undefined
 let undef;
 console.log(undef);
 console.log(typeof undef);
 
+
 // 5.Null
 let nul = null;
 console.log(nul);
 console.log(typeof nul);
 
+
 // 6.Symbol
 let symbol = Symbol();
 console.log(symbol);
 console.log(typeof symbol);
+
 
 // 7.BigInt
 let bigInt = 100n;

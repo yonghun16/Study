@@ -25,7 +25,8 @@
 -----------------------------------------------------*/
 
 // Map
-// 1.
+// 1. 
+// set(), get()
 console.log('\n--- 1.');
 const thisIsMap = new Map();
 thisIsMap.set(1, 'this is 1');
@@ -36,13 +37,17 @@ console.log(thisIsMap.get(1));         // get(key)
 console.log(thisIsMap.get(true));
 console.log(thisIsMap.get(2));         // undefined
 
+
 // 2.
+// for...of, Key, value 동시 출력
 console.log('\n--- 2.');
 for (const element of thisIsMap) {
   console.log(element);                // thisIsMap key, value 출력
 }
 
+
 //3. 
+// delete()
 console.log('\n--- 3.');
 thisIsMap.delete(1);                   // map의 1이란 key를 삭제
 for (const element of thisIsMap) {

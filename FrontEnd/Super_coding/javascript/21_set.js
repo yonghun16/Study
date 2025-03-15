@@ -6,7 +6,7 @@
    - 값이 중복해서 들어갈 수 없다.
    - 이터러블(iterable)
 
- * Set VS Array
+ * Array VS Set
    1) 중복 
      - Array : 중복 가능
      - Set   : 중복 불가
@@ -36,18 +36,22 @@ thisIsSet.add(true);
 
 
 // 1.
+// 중복 불가
 console.log('\n--- 1.');
 console.log(thisIsSet);
 thisIsSet.add('pasta');                   // 중복된 값은 추가하지 않음
 
 
 // 2.
+// has()
 console.log('\n--- 2.');
 console.log(thisIsSet.has('pizza'));      // 값이 존재하면 true
 console.log(thisIsSet.has('risotto'));    // 없으면 false
 
+
 // 3.
+// for ...of
 console.log('\n--- 3.');
-for (const element of thisIsSet) {        // for of
+for (const element of thisIsSet) {
   console.log(element);
 }
