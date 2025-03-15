@@ -46,6 +46,7 @@ booker();    // passengerCount 3
 
 
 // 2.
+// 외부변수가 전역변수 일수도 있음.
 console.log('\n--- 2.');
 let count = 0;
 
