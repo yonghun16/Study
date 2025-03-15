@@ -1,4 +1,4 @@
-## 2. jsx
+## JSX 
 
 #### JSX는 JavaScript 안에 있는 HTML 코드
 

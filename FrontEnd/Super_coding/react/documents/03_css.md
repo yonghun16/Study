@@ -1,4 +1,4 @@
-## 3. CSS
+## CSS
 
 #### BEM
 - BEM : Block Element Modifier

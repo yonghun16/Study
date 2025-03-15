@@ -1,4 +1,4 @@
-## 1. component
+## Component
 
 #### react 프로젝트 셋업
 ```bash
