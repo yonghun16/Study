@@ -14,3 +14,8 @@ rafce     // reactArrowFunctionComponentExport -> vim에서 빈 컴포넌트 만
 </>
 ```
 
+#### Formatter
+- Vscode 포메팅 단축키 : 기본 설정 > 바로 가기 키 > 문서 서식(Format Document)
+  - default : <shitft> + <option> + f
+- Nvchad 포메팅 단축키 : <leader> + f + m
+
