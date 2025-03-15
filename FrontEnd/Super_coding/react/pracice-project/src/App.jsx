@@ -1,11 +1,15 @@
 import { useState } from 'react'
 import './css/css.css'
-import PracticeOfCss from './components/PracticeOfCss.jsx'
+import Toast from './components/Toast.jsx'
 
 function App() {
   return (
     <>
-      <PracticeOfCss />
+      <div className='wrapper'>
+        <Toast />
+        <Toast />
+        <Toast />
+      </div>
     </>
   )
 }
