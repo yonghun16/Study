@@ -1,3 +1,3 @@
-first react project
+## first react project
 
-$ npm create vite@latest first-react-project --template react
+Super Coding React.js Recture
