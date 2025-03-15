@@ -1,5 +1,7 @@
 ## 2. jsx
 
+#### JSX는 JavaScript 안에 있는 HTML 코드
+
 #### React snippet
 ```jsx
 rsc       // reactStatelessComponent     -> vscode에서 빈 컴포넌트 만들기 스니펫
