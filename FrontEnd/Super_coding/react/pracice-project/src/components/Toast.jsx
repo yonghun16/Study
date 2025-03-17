@@ -1,13 +1,11 @@
 import React from 'react'
+import ToastMessage from './ToastMessage.jsx'
+import ToastButton from './ToastButton.jsx'
 
-const Toast = (props) => {
+const Toast = ({message, children}) => {
   return (
-    <div className={`toast toast-${props.title}`}>
-      <main className="toast__message">
-        <header className="toast__message-title">{props.title}</header>
-        <p className="toast__message-text">{props.text}</p>
-      </main>
-      <button className="toast__button">Dismiss</button>
+    <div className={`toast toast-${message.title}`}>
+      {children}
     </div>
   )
 }

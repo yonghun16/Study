@@ -1,41 +1,39 @@
 import { useState } from 'react'
 import './css/css.css'
 import Toast from './components/Toast.jsx'
+import ToastMessage from './components/ToastMessage.jsx'
+import ToastButton from './components/ToastButton.jsx'
 
 function App() {
   const messageArray = [
     {
       title: 'Success',
-      text: 'Right on1!',
-    },
-    {
-      title: 'Success',
-      text: 'Right on2!',
+      text: 'Right on!',
     },
     {
       title: 'Error',
-      text: 'Something went wrong1',
-    },
-    {
-      title: 'Error',
-      text: 'Something went wrong2',
+      text: 'Something went too wrong',
     },
     {
       title: 'Warning',
-      text: 'Be careful1',
-    },
-    {
-      title: 'Warning',
-      text: 'Be careful2',
+      text: 'Be careful',
     },
   ];
   return (
     <>
       <div className='wrapper'>
-        {
-          messageArray.map((message) => 
-            <Toast title={message.title} text={message.text} />
-        )}
+        <Toast message={messageArray[0]}>
+          <ToastMessage message={messageArray[0]}/>
+          {/* <ToastButton /> */}
+        </Toast>
+        <Toast message={messageArray[1]}>
+          <ToastMessage message={messageArray[1]}/>
+          <ToastButton />
+        </Toast>
+        <Toast message={messageArray[2]}>
+          <ToastMessage message={messageArray[2]}/>
+          <ToastButton />
+        </Toast>
       </div>
     </>
   )
