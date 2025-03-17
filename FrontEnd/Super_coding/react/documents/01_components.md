@@ -7,7 +7,7 @@ $ npm create vite@latest first-react-project --template react
 
 #### 컴포넌트 나누기
 - 컴포넌트는 하나의 '관심사'만 담기
-```react
+```jsx
 // App.jsx
 <>
   <div className='wrapper'>
@@ -32,7 +32,7 @@ const Toast = ({message}) => {
 #### 컴포넌트 합성
 - UI가 바뀌어서 컴포넌트들을 재조합 해야 하는 경우는 어떡할까? 
 - 컴포넌트 합성을 통해 유연하게 변화에 대응
-```react
+```jsx
 // App.jsx
 <>
   <div className='wrapper'>
