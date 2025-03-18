@@ -6,6 +6,20 @@
 - 조합은 하이픈(-)으로 연결하여 작명
 - 네이밍 조합은 '형태' > '의미' > '순서__상태'를 기본 순서로 사용
 - 네이밍 조합의 _ 는 파일, 폴더, 이미지 등에 사용
+- BEM에서는 하위 엘리먼트의 하위 엘리먼트가 존재할 경우, 직접적인 부모 블록을 기준으로 네이밍한다. 즉, “계층 구조를 CSS 클래스 명에 반영하지 않는다.”
+```html
+<div class="card">
+  <div class="card__header">
+    <h2 class="card__header__title">Title</h2> <!-- ❌ 잘못된 네이밍 -->
+  </div>
+</div>
+
+<div class="card">
+  <div class="card__header">
+    <h2 class="card__title">Title</h2> <!-- ✅ "card"를 기준으로 네이밍 -->
+  </div>
+</div>
+```
 
 #### CSS 적용 방법들
 - inline CSS 
