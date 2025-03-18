@@ -6,7 +6,7 @@ const PaymentForm = () => {
   const [objectStage, setObjectStage] = useState({
     name: ' ',
     price: 0,
-    today: null
+    today: new Date().toISOString().split('T')[0]
   });
   //const [name, setName] = useState(' ');
   //const [price, setPrice] = useState(0);
@@ -35,10 +35,15 @@ const PaymentForm = () => {
     console.log('name', objectStage.name);
     console.log('price', objectStage.price);
     console.log('today', objectStage.today);
+    setObjectStage({
+      name: '',
+      price: 0,
+      today: new Date().toISOString().split('T')[0]
+    });
   };
 
   return (
-    <form>
+    <form onSubmit={buttonSubmitHandler}>
       <div className='new-payment__controls'>
         <div className='new-payment__control'>
           <label>이름</label>
@@ -70,7 +75,7 @@ const PaymentForm = () => {
         </div>
       </div>
       <div className='new-payment__actions'>
-        <button type='button' onClick={buttonSubmitHandler}>결제 추가</button>
+        <button type='submit' >결제 추가</button>
       </div>
     </form>
   );
