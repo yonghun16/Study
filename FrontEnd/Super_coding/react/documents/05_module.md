@@ -9,8 +9,8 @@ export default Toast;
 
 #### export를 하는 두 가지 방법
 - 하나의 파일은 하나의 default export만 가능하다.
-- 1. 코드의 마지막에 export default Toast;
-- 2. 코드의 처음에 export default function Toast() {...}
+  1. 코드의 마지막에 export default Toast;
+  2. 코드의 처음에 export default function Toast() {...}
 
 #### export default vs export 차이점
 - 개수 제한
