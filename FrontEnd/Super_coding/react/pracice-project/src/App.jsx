@@ -24,7 +24,7 @@ function App() {
       <div className='wrapper'>
         <Toast message={messageArray[0]}>
           <ToastMessage message={messageArray[0]}/>
-          {/* <ToastButton /> */}
+          <ToastButton />
         </Toast>
         <Toast message={messageArray[1]}>
           <ToastMessage message={messageArray[1]}/>

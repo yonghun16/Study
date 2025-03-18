@@ -1,14 +1,19 @@
-import React from 'react'
-import ToastMessage from './ToastMessage.jsx'
-import ToastButton from './ToastButton.jsx'
+import React from 'react';
+import './Toast.css';
+import ToastMessage from './ToastMessage';
 
-const Toast = ({message, children}) => {
+const Toast = ({ message }) => {
+  const buttonClickHandler = (title) => {
+    console.log(title);
+  }
   return (
     <div className={`toast toast-${message.title}`}>
-      {children}
+      <ToastMessage message={message}/>
+      <button className="toast__button" onClick={() => buttonClickHandler(message.title)}>
+        Dismiss
+      </button>
     </div>
-  )
-}
+  );
+};
 
-export default Toast
-
+export default Toast;
