@@ -7,6 +7,7 @@ $ npm create vite@latest first-react-project --template react
 
 #### 컴포넌트 나누기
 - 컴포넌트는 하나의 '관심사'만 담기
+- 하나의 '컴포넌트'는 하나의 '함수'다.
 ```jsx
 // App.jsx
 <>
