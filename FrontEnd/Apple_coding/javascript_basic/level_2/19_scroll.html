@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+      .navbar {
+        position: fixed;
+        width: 100%;
+        z-index: 5;
+      }
+      .navbar-brand {
+        font-size: 30px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <main>
+      <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+          <span class="navbar-brand">JSShop</span>
+          <span class="ms-auto mx-3 badge bg-dark">Dark</span>
+          <button class="navbar-toggler" type="button">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </nav>
+      <div class="lorem" style="position: fixed; top: 100px; width: 200px; height: 300px; overflow-y: scroll">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </div>
+      <div style="height: 2000px"></div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script>
+      window.addEventListener('scroll', () => {
+        const navbar = document.querySelector('.navbar');
+        if (window.scrollY > 500) {
+          navbar.classList.add('bg-dark');
+          navbar.classList.add('text-light');
+        } else {
+          navbar.classList.remove('bg-dark');
+          navbar.classList.remove('text-light');
+        }
+      })
+
+      const lorem = document.querySelector('.lorem');
+      lorem.addEventListener('scroll', () => {
+        if (lorem.scrollTop > 100) {
+          document.querySelector('.navbar-brand').style.fontSize = '20px';
+          var scrollTop = lorem.scrollTop;  // 스크롤 위치(스크롤 양)
+          var scrollHeight = lorem.scrollHeight;  // 스크롤바 높이
+          var clientHeight = lorem.clientHeight;  // 컨텐츠 높이
+          var scrollPercent = scrollTop / (scrollHeight - clientHeight);  // 스크롤 퍼센트
+          alert("확인");
+        }
+      })
+    </script>
+  </body>
+</html>
