@@ -31,3 +31,5 @@
 * [3. CSS Modules](https://github.com/yonghun16/Study/blob/main/FrontEnd/Super_coding/react/documents/styling/03_CSS_Modules.md)
 * [4. tailwindCSS](https://github.com/yonghun16/Study/blob/main/FrontEnd/Super_coding/react/documents/styling/04_tailwindcss.md)
 
+### Debuging
+* [Debuging](https://github.com/yonghun16/Study/blob/main/FrontEnd/Super_coding/react/documents/debuging/debuging.md)
