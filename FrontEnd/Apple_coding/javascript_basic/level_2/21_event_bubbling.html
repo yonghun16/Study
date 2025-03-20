@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+      .modal {
+        display: block;
+        visibility: hidden;
+        opacity: 0;
+        transition: all 0.3s ease-out; 
+      }
+
+      .show-modal {
+        visibility: visible;
+        opacity: 1;
+        transition: all 0.3s ease-out; 
+      }
+
+      .black-bg {
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 5;
+        padding-top: 10px;
+      }
+
+      .white-bg {
+        background: white;
+        border-radius: 5px;
+        padding: 30px;
+        margin: 30px;
+      }
+    </style>
+
+  </head>
+  <body>
+
+    <main>
+      <button class="btn btn-primary" id="login">로그인</button>
+      <div class="modal">
+        <div class="black-bg">
+          <div class="white-bg">
+            <h4>로그인하세요</h4>
+            <form action="success.html">
+              <div class="my-3">
+                <input type="text" class="form-control" id="id" placeholder="email">
+              </div>
+              <div class="my-3">
+                <input type="password" class="form-control" id="pw">
+              </div>
+              <button type="submit" class="btn btn-primary" id="submitLogin">전송</button>
+              <button type="button" class="btn btn-danger" id="close">닫기</button>
+            </form> 
+          </div>
+        </div> 
+      </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <script>
+      /* 이벤트 버블링 */
+      // 모든 브라우져는 이벤트 버블링이 일어남 (이벤트가 상위 html로 퍼지는 현상)
+      document.querySelector(".black-bg").onclick = (e) => {
+        e.target;             // 유저가 실제로 누른거
+        e.currentTarget;      // 이벤트리스너가 달린 곳 (this와 같음)
+        this;
+        e.preventDefault();   // 서브밋 안된 걸로 보여주세요
+        e.stopPropagation();  // 이벤트를 상위로 이동하지 않아요
+
+        if (e.target.className === "black-bg") {
+          document.querySelector(".modal").classList.remove("show-modal");
+        }
+      }
+    </script>
+
+    <script>
+      document.getElementById("id").addEventListener('input', () => { console.log("input") });
+      document.getElementById("pw").addEventListener('input', () => { console.log("change") });
+
+      // [로그인] 버튼 누름
+      document.querySelector("#login").onclick = () => {
+        document.querySelector(".modal").classList.add("show-modal");    // classList.add()
+      }
+      // [닫기] 버튼 누름
+      document.querySelector("#close").onclick = () => {
+        document.querySelector(".modal").classList.remove("show-modal");  // classList.remove()
+      }
+      // [전송] 버튼 누름
+      document.querySelector("form").addEventListener("submit", () => {   // "submit" event
+        if (document.querySelector("#id").value === "") {
+          alert("ID와 입력 안함");
+          event.preventDefault()
+        }
+        else if(!(/\S+@\S+\.\S+/.test(document.querySelector("#id").value))) {
+          alert("옳바른 이메일 형식이 아닙니다.");
+          event.preventDefault()
+        }
+        else if (document.querySelector("#pw").value.length < 6) {
+          alert("6자 이상의 PW를 입력해주세요");
+          event.preventDefault()
+        }
+        else if (!(/[A-Z]/.test(document.querySelector("#pw").value))) {
+          alert("PW에 대문자를 추가해주세요");
+          event.preventDefault()
+        }
+        else {
+          location.href = "success.html";
+        }
+      })
+    </script>
+
+  </body>
+</html>
