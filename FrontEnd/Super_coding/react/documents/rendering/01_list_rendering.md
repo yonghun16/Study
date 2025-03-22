@@ -43,3 +43,10 @@ const Expenses = (props) => {
     </Card>
   );
 ```
+
+#### 리엑트가 리렌더링 되는 경우
+- state 변경이 있을 때
+- 부모 컴포넌트가 렌더링 될 때
+- 새로운 props이 들어올 때
+- shouldComponentUpdate에서 true를 반환될 때
+- forceUpdate가 실행될 때
