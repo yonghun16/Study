@@ -8,7 +8,3 @@
 #### 이벤트 버블링 막기
 - event.stopPropagation();
 
-#### 복잡한 이벤트와 상태 디자인하기
-- 동작 설명해 보기
-- State와 event handler로 나누기
-- 비슷한 것 묶기
