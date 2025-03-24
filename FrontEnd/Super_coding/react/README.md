@@ -1,8 +1,8 @@
 ## Super Coding - React.js Recture
 
-### Reference
-- https://react.dev/learn
-- https://ko.react.dev/
+#### Reference
+> https://react.dev/learn
+> https://ko.react.dev/
 
 ### React Basics
 * [1. components](https://github.com/yonghun16/Study/blob/main/FrontEnd/Super_coding/react/documents/basics/01_components.md)
