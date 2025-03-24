@@ -1,7 +1,7 @@
 ## Super Coding - React.js Recture
 
-#### Reference
-> https://react.dev/learn
+#### \<Reference>
+> https://react.dev/learn <br />
 > https://ko.react.dev/
 
 ### React Basics
@@ -37,8 +37,8 @@
 ### Event
 * [Event](https://github.com/yonghun16/Study/blob/main/FrontEnd/Super_coding/react/documents/event/event.md)
 
-### design
+### Design
 * [Design](https://github.com/yonghun16/Study/blob/main/FrontEnd/Super_coding/react/documents/design/state_handler_design.md)
 
-### sort
+### Sort
 * [Sort](https://github.com/yonghun16/Study/blob/main/FrontEnd/Super_coding/react/documents/sort/sort.md)
