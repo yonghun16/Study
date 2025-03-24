@@ -3,6 +3,7 @@ import './DropdownOptions.css'
 
 const DropdownOptions = ({ options, handleSelect }) => {
 
+  /* function */
   const renderedOptions = options.map((option) => {
     return (
       <div key={option.value} className="dropdown-options" onClick={() => handleSelect(option)}>
@@ -11,6 +12,7 @@ const DropdownOptions = ({ options, handleSelect }) => {
     );
   });
 
+  /* render */
   return (
     <div>{renderedOptions}</div>
   )

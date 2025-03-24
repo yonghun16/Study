@@ -17,6 +17,7 @@ const Dropdown = ({ options }) => {
     setIsOpen(false);
   }
 
+  /* render */
   return (
     <>
       <div className="dropdown" onClick={handleClick} >
