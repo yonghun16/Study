@@ -1,4 +1,4 @@
-## Super Coding - React.js Recture
+## Super Coding - React.js Lecture
 
 #### \<Reference>
 > https://react.dev/learn <br />
