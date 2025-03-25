@@ -10,7 +10,7 @@ const AddUser = (props) => {
   //const [enteredUsername, setEnteredUsername] = useState('');  // 결론적으로 전에 있던 이 state는
   //const [enteredAge, setEnteredAge] = useState('');            // 쓰이지 않게 됨
 
-  const nameInputRef = useRef();                  // * useRef();
+  const nameInputRef = useRef();                   // * useRef();
   const ageInputRef = useRef();
 
   const [error, setError] = useState();
@@ -37,14 +37,14 @@ const AddUser = (props) => {
       return;
     }
     props.onAddUser(enteredUsername, enteredAge);
-    nameInputRef.current.value = '';                        // ref로 직접 dom조작
-    ageInputRef.current.value = '';                        // ref로 직접 dom조작
+    nameInputRef.current.value = '';                   // ref로 직접 dom조작
+    ageInputRef.current.value = '';                    // ref로 직접 dom조작
     //setEnteredUsername('');
     //setEnteredAge('');
   };
 
-  //const usernameChangeHandler = (event) => {   // ref로 직접 조작하기에 필요 없는 코드
-  //  setEnteredUsername(event.target.value);
+  //const usernameChangeHandler = (event) => {         // ref로 직접 조작하기에 필요 없는 코드
+  //  setEnteredUsername(event.target.value);          // (state를 사용할 필요가 없음)
   //};
   //
   //const ageChangeHandler = (event) => {
