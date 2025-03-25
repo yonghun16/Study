@@ -1,6 +1,7 @@
 ## useEffect
 
-> https://ko.react.dev/reference/react/useEffect
+> https://ko.react.dev/reference/react/useEffect <br />
+> https://react.dev/learn/synchronizing-with-effects
 
 #### 사이드 이펙트
 - React의 **side effect(부작용)**는 컴포넌트의 렌더링 과정과 직접적인 관련이 없는 코드 실행을 의미함. 
