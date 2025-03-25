@@ -8,10 +8,12 @@
 - 모달 (Modal) → 부모 컴포넌트의 overflow: hidden 같은 스타일 영향을 안 받게 함.
 - 툴팁 (Tooltip) → 특정 요소 위에 떠야 하는 UI를 구현할 때.
 - 드롭다운 (Dropdown) → 부모 요소에 의해 가려지지 않도록 하기 위해.
-> \<div> <br>
-> &nbsp;&nbsp;  \<SomeComponent /> <br>
-> &nbsp;&nbsp;   {createPortal(children, domNode, key?)} <br>
-> \</div>
+```jsx
+<div>
+  <SomeComponent /> <br>
+  {createPortal(children, domNode, key?)} <br>
+</div>
+```
 ```jsx
 const ErrorModal = (props) => {
   return (
