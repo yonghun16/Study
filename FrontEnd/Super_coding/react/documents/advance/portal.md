@@ -10,8 +10,8 @@
 - 드롭다운 (Dropdown) → 부모 요소에 의해 가려지지 않도록 하기 위해.
 ```jsx
 <div>
-  <SomeComponent /> <br>
-  {createPortal(children, domNode, key?)} <br>
+  <SomeComponent />
+  {createPortal(children, domNode, key?)}   // 3번째 인자는 옵셔널....
 </div>
 ```
 ```jsx
