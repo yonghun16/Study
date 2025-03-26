@@ -26,6 +26,7 @@ const AuthContext = React.createContext({      // Context 생성
 });
 export default AuthContext;
 
+
 /* 2. Context를 설정(App.jsx). */
 // App.js의 렌더링 되는 최상단에 AuthContext를 적용
   return (
@@ -41,6 +42,7 @@ export default AuthContext;
       </main>
     </AuthContext.Provider>
   );
+
 
 /* 3. 중간, 하위 자식 컴포넌트 적용(Navigation.jsx). */
 // 중간 컴포넌트에서 props를 전달할 필요 없음
