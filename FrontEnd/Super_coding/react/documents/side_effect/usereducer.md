@@ -32,8 +32,7 @@ const reducer = (state, action) => {
       return state;
   }
 };
-```
-```jsx
+
 const [state, dispatch] = useReducer(reducer, initialArg, init?)
 ```
 - 요소 설명
