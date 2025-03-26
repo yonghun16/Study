@@ -142,7 +142,7 @@ const CustomInput = forwardRef((props, ref) => {
   return <input ref={inputElementRef} {...props} />; // <input> tag를 ref함.
 });
 
-// 부목 컴포넌트
+// 부모 컴포넌트
 const ParentComponent = () => {
   const customInputRef = useRef();                  // 1️⃣  부모 컴포넌트 ref 생성 ->  CustomInput의 ref를 가리킴
 

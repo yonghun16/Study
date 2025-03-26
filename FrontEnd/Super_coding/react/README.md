@@ -57,4 +57,4 @@
 * [forwardRef](https://github.com/yonghun16/Study/blob/main/FrontEnd/Super_coding/react/documents/side_effect/forwardref.md)
 
 ### Optimize
-* [Optimize](https://github.com/yonghun16/Study/blob/main/FrontEnd/Super_coding/react/documents/optimize/memo.md)
+* [memo](https://github.com/yonghun16/Study/blob/main/FrontEnd/Super_coding/react/documents/optimize/memo.md)
