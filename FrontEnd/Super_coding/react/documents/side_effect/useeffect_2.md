@@ -8,11 +8,6 @@
     setFormIsValid(
       enteredEmail.includes('@') && enteredPassword.trim().length > 6
     );
-
-    setFormIsValid(
-      enteredPassword.trim().length > 6 && enteredEmail.includes('@')
-    );
-
   }, [enteredEmail, enteredPassword]);  // enteredEmail과 enteredPassword가 변경된 때만 로직 수행
 ```
 
@@ -21,7 +16,7 @@
 - 동일한 이벤트가 짧은 시간내 반복해서 실행되는 경우 일정 시간 지연 시킨 후 처리힌다.
 - 일정시간 안에 동일 이벤트가 다시 발생하면 마지막 발생 시점부터 일정 시간을 지연한다.
 
-#### cleanup 함수
+#### cleanup 함수로 debounce 구현
 - React의 useEffect에서 클린업 함수(cleanup function) 는 useEffect가 다시 실행되기 전에 실행되는 함수.
 - 이 함수는 보통 타이머 제거, 이벤트 리스너 해제, 메모리 정리 등의 역할을 함.
 - 실행 흐름
