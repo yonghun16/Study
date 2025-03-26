@@ -3,7 +3,7 @@ import AuthContext from '../../context/AuthContext';
 
 import classes from './Navigation.module.css';
 
-const Navigation = (props) => {
+const Navigation = () => {
   const context = useContext(AuthContext);  // context를 불러옴
 
   return (
@@ -21,7 +21,7 @@ const Navigation = (props) => {
         )}
         {context.isLoggedIn && (
           <li>
-            <button onClick={props.onLogout}>로그아웃</button>
+            <button onClick={context.onLogout}>로그아웃</button>
           </li>
         )}
       </ul>

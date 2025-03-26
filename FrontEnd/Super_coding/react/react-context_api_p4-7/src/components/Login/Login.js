@@ -1,8 +1,9 @@
-import React, { useState, useEffect, useReducer } from 'react';
+import React, { useState, useReducer, useContext } from 'react';
 
 import Card from '../UI/Card/Card';
 import classes from './Login.module.css';
 import Button from '../UI/Button/Button';
+import AuthContext from '../../context/AuthContext';
 
 // Email Reducer
 const emailReducer = (state, action) => {
@@ -49,7 +50,8 @@ const passwordReducer = (state, action) => {
 
 };
 
-const Login = (props) => {
+const Login = () => {
+  const context = useContext(AuthContext);
   //아래 서로 관련 있는 state를 useReducer를 사용해서 하나로 합치고자 함
   //const [enteredEmail, setEnteredEmail] = useState('');       // Email 입력 state
   //const [emailIsValid, setEmailIsValid] = useState();         // Email 검증 state
@@ -90,7 +92,7 @@ const Login = (props) => {
   /* Submit Handler */
   const submitHandler = (event) => {
     event.preventDefault();
-    props.onLogin(emailState.value, passwordState.value);
+    context.onLogin(emailState.value, passwordState.value);
   };
 
   return (
