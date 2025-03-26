@@ -1,5 +1,9 @@
 ## context API 1
 
+> https://react.dev/reference/react/createContext <br />
+> https://react.dev/reference/react/useContext <br />
+> https://react.dev/learn/passing-data-deeply-with-context 
+
 #### Context API란?
 - React의 Context API는 주로 전역 상태 관리를 위해 사용됨.
 
@@ -14,24 +18,49 @@
 
 #### Context API 기본 사용법
 ```jsx
-// Context 생성
-const ThemeContext = createContext();
+/* 1. Context 생성 (AuthContext.jsx) */
+import React from "react";
 
-function App() {
+const AuthContext = React.createContext({      // Context 생성
+  isLoggedIn: false,
+});
+export default AuthContext;
+
+/* 2. Context를 설정(App.jsx). */
+// App.js의 렌더링 되는 최상단에 AuthContext를 적용
   return (
-    <ThemeContext.Provider value="dark">
-      <ChildComponent />
-    </ThemeContext.Provider>
+    <AuthContext.Provider 
+      value={{ 
+        isLoggedIn: isLoggedIn,    // 로그인이 되어 isLoggedIn=true가 되면 context의 isLoggedIn=true가 됨
+                                   // 그러면 다른 하위 자식 컴포넌트도 isLoggedIn=true로 상태를 받을 수 있음.
+      }}>
+      <MainHeader isAuthenticated={isLoggedIn} onLogout={logoutHandler} />
+      <main>
+        {!isLoggedIn && <Login onLogin={loginHandler} />}
+        {isLoggedIn && <Home onLogout={logoutHandler} />}
+      </main>
+    </AuthContext.Provider>
   );
-}
 
+/* 3. 중간, 하위 자식 컴포넌트 적용(Navigation.jsx). */
 // 중간 컴포넌트에서 props를 전달할 필요 없음
-function ChildComponent() {
-  return <GrandChildComponent />;
-}
+const Navigation = (props) => {
+  const context = useContext(AuthContext);  // context를 불러옴
 
-function GrandChildComponent() {
-  const theme = useContext(ThemeContext);
-  return <p>현재 테마: {theme}</p>;
-}
+  return (
+    <nav className={classes.nav}>
+      <ul>
+        {context.isLoggedIn && (            // props.isLoggedIn 대신에 context.isLoggedIn을 사용함
+          <li> <a href="/">사용자</a> </li>
+        )}
+        {context.isLoggedIn && (
+          <li> <a href="/">어드민</a> </li>
+        )}
+        {context.isLoggedIn && (
+          <li> <button onClick={props.onLogout}>로그아웃</button> </li>
+        )}
+      </ul>
+    </nav>
+  );
+};
 ```
