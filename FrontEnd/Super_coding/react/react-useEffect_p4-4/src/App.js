@@ -7,7 +7,7 @@ import MainHeader from './components/MainHeader/MainHeader';
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  useEffect(() => {           // ** useEffect
+  useEffect(() => {            // ** useEffect
     // 만약 로그인이 되었다면, isLoggedIn = true
     const storedUserLoggedInInfo = localStorage.getItem('isLoggedIn');
     if (storedUserLoggedInInfo === '1') {

@@ -1,4 +1,4 @@
-## useEffect
+## useEffect 1
 
 > https://ko.react.dev/reference/react/useEffect <br />
 > https://react.dev/learn/synchronizing-with-effects

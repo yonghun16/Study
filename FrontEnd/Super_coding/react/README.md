@@ -49,4 +49,5 @@
 * [Ref](https://github.com/yonghun16/Study/blob/main/FrontEnd/Super_coding/react/documents/advance/ref.md)
 
 ### Side Effect
-* [Side Effect](https://github.com/yonghun16/Study/blob/main/FrontEnd/Super_coding/react/documents/side_effect/useeffect.md)
+* [Side Effect 1](https://github.com/yonghun16/Study/blob/main/FrontEnd/Super_coding/react/documents/side_effect/useeffect_1.md)
+* [Side Effect 2](https://github.com/yonghun16/Study/blob/main/FrontEnd/Super_coding/react/documents/side_effect/useeffect_2.md)
