@@ -14,11 +14,6 @@ const memoizedCallback = useCallback(() => {
 }, [dependencies]);
 ```
 
-#### useCallback 안에 변하는 값이 들어간다면?
-- useCallback도 하나의 클로저
-- 만약에 함수가 생성이 될 때마다 바뀌어야 하는 값이 있다면, 그 변화를 useCallback에서 기억을 해 주어야 한다.
-- 그러한 값들을 dependencies에 넣어주면 된다.
-
 #### useCallback을 사용해야 하는 경우
 - 1. 함수를 Props로 전달할 때 (자식 컴포넌트의 불필요한 리렌더링 방지)
   - 부모 컴포넌트에서 함수를 정의하고 자식 컴포넌트에 Props로 전달할 때, 함수가 매번 새로 생성되면 자식 컴포넌트가 불필요하게 리렌더링됩니다.
@@ -48,6 +43,9 @@ function Parent() {
 ```
 
 - 2. 함수를 의존성 배열에 넣어야 할 때 (useEffect, useMemo 등과 함께 사용)
+> useCallback 안에 변하는 값이 들어간다면? <br />
+> 만약에 함수가 생성이 될 때마다 바뀌어야 하는 값이 있다면, 그 변화를 useCallback에서 기억을 해 주어야 한다. <br />
+> 그러한 값들을 dependencies에 넣어주면 된다. <br />
   - useEffect에서 의존성 배열에 함수를 포함해야 하는 경우, 함수가 매 렌더링마다 새로 생성되면 불필요한 재실행이 발생할 수 있습니다.
   - useCallback을 사용하면 함수 참조가 유지되므로, 의존성 배열이 불필요하게 변경되지 않습니다.
     - count가 안바뀐다 -> useCallback()내 count가 안바뀐다 -> 함수가 안바뀐다 -> 렌더링 안함.
