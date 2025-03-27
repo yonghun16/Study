@@ -25,10 +25,9 @@ import Child from "./Child";
 function Parent() {
   const [count, setCount] = useState(0);
 
-  // useCallback을 사용하지 않으면 매 렌더링마다 새로운 handleClick 함수가 생성됨 -> Child 컴포넌트 재랜더링
-  // useCallback을 사용하기에 새로운 handleClick 함수가 생성되지 않아서 
-  // props로 받은 handleClick함수가 새롭지 않은 걸로 받아들여 'Virtual DOM Diffing'에 의해 
-  // 자식 컴포넌트를 불필요하게 재랜더링을 하지 않음.
+  // - useCallback을 사용하지 않으면 매 렌더링마다 새로운 handleClick 함수가 생성됨 -> Child 컴포넌트 재랜더링
+  // - useCallback을 사용하기에 새로운 handleClick 함수가 생성되지 않는다. 따라서 props로 받은 
+  //   handleClick함수가 새롭지 않은 걸로 받아들여 'Virtual DOM Diffing'에 의해 자식 컴포넌트를 재랜더링을 하지 않음.
   const handleClick = useCallback(() => {
     setCount((prev) => prev + 1);
   }, []);
@@ -48,7 +47,7 @@ function Parent() {
 > 그러한 값들을 dependencies에 넣어주면 된다. <br />
 - useEffect에서 의존성 배열에 함수를 포함해야 하는 경우, 함수가 매 렌더링마다 새로 생성되면 불필요한 재실행이 발생할 수 있습니다.
 - useCallback을 사용하면 함수 참조가 유지되므로, 의존성 배열이 불필요하게 변경되지 않습니다.
-  - count가 안바뀐다 -> useCallback()내 count가 안바뀐다 -> 함수가 안바뀐다 -> 렌더링 안함.
+  - count가 안바뀐다 -> useCallback()내 count가 안바뀐다 -> 함수가 안바뀐다 -> 자식 컴포넌트에 pops가 바뀐게 없다고 판단 -> 렌더링 안함.
   - count가 바뀐다 -> useCallback()내 count가 바뀐다 -> 함수가 바뀐다 -> 렌더링
 ```jsx
 import { useState, useEffect, useCallback } from "react";
