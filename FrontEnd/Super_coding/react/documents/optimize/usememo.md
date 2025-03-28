@@ -7,8 +7,8 @@
   - 객체, 배열을 memoization 할 때 useMemo 사용
 
 #### useMemo usage
-- 🔹useMemo의 첫 번째 인자는 연산을 수행하는 함수
-- 🔹두 번째 인자는 의존성 배열 ([] 내부 값이 변경될 때만 연산 수행)
+- useMemo의 첫 번째 인자는 연산을 수행하는 함수
+- 두 번째 인자는 의존성 배열 ([] 내부 값이 변경될 때만 연산 수행)
 ```jsx
 import { useMemo } from "react";
 

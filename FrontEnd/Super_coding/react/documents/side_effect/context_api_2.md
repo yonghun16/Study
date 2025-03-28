@@ -1,6 +1,6 @@
 ## Context API 2
 
->> https://react.dev/learn/scaling-up-with-reducer-and-context
+> https://react.dev/learn/scaling-up-with-reducer-and-context
 
 #### Context의 한계
 - 잦은 변화가 일어나는 상태를 다루기에는 적합하지가 않다.
