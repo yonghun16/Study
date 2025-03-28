@@ -22,12 +22,16 @@ const NewsList = () => {
   
   // async/await 를 사용한 fetch
   const getNewsList = async () => {
-    setIsLoading(true);    // 로딩 시작
-    const response = await fetch('https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=a10272af5b7c45cdab54f574e2a24cbd');
-    const data = await response.json();
-    console.log(data);
-    setNews(data.articles);
-    setIsLoading(false);   // 로딩 완료
+    try {
+      setIsLoading(true);    // 로딩 시작
+      const response = await fetch('https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=a10272af5b7c45cdab54f574e2a24cbd');
+      const data = await response.json();
+      console.log(data);
+      setNews(data.articles);
+      setIsLoading(false);   // 로딩 완료
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const dummy = [
