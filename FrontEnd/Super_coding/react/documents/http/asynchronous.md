@@ -1,4 +1,4 @@
-## 비동기
+## Asynchronous(비동기)(약칭 : Async)
 
 
 #### 비동기
@@ -36,7 +36,8 @@ promise
     console.log(error);   // "작업 실패" (실패 시)
   });
 ```
-- Async/Await
+
+#### Async/Await
 - 자바스크립트에서 Promise를 가지고 비동기를 동기처럼 사용하는 문법
 ```jsx
 // async/await
