@@ -2,7 +2,7 @@
 
 > https://react.dev/reference/react/useReducer
 
-#### useState의 한계
+### useState의 한계
 - React 상태 업데이트는 비동기적으로 실행됩니다.
 - 이 코드가 실행될 때, 이전 상태 값(emailState)이 아직 변경되지 않았을 수도 있습니다.
 - 즉, 이메일 상태가 변경되더라도 예상대로 유효성 검사가 실행되지 않을 가능성이 있습니다.
@@ -12,7 +12,7 @@ const validateEmailHandler = () => {
 }
 ```
 
-#### reducer & useReducer 
+### reducer & useReducer 
 ```jsx
 const reducer = (state, action) => {
   switch (action.type) {
@@ -49,7 +49,7 @@ const [state, dispatch] = useReducer(reducer, initialArg, init?)
   - 상태 업데이트 '로직을 분리'하고 '재사용'하고 싶을 때
   - useState보다 더 구조적인 방식으로 상태를 관리하고 싶을 때
 
-#### reducer & useReducer 기본 사용 예제
+### reducer & useReducer 기본 사용 예제
 ```jsx
 import { useReducer } from "react";
 
@@ -81,7 +81,7 @@ function Counter() {
 export default Counter;
 ```
 
-#### reducer & useReducer 실습 예제
+### reducer & useReducer 실습 예제
 ```jsx
 import React, { useState, useEffect, useReducer } from 'react';
 

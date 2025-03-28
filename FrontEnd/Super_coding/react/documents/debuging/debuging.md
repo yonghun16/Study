@@ -1,6 +1,6 @@
 ## debuging
 
-#### 컴파일 에러와 런타임 에러
+### 컴파일 에러와 런타임 에러
 - 컴파일 에러
   - syntax error
   - type error
@@ -11,7 +11,7 @@
   - missing property 오류
   - memory leak 오류
 
-#### Tools
+### Tools
 - React DevTools
 - React Profiler
 - google lighthouse

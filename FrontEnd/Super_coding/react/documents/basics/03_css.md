@@ -1,6 +1,6 @@
 ## CSS
 
-#### BEM
+### BEM
 - BEM : Block Element Modifier
 - 소문자 숫자만 조합
 - 조합은 하이픈(-)으로 연결하여 작명
@@ -21,7 +21,7 @@
 </div>
 ```
 
-#### CSS 적용 방법들
+### CSS 적용 방법들
 - inline CSS 
 - **emotion**
 - **styled-component**
@@ -29,7 +29,7 @@
 - css module
 - etc
 
-#### rem (root em)
+### rem (root em)
 - rem(전역적) : 문서의 최상위 요소 (\<html>)의 font-size를 기준으로 상대적인 크기를 설정하는 단위
 - em(상대적) : 부모 요소의 font-size에 따라 크기 결정
 - 1rem = \<html> 요소의 font-size

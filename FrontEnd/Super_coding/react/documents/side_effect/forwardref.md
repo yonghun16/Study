@@ -1,21 +1,21 @@
 ## forwardRefs
 
-#### 버튼 클릭 시 focus
+### 버튼 클릭 시 focus
 - 로그인 페이지 에서 로그인 버튼을 눌렀을 때, 값이 입력되어 있지 않은 경우 입력 창에 '포커싱'하는 기능 구현
 
-#### useRef
+### useRef
 - 컴포넌트의 생애주기 동안 유지되는 변경 가능한 객체를 생성할 때 사용
 - 값이 변경되어도 리렌더링을 유발하지 않음. -> useState와 useRef의 차이
 - 컴포넌트가 다시 렌더링되어도 값을 유지함 -> 상태를 저장하는 용도로 활용할 수 있음.
 - DOM 요소에 접근할 때 사용 -> useRef를 ref 속성에 연결하면 해당 DOM 요소를 직접 조작 가능.
 
-#### 언제 useRef를 사용해야 할까?
+### 언제 useRef를 사용해야 할까?
 - 렌더링 없이 값을 유지하고 싶을 때
 - DOM 요소에 직접 접근해야 할 때
 - 이전 값을 기억해야 할 때 (useRef는 리렌더링되어도 값이 유지됨)
 - 📌 주의! 상태 변경이 필요하면 useState를 사용하고, 단순히 값을 유지하거나 DOM을 다룰 때 useRef를 사용하세요.
 
-#### useRef 기본 사용법
+### useRef 기본 사용법
 ```jsx
 import { useRef } from "react";
 
@@ -37,7 +37,7 @@ function FocusInput() {
 export default FocusInput;
 ```
 
-#### useRef 실습 (한 컴포넌트 내에서 ref 전달)
+### useRef 실습 (한 컴포넌트 내에서 ref 전달)
 ```jsx
   ... 
   const emailInputRef = useRef();          // ref 생성
@@ -75,12 +75,12 @@ export default FocusInput;
 
 ```
 
-#### forwardRef(자식 컴포넌트에게 ref 전달하기)
+### forwardRef(자식 컴포넌트에게 ref 전달하기)
 - forwardRef : React에서 ref를 자식 컴포넌트로 전달할 때 사용하는 함수. 
 - 기본적으로 ref는 부모 컴포넌트에서 특정 DOM 요소나 컴포넌트 인스턴스에 접근할 때 사용되는데, 일반적인 props처럼 전달되지 않음. 
 - forwardRef를 사용하면 부모에서 ref를 내려주고, 자식 컴포넌트가 이를 받아서 특정 요소에 연결할 수 있음.
 
-#### forwardRef 사용예시
+### forwardRef 사용예시
 - 동작 방식
   - forwardRef를 사용해서 InputComponent가 ref를 받을 수 있도록 함.
   - 부모 컴포넌트에서 useRef를 이용해 ref 생성.
@@ -113,12 +113,12 @@ const ParentComponent = () => {
 export default ParentComponent;
 ```
 
-#### useImperativeHandle
+### useImperativeHandle
 - React에서 forwardRef와 함께 사용되어, 부모 컴포넌트가 자식 컴포넌트의 특정 메서드나 값을 직접 제어할 수 있도록 하는 Hook.
 - 기본적으로 ref는 DOM 요소나 컴포넌트 인스턴스를 참조하는 역할을 하지만, 
 - useImperativeHandle을 사용하면 부모가 접근할 수 있는 기능을 __커스텀__할 수 있다.
 
-#### 기본 사용법
+### 기본 사용법
 - 동작 방식
   - 자식(CustomInput)에서 useRef로 실제 input 요소를 참조.
   - useImperativeHandle(ref, () => ({})) 내부에서 focus 및 getValue 메서드를 정의.

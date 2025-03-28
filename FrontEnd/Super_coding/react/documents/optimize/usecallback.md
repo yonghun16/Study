@@ -1,10 +1,10 @@
 ## useCallback
 
-#### useCallback
+### useCallback
 - 특정 함수를 __메모이제이션__하여 불필요한 렌더링을 방지하는 역할을 함.
 - useCallback은 함수 컴포넌트 내부에서 __새로운 함수가 생성되는 것을 방지__하여, __함수의 참조(reference)가 변경되지 않도록 유지__
 
-#### Usage
+### Usage
 - 첫 번째 인자로 콜백 함수를 받습니다.
 - 두 번째 인자로 의존성 배열 (dependencies) 을 받습니다.
 - dependencies가 변경되지 않는 한, useCallback은 이전의 함수를 재사용합니다.
@@ -14,7 +14,7 @@ const memoizedCallback = useCallback(() => {
 }, [dependencies]);
 ```
 
-#### useCallback을 사용해야 하는 경우
+### useCallback을 사용해야 하는 경우
 1. 함수를 Props로 전달할 때 (자식 컴포넌트의 불필요한 리렌더링 방지)
 - 부모 컴포넌트에서 함수를 정의하고 자식 컴포넌트에 Props로 전달할 때, 함수가 매번 새로 생성되면 자식 컴포넌트가 불필요하게 리렌더링됩니다.
 - useCallback을 사용하여 함수의 참조가 유지되도록 하면, 자식 컴포넌트가 불필요하게 리렌더링되는 것을 방지할 수 있습니다.

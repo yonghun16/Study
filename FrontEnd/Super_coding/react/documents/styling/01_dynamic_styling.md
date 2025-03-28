@@ -1,7 +1,7 @@
 ## 동적인 스타일링
 
 
-#### inline 스타일링
+### inline 스타일링
 ```jsx
   return (
     <form onSubmit={formSubmitHandler}>
@@ -21,7 +21,7 @@
   );
 ```
 
-#### CSS 클래스를 사용한 스타일링
+### CSS 클래스를 사용한 스타일링
 ```jsx
   return (
     <form onSubmit={formSubmitHandler}>

@@ -1,6 +1,6 @@
 ## Error 처리
 
-#### Status Code
+### Status Code
 - 200 : Success
 - 400 : Bad Request            // Client Error
 - 401 : Unauthorized           // Client Error
@@ -8,7 +8,7 @@
 - 404 : Not Found              // Client Error
 - 500 : Internal Server Error  // Server Error
 
-#### try-catch
+### try-catch
 - try-catch 문은 예외 처리(exception handling) 를 위한 구문으로, 프로그램이 오류(예외)가 발생했을 때 정상적으로 동작할 수 있도록 도와줍니다.
 ```jsx
 try {

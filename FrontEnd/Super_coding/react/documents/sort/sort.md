@@ -5,7 +5,7 @@
 > Object 정렬
 
 
-#### Number 정렬 
+### Number 정렬 
 - JavaScript의 .sort() 메서드
 ```jsx
 const data = [4, 3, 2, 1];
@@ -25,7 +25,7 @@ data3.sort( (a, b) => b - a );  // [10, 4, 3, 2, 1], 내림차순, b-a가 양수
 ```
 
 
-#### String 정렬
+### String 정렬
 ```jsx
 const data = ['b', 'a', 'd', 'A', 'B', 't'];
 data.sort();                                // ['A', 'B', 'a', 'b', 'd', 't']
@@ -33,11 +33,11 @@ data.sort( (a, b) => a.localeCompare(b) );  // ['a', 'A', 'b', 'B', 'd', 't']
 ```
 
 
-#### Object 정렬
+### Object 정렬
 - 여러가지 속성이 있는 객체들을 정렬하려면 어떻게 해야 하는가?
 - 프로퍼티별로 정렬 기준을 설정하고 정렬한다.
 
-#### 테이블 정렬
+### 테이블 정렬
 - 테이블에서 여러가지 기준에 따라 정렬해 봅시다.
 ```jsx
   const [sortOrder, setSortOrder] = useState(null); // asc(오름차순) || desc(내림차순)

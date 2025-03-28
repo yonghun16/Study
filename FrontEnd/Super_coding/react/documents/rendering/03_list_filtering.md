@@ -1,6 +1,6 @@
 ## List Filtering
 
-#### 
+### 
 ```jsx
   let expensesContent = <p>No expenses found.</p>;
 

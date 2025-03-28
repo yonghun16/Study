@@ -3,20 +3,20 @@
 > https://ko.react.dev/reference/react/useEffect <br />
 > https://react.dev/learn/synchronizing-with-effects
 
-#### 사이드 이펙트
+### 사이드 이펙트
 - React의 **side effect(부작용)**는 컴포넌트의 렌더링 과정과 직접적인 관련이 없는 코드 실행을 의미함. 
   - (예를 들어, 데이터 가져오기(Fetching Data), DOM 조작, 타이머 설정, 구독(subscription) 등이 사이드 이펙트에 해당.)
 - ** 사이드 이펙트는 '일반적인 UI 렌더링 사이클'과 다르게 동작한다.
 - userEffect Hook을 통해 사이드 이펙트를 컴포넌트 안에서 핸들링 할 수 있다.
 
-#### 사이드 이펙트
+### 사이드 이펙트
 - 리액트의 기본적인 UI 렌더링 사이클
   - [UI 렌더링] -> [사용자 Input에 반응(props,state)] -> [리렌더링]
 - 기본적인 리액트의 UI 렌더링 사이클을 벗어나는 동작이 발생한다면?
   - 즉 렌더링 과정과 독립적으로 발생하는 동작이 있다. 
   - Fetching Data, 구독, 타미어 설정 등등 이런 동작들을 'Side Effect'라 부른다.
 
-#### 사이드 이펙트
+### 사이드 이펙트
 - 검색 창 자동완성 기능 (예시)
 ```text
 * 'ㄱ'입력 -> onChange 이벤트 리스너 & 핸들러  ->  리렌더링1 ('ㄱ'을 표시함.)
@@ -27,7 +27,7 @@
   - 네트워크 상황이 빠르면 2가 빠를수도 있음
   - 리렌더링1과 리렌더링2의 속도 조절이 필요함. 
 
-#### useEffect
+### useEffect
 - useEffect는 React 컴포넌트가 렌더링된 이후에 실행할 사이드 이펙트(부수 효과)를 처리하는 Hook이다.
 - 첫 번째 인자 : 매 순간 dependencies가 바뀔 때마다, 이 함수가 실행이 된다.
 - 두 번째 인자 : 첫 번째 인자 함수를 매번 실행을 시켜줘야하는 의존하는 값을 배열로 넣는다.
@@ -38,12 +38,12 @@ function MyComponent() {
     }, [dependencies])
 }
 ```
-#### useEffect를 사용하는 이유
+### useEffect를 사용하는 이유
 - React 컴포넌트는 렌더링(render) 과정에서 UI를 그리는 것이 주 역할이지만, 때때로 외부와의 상호작용이 필요할 때가 있습니다.
 - 이러한 작업(사이드 이펙트)은 렌더링 과정에서 수행하면 안 되고, 렌더링 후에 실행해야 합니다.
 - 즉, 렌더링과 상관없는 작업을 실행하는 역할을 합니다!
 
-#### useEffect로 이펙트 관리
+### useEffect로 이펙트 관리
 - 1. 렌더링될 때마다 실행 (매번 실행됨)
 ```jsx
 useEffect(() => {
@@ -120,10 +120,10 @@ function App() {
 export default App;
 ```
 
-#### useEffect 자체가 렌더링을 할까? 
+### useEffect 자체가 렌더링을 할까? 
 - useEffect 훅 자체는 렌더링을 발생시키지 않고, 지정된 로직만 실행합니다. 하지만 useEffect 내부에서 setState를 호출하면 상태가 변경되므로, 그로 인해 리렌더링이 발생할 수 있습니다.
 
-####  useEffect의 동작 방식
+###  useEffect의 동작 방식
 - 1. 렌더링 후 실행됨
   - useEffect는 컴포넌트가 렌더링된 후 실행됩니다.
   - 즉, 초기 렌더링이 완료된 후 또는 상태(state)나 props가 변경되어 다시 렌더링된 후 실행됩니다.
@@ -131,6 +131,6 @@ export default App;
   - useEffect는 부수 효과(side effect)를 처리하는 훅이며, 자체적으로는 렌더링을 트리거하지 않습니다.
   - 하지만 내부에서 setState를 호출하면, 상태 변경이 발생하여 리렌더링이 실행됩니다.
 
-#### localStorage
+### localStorage
 - setItem(key: string, value: any)
 - getItem(key: string)
