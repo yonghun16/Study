@@ -1,11 +1,21 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import NewsItem from '../NewsItem';
 
 const NewsList = () => {
+  const [news, setNews] = useState([]);
+
+  useEffect(() => {
+    getNewsList();
+  }, []);
 
   const getNewsList = () => {
     fetch('https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=a10272af5b7c45cdab54f574e2a24cbd')
-  }
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        setNews(data.articles);
+      });
+  };
 
   const dummy = [
     {
@@ -50,7 +60,9 @@ const NewsList = () => {
   ]
   return (
     <div>
-      {dummy.map(news => <NewsItem {...news} />)}
+      {news.map((newsItem) => (
+        <NewsItem {...newsItem} key={newsItem.url} /> // key를 추가하여 각 뉴스 항목을 구분
+      ))}
     </div>
   );
 };
