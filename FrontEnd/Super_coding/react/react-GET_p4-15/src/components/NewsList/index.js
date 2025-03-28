@@ -3,11 +3,13 @@ import NewsItem from '../NewsItem';
 
 const NewsList = () => {
   const [news, setNews] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     getNewsList();
   }, []);
 
+  /* fetch 
   const getNewsList = () => {
     fetch('https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=a10272af5b7c45cdab54f574e2a24cbd')
       .then((response) => response.json())
@@ -15,6 +17,17 @@ const NewsList = () => {
         console.log(data);
         setNews(data.articles);
       });
+  }; 
+  */
+  
+  // async/await 를 사용한 fetch
+  const getNewsList = async () => {
+    setIsLoading(true);    // 로딩 시작
+    const response = await fetch('https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=a10272af5b7c45cdab54f574e2a24cbd');
+    const data = await response.json();
+    console.log(data);
+    setNews(data.articles);
+    setIsLoading(false);   // 로딩 완료
   };
 
   const dummy = [
@@ -60,9 +73,12 @@ const NewsList = () => {
   ]
   return (
     <div>
-      {news.map((newsItem) => (
+      {!isLoading && news.map((newsItem) => (         // 로딩이 아니면 (로딩이 끝났으면)
         <NewsItem {...newsItem} key={newsItem.url} /> // key를 추가하여 각 뉴스 항목을 구분
       ))}
+      {isLoading &&                                   // 로딩중이면
+        <p>Loading...</p>
+      }
     </div>
   );
 };
