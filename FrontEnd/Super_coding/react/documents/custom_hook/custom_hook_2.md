@@ -13,66 +13,9 @@
 - 4. 재로드 기능
   - Tasks에서 “다시 불러오기” 버튼을 누르면 fetchTasks가 실행되어 데이터를 다시 가져옴
 
-```JSX
-/* useHttp.js */
-import React, { useState } from 'react';
-
-const useHttp = (requestConfig, applyData) => {
-// - requestConfig: HTTP 요청의 설정 정보(예: URL, method, headers, body 등)를 받음
-// - applyData: 요청이 성공한 후 데이터를 처리하는 함수
-
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
-  // isLoading: 요청이 진행 중인지 나타냄 (true이면 로딩 중)
-  // error: 요청이 실패하면 오류 메시지를 저장
-
-  const sendRequest = async () => {
-    // sendRequest 함수가 실행되면 HTTP 요청을 보냄
-
-    setIsLoading(true);
-    setError(null);
-    // 요청을 시작할 때 isLoading을 true로 설정
-	// 오류가 있을 수도 있으니 error를 초기화
-
-    try {
-      const response = await fetch(
-        requestConfig.url, {
-          method: requestConfig?.method ? requestConfig.method : 'GET',
-          headers: requestConfig?.headers ? requestConfig.headers : {},
-          body: requestConfig?.body ? JSON.stringify(requestConfig.body) : null
-      });
-      // fetch를 이용해 HTTP 요청을 보냄
-      // method, headers, body는 사용자가 설정한 값이 있으면 사용하고, 없으면 기본값을 사용
-
-      if (!response.ok) {
-        throw new Error('Request failed!');
-      }
-      // 응답이 실패했다면(response.ok === false) 오류를 발생시킴
-
-      const data = await response.json(); 
-      applyData(data);
-      // 요청이 성공하면 응답 데이터를 applyData 함수에 전달하여 처리
-
-    } catch (err) {
-      setError(err.message || 'Something went wrong!');
-      // 요청이 실패하면 error 상태를 업데이트
-    }
-    setIsLoading(false);
-    // 요청이 끝났으므로 isLoading을 false로 설정
-  };
-
-  return { 
-    isLoading,
-    error,
-    sendRequest
-  };
-};
-
-export default useHttp;
-```
 
 ```JSX
-/* useHttp.js */
+/* app.js */
 import React, { useEffect, useState } from 'react';
 import useHttp from './Hooks/useHttp';
 
@@ -129,4 +72,62 @@ function App() {
 }
 
 export default App;
+```
+
+```JSX
+/* useHttp.js */
+import React, { useState } from 'react';
+
+const useHttp = (requestConfig, applyData) => {
+// - requestConfig: HTTP 요청의 설정 정보(예: URL, method, headers, body 등)를 받음
+// - applyData: 요청이 성공한 후 데이터를 처리하는 함수
+
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
+  // isLoading: 요청이 진행 중인지 나타냄 (true이면 로딩 중)
+  // error: 요청이 실패하면 오류 메시지를 저장
+
+  const sendRequest = async () => {
+    // sendRequest 함수가 실행되면 HTTP 요청을 보냄
+
+    setIsLoading(true);
+    setError(null);
+    // 요청을 시작할 때 isLoading을 true로 설정
+	// 오류가 있을 수도 있으니 error를 초기화
+
+    try {
+      const response = await fetch(
+        requestConfig.url, {
+          method: requestConfig?.method ? requestConfig.method : 'GET',
+          headers: requestConfig?.headers ? requestConfig.headers : {},
+          body: requestConfig?.body ? JSON.stringify(requestConfig.body) : null
+      });
+      // fetch를 이용해 HTTP 요청을 보냄
+      // method, headers, body는 사용자가 설정한 값이 있으면 사용하고, 없으면 기본값을 사용
+
+      if (!response.ok) {
+        throw new Error('Request failed!');
+      }
+      // 응답이 실패했다면(response.ok === false) 오류를 발생시킴
+
+      const data = await response.json(); 
+      applyData(data);
+      // 요청이 성공하면 응답 데이터를 applyData 함수에 전달하여 처리
+
+    } catch (err) {
+      setError(err.message || 'Something went wrong!');
+      // 요청이 실패하면 error 상태를 업데이트
+    }
+    setIsLoading(false);
+    // 요청이 끝났으므로 isLoading을 false로 설정
+  };
+
+  return { 
+    isLoading,
+    error,
+    sendRequest
+  };
+};
+
+export default useHttp;
 ```
