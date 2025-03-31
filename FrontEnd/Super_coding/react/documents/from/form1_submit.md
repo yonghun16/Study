@@ -1,4 +1,4 @@
-## Form 1
+## Form control 1 (Submit)
 
 ### 유효성 검사
 #### 요효성 검사의 케이스
@@ -19,8 +19,9 @@
 - 유효하지 않은 이름 값일 때 에러 메시지 노출
 - 제출 시점과 터치 시점을 구분해 주기
 
-### 실습
+### Form control 1 (Submit) 실습
 ```jsx
+// SimpleInput.js
 import { useRef, useState } from 'react';
 
 const SimpleInput = (props) => {

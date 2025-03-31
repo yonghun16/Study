@@ -71,3 +71,7 @@
 ### Custom Hook
 * [Custom Hook 1](https://github.com/yonghun16/Study/blob/main/FrontEnd/Super_coding/react/documents/custom_hook/custom_hook_1.md)
 * [Custom Hook 2](https://github.com/yonghun16/Study/blob/main/FrontEnd/Super_coding/react/documents/custom_hook/custom_hook_2.md)
+
+### Form Control
+* [Form Submit](https://github.com/yonghun16/Study/blob/main/FrontEnd/Super_coding/react/documents/from/form1_submit.md)
+* [Form Blue and Keystroke](https://github.com/yonghun16/Study/blob/main/FrontEnd/Super_coding/react/documents/from/form2_blur_keystroke.md)
