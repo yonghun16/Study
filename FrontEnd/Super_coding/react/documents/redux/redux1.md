@@ -10,11 +10,11 @@ $ npm install @reduxjs/toolkit react-redux
 ### 리덕스 코어 컨셉
 - 리덕스(Redux)는 애플리케이션의 상태 관리를 위한 라이브러리로 주로 React와 함께 사용되지만, 다른 JavaScript 프레임워크와도 통합할 수 있음.
 
-### 1. 스토어(Store)
+#### 1. 스토어(Store)
 - 애플리케이션의 전체 상태(state) 를 저장하는 단일 객체.
 - 단 하나만 존재하며, 상태를 직접 변경할 수 없고 액션(action) 을 통해 변경해야 함.
 
-### 2. 액션(Action)
+#### 2. 액션(Action)
 - 상태(state)에 변화를 일으키는 유일한 방법.
 - 반드시 type 속성을 가진 객체여야 하며, 필요한 추가 데이터(payload)를 포함할 수도 있음.
 ```JavaScript
@@ -24,7 +24,7 @@ const incrementAction = {
 };
 ```
 
-### 3. 리듀서(Reducer)
+#### 3. 리듀서(Reducer)
 - 현재 상태(state)와 액션(action)을 받아서 새로운 상태를 반환하는 순수 함수.
 - 상태를 직접 수정하지 않고, 기존 상태를 복사하여 새로운 상태를 반환해야 함.
 ```JavaScript
@@ -40,14 +40,14 @@ function counterReducer(state = { count: 0 }, action) {
 }
 ```
 
-### 4. 디스패치(Dispatch)
+#### 4. 디스패치(Dispatch)
 - 스토어에 액션을 보낼 때 사용하는 함수.
 - 액션을 디스패치하면 리듀서가 호출되고, 새로운 상태가 생성됨.
 ```JavaScript
 store.dispatch({ type: "INCREMENT", payload: 1 });
 ```
 
-### 5. 구독(Subscribe)
+#### 5. 구독(Subscribe)
 - 스토어의 상태가 변경될 때 특정 함수를 실행하도록 등록하는 메서드.
 - UI가 상태 변경을 감지하고 업데이트할 수 있도록 함.
 ```JavaScript

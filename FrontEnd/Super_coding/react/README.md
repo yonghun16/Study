@@ -79,3 +79,5 @@
 
 ### Redux
 * [Redux 1](https://github.com/yonghun16/Study/blob/main/FrontEnd/Super_coding/react/documents/redux/redux1.md)
+* [Redux 2](https://github.com/yonghun16/Study/blob/main/FrontEnd/Super_coding/react/documents/redux/redux2.md)
+* [Redux 3](https://github.com/yonghun16/Study/blob/main/FrontEnd/Super_coding/react/documents/redux/redux3.md)
