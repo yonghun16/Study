@@ -18,6 +18,7 @@ const add = function(a, b) {
 };
 
 // 화살표 함수
+// const addArrow = (a, b) => { return a + b };
 const addArrow = (a, b) => a + b;
 
 
