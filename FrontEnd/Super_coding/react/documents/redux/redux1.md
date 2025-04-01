@@ -4,7 +4,7 @@
 ### Redux란?
 - Redux는 애플리케이션의 상태를 효율적으로 관리하는 JavaScript 상태 관리 라이브러리야. 주로 React 애플리케이션에서 많이 사용되지만, Vue, Angular 같은 다른 프레임워크에서도 활용할 수 있음.
 ```bash
-$ npm install @reduxjs/toolkit react-redux
+$ npm install @reduxjs/toolkit redux react-redux
 ```
 
 ### 리덕스 코어 컨셉
