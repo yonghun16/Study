@@ -56,7 +56,7 @@ store.subscribe(() => {
 });
 ```
 
-### 6. 미들웨어(Middleware)
+#### 6. 미들웨어(Middleware)
 - 리덕스의 기본 흐름을 변경하거나 추가 기능을 제공하는 함수.
 - 대표적인 미들웨어로 redux-thunk, redux-saga 등이 있으며, 비동기 액션 처리에 사용됨.
 
@@ -67,6 +67,7 @@ store.subscribe(() => {
 - 4. 구독(Subscribe)된 UI가 변경된 상태를 반영하여 렌더링
 
 
+
 ### Redux 예제 (JavaScript)
 ```JavaScript
 import { createStore } from "redux";
@@ -75,7 +76,7 @@ import { createStore } from "redux";
 const initialState = { count: 0 };
 
 // 리듀서 함수
-function counterReducer(state = initialState, action) {
+function counterReducer(state = initialState, action) {   // state 값이 없다면 initialState를 사용
   switch (action.type) {
     case "INCREMENT":
       return { count: state.count + 1 };
@@ -87,7 +88,7 @@ function counterReducer(state = initialState, action) {
 }
 
 // 스토어 생성
-const store = createStore(counterReducer);
+const store = createStore(counterReducer);   // 이 스토어는 counterReducer에 영향을 받습니다.
 
 // 상태 변경 시 실행될 함수
 store.subscribe(() => {
@@ -99,6 +100,7 @@ store.dispatch({ type: "INCREMENT" }); // count: 1
 store.dispatch({ type: "INCREMENT" }); // count: 2
 store.dispatch({ type: "DECREMENT" }); // count: 1
 ```
+
 
 ### Redux + React 예제 (useSelector, useDispatch 사용)
 ```jsx
