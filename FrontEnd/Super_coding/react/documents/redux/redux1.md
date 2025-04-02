@@ -88,11 +88,11 @@ function counterReducer(state = initialState, action) {   // state 값이 없다
 }
 
 // 스토어 생성
-const store = createStore(counterReducer);   // 이 스토어는 counterReducer에 영향을 받습니다.
+const store = createStore(counterReducer);  // 이 스토어는 counterReducer에 영향을 받습니다.
 
 // 상태 변경 시 실행될 함수
 store.subscribe(() => {
-  console.log("현재 상태:", store.getState());
+  console.log("현재 상태:", store.getState());  // 상태 가져오기
 });
 
 // 액션 디스패치
@@ -127,8 +127,8 @@ function counterReducer(state = initialState, action) {
 const store = createStore(counterReducer);
 
 function Counter() {
-  const count = useSelector((state) => state.count); // 상태 가져오기
-  const dispatch = useDispatch(); // 액션 디스패치
+  const count = useSelector((state) => state.count); // 상태 가져오기 (state는 store의 전부)
+  const dispatch = useDispatch();    // 액션 디스패치
 
   return (
     <div>
