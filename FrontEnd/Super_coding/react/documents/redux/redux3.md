@@ -32,8 +32,9 @@ const counterRedecer = (state = { counter: 0 }, action) => {
 
 ### 여러 개의 state 속성 다루기 
 - Store에서 여러 개의 데이터 object 형태로 다룰 수 있다.
-- 여기서 조심할 점은, 항상 reducer는 state를 덮어 쓴다는 점이다.
+- 여기서 조심할 점은, 항상 reducer는 state를 덮어 쓴다는 점이다. (불변성 유지 (Immutability))
 - 만약 어떤 속성을 값을 입력하지 않으면, 그 값을 reducer는 undefined 처리 하게 된다.
+- 그래서 ...state를 사용해서 기존 상태를 복사한 후 변경된 값을 덮어쓰는 방식으로 새로운 상태를 만들어 반환해야 한다.
 ```jsx
 import { createStore } from 'redux';
 

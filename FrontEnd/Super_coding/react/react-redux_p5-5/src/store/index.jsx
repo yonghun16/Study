@@ -2,9 +2,9 @@ import { configureStore, createSlice } from '@reduxjs/toolkit';
 
 /* slice */
 const counterSlice = createSlice({
-  name: 'counter',
-  initialState: { counter: 0, showCounter: true },
-  reducers: {
+  name: 'counter',                                   // reducer name
+  initialState: { counter: 0, showCounter: true },   // state
+  reducers: {                                        // action
     increment(state) {
       state.counter++;
     },
@@ -22,7 +22,7 @@ const counterSlice = createSlice({
 
 /* store */
 const store = configureStore({
-  reducer: counterSlice.reducer,
+  reducer: counterSlice.reducer,                     // reducer를 counterSlice로 연결
 });
 
 /* actions */
