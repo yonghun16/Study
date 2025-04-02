@@ -83,3 +83,4 @@
 * [Redux 3](https://github.com/yonghun16/Study/blob/main/FrontEnd/Super_coding/react/documents/redux/redux3.md)
 * [Redux RTK 1](https://github.com/yonghun16/Study/blob/main/FrontEnd/Super_coding/react/documents/redux/redux4.md)
 * [Redux RTK 2](https://github.com/yonghun16/Study/blob/main/FrontEnd/Super_coding/react/documents/redux/redux5.md)
+* [Redux Aync](https://github.com/yonghun16/Study/blob/main/FrontEnd/Super_coding/react/documents/redux/redux6.md)
