@@ -1,30 +1,39 @@
-import { configureStore, createSlice } from '@reduxjs/toolkit';
+import { createStore } from 'redux';
 
-/* slice */
-const counterSlice = createSlice({
-  name: 'counter',                                   // reducer name
-  initialState: { counter: 0, showCounter: true },   // state
-  reducers: {                                        // action
-    increment(state) {
-      state.counter++;
-    },
-    increase(state, action) {
-      state.counter += action.payload;
-    },
-    decrement(state) {
-      state.counter--;
-    },
-    toggle(state) {
-      state.showCounter = !state.showCounter;
-    },
-  },
-});
+/* reducer */
+const counterRedecer = (state = { counter: 0, showCounter: true }, action) => {
+  if (action.type === 'increment') {
+    return {
+      ...state,
+      counter: state.counter + 1,
+    };
+  }
+
+  if (action.type === 'increase') {
+    return {
+      ...state,
+      counter: state.counter + action.amount,
+    };
+  }
+
+  if (action.type === 'decrement') {
+    return {
+      ...state,
+      counter: state.counter - 1,
+    };
+  }
+
+  if (action.type === 'toggle') {
+    return {
+      ...state,
+      showCounter: !state.showCounter,
+    };
+  }
+
+  return state;
+}
 
 /* store */
-const store = configureStore({
-  reducer: counterSlice.reducer,                     // reducer를 counterSlice로 연결
-});
+const store = createStore(counterRedecer);
 
-/* actions */
-export const counterActions = counterSlice.actions;
 export default store;
