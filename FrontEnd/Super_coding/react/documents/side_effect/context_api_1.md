@@ -17,6 +17,7 @@
 - 규모가 크고 복잡한 프로젝트에서는 Redux 같은 라이브러리가 필요할 수 있지만, 소규모 프로젝트나 특정 상태 관리에는 Context API만으로 충분.
 
 ### Context API 기본 사용법
+#### AuthContext.jsx
 ```jsx
 /* 1. Context 생성 (AuthContext.jsx) */
 import React from "react";
@@ -25,8 +26,9 @@ const AuthContext = React.createContext({      // Context 생성
   isLoggedIn: false,
 });
 export default AuthContext;
-
-
+```
+#### App.jsx
+```jsx
 /* 2. Context를 설정(App.jsx). */
 // App.js의 렌더링 되는 최상단에 AuthContext를 적용
   return (
@@ -42,8 +44,9 @@ export default AuthContext;
       </main>
     </AuthContext.Provider>
   );
-
-
+```
+#### Navigation.jsx
+```jsx
 /* 3. 중간, 하위 자식 컴포넌트 적용(Navigation.jsx). */
 // 중간 컴포넌트에서 props를 전달할 필요 없음
 const Navigation = (props) => {
