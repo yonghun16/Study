@@ -12,7 +12,7 @@ const OrderPage = () => {
 
       <div style={{ display: 'flex', marginTop: 20 }}>
         <div style={{ width: '50%' }}>
-          <Type orderType="orders" />
+          <Type orderType="options" />
         </div>
         <div style={{ width: '50%' }}>
           <h2>Total Price: </h2>
