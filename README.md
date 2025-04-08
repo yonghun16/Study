@@ -30,15 +30,21 @@
 <br />
 ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
 ![SCSS](https://img.shields.io/badge/SCSS-CC6699?style=for-the-badge&logo=sass&logoColor=white)
+![Styled Components](https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white)
 <br />
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
 <br />
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![Redux](https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white)
 <br /><br />
 
 
 ### Etc
+![Firebase](https://img.shields.io/badge/firebase-%23FF9002.svg?style=for-the-badge&logo=firebase)
+![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)
+![Gulp](https://img.shields.io/badge/GULP-%23CF4647.svg?style=for-the-badge&logo=gulp&logoColor=white)
+![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white)
 <!-- JayPro --><a href=""><img src="https://img.shields.io/badge/JayPro-252F38?style=for-the-badge&logo=JayPro&logoColor=white" /></a>
 <!-- Scratch --><a href="https://scratch.mit.edu/"><img src="https://img.shields.io/badge/Scratch-F6A619?style=for-the-badge&logo=Scratch&logoColor=white" /></a>
 
