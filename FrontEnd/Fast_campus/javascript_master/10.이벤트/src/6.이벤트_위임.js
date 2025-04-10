@@ -7,17 +7,17 @@ const parentEl = document.querySelector('.parent')
 const childEls = document.querySelectorAll('.child')
 
 // 모든 대상 요소에 이벤트 등록!
-childEls.forEach(el => {
-  el.addEventListener('click', event => {
-    console.log(event.target.textContent)
-  })
-})
+//childEls.forEach(el => {
+//  el.addEventListener('click', event => {
+//    console.log(event.target.textContent)
+//  })
+//})
 
 
 // 조상 요소에 이벤트 위임!
-//parentEl.addEventListener('click', event => {
-//  const childEl = event.target.closetest('.child')
-//  if (childEl) {
-//    console.log(childEl.textContent)
-//  }
-//})
+parentEl.addEventListener('click', event => {
+  const childEl = event.target.closest('.child')
+  if (childEl) {
+    console.log(childEl.textContent)
+  }
+})
