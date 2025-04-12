@@ -6,11 +6,11 @@
 > - orcle cloud  <br />
 
 ### 1단계: duckdns 활성화
-#### 서비스 가입
+#### 1) 서비스 가입
 - https://www.duckdns.org/ 가입
 - current ip 주소를 서버 ip주소로 update
 
-####  DuckDNS에 IP 등록 + 자동 갱신 스크립트 설정
+#### 2) DuckDNS에 IP 등록 + 자동 갱신 스크립트 설정
 ```bash
 mkdir -p ~/duckdns
 cd ~/duckdns
@@ -37,12 +37,12 @@ source ~/.bashrc    (or source ~/.zshrc)
 ```
 
 ### 3단계: DuckDNS 방식으로 인증서 발급
-#### 환경변수 설정
+#### 1) 환경변수 설정
 ```bash
 export DuckDNS_Token="여기에_네_토큰_붙여넣기"
 ```
 
-#### 인증서 발급
+#### 2) 인증서 발급
 ```bash
 ~/.acme.sh/acme.sh --set-default-ca --server letsencrypt
 ~/.acme.sh/acme.sh --issue --dns dns_duckdns -d yonghun16.duckdns.org
@@ -50,12 +50,12 @@ export DuckDNS_Token="여기에_네_토큰_붙여넣기"
 
 
 ### 4단계 : nginx 적용
-#### 설정 파일 열기
+#### 1) 설정 파일 열기
 ```bash
 sudo vi /etc/nginx/sites-available/default
 ```
 
-#### 설정 파일 수정
+#### 2) 설정 파일 수정
 ```bash
 server {
     listen 80 default_server;
@@ -92,7 +92,7 @@ server {
 }
 ```
 
-#### nginx 재시작
+#### 3) nginx 재시작
 ```bash
 sudo nginx -t
 sudo systemctl reload nginx
