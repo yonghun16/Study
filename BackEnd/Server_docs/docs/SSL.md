@@ -1,9 +1,9 @@
 ## SSL Certificate
->> Let’s Encrypt  <br />
->> duckdns (https://www.duckdns.org/)  <br />
->> nginx  <br />
->> fastapi  <br />
->> orcle cloud  <br />
+> - Let’s Encrypt  <br />
+> - duckdns (https://www.duckdns.org/)  <br />
+> - nginx  <br />
+> - FastApi  <br />
+> - orcle cloud  <br />
 
 ### 1단계: duckdns 활성화
 #### 서비스 가입
