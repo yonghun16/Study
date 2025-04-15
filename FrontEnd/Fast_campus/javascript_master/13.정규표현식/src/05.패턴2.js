@@ -46,6 +46,6 @@ console.log(str.match(/f|o|x/g))  // 'f', 'o', 'x' 가 속해있는 모든 문�
 console.log(str.match(/[A-Z]+/g)) // 대문자가 1개 이상 연속 일치
 console.log(str.match(/[a-zA-Z가-힣]+/g)) // '문자'가 1개 이상 연속 일치
 console.log(str.match(/\d+/g))            // '숫자'가 1개 이상 연속 일치
-
-
 console.log(str.match(/[가-힣0-9]{3}/g)) // '한글문자와 숫자'가 3개 이상 연속 일치
+
+console.log()
