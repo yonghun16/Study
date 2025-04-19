@@ -32,6 +32,7 @@ chmod 700 duck.sh
 
 ### 2단계: acme.sh 설치 (Let’s Encrypt 클라이언트)
 ```bash
+sudo apt install cron
 curl https://get.acme.sh | sh
 source ~/.bashrc    (or source ~/.zshrc)
 ```
@@ -52,7 +53,7 @@ export DuckDNS_Token="여기에_네_토큰_붙여넣기"
 ### 4단계 : nginx 적용
 #### 1) 설정 파일 열기
 ```bash
-sudo vi /etc/nginx/sites-available/default
+sudo vim /etc/nginx/sites-available/default
 ```
 
 #### 2) 설정 파일 수정

@@ -1,6 +1,14 @@
-# Firewall setting
+# Network setting
 
-## ufw를 활용한 PORT 관리
+## I. Network setting
+### Network Interface setting
+#### 1. 외부 ip 주소 확인
+```bash
+curl ifconfig.me
+```
+
+## II. Firewall setting
+### ufw를 활용한 PORT 관리
 #### 1. ufw 설치 및 실행
 ```bash
 sudo apt install ufw
