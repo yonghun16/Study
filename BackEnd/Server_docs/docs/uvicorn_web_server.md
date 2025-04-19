@@ -1,4 +1,4 @@
-# fastAPI
+# uvicorn fastAPI web sever setting
 
 ### 가상환경 활성화
 ```bash

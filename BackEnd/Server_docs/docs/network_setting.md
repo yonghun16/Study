@@ -1,14 +1,14 @@
-# Network setting
+# Linux Network setting (with Ubuntu)
 
-## I. Network setting
+## 1. Network setting
 ### Network Interface setting
-#### 1. 외부 ip 주소 확인
+#### 외부 ip 주소 확인
 ```bash
 curl ifconfig.me
 ```
 
-## II. Firewall setting
-### ufw를 활용한 PORT 관리
+## 2. Firewall setting
+### 1. ufw를 활용한 PORT 관리
 #### 1. ufw 설치 및 실행
 ```bash
 sudo apt install ufw
