@@ -1,6 +1,4 @@
-## Nginx 설치 과정 (with Ubuntu)
-
-
+# Nginx 설치 과정 (with Ubuntu)
 
 
 

@@ -1,4 +1,4 @@
-## SSL Certificate
+# SSL Certificate
 > - Let’s Encrypt  <br />
 > - duckdns (https://www.duckdns.org/)  <br />
 > - nginx  <br />

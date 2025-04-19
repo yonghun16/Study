@@ -1,11 +1,11 @@
-# 🚀 오라클 클라우드에서 새 인스턴스 생성하기 (단계별 안내)
+# 오라클 클라우드에서 새 인스턴스 생성하기 (단계별 안내)
 
 ### 목차
 1. 인스턴스 생성
 2. SSH 접속
 3. 방화벽 설정
 
-## 인스턴스 생성
+## 1. 인스턴스 생성
 #### 1. 콘솔 접속
 - https://cloud.oracle.com 접속
 - 로그인
@@ -52,7 +52,7 @@
 - 잠시 기다리면 인스턴스가 생성되고 상태가 “Running”으로 바뀜
 - 설치 끝.
 
-## SSH 접속
+## 2. SSH 접속
 #### 1. ssh 명령어
 - ssh를 통해 생성된 인스턴스의 퍼블릭 IP로 접속:
 ```bash
@@ -60,11 +60,11 @@ ssh -i ~/.ssh/your_private_key.pem ubuntu@<퍼블릭 IP 주소>
 ```
 
 #### 2. 간편하게 접속
-- ssh HostName 으로 접속하기 위해서는 openssh 설치 후 ./ssh/config 파일 설정이 필요함.
+- 간편하게 접속하기 위해서는 openssh 설치 후 ./ssh/config 파일 설정이 필요함.
 ```bash
 brew install openssh
 ```
-```sh
+```bash
 # .ssh/config
 
 # CodeSandbox SSH Integration
@@ -80,8 +80,7 @@ Host myserver
 ssh myserver
 ```
 
-
-## 방화벽 설정 
+## 3. 방화벽 설정 
 #### 1. 오라클 콘솔에서 VCN 보안 목록 열기
 - 오라클 클라우드 콘솔 → 메뉴 클릭
 - 네트워킹 > 가상 클라우드 네트워크 (VCN) 클릭
@@ -89,7 +88,7 @@ ssh myserver
 - 왼쪽 메뉴에서 보안 목록 (Security Lists) 클릭
 - 보통 default security list for default_vcn 클릭
 
-#### 2. 인바운드 규칙에 HTTP(80) 추가
+#### 2. 인바운드 규칙에 HTTP(80, 443) 추가
 - 클릭한 보안 목록 페이지에서 아래 규칙을 추가:
     - Source CIDR: 0.0.0.0/0
     - IP Protocol: TCP
