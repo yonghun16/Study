@@ -95,3 +95,4 @@ ssh myserver
     - Destination Port Range: 80
 - 같은 방식으로 HTTPS(443)도 필요하면 추가:
     - Destination Port Range: 443
+![image](https://github.com/yonghun16/Study/blob/main/BackEnd/Server_docs/images/ingressrules.jpg?raw=true)
