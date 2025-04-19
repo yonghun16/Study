@@ -1,6 +1,6 @@
 // 정규표현식(RegExp, Regular Expression)
 
-// a^b         | 줄(Line) 시작에 있는 ab와 일치
+// ^ab         | 줄(Line) 시작에 있는 ab와 일치
 // ab$         | 줄(Line) 끝에 있는 ab와 일치
 // .           | 임의의 한 문자와 일치
 // a|b         | a 또는 b와 일치
