@@ -2,8 +2,8 @@
 
 ### 1. store의 개념
 #### 1. store의 정의
-- SPA(Single Page Application)에서 store는 애플리케이션의 전역 상태(state)를 관리하는 저장소를 의미. 
-- 컴포넌트 간에 데이터를 공유하거나, 여러 컴포넌트가 동일한 데이터를 참조하거나 갱신해야 할 때, store를 사용하면 상태 관리를 깔끔하고 일관성 있게 할 수 있음.
+- SPA(Single Page Application)에서 store는 애플리케이션의 전역 **상태(state)를 관리하는 저장소**를 의미. 
+- 컴포넌트 간에 **데이터를 공유**하거나, 여러 컴포넌트가 동일한 데이터를 참조하거나 갱신해야 할 때, store를 사용하면 상태 관리를 깔끔하고 일관성 있게 할 수 있음.
 
 #### 2. 왜 store를 사용하는가?
 - SPA에서는 여러 컴포넌트들이 서로 독립적으로 동작하지만, 어떤 데이터는 공통적으로 필요.
@@ -18,3 +18,85 @@
 - 전역 상태 보관: 앱 전반에서 공유되는 데이터를 보관
 - 반응성 유지: 상태가 바뀌면 자동으로 관련된 컴포넌트가 리렌더링됨
 - 일관된 상태 흐름: 상태 변경을 추적하고 디버깅하기 쉬움
+
+
+### 2. Store 구현
+- TextField 컴포넌트 입력 내용을 Message 컴포넌트에 출력
+#### 1. core/Store
+```js
+// core/core.js
+///// Store /////
+export class Store {
+  constructor(state) {                     // 외부에서 객체(state)를 받아옴.
+    this.state = {}
+    this.observers = {}
+    for (const key in state) {             // state 속성인 key를 반복
+      Object.defineProperty(this.state, key, {   // store.state의 속성을 정의하는 척하고, 외부state val 변환
+        get: () => state[key],
+        set: (val) => {
+          state[key] = val;                // ⭐️ store.state.set(val) => 외부state.key = val
+          this.observers[key]()            // this.observers[key]는 함수이고 이를 실행
+        }
+      })
+    }
+  }
+
+  // state가 어떻게 변하는지 구독(subscribe)을 통해서 감시하겠다.
+  subscribe(key, cb) {
+    this.observers[key] = cb
+  }
+}
+
+```
+
+#### 2. store/message.js (스토어의 데이터)
+```js
+// store/message.js
+import { Store } from '../core/Core.js'
+
+export default new Store({
+  message: 'Hello~'
+})
+```
+
+#### 3. 컴포넌트1(TextField.js)
+```js
+// components/TextField.js
+import { Component } from '../core/Core'
+import messageStore from '../store/message'
+
+export default class TextField extends Component {
+  render() {
+    this.el.innerHTML = `
+      <input value="${messageStore.state.message}" />  <!-- getter 실행 -->
+    `
+    const inputEl = this.el.querySelector('input')
+    inputEl.addEventListener('input', () => {
+      messageStore.state.message = inputEl.value     // store.state.set(inputEl.value) 실행, 
+                                                     //inputEl.value를 messageStore의 state.message로 전달
+    })
+  }
+}
+```
+
+#### 4. 컴포넌트2(Message.js)
+```js
+// components/Message.js
+import { Component } from "../core/Core";
+import messageStore from "../store/message";        // messageStore는 /store/message.js안에서 new Store()로 정의했기 때문에
+                                                    // Store 클래스 인스턴스임
+
+export default class Message extends Component {
+  constructor() {
+    super()
+    messageStore.subscribe('message', () => {       // 그래서 messageStore.subscribe() 사용가능
+      this.render()                                 // subscribe의 callback함수로 this.render 전달하여 실행
+    })
+  }
+  render() {
+    this.el.innerHTML = `
+      <h2>${messageStore.state.message}</h2>
+    `
+  }
+}
+```
