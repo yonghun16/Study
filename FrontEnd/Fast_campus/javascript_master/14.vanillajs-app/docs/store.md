@@ -21,7 +21,7 @@
 
 
 ### 2. Store 구현
-- TextField 컴포넌트 입력 내용을 Message 컴포넌트에 출력
+- TextField 컴포넌트 입력 내용을 Message 컴포넌트, Title 컴포넌트에 출력
 #### 1. core/Store
 ```js
 // core/core.js
@@ -33,9 +33,11 @@ export class Store {
     for (const key in state) {             // state 속성인 key를 반복
       Object.defineProperty(this.state, key, {   // store.state의 속성을 정의하는 척하고, 외부state val 변환
         get: () => state[key],
-        set: (val) => {
-          state[key] = val;                // ⭐️ store.state.set(val) => 외부state.key = val
-          this.observers[key]()            // this.observers[key]는 함수이고 이를 실행
+        set: (val) => {                    // store.state.set(val)가 실행되면
+          state[key] = val;                //  1) ⭐️ store.state.set(val) => 외부state.key = val
+          this.observers[key].forEach(observer => observer(val))
+                                           //  2) this.observers[key]는 배열이고 subscribe에서 [cb1, cb2, cb3, ...]으로 받아 실행
+                                           //     실행하는 메소드는 render() 등
         }
       })
     }
@@ -43,7 +45,12 @@ export class Store {
 
   // state가 어떻게 변하는지 구독(subscribe)을 통해서 감시하겠다.
   subscribe(key, cb) {
-    this.observers[key] = cb
+    // {message: [cb1, cb2, cb3, ...]}
+    Array.isArray(this.observers[key])     // this.observers[key]가 배열이면
+      ? this.observers[key].push(cb)       // 위 배열에 cb 추가
+      : this.observers[key] = [cb]         // this.observers[key]에 배열 만들어서 cb 추가
+                                           // {[cb1, cb2, cb3, ...]}
+                                           // this.observers[key]의 초기 값은 undefined이기에 처음에는 배열 만들어서 cb 추가함.
   }
 }
 
@@ -54,9 +61,11 @@ export class Store {
 // store/message.js
 import { Store } from '../core/Core.js'
 
-export default new Store({
-  message: 'Hello~'
-})
+export default new Store(
+  {
+    message: 'Hello~'
+  }
+)
 ```
 
 #### 3. 컴포넌트1(TextField.js)
@@ -97,6 +106,28 @@ export default class Message extends Component {
     this.el.innerHTML = `
       <h2>${messageStore.state.message}</h2>
     `
+  }
+}
+```
+
+#### 5. 컴포넌트3(Title.js)
+```js
+
+import { Component } from "../core/Core"
+import messageStore from "../store/message"
+
+export default class Title extends Component {
+  constructor(){
+    super({
+      tagName: 'h1'
+    })
+    messageStore.subscribe('message', newVal => {
+      console.log(newVal)
+      this.render()
+    })
+  }
+  render() {
+    this.el.textContent = `Title: ${messageStore.state.message}`
   }
 }
 ```
