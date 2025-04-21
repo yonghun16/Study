@@ -1,6 +1,6 @@
-# vanillajs-app
+# Vanillajs-app
 
-## 구현 기능
+React 없이 Vanillajs로 Component, Props, State, Route, Store 구현
 
 ### 1. Component
 - [Core/Component]()
