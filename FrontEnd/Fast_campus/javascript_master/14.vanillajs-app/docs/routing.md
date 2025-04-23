@@ -74,7 +74,8 @@ export default createRouter([
 ]) 
 ```
 
-### 4. 정규식으로 라우트 찾기
+### 4. 기타
+#### 1. 정규식으로 라우트 찾기
 ```js
 const route = '/about';
 const hash = '/about/';
@@ -83,13 +84,14 @@ const regex = new RegExp(`^${route}/?$`);   // ^/about/?$
 console.log(regex.test(hash));   // true
 ```
 
-#### 3. routess/About.js
+#### 2. histoy.state 페이지 내 활용 
 ```js
+// routess/About.js
 import { Component } from '../core/Core'
 
 export default class About extends Component {
   render() {
-    const {a, b, c} = history.state                     // state 값을 받아와 페이지 내에서 변수로 활용 가능
+    const {a, b, c} = history.state                 // state 값을 받아와 페이지 내에서 변수로 활용 가능
     this.el.innerHTML = `
       <h1>About Page!</h1>
       <h2>${a}</h2>
