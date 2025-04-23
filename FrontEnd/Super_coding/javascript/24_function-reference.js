@@ -51,12 +51,13 @@ console.log(greetings());   // greetings()가 실행되서 'Hello!' 출력 후
 
 /* 4. 함수 반환값으로 반환 - 예시2 */
 console.log('\n--- 4. 함수 반환값으로 반환2');
-function afterGreeting() {
-  console.log("Welcome");
-}
 
 function greeting(callback) {
   return callback();
+}
+
+function afterGreeting() {
+  console.log("Welcome");
 }
 
 // 1) alert1는 '함수 참조'를 반환받아 실행 가능
