@@ -34,10 +34,10 @@ export class Store {
       Object.defineProperty(this.state, key, {   // store.state의 속성을 정의하는 척하고, 외부state val 변환
         get: () => state[key],
         set: (val) => {                    // store.state.set(val)가 실행되면
-          state[key] = val;                //  1) ⭐️ store.state.set(val) => 외부state.key = val
-          this.observers[key].forEach(observer => observer(val))
-                                           //  2) this.observers[key]는 배열이고 subscribe에서 [cb1, cb2, cb3, ...]으로 받아 실행
-                                           //     실행하는 메소드는 render() 등
+          state[key] = val;                          // 1) ⭐️ store.state.set(val) => 외부state.key = val
+          if (Array.isArray(this.observers[key])) {  // 호출할 콜백이 있는 경우!
+            this.observers[key].forEach(observer => observer(val))  //  2) this.observers[key]는 배열이고 subscribe에서 [cb1, cb2, cb3, ...]으로 받아 실행
+          }                                                         //     실행하는 메소드는 render() 등
         }
       })
     }
