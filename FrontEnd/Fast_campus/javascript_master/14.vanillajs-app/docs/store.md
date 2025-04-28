@@ -37,13 +37,16 @@ export class Store {
           state[key] = val;                          // 1) ⭐️ store.state.set(val) => 외부state.key = val
           if (Array.isArray(this.observers[key])) {  // 호출할 콜백이 있는 경우!
             this.observers[key].forEach(observer => observer(val))  //  2) this.observers[key]는 배열이고 subscribe에서 [cb1, cb2, cb3, ...]으로 받아 실행
-          }                                                         //     실행하는 메소드는 render() 등
+          }                                                         //     실행하는 메소드는 subscribe에 등록한 render() 등
         }
       })
     }
   }
 
   // state가 어떻게 변하는지 구독(subscribe)을 통해서 감시하겠다.
+  // subscribe(key, cb)                    // cb에 render()함수를 전달 한다는 뜻은.
+                                           // store.state.set(val)가 실행될 때마다(즉 store에 새로운 값이 넣을 때마다)
+                                           // subscribe에서 observers의 key에 등록한 render() 함수를 실행하겠다
   subscribe(key, cb) {
     // {message: [cb1, cb2, cb3, ...]}
     Array.isArray(this.observers[key])     // this.observers[key]가 배열이면

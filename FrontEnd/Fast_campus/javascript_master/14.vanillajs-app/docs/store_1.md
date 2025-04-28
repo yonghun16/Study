@@ -24,9 +24,10 @@ store.init(originalState);
 store.state.message = "world"; // [알림] message가 world로 바뀜!
 
 console.log(originalState.message); // 👉 world
+console.log(store.state.message);   // 👉 world (originalState.message가 store.state에 저장됨.)
 
 // 접근방식                       ->  실제동작                          :  예시 결과
 // -------------------------------------------------------------------------------------------------
-// store.state.message            ->  external_state.message을 읽음     :  "hello"
+// store.state.message            ->  external_state.message을 읽음      :  "hello"
 // store.state.message = "world"  ->  external_state.message = "world"  :  실제 데이터가 바뀜
 ```
