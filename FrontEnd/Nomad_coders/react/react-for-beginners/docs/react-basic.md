@@ -90,3 +90,39 @@
     // container 렌더링
     root.render(container);
 ```
+### 예제 3 (jsx)
+```jsx
+    // root 요소 생성
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+
+    // h3 요소 생성
+    const H3 = () => (
+      <h3 
+        key="h3"
+        onMouseEnter={() => console.log("mouse entered")}
+      >
+        Total Clicks: 0
+      </h3>
+    );
+
+    // btn 요소 생성
+    const Btn = () => (
+      <button 
+        key="btn"
+        onClick={() => console.log("clicked")}
+      >
+        Click me
+      </button>
+    );
+
+    // container 요소 생성 (h3 + btn)
+    const Container = () => (
+      <div>
+        <H3 />
+        <Btn />
+      </div>
+    )
+
+    // container 렌더링
+    root.render(<Container />);
+```

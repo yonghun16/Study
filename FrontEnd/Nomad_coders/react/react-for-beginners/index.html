@@ -14,35 +14,34 @@
   <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-  <script type="text/babel">
+  <script>
+  // <script type="text/babel">
     // root 요소 생성
     const root = ReactDOM.createRoot(document.getElementById("root"));
+    let counter = 0;
 
-    // h3 요소 생성
-    const h3 = (
-      <h3 
-        key="h3"
-        onMouseEnter={() => console.log("mouse entered")}
-      >
-        Total Clicks: 0
-      </h3>
+    // 카운터 증가 함수
+    function countUp() {
+      counter = counter + 1;
+      render();
+    }
+
+    // render 함수
+    function render() {
+      root.render(<Container />);    // container 렌더링
+    }
+
+    // container 요소 생성 (h3 + button)
+    const Container = () => (
+      <div>
+        <h3>Total clicks: {counter}</h3>
+        <button onClick={countUp}>Click me</button>
+      </div>
     );
 
-    // btn 요소 생성
-    const btn = (
-      <button 
-        key="btn"
-        onClick={() => console.log("clicked")}
-      >
-        Click me
-      </button>
-    );
+    render();
 
-    // container 요소 생성 (h3 + btn)
-    const container = React.createElement("div", null, [h3, btn]);
-
-    // container 렌더링
-    root.render(container);
   </script>
 
 </html>
+
