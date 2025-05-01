@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>React</title>
+    <!-- <link href="css/style.css" rel="stylesheet"> -->
+  </head>
+
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+
+  <script>
+    const rootElement = document.getElementById("root");   // rootElement DOM 선택
+
+    const span = React.createElement(                      // span 엘리먼트 생성
+      "span", 
+      {id: "sexy-span", style: {color: "red"} }, 
+      "Total Clicks: 0");
+
+    const root = ReactDOM.createRoot(rootElement);         // root 루트를 rootElement DOM에 생성
+    root.render(span);  // 이 span 엘리먼트를 React 루트(root)에 붙여서 실제 DOM으로 렌더링
+  </script>
+
+</html>

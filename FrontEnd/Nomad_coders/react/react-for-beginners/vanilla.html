@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>JS</title>
+    <!-- <link href="css/style.css" rel="stylesheet"> -->
+  </head>
+
+  <body>
+    <span>Total Clicks: 0</span>
+    <button id="btn">Click me</button>
+  </body>
+
+  <script>
+    // 변수 선언 및 DOM 선택
+    let counter = 0;
+    const button = document.getElementById("btn");
+    const span = document.querySelector("span");
+
+    // 함수 선언
+    function handleClick() {
+      console.log("clicked");
+      counter = counter + 1;
+      span.innerText = `Total Clicks: ${counter}`;
+    }
+
+    // 이벤트 렌더링
+    button.addEventListener("click", handleClick);
+  </script>
+
+</html>
