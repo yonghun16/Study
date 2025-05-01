@@ -13,28 +13,30 @@
 
   <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
-  <script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
     // root 요소 생성
     const root = ReactDOM.createRoot(document.getElementById("root"));
 
     // h3 요소 생성
-    const h3 = React.createElement(
-      "h3", 
-      {
-        key: "h3",
-        onMouseEnter: () => console.log("mouse entered")
-      },
-      "Total Clicks: 0"
+    const h3 = (
+      <h3 
+        key="h3"
+        onMouseEnter={() => console.log("mouse entered")}
+      >
+        Total Clicks: 0
+      </h3>
     );
 
     // btn 요소 생성
-    const btn = React.createElement(
-      "button", 
-      { 
-        key: "btn",
-        onClick: () => { console.log("clicked"); } 
-      },
-      "Click me"); 
+    const btn = (
+      <button 
+        key="btn"
+        onClick={() => console.log("clicked")}
+      >
+        Click me
+      </button>
+    );
 
     // container 요소 생성 (h3 + btn)
     const container = React.createElement("div", null, [h3, btn]);

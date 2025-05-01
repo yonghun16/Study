@@ -41,3 +41,52 @@
     // container 렌더링
     root.render(container);
 ```
+
+### JSX
+- JSX는 JavaScript 코드 안에서 HTML처럼 UI를 작성할 수 있게 해주는 문법.
+```js
+    const element = React.createElement(
+      'h1',
+      {className: 'greeting'},
+      'Hello, world!'
+    )
+```
+```jsx
+    const element = (
+      <h1 className="gretting">
+        Hello, world!
+      </h1>
+    )
+```
+
+### 예제 2 (jsx)
+```jsx
+    // root 요소 생성
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+
+    // h3 요소 생성
+    const h3 = (
+      <h3 
+        key="h3"
+        onMouseEnter={() => console.log("mouse entered")}
+      >
+        Total Clicks: 0
+      </h3>
+    );
+
+    // btn 요소 생성
+    const btn = (
+      <button 
+        key="btn"
+        onClick={() => console.log("clicked")}
+      >
+        Click me
+      </button>
+    );
+
+    // container 요소 생성 (h3 + btn)
+    const container = React.createElement("div", null, [h3, btn]);
+
+    // container 렌더링
+    root.render(container);
+```
