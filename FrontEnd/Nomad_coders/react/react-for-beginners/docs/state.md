@@ -17,7 +17,7 @@
         <div>
           <div>
             <h1 className="title">Super Converter</h1>
-            <label htmlFor="amount">Minutes</label>
+            <label htmlFor="minutes">Minutes</label>
             <input 
               value={!flipped ? amount : Math.round(amount*60)} 
               id="minutes" 
