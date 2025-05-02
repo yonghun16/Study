@@ -16,31 +16,21 @@
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script>
   // <script type="text/babel">
-    // root 요소 생성
     const root = ReactDOM.createRoot(document.getElementById("root"));
-    let counter = 0;
-
-    // 카운터 증가 함수
-    function countUp() {
-      counter = counter + 1;
-      render();
+    const App = () => {
+      const [counter, setCounter] = React.useState(0)
+      const onClick = () => {
+        setCounter(counter + 1);
+      };
+      return (
+        <div>
+          <h3>Total clicks: {counter}</h3>
+          <button onClick={onClick}>Click me</button>
+        </div>
+      );
     }
 
-    // render 함수
-    function render() {
-      root.render(<Container />);    // container 렌더링
-    }
-
-    // container 요소 생성 (h3 + button)
-    const Container = () => (
-      <div>
-        <h3>Total clicks: {counter}</h3>
-        <button onClick={countUp}>Click me</button>
-      </div>
-    );
-
-    render();
-
+    root.render(<App />);
   </script>
 
 </html>
