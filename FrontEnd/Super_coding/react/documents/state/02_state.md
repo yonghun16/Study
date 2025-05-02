@@ -9,7 +9,7 @@ const Toast = ({ message }) => {
   const buttonClickHandler = (title) => {
     text = "changed";
     console.log("tesst");
-  }
+  };
   return (
     <div className={`toast toast-${message.title}`}>
       <ToastMessage message={message}/>
