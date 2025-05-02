@@ -17,7 +17,8 @@
   <!-- <script> -->
   <script type="text/babel">
     // 자식 컴포넌트
-    const Btn = ({text, big}) => {
+    const Btn = ({text, onClick}) => {
+      console.log(text, "was rendered");
       return (
         <button style={{
           backgroundColor: "tomato",
@@ -25,19 +26,24 @@
           padding: "10px 20px",
           border: "1px solid tomato",
           borderRadius: "15px",
-          fontSize: big ? "20px" : "10px"
         }}
+        onClick={onClick}
         >
           {text}
         </button>
       );
     }
     // 부모 컴포넌트
+    const MemoizedBtn = React.memo(Btn);   // btn 컴포넌트를 메모이제이션 처리
     const App = () => {
+      const [value, setValue] = React.useState("Save Change");
+      const changeValue = () => {
+        setValue("Change Value");
+      }
       return (
         <div>
-          <Btn text="Save Change" big={true}/>
-          <Btn text="Continue" big={false} />
+          <MemoizedBtn text={value} onClick={changeValue}/>   {/* 메모이제이션 처리된 컴포넌트 사용 */}
+          <MemoizedBtn text="Continue" />
         </div>
       );
     }
