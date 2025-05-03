@@ -106,3 +106,34 @@
     root.render(<App />);
 ```
 
+### propType
+#### 설치
+```bash
+npm install prop-types
+```
+
+#### 기본 사용법
+```jsx
+import PropTypes from 'prop-types';
+
+const MyComponent = ({ name, age }) => {
+  return <div>{name} is {age} years old</div>;
+};
+
+MyComponent.propTypes = {
+  name: PropTypes.string,   // name은 문자열이어야 함
+  age: PropTypes.number     // age는 숫자여야 함
+};
+```
+
+#### 필수 값 지정
+```jsx
+MyComponent.propTypes = {
+  name: PropTypes.string.isRequired, // 필수 prop
+  age: PropTypes.number
+};
+```
+
+#### 레퍼런스
+- https://legacy.reactjs.org/docs/typechecking-with-proptypes.html
+- https://www.npmjs.com/package/prop-types
