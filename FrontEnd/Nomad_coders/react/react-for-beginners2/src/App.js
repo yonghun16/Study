@@ -1,11 +1,19 @@
-import Button from './Button';
-import styles from "./App.module.css";
+import { useState, useEffect } from 'react';
 
 function App() {
+  const [counter, setCounter] = useState(0);
+  const onClick = () => setCounter((current) => current + 1);
+
+  console.log("i run al the time");
+
+  useEffect(() => {
+    console.log("Call me when mounted and updated");
+  }, []);
+
   return (
     <div>
-      <h1 className={styles.title}>Welcome back!!</h1>
-      <Button text="Log out" />
+      <h1>{counter}</h1>
+      <button onClick={onClick}>Click me</button>
     </div>
   );
 }
