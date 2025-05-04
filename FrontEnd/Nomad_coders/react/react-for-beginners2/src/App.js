@@ -1,36 +1,25 @@
 import { useState, useEffect } from 'react';
 
-function App() {
-  const [counter, setCounter] = useState(0);
-  const [keyword, setKeyword] = useState("");
-
-  const onClick = () => setCounter((current) => current + 1);
-  const onChange = (event) => setKeyword(event.target.value);
-
-  console.log("i run al the time");
-
+function Hello() {
   useEffect(() => {
-    console.log("CALL THE API... ");
-  }, []);
-  useEffect(() => {
-    if (keyword !== "" && keyword.length > 5) {
-      console.log("search for", keyword);
+    console.log("created :)");
+    return () => {
+      console.log("destroyed :(");
     }
-  }, [keyword]);                          // keyword에 변화가 있을 때만 적용
-  useEffect(() => {
-    console.log("i run change counter");
-  }, [counter]);                          // counter에 변화가 있을 때만 적용
+  }, []);
+  return <h1>Hello</h1>;
+}
+
+function App() {
+  const [showing, setShowing] = useState(false);
+  const onClick = () => setShowing((prev) => !prev);
 
   return (
     <div>
-      <input 
-        value={keyword}
-        onChange={onChange}
-        type="text" 
-        placeholder="Search here..." 
-      />
-      <h1>{counter}</h1>
-      <button onClick={onClick}>Click me</button>
+      {showing ? <Hello /> : null}
+      <button
+        onClick={onClick}
+      >{showing ? 'Hide' : 'Show'}</button>
     </div>
   );
 }
