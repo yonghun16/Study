@@ -55,7 +55,7 @@ const Father = styled.div`
 `;
 
 const Box = styled.div`
-  background-color: ${props => props.bgColor};  // props 수신
+  background-color: ${props => props.bgColor};  // props 수신, props 중에서 bgColor라는 속성 값을 꺼내와서 사용하겠다는 의미
   width: 100px;
   height: 100px;
 `;
