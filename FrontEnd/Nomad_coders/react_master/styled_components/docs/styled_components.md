@@ -44,8 +44,6 @@ function App() {
     </Father>
   );
 }
-
-export default App;
 ```
 
 ### props 전달 및 컴포넌트 확장
@@ -74,6 +72,31 @@ function App() {
     </Father>
   );
 }
+```
 
-export default App;
+### 컴폰넌트의 기본 속성 정의
+- as = 기존에 만든 스타일 컴포넌트를 다른 HTML 태그로 렌더링
+  - 속성은 그대로 쓰고, tag만 바꿀 때 유용
+- .attrs({ required: true }): 해당 컴포넌트에 기본 속성(attribute)을 지정. 
+  - 다수의 컴포넌트에게 동일한 속성을 사용하고 싶을 때 유용.
+```jsx
+ styled from "styled-components";
+
+const Father = styled.div`
+  display: flex;
+`;
+
+const Input = styled.input.attrs({ required: true })`    // 기본 속성 정의
+  background-color: tomato;
+`;
+
+function App() {
+  return (
+    <Father as="header">    // as = 기존에 만든 스타일 컴포넌트를 다른 HTML 태그로 렌더링
+      <Input />
+      <Input />
+      <Input />
+    </Father>
+  );
+}
 ```
