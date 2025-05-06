@@ -53,7 +53,7 @@ export default Circle;
 
 ```
 
-### Optional Props, Default Props
+### Optional Props, Default Props, State
 - ? : optional props
 - ?? : default props
 ```tsx
@@ -73,18 +73,53 @@ const Container = styled.div<ContainerProps>`
 `;
 
 interface CircleProps {
-  bgColor: string;        // required props
-  borderColor?: string;   // optional props
-  text?: string;          // optional props
+  bgColor: string;          // required props
+  borderColor?: string;     // optional props
+  text?: string;            // optional props
 }
 
-function Circle({ bgColor, borderColor, text ="default text" }: CircleProps) {   // default props: text가 없다면 "default text"로
-  const [counter, setCounter] = useState<number|string>(1);    // useState 사용시 타입 적용
-  return <Container $bgColor={bgColor} $borderColor={borderColor ?? bgColor }>   // default props: borderColor가 없다면 bgColor로  
+function Circle({ bgColor, borderColor, text ="default text" }: CircleProps) {      // default props: text가 없다면 "default text"로
+  const [counter, setCounter] = useState<number|string>(1);                         // useState 사용 시 타입 적용
+  return <Container $bgColor={bgColor} $borderColor={borderColor ?? bgColor }>      // default props: borderColor가 없다면 bgColor로  
     {text}
   </Container>;
 }
 
 export default Circle;
 
+```
+
+### Forms
+```tsx
+import { useState } from 'react';
+
+function App() {
+  const [value, setValue] = useState("");
+  const onChange = (event: React.FormEvent<HTMLInputElement>) => {    // event에 타입 정의
+    const {
+      currentTarget: { value },
+    } = event;
+    setValue(value);
+  };
+  const onSubmit = (event:React.FormEvent<HTMLFormElement>) => {     // event에 타입 정의
+    event.preventDefault();
+    console.log("hello", value);
+  };
+
+  return (
+    <div>
+      <form onSubmit={onSubmit}>
+        <input
+          value={value}
+          onChange={onChange}
+          type="text"
+          placeholder="username"
+        />
+        <button>Log in</button>
+      </form>
+    </div>
+  );
+}
+
+export default App;
 ```
