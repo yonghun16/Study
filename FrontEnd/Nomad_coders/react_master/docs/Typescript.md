@@ -79,6 +79,7 @@ interface CircleProps {
 }
 
 function Circle({ bgColor, borderColor, text ="default text" }: CircleProps) {   // default props: text가 없다면 "default text"로
+  const [counter, setCounter] = useState<number|string>(1);    // useState 사용시 타입 적용
   return <Container $bgColor={bgColor} $borderColor={borderColor ?? bgColor }>   // default props: borderColor가 없다면 bgColor로  
     {text}
   </Container>;
