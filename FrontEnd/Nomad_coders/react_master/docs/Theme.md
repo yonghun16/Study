@@ -23,7 +23,7 @@ export const theme = {
 
 #### ThemeProvider로 적용
 ```jsx
-// App.js
+// App.jsx
 import { ThemeProvider } from 'styled-components';
 import { theme } from './theme';
 import MyComponent from './MyComponent';
