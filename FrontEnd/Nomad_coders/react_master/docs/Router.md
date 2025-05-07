@@ -92,3 +92,31 @@ function Root() {
 
 export default Root;
 ```
+
+### useNavigate
+- 프로그래밍 방식으로 페이지를 이동(navigation)하기 위해 사용. 
+- 즉, 사용자의 직접적인 클릭 없이도 자바스크립트 코드로 라우팅을 제어할 수 있게 해줌
+```tsx
+import { Link, useNavigate } from 'react-router-dom'
+
+function Header() {
+  const navigate = useNavigate()
+  const onAboutClick = () => {
+    navigate("/about");
+  }
+  return (
+    <header>
+      <ul>
+        <li>
+          <Link to={"/"}>Home</Link>
+        </li>
+        <li>
+          <button onClick={onAboutClick}>About</button>
+        </li>
+      </ul>
+    </header>
+  )
+}
+
+export default Header
+```
