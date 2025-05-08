@@ -1,0 +1,71 @@
+# Outlet
+
+### Outlet
+- 현재 라우트의 자식 컴포넌트를 렌더링하는 자리 표시자.
+    - 간단히 말해서, 부모 라우트가 자식 라우트를 렌더링할 위치를 지정하는 역할
+- \<Outlet />은 부모 라우트 컴포넌트 내부에 위치.
+- 현재 경로에 맞는 __자식 라우트가 있으면__ 그 컴포넌트를 \<Outlet /> 위치에 렌더링.
+    - 자식 라우트가 없으면 아무것도 렌더링되지 않음.
+
+### 기본 사용법
+```tsx
+// Router.tsx
+import { createBrowserRouter } from "react-router-dom";
+import Home from "./screens/Home";
+import About from "./screens/About";
+import Root from "./Root";
+import User from "./screens/users/User";
+import ErrorPage from "./screens/ErrorPage";
+import Followers from "./screens/users/Followers";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Root />,                      // "<Root>"경로의 자식으로 <Home>, <About>, <User>
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/about",
+        element: <About />,
+      },
+      {
+        path: "/users/:userId",
+        element: <User />,                  // "<User>"경로의 자식으로 <Followrs>
+        children : [
+          {
+            path: "followers",
+            element: <Followers />
+          }
+        ]
+      }
+    ],
+    errorElement: <ErrorPage />,
+  },
+]);
+
+export default router
+```
+```tsx
+// User.tsx
+import { Outlet, Link, useParams } from "react-router-dom";
+import { users } from "../../db" ;
+
+function User() {
+  const { userId } = useParams();
+  return (
+    <div>
+      <h1>
+        User with it {userId} is named: {users[Number(userId)-1].name}
+      </h1>
+      <hr />
+      <Link to="followers">See followers</Link>             // followers 링크를 열면
+      <Outlet />                                            // 현재 라우터의 자식 라우트 컴포넌트를 <outlet>을 통해 렌더함.
+    </div>
+  )
+}
+
+export default User;
+```

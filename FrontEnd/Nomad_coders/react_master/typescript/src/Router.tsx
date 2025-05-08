@@ -4,6 +4,7 @@ import About from "./screens/About";
 import Root from "./Root";
 import User from "./screens/users/User";
 import ErrorPage from "./screens/ErrorPage";
+import Followers from "./screens/users/Followers";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,12 @@ const router = createBrowserRouter([
       {
         path: "/users/:userId",
         element: <User />,
+        children : [
+          {
+            path: "followers",
+            element: <Followers />
+          }
+        ]
       }
     ],
     errorElement: <ErrorPage />,
