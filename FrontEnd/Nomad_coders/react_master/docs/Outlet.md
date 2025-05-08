@@ -69,3 +69,44 @@ function User() {
 
 export default User;
 ```
+
+### OutletContext
+```tsx
+// User.tsx
+import { Outlet, Link, useParams } from "react-router-dom";
+import { users } from "../../db" ;
+
+function User() {
+  const { userId } = useParams();
+  return (
+    <div>
+      <h1>
+        User with it {userId} is named: {users[Number(userId)-1].name}
+      </h1>
+      <hr />
+      <Link to="followers">See followers</Link>
+      <Outlet 
+        context={{                                              // Route에 context를 전달
+          nameOfMyUser: users[Number(userId)-1].name,
+      }}/>
+    </div>
+  )
+}
+
+export default User;
+```
+```tsx
+// Followers.tsx
+import { useOutletContext } from "react-router-dom";            // useOutletContext 사용
+
+interface MyOutletContextType {
+  nameOfMyUser: string;
+}
+
+function Followers() {
+  const { nameOfMyUser } = useOutletContext<MyOutletContextType>();  // useOutletContext을 사용하여 nameOfMyUser 상태 정의
+  return <h1>Here are {nameOfMyUser}의 Followers</h1>;               // 출력
+}
+
+export default Followers;
+```
