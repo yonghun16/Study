@@ -176,3 +176,41 @@ export default Header
 ### useParams
 - useParams()는 URL 경로에서 :파라미터 형태로 정의된 값을 객체로 반환.
 - 반환값은 항상 문자열(string) 이므로, 필요하면 숫자로 변환해야 함: Number(params.id) 등.
+```tsx
+// Home.tsx
+import { Link } from "react-router-dom";
+import { users } from "../db";
+
+function Home() {
+  return (
+    <div>
+      <h1>Users</h1>
+      <ul>
+        {users.map(user => (
+          <li key={user.id}>
+            <Link to={`/users/${user.id}`}>{user.name}</ Link>
+          </li>
+        ))}
+      </ul>
+    </div>
+  )
+}
+
+export default Home
+```
+```tsx
+// user.tsx
+import { useParams } from "react-router-dom";
+import { users } from "../../db" ;
+
+function User() {
+  const { userId } = useParams();
+  return (
+    <h1>
+      User with it {userId} is named: {users[Number(userId)-1].name}
+    </h1>
+  )
+}
+
+export default User;
+```
