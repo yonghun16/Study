@@ -36,7 +36,7 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
   body {
-    font-family: "Source Sans 3", sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-optical-sizing: auto;
     font-weight: <weight>;
     font-style: normal;
@@ -46,6 +46,7 @@ const GlobalStyle = createGlobalStyle`
   }
   a {
     text-decoration: none;
+    color: inherit;
   }
   ol, ul {
     list-style: none;
