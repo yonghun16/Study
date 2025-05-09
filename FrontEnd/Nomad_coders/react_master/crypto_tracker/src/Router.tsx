@@ -3,6 +3,7 @@ import App from "./App";
 import Coin from "./routes/Coin";
 import Coins from "./routes/Coins";
 
+// 라우터 컴포넌트
 const router = createBrowserRouter([
   {
     path: "/",

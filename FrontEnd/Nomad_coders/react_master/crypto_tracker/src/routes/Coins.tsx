@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
+// styled-components 
 const Container = styled.div`
   padding: 0px 20px;
   max-width:  480px;
@@ -52,6 +53,7 @@ const Img = styled.img`
   margin-right: 10px;
 `;
 
+// interfaces
 interface CoinInterface {
   "id": string,
   "name": string,
@@ -62,15 +64,16 @@ interface CoinInterface {
   "type": string,
 }
 
+// 코인들 정보 메인 페이지 컴포넌트
 function Coins() {
-  const [coins, setCoins] = useState<CoinInterface[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [coins, setCoins] = useState<CoinInterface[]>([]);  // 코인 상태
+  const [loading, setLoading] = useState(true);  // 로딩 바
   useEffect(() => {
     (async () => {
-      const response = await fetch("https://api.coinpaprika.com/v1/coins");
-      const json = await response.json();
-      setCoins(json.slice(0, 100));
-      setLoading(false);
+      const response = await fetch("https://api.coinpaprika.com/v1/coins");   // API 데이터 받아오기
+      const json = await response.json();                                     // JSON 변환
+      setCoins(json.slice(0, 100));                                           // 100까지 자르기
+      setLoading(false);                                                      // 로딩 완료
     })();
   }, [])
 
