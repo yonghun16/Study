@@ -231,3 +231,37 @@ function User() {
 
 export default User;
 ```
+
+### useLocation
+- useLocation()은 React Router에서 제공하는 훅으로, 현재 URL에 대한 정보를 가져옴.
+- useLocation()이 하는 일
+ - 현재 브라우저의 경로 (pathname)
+ - 검색 쿼리 (search)
+ - 해시 (hash)
+ - Link나 navigate()로 전달된 state 값
+- 등을 포함하는 location 객체를 반환합니다.
+
+```tsx
+    <Link 
+      to={{
+        pathname: `/${coin.id}`
+      }} 
+      state={{ name: coin.name }}  // state를 따로 전달
+    >
+      <Img 
+        src={`https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/128/color/${coin.symbol.toLowerCase()}.png`} 
+      />
+      {coin.name} &rarr;
+    </Link>
+```
+```tsx
+import { useLocation } from "react-router-dom";
+
+function CoinDetail() {
+  // const location = useLocation();
+  const { state } = useLocation() as { state: { name: string } };   // 타입 정의
+  console.log(location.state);   // { name: "Bitcoin" } 같은 데이터가 들어옴
+
+  return <h1>{location.state?.name} 페이지</h1>;
+}
+```
