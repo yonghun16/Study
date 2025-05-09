@@ -100,3 +100,57 @@ function App() {
   );
 }
 ```
+
+### createGlobalStyle
+- 전역 스타일을 정의할 때 사용합니다. 보통 리셋 CSS나 전체 앱에 공통으로 적용되는 폰트, 배경색, 기본 여백 등을 설정할 때 쓰임.
+```tsx
+// GlobalStyle.ts
+import { createGlobalStyle } from 'styled-components';
+
+const GlobalStyle = createGlobalStyle`
+  /* 리셋 CSS */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  /* 기본 바디 스타일 */
+  body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  ul, ol {
+    list-style: none;
+  }
+`;
+
+export default GlobalStyle;
+```
+```tsx
+// app.tsx
+import React from 'react';
+import GlobalStyle from './GlobalStyle';
+
+function App() {
+  return (
+    <>
+      <GlobalStyle />
+      <div>
+        <h1>Hello styled-components</h1>
+        <p>전역 스타일이 적용되었습니다.</p>
+      </div>
+    </>
+  );
+}
+
+export default App;
+```
