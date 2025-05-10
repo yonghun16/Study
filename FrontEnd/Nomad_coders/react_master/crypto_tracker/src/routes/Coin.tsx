@@ -1,8 +1,19 @@
 import { useEffect, useState } from "react";
-import { useLocation, useParams } from "react-router-dom";
+import { Outlet, useLocation, useParams } from "react-router-dom";
 import styled from "styled-components";
 
+
 // styled-components 
+const Title = styled.h1`
+  font-size: 48px;
+  color: ${(props) => props.theme.accentColor};
+`;
+
+const Loader = styled.span`
+  text-align: center;
+  display: block;
+`;
+
 const Container = styled.div`
   padding: 0px 20px;
   max-width:  480px;
@@ -16,18 +27,33 @@ const Header = styled.header`
   align-items: center;
 `;
 
-const Title = styled.h1`
-  font-size: 48px;
-  color: ${(props) => props.theme.accentColor};
+const Overview = styled.div`
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px 20px;
+  border-radius: 10px;
 `;
 
-const Loader = styled.span`
-  text-align: center;
-  display: block;
+const OverviewItem = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  span:first-child {
+    font-size: 10px;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+  }
 `;
+
+const Description = styled.p`
+  margin: 20px 0px;
+`;
+
 
 // interfaces
-
 interface InfoData {
   id: string;
   name: string;
@@ -89,17 +115,17 @@ function Coin() {
   const [loading, setLoading] = useState(true);                    // 로딩 상태
   const { coinId } = useParams() as { coinId: string };            // url에서 받은 코인ID 상태
   const { state } = useLocation() as { state: { name: string } };  // <Link> 즉 Router에서 받은 상태(코인정보)
-  const [info, setInfo] = useState<InfoData>();                  // 선택된 코인 정보 상태
-  const [priceInfo, setPriceInfo] = useState<PriceData>();       // 코인 가격 정보 상태
+  const [info, setInfo] = useState<InfoData>();                    // 선택된 코인 정보 상태
+  const [priceInfo, setPriceInfo] = useState<PriceData>();         // 코인 가격 정보 상태
 
-  useEffect(()=>{
+  useEffect(() => {
     (async () => {
       const infoData = await (
-        await fetch(`https://api.coinpaprika.com/v1/coins/${coinId}`)
+        await fetch(`https://api.coinpaprika.com/v1/coins/${coinId}`)    // 코인 정보 API
       ).json();
 
       const priceData = await (
-        await fetch(`https://api.coinpaprika.com/v1/tickers/${coinId}`)
+        await fetch(`https://api.coinpaprika.com/v1/tickers/${coinId}`)  // 코인 가격정보 API
       ).json();
 
       setInfo(infoData);
@@ -107,16 +133,47 @@ function Coin() {
 
       setLoading(false);
     })();
-  }, [])
+  }, [coinId])
 
   return (
     <Container>
       <Header>
-        <Title>{state?.name || "Loading..."}</Title>  {/* 만약 state가 없으면 undefined가 되니 "Loading..." 을 출력*/}
+        <Title>
+          {state?.name ? state.name : loading ? "Loading..." : info?.name}
+        </Title>
       </Header>
       {loading
         ? (<Loader>Loading...</Loader>)
-        : priceInfo?.quotes.USD.price}
+        : (
+          <>
+            <Overview>
+              <OverviewItem>
+                <span>Rank:</span>
+                <span>{info?.rank}</span>
+              </OverviewItem>
+              <OverviewItem>
+                <span>Symbol:</span>
+                <span>${info?.symbol}</span>
+              </OverviewItem>
+              <OverviewItem>
+                <span>Open Source:</span>
+                <span>{info?.open_source ? "Yes" : "No"}</span>
+              </OverviewItem>
+            </Overview>
+            <Description>{info?.description}</Description>
+            <Overview>
+              <OverviewItem>
+                <span>Total Suply:</span>
+                <span>{priceInfo?.total_supply}</span>
+              </OverviewItem>
+              <OverviewItem>
+                <span>Max Supply:</span>
+                <span>{priceInfo?.max_supply}</span>
+              </OverviewItem>
+            </Overview>
+            <Outlet />
+          </>
+        )}
     </Container>
   )
 }
