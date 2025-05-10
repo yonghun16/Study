@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Outlet, useLocation, useParams } from "react-router-dom";
+import { Outlet, Link, useLocation, useParams, useMatch } from "react-router-dom";
 import styled from "styled-components";
 
 
@@ -52,6 +52,27 @@ const Description = styled.p`
   margin: 20px 0px;
 `;
 
+const Tabs = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin: 25px 0px;
+  gap: 10px;
+`;
+
+const Tab = styled.span<{ $isActive: boolean }>`
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 400;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 7px 0px;
+  border-radius: 10px;
+  color: ${(props) =>
+    props.$isActive ? props.theme.accentColor : props.theme.textColor};
+  a {
+    display: block;
+  }
+`;
 
 // interfaces
 interface InfoData {
@@ -117,6 +138,8 @@ function Coin() {
   const { state } = useLocation() as { state: { name: string } };  // <Link> 즉 Router에서 받은 상태(코인정보)
   const [info, setInfo] = useState<InfoData>();                    // 선택된 코인 정보 상태
   const [priceInfo, setPriceInfo] = useState<PriceData>();         // 코인 가격 정보 상태
+  const priceMatch = useMatch("/:coinId/price");
+  const chartMatch = useMatch("/:coinId/chart");
 
   useEffect(() => {
     (async () => {
@@ -142,6 +165,7 @@ function Coin() {
           {state?.name ? state.name : loading ? "Loading..." : info?.name}
         </Title>
       </Header>
+
       {loading
         ? (<Loader>Loading...</Loader>)
         : (
@@ -160,7 +184,10 @@ function Coin() {
                 <span>{info?.open_source ? "Yes" : "No"}</span>
               </OverviewItem>
             </Overview>
+
+            {/* 코인 설명*/}
             <Description>{info?.description}</Description>
+
             <Overview>
               <OverviewItem>
                 <span>Total Suply:</span>
@@ -171,6 +198,16 @@ function Coin() {
                 <span>{priceInfo?.max_supply}</span>
               </OverviewItem>
             </Overview>
+            
+            <Tabs>
+              <Tab $isActive={chartMatch !== null}>
+                <Link to="chart">Chart</Link>
+              </Tab>
+              <Tab $isActive={priceMatch !== null}>
+                <Link to="price">Price</Link>
+              </Tab>
+            </Tabs>
+
             <Outlet />
           </>
         )}

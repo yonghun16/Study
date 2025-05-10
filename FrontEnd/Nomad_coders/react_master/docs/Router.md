@@ -265,3 +265,23 @@ function CoinDetail() {
   return <h1>{location.state?.name} 페이지</h1>;
 }
 ```
+
+### useMatch
+#### 사용법
+- match는 현재 경로가 /about와 일치하면 **match 객체**, 아니면 **null**을 반환.
+- 따라서 if (match)로 불리언처럼 사용할 수는 있지만, 실제 반환값은 객체 or null.
+
+```tsx
+import { useMatch } from "react-router-dom";
+
+const match = useMatch("/about");
+```
+#### 반환되는 match 객체 예시
+```tsx
+{
+  params: {},           // 동적 세그먼트가 있을 경우 경로 변수
+  pathname: "/about",   // 일치한 경로
+  pathnameBase: "/about",
+  pattern: { path: "/about", caseSensitive: false, end: true }
+}
+```
