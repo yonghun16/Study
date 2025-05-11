@@ -1,5 +1,6 @@
+import { useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { Outlet, Link, useLocation, useParams, useMatch } from "react-router-dom";
+import { Outlet, Link, useNavigate, useLocation, useParams, useMatch } from "react-router-dom";
 import styled from "styled-components";
 import { fetchCoinInfo, fetchCoinTickers } from "../api";
 import { Helmet } from 'react-helmet-async';
@@ -146,17 +147,23 @@ function Coin() {
   const chartMatch = useMatch("/:coinId/chart");
 
   // react-query 사용
-  const {data: infoData, isLoading: infoLoading} = useQuery<InfoData>({
-    queryKey: ["info", coinId], 
+  const { data: infoData, isLoading: infoLoading } = useQuery<InfoData>({
+    queryKey: ["info", coinId],
     queryFn: () => fetchCoinInfo(coinId),
   });
 
-  const {data: tickersData, isLoading: tickersLoading} = useQuery<PriceData>({
-    queryKey: ["tickers", coinId], 
+  const { data: tickersData, isLoading: tickersLoading } = useQuery<PriceData>({
+    queryKey: ["tickers", coinId],
     queryFn: () => fetchCoinTickers(coinId),
     refetchInterval: 3000,             // 3초마다 자동으로 리패치
     refetchOnWindowFocus: true,        // 창 포커스 시에도 리패치
   });
+
+  const navigate = useNavigate();
+  useEffect(() => {
+    // 컴포넌트가 처음 마운트될 때 /chart 으로 이동
+    navigate("chart");
+  }, [navigate]);
 
   /* react-query 사용 전 fetch 사용방식 */
   // const [loading, setLoading] = useState(true);                    // 로딩 상태
@@ -179,9 +186,9 @@ function Coin() {
   //     setLoading(false);
   //   })();
   // }, [coinId])
-  
-  const loading = infoLoading || tickersLoading; 
-  
+
+  const loading = infoLoading || tickersLoading;
+
   return (
     <Container>
       <Helmet>
@@ -228,7 +235,7 @@ function Coin() {
                 <span>{tickersData?.max_supply}</span>
               </OverviewItem>
             </Overview>
-            
+
             <Tabs>
               <Tab $isActive={chartMatch !== null}>
                 <Link to="chart">Chart</Link>
@@ -238,10 +245,10 @@ function Coin() {
               </Tab>
             </Tabs>
 
-            <Outlet 
+            <Outlet
               context={{
                 coinId,
-            }}/>
+              }} />
           </>
         )}
     </Container>
