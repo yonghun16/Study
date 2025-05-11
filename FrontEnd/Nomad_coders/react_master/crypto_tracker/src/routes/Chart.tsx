@@ -1,5 +1,85 @@
+import { useQuery } from "@tanstack/react-query";
+import { useOutletContext } from "react-router-dom";
+import { fetchCoinHistory } from "../api";
+import ApexChart from "react-apexcharts";
+
+// interface
+interface IHistorical {
+  time_open: string;
+  time_close: string;
+  open: number;
+  high: number;
+  low: number;
+  close: number;
+  volume: number;
+  market_cap: number;
+}
+
+interface OutletContextType {
+  coinId: string;
+}
+
+// 코인 차트 컴포넌트
 function Chart() {
-  return <h1>Chart</h1>
+  const { coinId } = useOutletContext<OutletContextType>();
+  const { data, isLoading } = useQuery<IHistorical[]>({
+    queryKey: ["ohlcv", coinId],
+    queryFn: () => fetchCoinHistory(coinId),
+  });
+
+  const candlestickData =
+    data?.map((price) => ({
+      x: new Date(Number(price.time_close) * 1000).toISOString(),
+      y: [price.open, price.high, price.low, price.close],
+    })) || [];
+  console.log(data?.map((price) => price.close));
+  return (
+    <>
+      {isLoading ? (
+        "Loading chart..."
+      ) : (
+        <ApexChart
+          type="candlestick"
+
+          series={[
+            {
+              name: "Price",
+              data: candlestickData,
+            },
+          ]}
+
+          options={{
+            theme: {
+              mode: "dark",
+            },
+            chart: {
+              height: 300,
+              width: 500,
+              toolbar: { show: false },
+              background: "transparent",
+            },
+            plotOptions: {
+              candlestick: {
+                colors: {
+                  upward: "#E1533F",
+                  downward: "#4780EC",
+                },
+              },
+            },
+            grid: { show: false },
+            xaxis: {
+              axisBorder: { show: false },
+              axisTicks: { show: false },
+              labels: { show: true, rotate: 0 },
+              type: "datetime",
+            },
+            yaxis: { show: true },
+          }}
+
+        />
+      )}
+    </>
+  );
 }
 
 export default Chart;

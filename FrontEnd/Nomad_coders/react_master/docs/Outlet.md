@@ -71,6 +71,7 @@ export default User;
 ```
 
 ### OutletContext
+- OutletContext를 사용하면 부모 컴포넌트에서 Outlet을 통해 렌더링되는 자식 컴포넌트로 데이터를 전달할 수 있습니다.
 ```tsx
 // User.tsx
 import { Outlet, Link, useParams } from "react-router-dom";
@@ -110,7 +111,34 @@ function Followers() {
 
 export default Followers;
 ```
+```tsx
+// Router.tsx
+import { createBrowserRouter } from "react-router-dom";
+import App from "./App"; // 메인 레이아웃 컴포넌트
+import User from "./pages/User";
+import Followers from "./pages/Followers";
 
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />, // 루트 레이아웃
+    children: [
+      {
+        path: "user/:userId", // /user/1, /user/2 등
+        element: <User />,
+        children: [
+          {
+            path: "followers", // /user/1/followers
+            element: <Followers />,
+          },
+        ],
+      },
+    ],
+  },
+]);
+
+export default router;
+```
 ### readSearchParms, setSearchPparms
 - React Router v6에서 제공하는 훅(Hook)으로, URL의 쿼리 스트링(query string) 을 읽고 조작할 수 있도록 도와줌.
 ```tsx

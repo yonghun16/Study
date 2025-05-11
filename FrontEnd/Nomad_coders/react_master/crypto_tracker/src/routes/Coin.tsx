@@ -1,5 +1,4 @@
 import { useQuery } from "@tanstack/react-query";
-import { useEffect, useState } from "react";
 import { Outlet, Link, useLocation, useParams, useMatch } from "react-router-dom";
 import styled from "styled-components";
 import { fetchCoinInfo } from "../api";
@@ -141,6 +140,7 @@ function Coin() {
   const priceMatch = useMatch("/:coinId/price");
   const chartMatch = useMatch("/:coinId/chart");
 
+  // react-query 사용
   const {data: infoData, isLoading: infoLoading} = useQuery<InfoData>({
     queryKey: ["info", coinId], 
     queryFn: () => fetchCoinInfo(coinId),
@@ -225,7 +225,10 @@ function Coin() {
               </Tab>
             </Tabs>
 
-            <Outlet />
+            <Outlet 
+              context={{
+                coinId,
+            }}/>
           </>
         )}
     </Container>
