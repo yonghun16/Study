@@ -1,5 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 import { Outlet } from 'react-router-dom';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 
 // GlobalStyle
 const GlobalStyle = createGlobalStyle`
@@ -71,6 +72,7 @@ function App() {
     <>
       <GlobalStyle />
       <Outlet />
+      <ReactQueryDevtools initialIsOpen={false} />
     </>
   );
 }

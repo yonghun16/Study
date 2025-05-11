@@ -1,6 +1,8 @@
+import { useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
 import { Outlet, Link, useLocation, useParams, useMatch } from "react-router-dom";
 import styled from "styled-components";
+import { fetchCoinInfo } from "../api";
 
 
 // styled-components 
@@ -39,6 +41,7 @@ const OverviewItem = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 33%;
 
   span:first-child {
     font-size: 10px;
@@ -65,11 +68,11 @@ const Tab = styled.span<{ $isActive: boolean }>`
   font-size: 12px;
   font-weight: 400;
   background-color: rgba(0, 0, 0, 0.5);
-  padding: 7px 0px;
   border-radius: 10px;
   color: ${(props) =>
     props.$isActive ? props.theme.accentColor : props.theme.textColor};
   a {
+    padding: 7px 0px;
     display: block;
   }
 `;
@@ -133,36 +136,50 @@ interface PriceData {
 
 // 코인 정보 컴포넌트
 function Coin() {
-  const [loading, setLoading] = useState(true);                    // 로딩 상태
   const { coinId } = useParams() as { coinId: string };            // url에서 받은 코인ID 상태
   const { state } = useLocation() as { state: { name: string } };  // <Link> 즉 Router에서 받은 상태(코인정보)
-  const [info, setInfo] = useState<InfoData>();                    // 선택된 코인 정보 상태
-  const [priceInfo, setPriceInfo] = useState<PriceData>();         // 코인 가격 정보 상태
   const priceMatch = useMatch("/:coinId/price");
   const chartMatch = useMatch("/:coinId/chart");
 
-  useEffect(() => {
-    (async () => {
-      const infoData = await (
-        await fetch(`https://api.coinpaprika.com/v1/coins/${coinId}`)    // 코인 정보 API
-      ).json();
+  const {data: infoData, isLoading: infoLoading} = useQuery<InfoData>({
+    queryKey: ["info", coinId], 
+    queryFn: () => fetchCoinInfo(coinId),
+  });
 
-      const priceData = await (
-        await fetch(`https://api.coinpaprika.com/v1/tickers/${coinId}`)  // 코인 가격정보 API
-      ).json();
+  const {data: tickersData, isLoading: tickersLoading} = useQuery<PriceData>({
+    queryKey: ["tickers", coinId], 
+    queryFn: () => fetchCoinInfo(coinId),
+  });
 
-      setInfo(infoData);
-      setPriceInfo(priceData);
-
-      setLoading(false);
-    })();
-  }, [coinId])
-
+  /* react-query 사용 전 fetch 사용방식 */
+  // const [loading, setLoading] = useState(true);                    // 로딩 상태
+  // const [info, setInfo] = useState<InfoData>();                    // 선택된 코인 정보 상태
+  // const [priceInfo, setPriceInfo] = useState<PriceData>();         // 코인 가격 정보 상태
+  //
+  // useEffect(() => {
+  //   (async () => {
+  //     const infoData = await (
+  //       await fetch(`https://api.coinpaprika.com/v1/coins/${coinId}`)    // 코인 정보 API
+  //     ).json();
+  //
+  //     const priceData = await (
+  //       await fetch(`https://api.coinpaprika.com/v1/tickers/${coinId}`)  // 코인 가격정보 API
+  //     ).json();
+  //
+  //     setInfo(infoData);
+  //     setPriceInfo(priceData);
+  //
+  //     setLoading(false);
+  //   })();
+  // }, [coinId])
+  
+  const loading = infoLoading || tickersLoading; 
+  
   return (
     <Container>
       <Header>
         <Title>
-          {state?.name ? state.name : loading ? "Loading..." : info?.name}
+          {state?.name ? state.name : loading ? "Loading..." : infoData?.name}
         </Title>
       </Header>
 
@@ -173,29 +190,29 @@ function Coin() {
             <Overview>
               <OverviewItem>
                 <span>Rank:</span>
-                <span>{info?.rank}</span>
+                <span>{infoData?.rank}</span>
               </OverviewItem>
               <OverviewItem>
                 <span>Symbol:</span>
-                <span>${info?.symbol}</span>
+                <span>{infoData?.symbol}</span>
               </OverviewItem>
               <OverviewItem>
                 <span>Open Source:</span>
-                <span>{info?.open_source ? "Yes" : "No"}</span>
+                <span>{infoData?.open_source ? "Yes" : "No"}</span>
               </OverviewItem>
             </Overview>
 
             {/* 코인 설명*/}
-            <Description>{info?.description}</Description>
+            <Description>{infoData?.description}</Description>
 
             <Overview>
               <OverviewItem>
                 <span>Total Suply:</span>
-                <span>{priceInfo?.total_supply}</span>
+                <span>{tickersData?.total_supply}</span>
               </OverviewItem>
               <OverviewItem>
                 <span>Max Supply:</span>
-                <span>{priceInfo?.max_supply}</span>
+                <span>{tickersData?.max_supply}</span>
               </OverviewItem>
             </Overview>
             

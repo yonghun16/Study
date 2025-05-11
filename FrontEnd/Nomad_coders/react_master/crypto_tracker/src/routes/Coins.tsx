@@ -1,7 +1,7 @@
-import { clear } from "console";
-import { useEffect, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { fetchCoins } from "../api";
 
 // styled-components 
 const Container = styled.div`
@@ -12,6 +12,7 @@ const Container = styled.div`
 
 const Header = styled.header`
   height: 10vh;
+  margin: 10px 0;
   display:  flex;
   justify-content: center;
   align-items: center;
@@ -54,7 +55,7 @@ const Img = styled.img`
 `;
 
 // interfaces
-interface CoinInterface {
+interface ICoin {
   "id": string,
   "name": string,
   "symbol": string,
@@ -66,26 +67,32 @@ interface CoinInterface {
 
 // 코인들 정보 메인 페이지 컴포넌트
 function Coins() {
-  const [coins, setCoins] = useState<CoinInterface[]>([]);  // 코인 상태
-  const [loading, setLoading] = useState(true);  // 로딩 바
-  useEffect(() => {
-    (async () => {
-      const response = await fetch("https://api.coinpaprika.com/v1/coins");   // API 데이터 받아오기
-      const json = await response.json();                                     // JSON 변환
-      setCoins(json.slice(0, 100));                                           // 100까지 자르기
-      setLoading(false);                                                      // 로딩 완료
-    })();
-  }, [])
+  const { data, isLoading } = useQuery<ICoin[]>({
+    queryKey: ["allCoins"],
+    queryFn: fetchCoins,
+  });
+  
+  /* react-query 사용 전 fetch 사용방식 */
+  // const [coins, setCoins] = useState<CoinInterface[]>([]);  // 코인 상태
+  // const [loading, setLoading] = useState(true);  // 로딩 바
+  // useEffect(() => {
+  //   (async () => {
+  //     const response = await fetch("https://api.coinpaprika.com/v1/coins");   // API 데이터 받아오기
+  //     const json = await response.json();                                     // JSON 변환
+  //     setCoins(json.slice(0, 100));                                           // 100까지 자르기
+  //     setLoading(false);                                                      // 로딩 완료
+  //   })();
+  // }, [])
 
   return (
     <Container>
       <Header>
-        <Title>코인</Title>
+        <Title>Coins</Title>
       </Header>
-      {loading
+      {isLoading
         ? (<Loader>Loading...</Loader>)
         : (<CoinsList>
-          {coins.map(coin =>
+          {data?.slice(0, 100).map(coin =>
             <Coin key={coin.id}>
               <Link
                 to={{
