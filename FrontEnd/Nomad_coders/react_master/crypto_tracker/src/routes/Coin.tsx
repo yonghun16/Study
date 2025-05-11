@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { Outlet, Link, useLocation, useParams, useMatch } from "react-router-dom";
 import styled from "styled-components";
 import { fetchCoinInfo, fetchCoinTickers } from "../api";
-import { Helmet } from "react-helmet";
+import { Helmet } from 'react-helmet-async';
 import GoBack from "../components/GoBack";
 
 

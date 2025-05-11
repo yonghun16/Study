@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet";
+import { Helmet } from 'react-helmet-async';
 import styled from "styled-components";
 import { fetchCoins } from "../api";
 
@@ -106,7 +106,12 @@ function Coins() {
                   name: coin.name       // state를 따로 전달
                 }}
               >
-                <Img src={`https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/128/color/${coin.symbol.toLowerCase()}.png`} />
+                <Img
+                  src={`https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/128/color/${coin.symbol.toLowerCase()}.png`}
+                  onError={(e) => {
+                    (e.currentTarget as HTMLImageElement).src = "/fallback.png";
+                  }}
+                />
                 {coin.name} &rarr;
               </Link>
             </Coin>)
