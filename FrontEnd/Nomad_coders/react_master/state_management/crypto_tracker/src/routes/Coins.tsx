@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { Helmet } from 'react-helmet-async';
 import styled from "styled-components";
 import { fetchCoins } from "../api";
+import { useSetRecoilState } from "recoil";
+import { isDarkAtom } from "../atoms";
 
 // styled-components 
 const Container = styled.div`
@@ -68,6 +70,8 @@ interface ICoin {
 
 // 코인들 정보 메인 페이지 컴포넌트
 function Coins() {
+  const setDarkAtom = useSetRecoilState(isDarkAtom);
+  const toggleDarkAtom = () => setDarkAtom((prev) => !prev);   // recoil을 이용한 toggle Theme 구현
   const { data, isLoading } = useQuery<ICoin[]>({
     queryKey: ["allCoins"],
     queryFn: fetchCoins,
@@ -92,6 +96,7 @@ function Coins() {
       </Helmet>
       <Header>
         <Title>Coins</Title>
+        <button onClick={toggleDarkAtom}>Toggle Mode</button>    {/* recoil*/}
       </Header>
       {isLoading
         ? (<Loader>Loading...</Loader>)
