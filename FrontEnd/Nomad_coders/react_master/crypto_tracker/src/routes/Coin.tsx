@@ -2,12 +2,17 @@ import { useQuery } from "@tanstack/react-query";
 import { Outlet, Link, useLocation, useParams, useMatch } from "react-router-dom";
 import styled from "styled-components";
 import { fetchCoinInfo, fetchCoinTickers } from "../api";
+import { Helmet } from "react-helmet";
+import GoBack from "../components/GoBack";
 
 
 // styled-components 
 const Title = styled.h1`
+  display: block;
+  margin: 30px auto;
   font-size: 48px;
   color: ${(props) => props.theme.accentColor};
+  text-align: center;
 `;
 
 const Loader = styled.span`
@@ -21,11 +26,11 @@ const Container = styled.div`
   margin: 0 auto;
 `;
 
-const Header = styled.header`
-  height: 10vh;
-  display:  flex;
-  justify-content: center;
+const Header = styled.div`
+  display: flex;
+  justify-content: space-between;
   align-items: center;
+  margin: 20px 0;
 `;
 
 const Overview = styled.div`
@@ -149,6 +154,8 @@ function Coin() {
   const {data: tickersData, isLoading: tickersLoading} = useQuery<PriceData>({
     queryKey: ["tickers", coinId], 
     queryFn: () => fetchCoinTickers(coinId),
+    refetchInterval: 3000,             // 3초마다 자동으로 리패치
+    refetchOnWindowFocus: true,        // 창 포커스 시에도 리패치
   });
 
   /* react-query 사용 전 fetch 사용방식 */
@@ -177,11 +184,17 @@ function Coin() {
   
   return (
     <Container>
-      <Header>
-        <Title>
+      <Helmet>
+        <title>
           {state?.name ? state.name : loading ? "Loading..." : infoData?.name}
-        </Title>
+        </title>
+      </Helmet>
+      <Header>
+        <GoBack />
       </Header>
+      <Title>
+        {state?.name ? state.name : loading ? "Loading..." : infoData?.name}
+      </Title>
 
       {loading
         ? (<Loader>Loading...</Loader>)

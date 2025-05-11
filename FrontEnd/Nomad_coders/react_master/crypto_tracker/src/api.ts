@@ -1,26 +1,36 @@
-const BASE_URL = `https://api.coinpaprika.com/v1`
+const BASE_URL = `https://api.coinpaprika.com/v1`;
+
+async function safeFetch(url: string) {
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    return await response.json();
+  } catch (error) {
+    console.error(`Fetch failed for ${url}:`, error);
+    // 앱에서 사용할 수 있는 기본 값 반환 또는 null
+    return null;
+  }
+}
 
 export async function fetchCoins() {
-  return fetch(`${BASE_URL}/coins`).then(response =>
-    response.json());
+  return safeFetch(`${BASE_URL}/coins`);
 }
 
 export async function fetchCoinInfo(coinId: string) {
-  return fetch(`${BASE_URL}/coins/${coinId}`).then((response) =>
-    response.json());
+  return safeFetch(`${BASE_URL}/coins/${coinId}`);
 }
 
 export async function fetchCoinTickers(coinId: string) {
-  return fetch(`${BASE_URL}/tickers/${coinId}`).then((response) =>
-    response.json());
+  return safeFetch(`${BASE_URL}/tickers/${coinId}`);
 }
 
 /* 교육용 노마드 코더 코인 API*/
-// 기간은 1주일로 고정
 export async function fetchCoinHistory(coinId: string) {
-  return fetch(
+  return safeFetch(
     `https://ohlcv-api.nomadcoders.workers.dev?coinId=${coinId}`
-  ).then((response) => response.json());
+  );
 }
 
 /* coinpaprika API - 유료 전환으로 위의 노마드 코더 API로 대체

@@ -141,6 +141,19 @@ export async function fetchCoinTickers(coinId: string) {
 }
 ```
 
+#### refetchInterval
+- refetchInterval은 React Query에서 주기적으로 데이터를 자동 갱신(재요청)하게 해주는 옵션
+- refetchInterval의 값은 밀리초(ms) 단위
+- 탭이 백그라운드 상태일 때는 자동으로 중단됩니다. (브라우저 최적화 때문)
+- refetchOnWindowFocus와 함께 사용하면 창이 다시 포커스될 때에도 리패치 가능
+```tsx
+useQuery({
+  queryKey: ['someKey'],
+  queryFn: fetchData,
+  refetchInterval: 5000 // 5초마다 fetchData를 재요청
+});
+```
+
 ### ReactQueryDevtools
 - ReactQueryDevtools는 React Query 라이브러리의 개발자 도구. 
 - React Query는 서버 상태 관리(예: API 호출 결과 캐싱, 동기화 등)를 도와주는 강력한 도구이고, 

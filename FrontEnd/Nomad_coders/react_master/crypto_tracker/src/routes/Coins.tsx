@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 import styled from "styled-components";
 import { fetchCoins } from "../api";
 
@@ -67,7 +68,6 @@ interface ICoin {
 
 // 코인들 정보 메인 페이지 컴포넌트
 function Coins() {
-  // react-query 사용
   const { data, isLoading } = useQuery<ICoin[]>({
     queryKey: ["allCoins"],
     queryFn: fetchCoins,
@@ -87,6 +87,9 @@ function Coins() {
 
   return (
     <Container>
+      <Helmet>
+        <title>CPYPTO-TRACKER</title>
+      </Helmet>
       <Header>
         <Title>Coins</Title>
       </Header>
