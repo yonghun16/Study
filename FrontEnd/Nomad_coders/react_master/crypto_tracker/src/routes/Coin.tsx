@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { Outlet, Link, useLocation, useParams, useMatch } from "react-router-dom";
 import styled from "styled-components";
-import { fetchCoinInfo } from "../api";
+import { fetchCoinInfo, fetchCoinTickers } from "../api";
 
 
 // styled-components 
@@ -148,7 +148,7 @@ function Coin() {
 
   const {data: tickersData, isLoading: tickersLoading} = useQuery<PriceData>({
     queryKey: ["tickers", coinId], 
-    queryFn: () => fetchCoinInfo(coinId),
+    queryFn: () => fetchCoinTickers(coinId),
   });
 
   /* react-query 사용 전 fetch 사용방식 */
@@ -197,8 +197,8 @@ function Coin() {
                 <span>{infoData?.symbol}</span>
               </OverviewItem>
               <OverviewItem>
-                <span>Open Source:</span>
-                <span>{infoData?.open_source ? "Yes" : "No"}</span>
+                <span>Price:</span>
+                <span>{tickersData?.quotes?.USD?.price?.toFixed(3)}</span>
               </OverviewItem>
             </Overview>
 

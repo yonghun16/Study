@@ -28,19 +28,21 @@ function Chart() {
   });
 
   const candlestickData =
-    data?.map((price) => ({
-      x: new Date(Number(price.time_close) * 1000).toISOString(),
-      y: [price.open, price.high, price.low, price.close],
+    data?.map((price) => ({                                         // data가 존재 시, map 함수를 사용해서 데이터를 변환
+      x: new Date(Number(price.time_close) * 1000).toISOString(),   // price.time_close를 ms단위로 바꾸고 Date 객체로 만든 후, 문자열 변환
+      y: [price.open, price.high, price.low, price.close],          // 시가, 고가, 저가, 종가를 배열로 담아 캔들 형식의 y축 데이터로 사용
     })) || [];
-  console.log(data?.map((price) => price.close));
+
   return (
     <>
       {isLoading ? (
         "Loading chart..."
       ) : (
         <ApexChart
+          // 차트 타입
           type="candlestick"
 
+          // 차트 데이터
           series={[
             {
               name: "Price",
@@ -48,6 +50,7 @@ function Chart() {
             },
           ]}
 
+          // 차트 옵션
           options={{
             theme: {
               mode: "dark",
@@ -75,7 +78,6 @@ function Chart() {
             },
             yaxis: { show: true },
           }}
-
         />
       )}
     </>
