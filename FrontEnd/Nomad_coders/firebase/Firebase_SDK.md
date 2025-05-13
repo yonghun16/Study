@@ -30,3 +30,10 @@ npm install firebase
 - 앱의 사용 통계나 오류 추적, 성능 개선 등을 지원합니다.
 
 
+## 인증 관련 함수
+
+### 1. auth.authStateReady()
+- auth.authStateReady()는 **Firebase Auth SDK (v10 이상, Modular 버전)**에서 제공하는 메서드로,
+현재 사용자의 인증 상태가 로드될 때까지 기다리는 비동기 함수. 
+- 반환값 : Promise → resolve되면 auth.currentUser가 확정된 상태
+
