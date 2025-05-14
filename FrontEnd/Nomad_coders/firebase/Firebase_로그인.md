@@ -31,3 +31,30 @@ signInWithEmailAndPassword(auth, email, password)
     console.error("로그인 실패:", errorCode, errorMessage);
   });
 ```
+
+
+### signInWithPopup()
+- signInWithPopup()은 Firebase Authentication에서 제공하는 메서드로, 팝업 창을 통해 소셜 로그인(예: Google, Facebook, GitHub 등)을 할 수 있도록 해줍니다. 클라이언트(웹 브라우저) 기반에서 사용되며, 사용자가 소셜 로그인을 시도할 때 팝업 창이 열리고, 인증이 완료되면 사용자의 정보가 반환됩니다.
+
+#### 기본 사용법
+```js
+import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+
+const auth = getAuth();
+const provider = new GoogleAuthProvider();
+
+signInWithPopup(auth, provider)
+  .then((result) => {
+    // 로그인 성공
+    const user = result.user;
+    console.log("User Info:", user);
+    
+    // 액세스 토큰 (선택적)
+    const credential = GoogleAuthProvider.credentialFromResult(result);
+    const token = credential.accessToken;
+  })
+  .catch((error) => {
+    // 로그인 실패
+    console.error(error.code, error.message);
+  });
+```
