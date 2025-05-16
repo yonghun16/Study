@@ -5,6 +5,7 @@ import './App.css'
 //
 // import UseState, { AppUgly } from './components/UseState'
 // import UseInput from './components/UseInput'
+import UseTabs from './components/UseTabs'
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
 
       {/* <UseState /> <AppUgly /> */}
       {/* <UseInput /> */}
+      <UseTabs />
     </>
   )
 }
