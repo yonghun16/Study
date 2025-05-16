@@ -2,7 +2,7 @@ import './App.css'
 // import NoUseHookCounter from './components/NoUseHookCounter'
 // import UseStateCounter from './components/UseStateCounter'
 // import UseCounterComponent from './components/useCounterComponent'
-import UseState from './components/useState/UseState'
+// import UseState, { AppUgly } from './components/useState/UseState'
 
 function App() {
 
@@ -12,7 +12,7 @@ function App() {
       {/* <UseStateCounter /> */}
       {/* <UseCounterComponent /> */}
 
-      <UseState />
+      {/* <UseState /> <AppUgly /> */}
     </>
   )
 }
