@@ -98,66 +98,56 @@ const onChange = () => {}
 
 
 ### 확장된 형태의 useInput
-- trimOnBlur 기능 추가 : 입력 후 포커스를 잃었을 때 자동으로 앞뒤 공백을 제거합니다.
 - 유효성 검사 추가 : 최소길이 
+- trimOnBlur 기능 추가 : 입력 후 포커스를 잃었을 때 자동으로 앞뒤 공백을 제거합니다.
 ```jsx
 import { useState } from 'react';
 
-function useInput(initialValue, {
-  trimOnBlur = false,
-  validate = null,           // 예: (v) => v.length >= 3
-} = {}) {
+function useInput(initialValue, validator) {
   const [value, setValue] = useState(initialValue);
-  const [error, setError] = useState(null);
 
-  const onChange = (e) => {
-    const val = e.target.value;
-    setValue(val);
+  const onChange = (event) => {
+    const value = event.target.value;
 
-    if (validate) {
-      setError(validate(val) ? null : 'Invalid input');
+    // validator(maxLen)를 사용한 업데이트
+    let willUpdate = true;
+
+    if (typeof validator === 'function') {
+      willUpdate = validator(value);         // validator가 false를 반환하면 업데이트 방지
+    }
+
+    if (willUpdate) {
+      setValue(value);
     }
   };
 
   // input에 포커스를 잃었을 때 자동으로 공백을 제거
   const onBlur = () => {
-    if (trimOnBlur) {
-      setValue((v) => {
-        const trimmed = v.trim();
-        if (validate) {
-          setError(validate(trimmed) ? null : 'Invalid input');
-        }
-        return trimmed;
-      });
+    const trimmed = value.trim();
+
+    if (trimmed !== value) {
+      setValue(trimmed);
     }
   };
 
+  // inputValue를 초기화
   const reset = () => {
     setValue(initialValue);
-    setError(null);
   };
 
   return {
-    bind: {
-      value,
-      onChange,
-      onBlur,
-    },
+    value,
+    bind: { value, onChange, onBlur }, // trimOnBlur 포함
     reset,
     setValue,
-    value,
-    error,
-    isValid: !error,
   };
 }
+
+export default useInput;
 ```
 - 사용 예시
 ```jsx
-const nameInput = useInput('', {
-  trimOnBlur: true,
-  validate: (v) => v.length >= 3,
-});
+const nameInput = useInput("Mr.", maxLen);
 
 <input type="text" {...nameInput.bind} />
-{ nameInput.error &&  <span style={{ color: 'red' }}> {nameInput.error} </span> }
 ```

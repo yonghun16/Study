@@ -1,8 +1,10 @@
 import useInput from '../../Hooks/useInput'
 
 function UseInput() {
-  const nameInput = useInput("Mr.");
-  const emailInput = useInput('@');
+  const maxLen = (value) => value.length < 10;
+
+  const nameInput = useInput("Mr.", maxLen);
+  const emailInput = useInput("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
