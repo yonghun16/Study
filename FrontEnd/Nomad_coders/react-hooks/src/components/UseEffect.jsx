@@ -18,9 +18,7 @@ function UseEffect() {
     sayHello();
   }, [aNumber])
 
-
-  // 윈도우 크기 변경시 이벤트 발생
-  // useEffect는 1회만 실행
+  // 윈도우 크기 변경시 이벤트 발생 (useEffect는 1회만 실행)
   useEffect(() => {
     const handleResize = () => console.log('Resized!');
     window.addEventListener('resize', handleResize);
