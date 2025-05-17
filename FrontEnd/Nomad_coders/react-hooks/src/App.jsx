@@ -5,7 +5,9 @@ import './App.css'
 //
 // import UseState, { AppUgly } from './components/UseState'
 // import UseInput from './components/UseInput'
-import UseTabs from './components/UseTabs'
+// import UseTabs from './components/UseTabs'
+//
+import UseEffect from './components/UseEffect'
 
 function App() {
 
@@ -17,7 +19,9 @@ function App() {
 
       {/* <UseState /> <AppUgly /> */}
       {/* <UseInput /> */}
-      <UseTabs />
+      {/* <UseTabs /> */}
+
+      <UseEffect />
     </>
   )
 }
