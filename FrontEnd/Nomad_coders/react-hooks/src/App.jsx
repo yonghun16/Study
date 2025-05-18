@@ -10,7 +10,8 @@ import './App.css'
 // import UseEffect from './components/UseEffect'
 // import UseTitle from './components/UseTitle'
 // import UseRef from './components/UseRef'
-import UseClick from './components/UseClick'
+// import UseClick from './components/UseClick'
+import UseConfirm from './components/UseConfirm'
 
 function App() {
 
@@ -27,7 +28,8 @@ function App() {
       {/* <UseEffect /> */}
       {/* <UseTitle /> */}
       {/* <UseRef /> */}
-      <UseClick />
+      {/* <UseClick /> */}
+      <UseConfirm />
 
 
     </>
