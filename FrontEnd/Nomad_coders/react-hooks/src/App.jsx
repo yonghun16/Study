@@ -11,7 +11,8 @@ import './App.css'
 // import UseTitle from './components/UseTitle'
 // import UseRef from './components/UseRef'
 // import UseClick from './components/UseClick'
-import UseConfirm from './components/UseConfirm'
+// import UseConfirm from './components/UseConfirm'
+import UsePreventLeave from './components/UsePreventLeave'
 
 function App() {
 
@@ -29,8 +30,8 @@ function App() {
       {/* <UseTitle /> */}
       {/* <UseRef /> */}
       {/* <UseClick /> */}
-      <UseConfirm />
-
+      {/* <UseConfirm /> */}
+      <UsePreventLeave />
 
     </>
   )
