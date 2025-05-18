@@ -15,7 +15,8 @@ import './App.css'
 // import UsePreventLeave from './components/UsePreventLeave'
 // import UseBeforeLeave from './components/UseBeforeLeave'
 // import UseFadeIn from './components/UseFadeIn'
-import UseNetwork from './components/UseNetwork'
+// import UseNetwork from './components/UseNetwork'
+import UseScroll from './components/UseScroll'
 
 function App() {
 
@@ -37,9 +38,9 @@ function App() {
       {/* <UsePreventLeave /> */}
       {/* <UseBeforeLeave /> */}
       {/* <UseFadeIn /> */}
+      {/* <UseNetwork /> */}
 
-      <UseNetwork />
-
+      <UseScroll />
     </>
   )
 }
