@@ -18,7 +18,8 @@ import './App.css'
 // import UseNetwork from './components/UseNetwork'
 // import UseScroll from './components/UseScroll'
 // import UseFullscreen from './components/UseFullscreen'
-import UseNotification from './components/UseNotification'
+// import UseNotification from './components/UseNotification'
+import UseAxios from './components/UseAxios'
 
 function App() {
 
@@ -43,7 +44,8 @@ function App() {
       {/* <UseNetwork /> */}
       {/* <UseScroll /> */}
       {/* <UseFullscreen /> */}
-      <UseNotification />
+      {/* <UseNotification /> */}
+      <UseAxios />
 
     </>
   )
