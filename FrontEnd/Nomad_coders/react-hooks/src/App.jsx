@@ -8,7 +8,9 @@ import './App.css'
 // import UseTabs from './components/UseTabs'
 //
 // import UseEffect from './components/UseEffect'
-import UseTitle from './components/UseTitle'
+// import UseTitle from './components/UseTitle'
+// import UseRef from './components/UseRef'
+import UseClick from './components/UseClick'
 
 function App() {
 
@@ -23,7 +25,11 @@ function App() {
       {/* <UseTabs /> */}
 
       {/* <UseEffect /> */}
-      <UseTitle />
+      {/* <UseTitle /> */}
+      {/* <UseRef /> */}
+      <UseClick />
+
+
     </>
   )
 }
