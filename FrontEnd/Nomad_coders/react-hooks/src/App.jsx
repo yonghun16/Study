@@ -13,7 +13,8 @@ import './App.css'
 // import UseClick from './components/UseClick'
 // import UseConfirm from './components/UseConfirm'
 // import UsePreventLeave from './components/UsePreventLeave'
-import UseBeforeLeave from './components/UseBeforeLeave'
+//import UseBeforeLeave from './components/UseBeforeLeave'
+import UseFadeIn from './components/UseFadeIn'
 
 function App() {
 
@@ -33,7 +34,8 @@ function App() {
       {/* <UseClick /> */}
       {/* <UseConfirm /> */}
       {/* <UsePreventLeave /> */}
-      <UseBeforeLeave />
+      {/* <UseBeforeLeave /> */}
+      <UseFadeIn />
 
     </>
   )
