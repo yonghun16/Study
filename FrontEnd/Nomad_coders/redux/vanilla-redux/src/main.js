@@ -1,5 +1,7 @@
+/* imports */
 import './style.css'
 import { createStore } from 'redux';
+
 
 document.querySelector('#app').innerHTML = `
   <div>
@@ -9,34 +11,17 @@ document.querySelector('#app').innerHTML = `
   </div>
 `;
 
-// Selectors
+
+/* Selectors */
 const add = document.querySelector('#add');
 const minus = document.querySelector('#minus');
 const number = document.querySelector('span');
 
-// variables
-let count = 0;
+const countModifier = (count = 0) => {
+  return count;
+};
 
-number.innerText = count;
+const countStore = createStore(countModifier);
 
-/* Functions */
-// number render
-const updateText = () => {
-  number.innerText = count;
-}
-
-// Handlers
-const handleAdd = () => {
-  count += 1;
-  updateText();
-}
-
-const handleMinus = () => {
-  count -= 1;
-  updateText();
-}
-
-// Event Listeners
-add.addEventListener('click', handleAdd);
-minus.addEventListener('click', handleMinus);
+console.log(countStore.getState());
 
