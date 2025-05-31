@@ -29,13 +29,13 @@ const addToDo = (text) => {
   }
 }
 
-
 const delToDo = (id) => {
   return {
     type: DELETE_TODO, 
     id
   }
 }
+
 
 // 리듀서
 const reducer = (state = [], action) => {
@@ -65,15 +65,6 @@ const dispatchDeleteTodo = (e) => {
   store.dispatch(delToDo(id));
 }
 
-const onSubmit = e => {
-  e.preventDefault();
-  const toDo = input.value;
-  input.value = "";
-  dispatchAddToDo(toDo);
-};
-
-form.addEventListener("submit", onSubmit);
-
 
 // 구독
 store.subscribe(() => console.log(store.getState()));
@@ -96,3 +87,12 @@ const paintToDos = () => {
 store.subscribe(paintToDos);
 
 
+// 이벤트 
+const onSubmit = e => {
+  e.preventDefault();
+  const toDo = input.value;
+  input.value = "";
+  dispatchAddToDo(toDo);
+};
+
+form.addEventListener("submit", onSubmit);
