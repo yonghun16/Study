@@ -1,4 +1,3 @@
-/* imports */
 import './style.css'
 import { createStore } from "redux";
 
@@ -22,6 +21,22 @@ const ADD_TODO = "ADD_TODO";
 const DELETE_TODO = "DELETE_TODO";
 
 
+// 액션
+const addToDo = (text) => {
+  return {
+    type: ADD_TODO, 
+    text
+  }
+}
+
+
+const delToDo = (id) => {
+  return {
+    type: DELETE_TODO, 
+    id
+  }
+}
+
 // 리듀서
 const reducer = (state = [], action) => {
   console.log(action);
@@ -40,20 +55,21 @@ const reducer = (state = [], action) => {
 const store = createStore(reducer);
 
 
-// 액션
-const addToDo = (text) => {
-  store.dispatch({ type: ADD_TODO, text });
+// 디스패치
+const dispatchAddToDo = (text) => {
+  store.dispatch(addToDo(text));
 }
 
-const deleteTodo = (e) => {
-  console.log(e.target.parentNode);
+const dispatchDeleteTodo = (e) => {
+  const id = e.target.parentNode.id;
+  store.dispatch(delToDo(id));
 }
 
 const onSubmit = e => {
   e.preventDefault();
   const toDo = input.value;
   input.value = "";
-  addToDo(toDo);
+  dispatchAddToDo(toDo);
 };
 
 form.addEventListener("submit", onSubmit);
@@ -69,7 +85,7 @@ const paintToDos = () => {
     const li = document.createElement("li");
     const btn = document.createElement("button");
     btn.innerText ="DEL";
-    btn.addEventListener("click", deleteTodo);
+    btn.addEventListener("click", dispatchDeleteTodo);
     li.id = toDo.id;
     li.innerText = toDo.text;
     ul.appendChild(li);
