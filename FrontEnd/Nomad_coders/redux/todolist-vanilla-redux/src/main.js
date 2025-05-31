@@ -21,6 +21,8 @@ const ul = document.querySelector("ul");
 const ADD_TODO = "ADD_TODO";
 const DELETE_TODO = "DELETE_TODO";
 
+
+// 리듀서
 const reducer = (state = [], action) => {
   console.log(action);
   switch (action.type) {
@@ -33,13 +35,48 @@ const reducer = (state = [], action) => {
   }
 };
 
+
+// 스토어
 const store = createStore(reducer);
+
+
+// 액션
+const addToDo = (text) => {
+  store.dispatch({ type: ADD_TODO, text });
+}
+
+const deleteTodo = (e) => {
+  console.log(e.target.parentNode);
+}
 
 const onSubmit = e => {
   e.preventDefault();
   const toDo = input.value;
   input.value = "";
-  store.dispatch({ type: ADD_TODO, text: toDo });
+  addToDo(toDo);
 };
 
 form.addEventListener("submit", onSubmit);
+
+
+// 구독
+store.subscribe(() => console.log(store.getState()));
+
+const paintToDos = () => {
+  const toDos = store.getState();
+  ul.innerHTML = "";
+  toDos.forEach(toDo => {
+    const li = document.createElement("li");
+    const btn = document.createElement("button");
+    btn.innerText ="DEL";
+    btn.addEventListener("click", deleteTodo);
+    li.id = toDo.id;
+    li.innerText = toDo.text;
+    ul.appendChild(li);
+    li.appendChild(btn);
+  });
+}
+
+store.subscribe(paintToDos);
+
+
