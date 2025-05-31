@@ -4,13 +4,13 @@ import Footer from './layout/Footer';
 
 function App() {
   return (
-    <>
+    <div className='flex flex-col h-screen justify-between'>
       <Navbar />
-      <main>
+      <main className='mb-auto w-10/12 max-w-4xl max-auto'>
         <Outlet />
       </main>
       <Footer />
-    </>
+    </div>
   )
 }
 
