@@ -55,17 +55,6 @@ const reducer = (state = [], action) => {
 const store = createStore(reducer);
 
 
-// 디스패치
-const dispatchAddToDo = (text) => {
-  store.dispatch(addToDo(text));
-}
-
-const dispatchDeleteTodo = (e) => {
-  const id = parseInt(e.target.parentNode.id);
-  store.dispatch(delToDo(id));
-}
-
-
 // 구독
 store.subscribe(() => console.log(store.getState()));
 
@@ -87,12 +76,25 @@ const paintToDos = () => {
 store.subscribe(paintToDos);
 
 
+// 디스패치
+const dispatchAddToDo = (text) => {
+  store.dispatch(addToDo(text));               // 입력 받은 text를 add함.
+}
+
+const dispatchDeleteTodo = (e) => {
+  const id = parseInt(e.target.parentNode.id);
+  store.dispatch(delToDo(id));                 // 이벤트의 id를 받아서 del함.
+}
+
+
 // 이벤트 
 const onSubmit = e => {
   e.preventDefault();
+
   const toDo = input.value;
   input.value = "";
-  dispatchAddToDo(toDo);
+
+  dispatchAddToDo(toDo);   // toDo를 디스패치함.
 };
 
 form.addEventListener("submit", onSubmit);
