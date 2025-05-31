@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { addToDo, deleteToDo } from "../store";
+import { addToDo, deleteToDo } from "../store/toDoSlice";
 
 function Home() {
   const [text, setText] = useState("");
@@ -9,6 +9,7 @@ function Home() {
 
   const onChange = (e) => setText(e.target.value);
 
+  // toDo 추가
   const onSubmit = (e) => {
     e.preventDefault();
     if (text.trim()) {
@@ -17,6 +18,7 @@ function Home() {
     }
   };
 
+  // toDo 삭제
   const handleDelete = (id) => {
     dispatch(deleteToDo(id));
   };

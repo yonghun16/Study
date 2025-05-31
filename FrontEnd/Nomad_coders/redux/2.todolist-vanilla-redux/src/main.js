@@ -56,24 +56,26 @@ const store = createStore(reducer);
 
 
 // 구독
-store.subscribe(() => console.log(store.getState()));
-
 const paintToDos = () => {
   const toDos = store.getState();
+
   ul.innerHTML = "";
+
   toDos.forEach(toDo => {
     const li = document.createElement("li");
     const btn = document.createElement("button");
-    btn.innerText ="DEL";
-    btn.addEventListener("click", dispatchDeleteTodo);
+
     li.id = toDo.id;
     li.innerText = toDo.text;
+    btn.innerText ="DEL";
+    btn.addEventListener("click", dispatchDeleteTodo);
+
     ul.appendChild(li);
     li.appendChild(btn);
   });
 }
 
-store.subscribe(paintToDos);
+store.subscribe(paintToDos);                   // store가 변경될 때마다. paintToDos()를 호출
 
 
 // 디스패치

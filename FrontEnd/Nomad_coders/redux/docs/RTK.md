@@ -1,4 +1,4 @@
-# RTX
+# RTK
 
 - Redux Toolkit(RTK)은 Redux의 공식 권장 도구로, Redux를 더 쉽고 효율적으로 사용할 수 있게 도와주는 라이브러리
 

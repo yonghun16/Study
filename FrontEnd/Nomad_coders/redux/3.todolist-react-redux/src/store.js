@@ -1,10 +1,9 @@
 import { createStore } from "redux";
 
-// Action Types
+// 액션
 const ADD_TODO = "ADD_TODO";
 const DELETE_TODO = "DELETE_TODO";
 
-// Action Creators
 export const addToDo = (text) => {
   return {
     type: ADD_TODO,
@@ -21,6 +20,7 @@ export const deleteToDo = (id) => {
     payload: id,
   };
 };
+
 
 // Reducer
 const initialState = {
@@ -43,6 +43,7 @@ function reducer(state = initialState, action) {
       return state;
   }
 }
+
 
 // Store 생성
 const store = createStore(reducer);

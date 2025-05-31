@@ -9,14 +9,17 @@ function Home() {
 
   const onChange = (e) => setText(e.target.value);
 
+  // toDo 추가
   const onSubmit = (e) => {
     e.preventDefault();
+
     if (text.trim()) {
       dispatch(addToDo(text));
       setText("");
     }
   };
 
+  // toDo 삭제
   const handleDelete = (id) => {
     dispatch(deleteToDo(id));
   };
@@ -24,10 +27,12 @@ function Home() {
   return (
     <>
       <h1>To Do</h1>
+
       <form onSubmit={onSubmit}>
         <input type="text" value={text} onChange={onChange} />
         <button>Add</button>
       </form>
+
       <ul>
         {toDos.map((toDo) => (
           <li key={toDo.id}>
