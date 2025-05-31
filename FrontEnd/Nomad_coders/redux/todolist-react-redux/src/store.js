@@ -1,40 +1,50 @@
 import { createStore } from "redux";
 
+// Action Types
+const ADD_TODO = "ADD_TODO";
+const DELETE_TODO = "DELETE_TODO";
 
-// 액션 타입
-const ADD = "ADD";
-const DELETE = "DELETE";
+// Action Creators
+export const addToDo = (text) => {
+  return {
+    type: ADD_TODO,
+    payload: {
+      id: Date.now(),
+      text,
+    },
+  };
+};
 
+export const deleteToDo = (id) => {
+  return {
+    type: DELETE_TODO,
+    payload: id,
+  };
+};
 
-// 액션 크리에이터
-export const addToDo = (text) => ({
-  type: ADD,
-  payload: {
-    text,
-    id: Date.now(),
-  },
-});
+// Reducer
+const initialState = {
+  toDos: [],
+};
 
-export const deleteToDo = (id) => ({
-  type: DELETE,
-  payload: id,
-});
-
-
-// 리듀서
-const reducer = (state = [], action) => {
+function reducer(state = initialState, action) {
   switch (action.type) {
-    case ADD:
-      return [{ text: action.payload.text, id: action.payload.id }, ...state];
-    case DELETE:
-      return state.filter((toDo) => toDo.id !== action.payload);
+    case ADD_TODO:
+      return {
+        ...state,
+        toDos: [...state.toDos, action.payload],
+      };
+    case DELETE_TODO:
+      return {
+        ...state,
+        toDos: state.toDos.filter((todo) => todo.id !== action.payload),
+      };
     default:
       return state;
   }
-};
+}
 
-
-// 스토어 생성
+// Store 생성
 const store = createStore(reducer);
 
 export default store;
