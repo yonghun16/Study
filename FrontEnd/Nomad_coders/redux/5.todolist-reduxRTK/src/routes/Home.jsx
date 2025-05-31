@@ -26,10 +26,12 @@ function Home() {
   return (
     <>
       <h1>To Do</h1>
+
       <form onSubmit={onSubmit}>
         <input type="text" value={text} onChange={onChange} />
         <button>Add</button>
       </form>
+
       <ul>
         {toDos.map((toDo) => (
           <li key={toDo.id}>
