@@ -12,14 +12,8 @@ const PORT = process.env.PORT || 3000;
 
 // DB
 mongoose.connect(process.env.MONGO_URI)
-  .then(
-    () => {
-      console.log('💽✅ DB connected');
-    },
-    (err) => {
-      console.log(err);
-    }
-  )
+  .then(() => console.log('✅ MongoDB 연결 성공'))
+  .catch(err => console.error('❌ MongoDB 연결 실패', err));
 
 // Middleware
 app.use(cors());

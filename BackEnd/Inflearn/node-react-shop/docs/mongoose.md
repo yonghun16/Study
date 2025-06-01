@@ -17,7 +17,7 @@
 ### 🧱 기본 사용법 예제
 #### 1. 연결
 ```js
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 mongoose.connect('mongodb://localhost:27017/myapp', {
   useNewUrlParser: true,
