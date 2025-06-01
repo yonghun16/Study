@@ -18,6 +18,11 @@ app.get('/', (req, res) => {
   res.send('Hello, Express!');
 });
 
+app.post('/', (req, res)=> {
+  console.log(req.body);
+  res.json(req.body);
+})
+
 /* 정적 파일 서비스 */
 // ES 모듈 방식 (__dirname 직접 구현)
 const __filename = fileURLToPath(import.meta.url);
