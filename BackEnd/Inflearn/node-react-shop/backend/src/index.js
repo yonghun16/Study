@@ -3,10 +3,23 @@ import cors from 'cors';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
-
+import mongoose from 'mongoose';
+import dotenv from 'dotenv';
+dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+// DB
+mongoose.connect(process.env.MONGO_URI)
+  .then(
+    () => {
+      console.log('💽✅ DB connected');
+    },
+    (err) => {
+      console.log(err);
+    }
+  )
 
 // Middleware
 app.use(cors());
@@ -18,7 +31,7 @@ app.get('/', (req, res) => {
   res.send('Hello, Express!');
 });
 
-app.post('/', (req, res)=> {
+app.post('/', (req, res) => {
   console.log(req.body);
   res.json(req.body);
 })
@@ -29,6 +42,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 app.use(express.static(path.join(__dirname, '../uploads')));
+
 
 // Start server
 app.listen(PORT, () => {
