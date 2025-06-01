@@ -1,5 +1,5 @@
 import express from 'express';
-// import cors from 'cors';
+import cors from 'cors';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
@@ -9,8 +9,9 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Middleware
-// app.use(cors());
-app.use(express.json());
+app.use(cors());
+app.use(express.json());  // req.body를 자바스크립트 객체로 파싱
+app.use(express.urlencoded({ extended: true }));    // req.body를 키/값 쌍 객체로 파싱 (중첩 구조도 가능)
 
 // Routes
 app.get('/', (req, res) => {
