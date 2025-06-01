@@ -29,6 +29,8 @@ mongoose.connect('mongodb://localhost:27017/myapp', {
 
 #### 2. 스키마와 모델 정의
 ```js
+import mongoose from 'mongoose';
+
 const userSchema = new mongoose.Schema({
   name: String,
   age: Number,
@@ -37,6 +39,8 @@ const userSchema = new mongoose.Schema({
 });
 
 const User = mongoose.model('User', userSchema);
+
+export default User;
 ```
 
 #### 3. 데이터 CRUD
