@@ -28,7 +28,7 @@ const flexClass = clsx(
   'justify-center',
 )
 
-
+/* RegisterPage Component */
 const RegisterPage = () => {
   // react-hook-form
   const { 

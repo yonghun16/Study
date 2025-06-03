@@ -43,7 +43,14 @@ userSchema.pre('save', async function (next) {
   }
 });
 
-
+// 🛠 비밀번호 비교
+userSchema.methods.comparePassword = async function (plainPassword) {  // function 키워드를 사용한 이유는 전통적인 함수 문법에서는 this가 호출 시점의 객체를 가리키기 때문
+  try {
+    return await bcrypt.compare(plainPassword, this.password);  // (사용자가 입력한 비밀번호, 데이터베이스에 저장된 해시된 비밀번호)
+  } catch (err) {
+    throw err;
+  }
+}
 
 const User = mongoose.model('User', userSchema);  // User 모델은 몽구스를 통해 몽고DB와 연결됨.
 

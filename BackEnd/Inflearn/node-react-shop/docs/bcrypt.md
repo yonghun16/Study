@@ -45,8 +45,8 @@ bcrypt.compare(plainPassword, hashedPassword, function (err, result) {
 ```js
 const bcrypt = require('bcrypt');
 
-async function checkPassword(password, hashedPassword) {
-  const match = await bcrypt.compare(password, hashedPassword);
+async function checkPassword(password, hashedPassword) {        // function 키워드를 사용한 이유는 전통적인 함수 문법에서는 this가 호출 시점의 객체를 가리키기 때문
+                                                                // 이 메서드는 나중에 유저 문서 객체 (예: user)에서 호출되므로, this는 해당 유저 객체가 됩니다: const match = await bcrypt.compare(password, hashedPassword);
   console.log('Match:', match);
 }
 

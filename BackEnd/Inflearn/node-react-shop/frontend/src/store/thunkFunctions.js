@@ -1,14 +1,33 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import axiosInstance from '../utils/axios'
 
-// Thunk Functions 생성
+/* Thunk Functions 생성 */
+// register
 export const registerUser = createAsyncThunk(
-  'user/registerUser', 
-  async (body, thunkAPI) => {
+  'user/registerUser',    // thunk action 이름 , 내부적으로는 user/loginUser/pending, fulfilled, rejected로 자동 생성되어 상태 추적이 가능
+  async (signUpData, thunkAPI) => {  // signUpData는 회원가입 폼에서 받은 데이터, thunkAPI는 dispatch, getState, rejectWithValue 등을 제공하는 객체
     try {
       const response = await axiosInstance.post(
         `/users/register`,
-        body
+        signUpData
+      )
+
+      return response.data;  // 요청이 성공하면 response.data를 반환, 이 값은 extraReducers에서 action.payload로 받을 수 있습니다.
+    } catch (error) {
+      console.log(error)
+      return thunkAPI.rejectWithValue(error.message)
+    }
+  }
+)
+
+// login
+export const loginUser = createAsyncThunk(
+  'user/loginUser', 
+  async (userData, thunkAPI) => {
+    try {
+      const response = await axiosInstance.post(
+        `/users/login`,
+        userData
       )
 
       return response.data;
