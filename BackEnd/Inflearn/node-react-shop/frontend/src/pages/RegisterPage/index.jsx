@@ -1,6 +1,9 @@
+/* import library */
 import clsx from 'clsx'
 import { useForm } from 'react-hook-form'
 import { useDispatch } from 'react-redux'
+
+/* import components, modules, hooks */
 import { registerUser } from '../../store/thunkFunctions'
 
 
