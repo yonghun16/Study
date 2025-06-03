@@ -34,6 +34,7 @@ export const store = configureStore({
       }
     }
   ),
+  devTools: process.env.NODE_ENV !== 'production', // 기본적으로 true
 });
 
 export const persistor = persistStore(store);
