@@ -7,11 +7,15 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 dotenv.config();
 
+/* import routes */
+import userRouter from './routes/user.js';
+
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 
-/* DB */
+/* DB Connect */
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log('✅ MongoDB 연결 성공'))
   .catch(err => console.error('❌ MongoDB 연결 실패', err));
@@ -30,14 +34,22 @@ app.use((error, req, res, next) => {
 
 
 /* Routes */
-app.get('/', (req, res) => {
-  res.send('Hello, Express!');
+// '/'
+app.all('/', (req, res) => {
+  if (req.method === 'GET') {
+    return res.send('Hello, Express!');
+  }
+
+  if (req.method === 'POST') {
+    console.log(req.body);
+    return res.json(req.body);
+  }
+
+  res.sendStatus(405); // Method Not Allowed
 });
 
-app.post('/', (req, res) => {
-  console.log(req.body);
-  res.json(req.body);
-})
+// '/users'
+app.use('/users', userRouter); 
 
 
 /* 정적 파일 서비스 */

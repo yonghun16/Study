@@ -24,6 +24,6 @@ const userSchema = new mongoose.Schema({
   image: String
 });
 
-const User = mongoose.model('User', userSchema);
+const User = mongoose.model('User', userSchema);  // User 모델은 몽구스를 통해 몽고DB와 연결됨.
 
 export default User;
