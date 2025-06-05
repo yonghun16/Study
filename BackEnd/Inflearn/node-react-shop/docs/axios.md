@@ -192,3 +192,83 @@ setProducts(res.data);
 `products` 상태가 바뀌면 React는 컴포넌트를 자동으로 다시 렌더링합니다.  
 즉, 화면에 상품 목록이 나타나는 거예요.
 
+
+
+## Axios 인스턴스 사용예제
+### 🔄 Axios 인스턴스를 사용하는 이유
+
+Axios 인스턴스를 만들면 다음과 같은 공통 설정을 쉽게 적용할 수 있습니다:
+- baseURL (기본 URL)
+- 공통 headers
+- 인터셉터 (요청/응답 가로채기)
+- 토큰 자동 추가 등
+💡 즉, 여러 API 요청에서 중복 코드를 줄이고, 유지 보수를 쉽게 하기 위한 패턴입니다.
+
+### src/api.js
+```js
+// src/api.js
+import axios from 'axios';
+
+const api = axios.create({
+  baseURL: import.meta.env.PROD ? '' : 'http://localhost:3000', // 환경에 따라 설정
+  headers: {
+    'Content-Type': 'application/json',
+  },
+    withCredentials: true,   // 쿠키 포함 (필요한 경우)
+                            // 클라이언트(브라우저)가 서버에 HTTP 요청을 보낼 때 쿠키나 인증 정보(세션 쿠키 등)를 자동으로 같이 보내도록 지시
+});
+
+export default api;
+```
+
+### ProductList.jsx
+```js
+// ProductList.jsx
+import React, { useEffect, useState } from "react";
+import api from "./api"; // 아까 만든 인스턴스를 import
+
+function ProductList() {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    api
+      .get("/products") // baseURL이 자동으로 붙음
+      .then((res) => {
+        setProducts(res.data);
+      })
+      .catch((err) => {
+        console.error("데이터 불러오기 실패:", err);
+      });
+  }, []);
+
+  return (
+    <ul>
+      {products.map((p) => (
+        <li key={p.id}>
+          {p.name} - {p.price}원
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+export default ProductList;
+```
+
+
+### interceptors
+- Axios에서 interceptors.request.use()는 **모든 요청(Request)**이 서버로 보내지기 전에 가로채서(request intercept) 특정 작업을 하도록 해주는 기능입니다.
+이는 인증 토큰 추가, 로깅, 헤더 설정 등 공통 작업을 수행할 때 자주 사용됩니다.
+
+```js
+axiosInstance.interceptors.request.use(
+  (config) => {
+    // 요청을 보내기 전에 작업 수행
+    return config;
+  },
+  (error) => {
+    // 요청 에러 발생 시 작업 수행
+    return Promise.reject(error);
+  }
+);
+```

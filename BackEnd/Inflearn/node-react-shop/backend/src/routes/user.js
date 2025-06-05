@@ -1,10 +1,23 @@
 import express from 'express';
-import User from '../models/user.js';   // mongoose model
+import User from '../models/User.js';   // mongoose model
 import jwt from 'jsonwebtoken';
-
+import auth from '../middleware/auth.js';
 
 const router = express.Router();
 
+
+// auth route
+router.get('/auth', auth, async (req, res, next) => {
+  return res.json({
+    id: req.user._id,
+    email: req.user.email,
+    name: req.user.name,
+    role: req.user.role,
+    image: req.user.image
+  })
+})
+
+// register route
 router.post('/register', async (req, res, next) => {
   try {
     const user = new User(req.body);
@@ -15,6 +28,7 @@ router.post('/register', async (req, res, next) => {
   }
 })
 
+// login route
 router.post('/login', async (req, res, next) => {
   // req.body.email, password
   try {
@@ -30,12 +44,16 @@ router.post('/login', async (req, res, next) => {
       return res.status(400).send('Auth failed, wrong password');
     }
 
-    // JWT 생성
+    /* JWT */
+    // 1. paload 생성
     const payload = {
       userId: user._id.toHexString()  // MongoDB의 ObjectId가 문자열(string) 형태로 변환
     }
+
+    // 2. token 생성
     const accessToken = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '1h' });
 
+    // 3. client로 전달
     return res.json({ user, accessToken });
   }
   catch (error) {

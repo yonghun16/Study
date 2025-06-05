@@ -1,10 +1,14 @@
 import { lazy } from "react";
 import { createBrowserRouter } from "react-router-dom";
 
+import NotAuthRoutes from "./componants/NotAuthRoutes";
+import ProtectedRoutes from "./componants/ProtectedRoutes";
+
 const App = lazy(() => import("./App"));
 const LandingPage = lazy(() => import("./pages/LandingPage"));
 const LoginPage = lazy(() => import("./pages/LoginPage"));
 const RegisterPage = lazy(() => import("./pages/RegisterPage"));
+const ProtectedPage = lazy(() => import("./pages/ProtectedPage"));
 
 
 // 라우터 컴포넌트
@@ -19,13 +23,28 @@ const router = createBrowserRouter([
         element: <LandingPage />,
       },
       {
-        /* 로그인한 사람은 갈 수 없는 경로 */
-        path: "/login",
-        element: <LoginPage />,
+        /* 로그인 하지 않은 사람은 못 들어감 */
+        element: <ProtectedRoutes />,
+        children: [
+          {
+            path: "/protected",
+            element: <ProtectedPage />,
+          },
+        ],
       },
       {
-        path: "/register",
-        element: <RegisterPage />,
+        /* 로그인한 사람은 못 들어감 */
+        element: <NotAuthRoutes />,
+        children: [
+          {
+            path: "/login",
+            element: <LoginPage />,
+          },
+          {
+            path: "/register",
+            element: <RegisterPage />,
+          },
+        ],
       },
     ],
   },

@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { registerUser } from './thunkFunctions';
+import { authUser } from './thunkFunctions';
 import { loginUser } from './thunkFunctions';
 import { toast } from 'react-toastify';
 
@@ -22,6 +23,7 @@ const userSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
+      /* register addCase */
       .addCase(registerUser.pending, (state) => {   // 요청 시작(pending)
         state.isLoading = true;
       })
@@ -34,6 +36,8 @@ const userSlice = createSlice({
         state.error = action.payload
         toast.error(action.payload);
       })
+
+      /* login addCase */
       .addCase(loginUser.pending, (state) => {   // 요청 시작(pending)
         state.isLoading = true;
       })
@@ -47,6 +51,23 @@ const userSlice = createSlice({
         state.isLoading = false;
         state.error = action.payload
         toast.error(action.payload);
+      })
+
+      /* auth addCase*/
+      .addCase(authUser.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(authUser.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.userData = action.payload;
+        state.isAuth = true;
+      })
+      .addCase(authUser.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload
+        state.userData = initialState.userData;
+        state.isAuth = false;
+        localStorage.removeItem('accessToken');
       })
   }
 })

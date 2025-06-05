@@ -28,7 +28,6 @@ const flexClass = clsx(
   'justify-center',
 )
 
-
 /* LoginPage Component */
 const LoginPage = () => {
   // react-hook-form
@@ -39,8 +38,8 @@ const LoginPage = () => {
     reset
   } = useForm({ mode: 'onChange'})
 
+  // onSubmit
   const dispatch = useDispatch();
-
 
   const onSubmit = ({ email, password}) => {   // onSubmit 하면 정보를 넘겨줌
     const body = {
@@ -54,6 +53,7 @@ const LoginPage = () => {
     reset()
   }
 
+  // email 유효성 검사 양식 객체 (react-hook-form)
   const userEmail = {
     required: "Email is required",
     pattern: {
@@ -62,6 +62,7 @@ const LoginPage = () => {
     },
   }
 
+  // password 유효성 검사 양식 객체 (react-hook-form)
   const userPassword = {
     required: "Password is required",
     minLength: {
@@ -70,14 +71,19 @@ const LoginPage = () => {
     },
   }
 
-
+  // Login Page UI render
   return (
     <section className={clsx(flexClass, 'mt-20')}>
       <div className={clsx(flexClass, 'p-6 rounded-md shadow-md')}>
+
+        {/* login title*/}
         <h1 className="text-3xl font-semibold text-center">
           로그인
         </h1>
+
         <form className="mt-6" onSubmit={handleSubmit(onSubmit)}>  {/* react-hook-form */}
+
+          {/* email input*/}
           <div className="mb-2">
             <label
               className="text-sm font-semibold text-gray-800"
@@ -92,6 +98,7 @@ const LoginPage = () => {
             {errors.email && <p className="text-red-500">{errors.email.message}</p>}
           </div>
 
+          {/* password input*/}
           <div className="mb-2">
             <label
               className="text-sm font-semibold text-gray-800"
@@ -106,6 +113,7 @@ const LoginPage = () => {
             {errors.password && <p className="text-red-500">{errors.password.message}</p>}
           </div>
 
+          {/* login button*/}
           <div className="mt-6">
             <button
               type="submit"
@@ -114,6 +122,7 @@ const LoginPage = () => {
             </button>
           </div>
 
+          {/* register link*/}
           <p className="mt-4 text-sm text-center text-gray-600">
             아이디가 없다면?{" "}
             <a

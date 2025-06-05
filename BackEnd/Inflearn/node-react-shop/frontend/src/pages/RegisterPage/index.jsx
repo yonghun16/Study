@@ -38,9 +38,8 @@ const RegisterPage = () => {
     reset
   } = useForm({ mode: 'onChange'})
 
-
+  // onSubmit
   const dispatch = useDispatch();
-
 
   const onSubmit = ({ email, password, name }) => {   // onSubmit 하면 정보를 넘겨줌
     const body = {
@@ -50,15 +49,17 @@ const RegisterPage = () => {
       image : `http://miniloopmedia.com/wp-content/uploads/2015/02/Russian_Male.png`
     }
 
-    dispatch(registerUser (body))   // registerUser thunk 함수에 body객체를 전달
+    dispatch(registerUser(body))   // registerUser thunk 함수에 body객체를 전달
 
     reset()
   }
 
+  // username 유효성 검사 양식 객체 (react-hook-form)
   const userName = {
     required: "Name is required",
   }
 
+  // email 유효성 검사 양식 객체 (react-hook-form)
   const userEmail = {
     required: "Email is required",
     pattern: {
@@ -67,6 +68,7 @@ const RegisterPage = () => {
     },
   }
 
+  // password 유효성 검사 양식 객체 (react-hook-form)
   const userPassword = {
     required: "Password is required",
     minLength: {
@@ -76,13 +78,19 @@ const RegisterPage = () => {
   }
 
 
+  // Register Page UI render
   return (
     <section className={clsx(flexClass, 'mt-20')}>
       <div className={clsx(flexClass, 'p-6 rounded-md shadow-md')}>
+
+        {/* register title */}
         <h1 className="text-3xl font-semibold text-center">
           회원가입
         </h1>
+
         <form className="mt-6" onSubmit={handleSubmit(onSubmit)}>  {/* react-hook-form */}
+
+          {/* email input */}
           <div className="mb-2">
             <label
               className="text-sm font-semibold text-gray-800"
@@ -97,6 +105,7 @@ const RegisterPage = () => {
             {errors.email && <p className="text-red-500">{errors.email.message}</p>}
           </div>
 
+          {/* name input */}
           <div className="mb-2">
             <label
               className="text-sm font-semibold text-gray-800"
@@ -111,6 +120,7 @@ const RegisterPage = () => {
             {errors.name && <p className="text-red-500">{errors.name.message}</p>}
           </div>
 
+          {/* password input */}
           <div className="mb-2">
             <label
               className="text-sm font-semibold text-gray-800"
@@ -125,6 +135,7 @@ const RegisterPage = () => {
             {errors.password && <p className="text-red-500">{errors.password.message}</p>}
           </div>
 
+          {/* register button */}
           <div className="mt-6">
             <button
               type="submit"
@@ -133,6 +144,7 @@ const RegisterPage = () => {
             </button>
           </div>
 
+          {/* login link */}
           <p className="mt-4 text-sm text-center text-gray-600">
             아이디가 있다면?{" "}
             <a

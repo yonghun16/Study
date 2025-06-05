@@ -37,3 +37,21 @@ export const loginUser = createAsyncThunk(
     }
   }
 )
+
+
+// auth
+export const authUser = createAsyncThunk(
+  'user/authUser', 
+  async (_, thunkAPI) => {
+    try {
+      const response = await axiosInstance.get(
+        `/users/auth`
+      )
+      return response.data;
+    } catch (error) {
+      console.log("리덕스 썽크 에러")
+      console.log(error)
+      return thunkAPI.rejectWithValue(error.message)
+    }
+  }
+)
