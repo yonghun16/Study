@@ -20,4 +20,19 @@ axiosInstance.interceptors.request.use(     // Axios에서 모든 요청(Request
   }
 );
 
+
+axiosInstance.interceptors.response.use(
+  (response) => {
+    return response;
+  },
+  (error) => {
+    if(error.response.data === 'jwt expired') {
+      localStorage.removeItem('accessToken');
+      window.location.href = '/login';
+    }
+    return Promise.reject(error);
+  }
+);
+
+
 export default axiosInstance

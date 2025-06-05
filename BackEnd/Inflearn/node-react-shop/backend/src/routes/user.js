@@ -61,6 +61,14 @@ router.post('/login', async (req, res, next) => {
   }
 })
 
+// logout route
+router.post('/logout', auth, async (req, res, next) => {
+  try {
+    return res.sendStatus(200);
+  } catch (error) {
+    next(error);
+  }
+})
 
 export default router;
 
