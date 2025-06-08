@@ -22,7 +22,15 @@ const userSchema = new mongoose.Schema({
     type: Number,
     default: 0,   // 0은 일반유저, 1은 관리자
   },
-  image: String
+  image: String,
+  cart: {
+    type: Array,
+    default: []
+  },
+  history: {
+    type: Array,
+    default: []
+  },
 });
 
 

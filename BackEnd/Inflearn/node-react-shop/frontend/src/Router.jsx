@@ -9,6 +9,9 @@ const LandingPage = lazy(() => import("./pages/LandingPage"));
 const LoginPage = lazy(() => import("./pages/LoginPage"));
 const RegisterPage = lazy(() => import("./pages/RegisterPage"));
 const ProtectedPage = lazy(() => import("./pages/ProtectedPage"));
+const UploadProductPage = lazy(() => import("./pages/UploadProductPage"));
+const CartPage = lazy(() => import("./pages/CartPage"));
+const HistoryPage = lazy(() => import("./pages/HistoryPage"));
 
 
 // 라우터 컴포넌트
@@ -23,12 +26,16 @@ const router = createBrowserRouter([
         element: <LandingPage />,
       },
       {
-        /* 로그인 하지 않은 사람은 못 들어감 */
+        /* 로그인 한 사람만 들어갈 수 있음. */
         element: <ProtectedRoutes />,
         children: [
           {
             path: "/protected",
             element: <ProtectedPage />,
+          },
+          {
+            path: "/product/upload",
+            element: <UploadProductPage />,
           },
         ],
       },
@@ -43,6 +50,14 @@ const router = createBrowserRouter([
           {
             path: "/register",
             element: <RegisterPage />,
+          },
+          {
+            path: "/user/cart",
+            element: <CartPage />,
+          },
+          {
+            path: "/history",
+            element: <HistoryPage />,
           },
         ],
       },
