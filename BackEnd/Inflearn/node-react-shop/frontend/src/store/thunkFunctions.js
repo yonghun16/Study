@@ -48,8 +48,6 @@ export const authUser = createAsyncThunk(
       )
       return response.data;
     } catch (error) {
-      console.log("리덕스 썽크 에러")
-      console.log(error)
       return thunkAPI.rejectWithValue(error.message)
     }
   }
@@ -65,8 +63,6 @@ export const logoutUser = createAsyncThunk(
       )
       return response.data;
     } catch (error) {
-      console.log("리덕스 썽크 에러")
-      console.log(error)
       return thunkAPI.rejectWithValue(error.message)
     }
   }
