@@ -3,9 +3,10 @@ import auth from '../middleware/auth.js';
 import Product from '../models/Product.js';   // mongoose model
 import multer from 'multer';
 
-// auth route
+// router
 const router = express.Router();
 
+// multer
 const storage = multer.diskStorage({
   destination: function(req, file, cb) {
     cb(null, 'uploads/')
@@ -17,8 +18,8 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage }).single('file')
 
+// image
 router.post('/image', auth, async (req, res, next) => {
-
   upload(req, res, err => {
     if (err) {
       return req.status(500).send(err);
@@ -28,7 +29,19 @@ router.post('/image', auth, async (req, res, next) => {
 
 })
 
+// get product
+router.get('/', async (req, res, next) => {
+  try {
+    const products = await Product.find().populate('writer');
+    return res.status(200).json({
+      products
+    });
+  } catch (error) {
+    next(error);
+  }
+})
 
+// auth
 router.post('/', auth, async (req, res, next) => {
   try {
     const product = new Product(req.body);
