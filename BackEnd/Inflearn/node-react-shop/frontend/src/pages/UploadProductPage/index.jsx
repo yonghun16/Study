@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom"
 
 /* import module */
 import axiosInstance from "../../utils/axios"
+import FileUpload from "../../componants/FileUpload"
 
 
 /* data */
@@ -29,6 +30,14 @@ const UploadProductPage = () => {
     images: [],
     continents: 1,
   })
+
+  // 이미지 상태 업데이트
+  const handleImages = (newImages) => {
+    setProduct((prevState) => ({
+      ...prevState,
+      images: newImages
+    }))
+  }
 
   // 상품 상태 업데이트 onChange
   const handleChange = (event) => {
@@ -69,6 +78,9 @@ const UploadProductPage = () => {
       </div>
 
       <form className="mt-6" onSubmit={handleSubmit}>
+
+        <FileUpload images={product.images} onImageChange={handleImages} />
+
         <div className="mt-4">
           <label htmlFor="title">이름</label>
           <input
