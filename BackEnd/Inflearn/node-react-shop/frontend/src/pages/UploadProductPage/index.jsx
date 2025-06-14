@@ -124,7 +124,7 @@ const UploadProductPage = () => {
             value={product.continents}
           >
             {continents.map((item) => (
-              <option key={item.key} value={item.value}>
+              <option key={item.key} value={item.key}>
                 {item.value}
               </option>
             ))}
