@@ -1,5 +1,10 @@
 /* import libraries */
 import { useState } from "react"
+import { useSelector } from "react-redux"
+import { useNavigate } from "react-router-dom"
+
+/* import module */
+import axiosInstance from "../../utils/axios"
 
 
 /* data */
@@ -21,8 +26,8 @@ const UploadProductPage = () => {
     title: "",
     description: "",
     price: 0,
-    continents: 1,
     images: [],
+    continents: 1,
   })
 
   // 상품 상태 업데이트 onChange
@@ -31,13 +36,30 @@ const UploadProductPage = () => {
 
     setProduct((prevState) => ({
       ...prevState,
-      [name]: value       // name에 대괄호를 씌우는 건 동적 키를 적용하기 위함.
+      [name]: value       // name = key, value = value
     }))
   }
 
-  //
-  const handleSubmit = (event) => {
+  // submit
+  const userData = useSelector((state) => state.user?.userData)
+  const navitate = useNavigate()
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
+    console.log(userData)
+
+    const body = {
+      writer: userData.id,
+      ...product
+    }
+
+    try {
+      await axiosInstance.post('/products', body)
+      navitate('/')
+
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   return (

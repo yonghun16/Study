@@ -9,6 +9,7 @@ dotenv.config();
 
 /* import routes */
 import userRouter from './routes/user.js';
+import productRouter from './routes/products.js';
 
 
 /* Express */
@@ -51,6 +52,7 @@ app.all('/', (req, res) => {
 
 // '/users'
 app.use('/users', userRouter); 
+app.use('/products', productRouter); 
 
 
 /* 정적 파일 서비스 */

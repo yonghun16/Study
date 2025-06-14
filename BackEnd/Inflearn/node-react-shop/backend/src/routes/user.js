@@ -3,10 +3,10 @@ import User from '../models/User.js';   // mongoose model
 import jwt from 'jsonwebtoken';
 import auth from '../middleware/auth.js';
 
-const router = express.Router();
-
 
 // auth route
+const router = express.Router();
+
 router.get('/auth', auth, async (req, res, next) => {
   return res.json({
     id: req.user._id,
