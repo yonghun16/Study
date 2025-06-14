@@ -1,4 +1,6 @@
 import Dropzone from 'react-dropzone'
+import axiosInstance from "../utils/axios.js"
+
 
 const FileUpload = ({ onImageChange, images }) => {
 
@@ -20,10 +22,17 @@ const FileUpload = ({ onImageChange, images }) => {
     }
   }
 
+  const handleDelete = (image) => {
+    const currentIndex = images.indexOf(image);
+    let newImages = [...images];
+    newImages.splice(currentIndex, 1);
+    onImageChange(newImages);
+  }
+
 
   return (
     <div className="flex gap-4">
-      <Dropzone onDrop={acceptedFiles => console.log(acceptedFiles)}>
+      <Dropzone onDrop={ handleDrop }>
         {({ getRootProps, getInputProps }) => (
           <section className="
             min-w-[300px] h-[300px] border flex items-center justify-center"
@@ -41,10 +50,10 @@ const FileUpload = ({ onImageChange, images }) => {
         justify-center overflow-x-scroll overflow-y-hidden"
       >
         {images.map((image) => (
-          <div key={image}>
+          <div key={image} onClick={() =>handleDelete(image)}>
             <img
               className="min-w-[300px] h-[300px]"
-              src={`${image.meta.env.VITE_SERVER_URL}/${image}`}
+              src={`${import.meta.env.VITE_SERVER_URL}/${image}`}
               alt="image"
             />
           </div>

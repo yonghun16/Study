@@ -55,7 +55,6 @@ const UploadProductPage = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(userData)
 
     const body = {
       writer: userData.id,
@@ -79,7 +78,7 @@ const UploadProductPage = () => {
 
       <form className="mt-6" onSubmit={handleSubmit}>
 
-        <FileUpload images={product.images} onImageChange={handleImages} />
+        <FileUpload onImageChange={handleImages} images={product.images} />
 
         <div className="mt-4">
           <label htmlFor="title">이름</label>

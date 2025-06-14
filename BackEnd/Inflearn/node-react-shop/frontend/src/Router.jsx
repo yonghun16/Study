@@ -10,6 +10,7 @@ const LoginPage = lazy(() => import("./pages/LoginPage"));
 const RegisterPage = lazy(() => import("./pages/RegisterPage"));
 const ProtectedPage = lazy(() => import("./pages/ProtectedPage"));
 const UploadProductPage = lazy(() => import("./pages/UploadProductPage"));
+const DetailProductPage = lazy(() => import("./pages/DetailProductPage"));
 const CartPage = lazy(() => import("./pages/CartPage"));
 const HistoryPage = lazy(() => import("./pages/HistoryPage"));
 
@@ -36,6 +37,18 @@ const router = createBrowserRouter([
           {
             path: "/product/upload",
             element: <UploadProductPage />,
+          },
+          {
+            path: "/product/:productId",
+            element: <DetailProductPage/>,
+          },
+          {
+            path: "/user/cart",
+            element: <CartPage />,
+          },
+          {
+            path: "/history",
+            element: <HistoryPage/>,
           },
         ],
       },
