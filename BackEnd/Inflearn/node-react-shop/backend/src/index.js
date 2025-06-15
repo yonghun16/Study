@@ -1,11 +1,11 @@
 import express from 'express';
 import cors from 'cors';
-import path from 'path';
+import path, { dirname } from 'path';
 import { fileURLToPath } from 'url';
-import { dirname } from 'path';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 dotenv.config();
+import qs from 'qs'
 
 /* import routes */
 import userRouter from './routes/user.js';
@@ -16,6 +16,8 @@ import productRouter from './routes/products.js';
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+/* query parser */
+app.set('query parser', str => qs.parse(str))
 
 /* DB Connect */
 mongoose.connect(process.env.MONGO_URI)
@@ -30,7 +32,7 @@ app.use(express.urlencoded({ extended: true }));    // req.body를 키/값 쌍 �
 
 // Error Handler
 app.use((error, req, res, next) => {
-  res.status(err.status || 500);
+  res.status(error.status || 500);
   res.send(error.message || "서버 에러");
 })
 

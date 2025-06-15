@@ -7,6 +7,7 @@ import CheckBox from "./Sections/CheckBox"
 import RadioBox from "./Sections/RadioBox"
 import SearchInput from "./Sections/SearchInput"
 import CardItem from "./Sections/CardItem"
+import { continents, prices } from '../../utils/filterData'
 
 /* UI */
 const LandingPage = () => {
@@ -16,7 +17,7 @@ const LandingPage = () => {
   const [skip, setSkip] = useState(0)
   const [hasMore, setHasMore] = useState(true)
   const [filters, setFilters] = useState({
-    continent: [],
+    continents: [],
     price: []
   })
 
@@ -31,17 +32,18 @@ const LandingPage = () => {
       filters,
       searchTerm,
     }
+    // console.log("🟡 axios params", params);
     try {
       const response = await axiosInstance.get('/products', { params })
 
-      if(loadMore) {
+      if (loadMore) {
         setProducts([...products, ...response.data.products])
       } else {
         setProducts(response.data.products)
       }
       setHasMore(response.data.hasMore);
 
-    }catch(error) {
+    } catch (error) {
       console.error(error)
     }
   }
@@ -57,6 +59,26 @@ const LandingPage = () => {
     setSkip(skip + limit)
   }
 
+  const handleFilters = (newFilteredData, category) => {
+    const newFilters = { ...filters };
+    newFilters[category] = newFilteredData;
+
+    showFilteredResults(newFilters);
+    setFilters(newFilters);
+  }
+
+  const showFilteredResults = (filters) => {
+    const body = {
+      skip: 0,
+      limit,
+      filters,
+    }
+
+    fetchProducts(body)
+    setSkip(0)
+  }
+
+
   return (
     <section>
       <div className="text-center m-7">
@@ -65,7 +87,11 @@ const LandingPage = () => {
       {/* filter */}
       <div className="flex gap-3">
         <div className='w-1/2'>
-          <CheckBox />
+          <CheckBox
+            continents={continents}
+            checkedContinents={filters.continents}
+            onFilters={filters => handleFilters(filters, "continents")}
+          />
         </div>
         <div className='w-1/2'>
           <RadioBox />
@@ -88,7 +114,7 @@ const LandingPage = () => {
       {/* LoadMore */}
       {hasMore &&
         <div className="flex justify-center mt-5">
-          <button 
+          <button
             onClick={handleLoadMore}
             className="px-4 py-2 mt-5 text-white bg-black rounded-md hover:bg-gray-500">
             더 보기
