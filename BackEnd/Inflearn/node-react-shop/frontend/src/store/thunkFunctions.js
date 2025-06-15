@@ -22,7 +22,7 @@ export const registerUser = createAsyncThunk(
 
 // login
 export const loginUser = createAsyncThunk(
-  'user/loginUser', 
+  'user/loginUser',
   async (userData, thunkAPI) => {
     try {
       const response = await axiosInstance.post(
@@ -40,7 +40,7 @@ export const loginUser = createAsyncThunk(
 
 // auth
 export const authUser = createAsyncThunk(
-  'user/authUser', 
+  'user/authUser',
   async (_, thunkAPI) => {
     try {
       const response = await axiosInstance.get(
@@ -55,7 +55,7 @@ export const authUser = createAsyncThunk(
 
 // logout
 export const logoutUser = createAsyncThunk(
-  'user/logoutUser', 
+  'user/logoutUser',
   async (_, thunkAPI) => {
     try {
       const response = await axiosInstance.post(
@@ -64,6 +64,24 @@ export const logoutUser = createAsyncThunk(
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message)
+    }
+  }
+)
+
+// add cart
+export const addToCart = createAsyncThunk(
+  "user/addToCart",
+  async (body, thunkAPI) => {
+    try {
+      const response = await axiosInstance.post(
+        `/users/cart`,
+        body
+      );
+
+      return response.data;
+    } catch (error) {
+      console.log(error);
+      return thunkAPI.rejectWithValue(error.response.data || error.message);
     }
   }
 )

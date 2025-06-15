@@ -26,8 +26,26 @@ router.post('/image', auth, async (req, res, next) => {
     }
     return res.json({ fileName: req.file.filename })
   })
-
 })
+
+
+// get Detail Product
+router.get('/:id', async (req, res, next) => {
+  const type = req.query.type;
+  let productIds = req.params.id;
+
+  // productId를 이용해서 DB에서 productId와 같은 상품의 정보를 가져옵니다.
+  try {
+    const product = await Product
+      .find({ _id: { $in: productIds } })  // SELECT * FROM products WHERE _in IN ('sadfdsaf', 'sdf23dsf', 'sdf2sdf');
+      .populate('writer');
+
+    return res.status(200).send(product);
+  } catch (error) {
+    next(error);
+  }
+})
+
 
 // get product
 router.get('/', async (req, res, next) => {
@@ -56,8 +74,7 @@ router.get('/', async (req, res, next) => {
   if (term) {
     findArgs["$text"] = { $search: term };
   }
-
-  console.log(findArgs)
+  // console.log(findArgs)
 
 
   try {
