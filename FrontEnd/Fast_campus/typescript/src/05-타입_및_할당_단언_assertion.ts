@@ -33,5 +33,5 @@ getValue(3.1415926535, true)     // 3.14
   
 
 // 할당 단언
-let num51: number
+let num51!: number
 console.log(num51)    // undefined
