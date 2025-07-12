@@ -32,13 +32,13 @@ let num2: number = 1234;
 console.log(num2)
 
 
-// 배열
+/* 배열 */
 const fruits: string[] = ['apple', 'banana', 'orange'];
 const numbers: number[] = [1, 2, 3];
 const union: (string | number)[] = [1, 'apple', 2, 'banana', 3, 'orange'];
 
 
-// 객체
+/* 객체 */
 const obj: object = {}
 const arr: object = []
 const func: object = function() { }  // object 타입은 엄격하지 않아서 잘 쓰이지 않는다.
@@ -63,7 +63,21 @@ const userB: {
   isValid: false
 }
 
-// 인터페이스
+// Alias type
+type User21 = {     // type을 미리 저장하고 새로운 object에 적용 할 수 있다.
+  name: string
+  age?: number
+  isValid: boolean
+}
+
+const mike: User21 = {
+  name: 'Mike',
+  age: 13,
+  isValid: true
+}
+
+
+/* 인터페이스 */
 interface User {
   name: string,
   age: number
