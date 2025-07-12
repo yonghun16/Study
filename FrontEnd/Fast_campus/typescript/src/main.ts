@@ -1,3 +1,3 @@
-let hello: string = "123";
+let hellonum: string = "123";
 
-console.log(hello);
+console.log(hellonum);
