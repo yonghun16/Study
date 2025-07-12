@@ -42,12 +42,31 @@ function hellow3(msg: string): void {    // 아무것도 반환하지 않을 때
 }
 const hi: void = hellow3('world')
 
-/* never */
 
+/* never */
+const nev3: number[] = []     // never -> Array<never>
+// nev3.push(1)   // never 형식의 매개 변수에는 할당 될 수가 없다.
 
 
 /* union */
-
+let union3: string | number        // 문자 데이터 할당 or 숫자 데이터 할당
+let union31: (string | number)[]   // (문자 데이터 할당 or 숫자 데이터 할당)을 받는 [배열]
+union3 = 'Hello'
+// union3 = false    // boolean 타입은 설정하지 않음.
 
 
 /* intersection */
+interface User31 {
+  name: string,
+  age: number
+}
+
+interface Validation31 {
+  isValid: boolean
+}
+
+const heropy31: User31 & Validation31 = {    // & 연산자를 사용한 인터페이스
+  name: 'Heropy',
+  age: 85,
+  isValid: true
+}
