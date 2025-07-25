@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
+import styles from '../../styles/home.module.css';
+import Movie from '../../components/movie';
+
 export const metadata: Metadata = {
   title: 'Home',
 };
-
-import Link from 'next/link';
 
 export const API_URL = "https://nomad-movies.nomadcoders.workers.dev/movies";
 
@@ -17,11 +18,9 @@ async function getMovies() {
 export default async function HomePage() {
   const movies = await getMovies();
   return (
-    <div>
-      {movies.map((movie: { id: string; title: string }) => (
-        <li key={movie.id}>
-          <Link href={`/movies/${movie.id}`}>{movie.title}</Link>
-        </li>
+    <div className={styles.container}>
+      {movies.map((movie: { id: string; title: string; poster_path: string }) => (
+      <Movie key={movie.id} {...movie} />
       ))}
     </div>
   )
