@@ -2,6 +2,7 @@ import express from 'express';
 import User from '../models/User.js';   // mongoose model
 import jwt from 'jsonwebtoken';
 import auth from '../middleware/auth.js';
+import Product from '../models/Product.js';
 
 
 // auth route
@@ -121,6 +122,37 @@ router.post('/cart', auth, async (req, res, next) => {
     next(error)
   }
 })
+
+// delte item
+// 장바구니 아이템 삭제
+router.delete('/cart', auth, async (req, res, next) => {
+  try {
+    // 1. 유저의 cart 배열에서 요청된 productId와 일치하는 상품을 제거합니다.
+    const userInfo = await User.findOneAndUpdate(
+      { _id: req.user._id },
+      { 
+        "$pull": { "cart": { "id": req.query.productId } } 
+      },
+      { new: true } // 업데이트된 문서를 반환 받기 위한 옵션
+    );
+
+    const cart = userInfo.cart;
+    const array = cart.map(item => item.id);
+
+    // 2. 제거 후 남은 상품들의 상세 정보를 다시 가져와서 프론트엔드에 응답으로 보냅니다.
+    const productInfo = await Product
+      .find({ _id: { $in: array } })
+      .populate('writer');
+
+    return res.json({
+      productInfo,
+      cart
+    });
+
+  } catch (error) {
+    next(error);
+  }
+});
 
 
 export default router;
