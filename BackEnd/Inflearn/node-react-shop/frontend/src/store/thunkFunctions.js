@@ -90,10 +90,10 @@ export const addToCart = createAsyncThunk(
 // get cartItems
 export const getCartItems = createAsyncThunk(
   "user/getCartItems",
-  async ({ cartItemsIds, userCart }, thunkAPI) => {
+  async ({ cartItemIds, userCart }, thunkAPI) => {
     try {
       const response = await axiosInstance.get(
-        `/products/${cartItemsIds}?type=array`,
+        `/products/${cartItemIds}?type=array`,
       );
 
       // CartIteme들에 해당하는 정보들을

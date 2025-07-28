@@ -1,17 +1,13 @@
-/* import libraries */
+// LandingPage.jsx
 import { useEffect, useState } from "react"
 import axiosInstance from "../../utils/axios"
-
-/* import components */
 import CheckBox from "./Sections/CheckBox"
 import RadioBox from "./Sections/RadioBox"
 import SearchInput from "./Sections/SearchInput"
 import CardItem from "./Sections/CardItem"
 import { continents, prices } from '../../utils/filterData'
 
-/* UI */
 const LandingPage = () => {
-  // 상태 data
   const limit = 4;
   const [searchTerm, setSearchTerm] = useState('');
   const [products, setProducts] = useState([])
@@ -22,28 +18,25 @@ const LandingPage = () => {
     prices: []
   })
 
+  // ✅ 선택된 price._id 저장용 상태 추가
+  const [selectedPriceId, setSelectedPriceId] = useState(null)
+
   useEffect(() => {
     fetchProducts({ skip, limit })
   }, [])
 
   const fetchProducts = async ({ skip, limit, loadMore = false, filters = {}, searchTerm = "" }) => {
-    const params = {
-      skip,
-      limit,
-      filters,
-      searchTerm,
-    }
-    // console.log("🟡 axios params", params);
+    const params = { skip, limit, filters, searchTerm }
     try {
       const response = await axiosInstance.get('/products', { params })
 
       if (loadMore) {
-        setProducts([...products, ...response.data.products])
+        setProducts(prev => [...prev, ...response.data.products])
       } else {
         setProducts(response.data.products)
       }
-      setHasMore(response.data.hasMore);
 
+      setHasMore(response.data.hasMore);
     } catch (error) {
       console.error(error)
     }
@@ -62,59 +55,54 @@ const LandingPage = () => {
   }
 
   const handleFilters = (newFilteredData, category) => {
-    const newFilters = { ...filters };
-    newFilters[category] = newFilteredData;
+    const newFilters = { ...filters }
 
     if (category === 'prices') {
-      const priceValues = handlePrice(newFilteredData);
-      newFilters[category] = priceValues
+      const priceRange = handlePrice(newFilteredData)
+      newFilters[category] = priceRange
+      setSelectedPriceId(parseInt(newFilteredData))  // ✅ 선택된 price ID 저장
+    } else {
+      newFilters[category] = newFilteredData
     }
 
-    showFilteredResults(newFilters);
-    setFilters(newFilters);
+    showFilteredResults(newFilters)
+    setFilters(newFilters)
   }
 
   const handlePrice = (value) => {
-    let array = [];
-
+    let array = []
     for (let key in prices) {
       if (prices[key]._id === parseInt(value, 10)) {
-        array = prices[key].array;
+        array = prices[key].array
       }
     }
-    return array;
+    return array
   }
 
   const showFilteredResults = (filters) => {
-    const body = {
-      skip: 0,
-      limit,
-      filters,
-      searchTerm,
-    }
-
+    const body = { skip: 0, limit, filters, searchTerm }
     fetchProducts(body)
     setSkip(0)
   }
 
   const handleSearchTerm = (event) => {
     const body = {
-      skip,
+      skip: 0,
       limit,
       filters,
       searchTerm: event.target.value
     }
-    setSkip(0);
-    setSearchTerm(event.target.value);
+    setSearchTerm(event.target.value)
+    setSkip(0)
     fetchProducts(body)
   }
-
 
   return (
     <section>
       <div className="text-center m-7">
         <h2 className="text-3xl font-bold"> 여행 상품 사이트 </h2>
       </div>
+
       {/* filter */}
       <div className="flex gap-3">
         <div className='w-1/2'>
@@ -127,11 +115,10 @@ const LandingPage = () => {
         <div className='w-1/2'>
           <RadioBox 
             prices={prices}
-            checkedPrices={filters.prices}
-            onFilters={filters => handleFilters(filters, "prices")}
+            selectedPriceId={selectedPriceId}
+            onFilters={id => handleFilters(id, "prices")}
           />
         </div>
-
       </div>
 
       {/* search */}
@@ -143,7 +130,7 @@ const LandingPage = () => {
       </div>
 
       {/* card */}
-      <div className="grid grid-cols-2 sm:gird-cols-4">
+      <div className="grid grid-cols-2 sm:grid-cols-4">
         {products.map(product =>
           <CardItem product={product} key={product._id} />
         )}

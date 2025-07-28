@@ -45,7 +45,7 @@ const LoginPage = () => {
     const body = {
       email,
       password,
-      image : `http://miniloopmedia.com/wp-content/uploads/2015/02/Russian_Male.png`
+      //image : `http://miniloopmedia.com/wp-content/uploads/2015/02/Russian_Male.png`
     }
 
     dispatch(loginUser (body))   // registerUser thunk 함수에 body객체를 전달
