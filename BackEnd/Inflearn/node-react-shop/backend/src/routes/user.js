@@ -3,6 +3,9 @@ import User from '../models/User.js';   // mongoose model
 import jwt from 'jsonwebtoken';
 import auth from '../middleware/auth.js';
 import Product from '../models/Product.js';
+import Payment from '../models/Payment.js';
+import crypto from 'crypto';
+import async from 'async';
 
 
 // auth route
@@ -130,8 +133,8 @@ router.delete('/cart', auth, async (req, res, next) => {
     // 1. 유저의 cart 배열에서 요청된 productId와 일치하는 상품을 제거합니다.
     const userInfo = await User.findOneAndUpdate(
       { _id: req.user._id },
-      { 
-        "$pull": { "cart": { "id": req.query.productId } } 
+      {
+        "$pull": { "cart": { "id": req.query.productId } }
       },
       { new: true } // 업데이트된 문서를 반환 받기 위한 옵션
     );
@@ -155,5 +158,50 @@ router.delete('/cart', auth, async (req, res, next) => {
 });
 
 
-export default router;
+router.post('/payment', auth, async (req, res) => {
+  let history = [];
+  let transactionData = {};
 
+  req.body.cartDetail.forEach(item => {
+    history.push({
+      dateOfPurchase: new Date().toISOString(),
+      name: item.title,
+      id: item._id,
+      price: item.price,
+      quantity: item.quantity,
+      paymentId: crypto.randomUUID()
+    })
+  })
+
+
+  transactionData.user = req.user._id;
+  transactionData.product = history;
+
+  // user collection 업데이트
+  await User.findOneAndUpdate(
+    { _id: req.user._id },
+    { $push: { history: { $each: history } }, $set: { cart: [] } }
+  );
+
+  // payment collection 저장
+  const payment = new Payment(transactionData);
+  const paymentDocs = await payment.save();
+
+  let products = [];
+  paymentDocs.product.forEach(item => {
+    products.push({ id: item.id, quantity: item.quantity });
+  });
+
+  async.eachSeries(products, async (item) => {
+    await Product.updateOne(
+      { _id: item.id },
+      { $inc: { sold: item.quantity } }
+    );
+  }, (err) => {
+    if (err) return res.status(500).send(err);
+    return res.sendStatus(200);
+  });
+});
+
+
+export default router
