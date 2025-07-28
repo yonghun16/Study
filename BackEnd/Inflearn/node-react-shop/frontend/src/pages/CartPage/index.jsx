@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCartItems } from '../../store/thunkFunctions';
+import CartTable from './Section/CartTable';
 
 const CartPage = () => {
   const userData = useSelector(state => state.user?.userData);
@@ -36,6 +37,10 @@ const CartPage = () => {
     setTotal(total);
   }
 
+  const handleRemoveCartItem = () => {
+    
+  }
+
   return (
     <section>
       <div className='text-center m-7'>
@@ -43,6 +48,7 @@ const CartPage = () => {
 
         {cartDetail?.length > 0 ?
           <>
+            <CartTable products={cartDetail} onRemoveItem={handleRemoveCartItem}/>
             <div className='mt-10'>
               <p><span className='font-bold'>합계:</span> {total}원</p>
               <button className='text-white bg-black hover:bg-gray-500 rounded-md py-2 px-4 mt-50'>
