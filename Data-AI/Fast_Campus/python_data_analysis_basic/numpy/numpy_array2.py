@@ -6,7 +6,7 @@ import numpy as np
 
 # 0부터 9까지의 정수 배열
 arr = np.arange(10)
-# print(arr)
+ print(arr)
 
 
 

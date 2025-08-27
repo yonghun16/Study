@@ -26,4 +26,4 @@ arr = np.arange(10)
 
 # 0~1 사이 균등 분포 난수
 rand = np.random.rand(3, 3)
-#print(rand)
+print(rand)
