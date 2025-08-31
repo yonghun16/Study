@@ -50,5 +50,29 @@ b = np.array([1.2, 3.4, 5.1])
 # print(np.ones((2, 3, 4), dtype=np.int64))
 
 # 초기화 되지않은 (2, 3) 크기의 배열을 생성
-print(np.empty((2, 3)))
+# print(np.empty((2, 3)))
 
+
+# np.arange
+a = np.arange(0, 10, 2)
+# print(a)
+
+a = np.arange(10, 30, 5)
+# print(a)
+
+
+# np.linspace
+x = np.linspace(0, 99, 100)
+# print(x)
+
+# 1차원
+a = np.arange(3)
+# print(a)
+
+# 2차원
+a = np.arange(12).reshape(4, 3)
+# print(a)
+
+# 3차원
+a = np.arange(24).reshape((2, 4, 3))
+print(a)
