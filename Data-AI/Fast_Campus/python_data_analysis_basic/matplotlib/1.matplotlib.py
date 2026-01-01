@@ -88,7 +88,7 @@ plt.ylabel("Y-Label")
 # axis() : X, Y축이 표시되는 범위 지정 [xmin, xmax, ymin, ymax]
 plt.plot([1, 2, 3, 4], [1, 4, 9, 16])
 plt.axis([0, 6, 0, 20])
-# plt.show()
+plt.show()
 
 
 """
