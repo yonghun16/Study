@@ -4,29 +4,33 @@ import { StyleSheet, Text, View, TextInput } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function HomeScreen() {
-  const [text, setText] = useState("");
   return (
     <SafeAreaView>
-      <View style={styles.container}>
-        <Text style={styles.text}>텍스트2</Text>
+      <View style={styles.parent}>
+        <View style={styles.container}>
+          <Text style={styles.text}>텍스트1</Text>
+        </View>
+        <View style={styles.container2}>
+          <Text style={styles.text}>텍스트2</Text>
+          <Text style={styles.text}>텍스트2</Text>
+          <Text style={styles.text}>텍스트2</Text>
+        </View>
       </View>
-      <TextInput
-        value={text}
-        onChangeText={(value) => setText(value)}
-        style={styles.input}
-      />
-      <Button
-        onPress={() => console.log("text")} >
-        버튼이름
-      </Button>
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
+  parent: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   container: {
     backgroundColor: 'yellow',
-    color: '',
+  },
+  container2: {
+    backgroundColor: 'blue',
   },
   text: {
     color: 'red',
