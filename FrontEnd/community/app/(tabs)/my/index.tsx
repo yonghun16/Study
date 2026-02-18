@@ -4,7 +4,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 export default function HomeScreen() {
   return (
     <SafeAreaView>
-      <Text>Home</Text>
+      <Text>내 프로필</Text>
     </SafeAreaView>
   );
 }

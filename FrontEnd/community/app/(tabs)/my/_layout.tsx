@@ -9,10 +9,13 @@ const MyLayout = () => {
         contentStyle: { backgroundColor: colors.WHITE },
       }}
     >
-      <Stack.Screen name="index" options={{
-        headerShown: false,
-        title: "My"
-      }} />
+      <Stack.Screen
+        name="index"
+        options={{
+          headerShown: false,
+          title: "My",
+        }}
+      />
     </Stack>
   )
 }
