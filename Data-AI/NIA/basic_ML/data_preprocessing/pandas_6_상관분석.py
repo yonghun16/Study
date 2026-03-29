@@ -1,8 +1,13 @@
+from pathlib import Path
+
 import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
 
-df = pd.read_csv("./data/correlation.csv")
+BASE_DIR = Path(__file__).resolve().parent.parent
+DATA_DIR = BASE_DIR / "data"
+
+df = pd.read_csv(DATA_DIR / "correlation.csv")
 
 # 수치형 열만 선택
 numeric_df: pd.DataFrame = df.select_dtypes(include=["number"]).copy()

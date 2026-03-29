@@ -1,7 +1,12 @@
+from pathlib import Path
+
 import pandas as pd
 
+BASE_DIR = Path(__file__).resolve().parent.parent
+DATA_DIR = BASE_DIR / "data"
+
 # 열 이름 제거, 엔코딩 설정 불러오기
-df = pd.read_csv("cafe_orders.csv", header=None, encoding="utf-8")
+df = pd.read_csv(DATA_DIR / "cafe_orders.csv", header=None, encoding="utf-8")
 df = df.iloc[1:]  # 첫번째 행 제거
 print(df.head())
 

@@ -1,11 +1,16 @@
+from pathlib import Path
+
 import pandas as pd
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+DATA_DIR = BASE_DIR / "data"
 
 # 용도
 # 데이터 불러오기
 # 데이터 가공(변환)
 
 # CSV 파일 불러오기
-df = pd.read_csv("cafe_orders.csv")
+df = pd.read_csv(DATA_DIR / "cafe_orders.csv")
 # print(df.head())
 
 # 2. 데이터 구조 확인

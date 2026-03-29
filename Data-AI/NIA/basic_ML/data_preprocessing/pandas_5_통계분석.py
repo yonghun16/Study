@@ -1,11 +1,16 @@
+from pathlib import Path
+
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import seaborn as sns
 from scipy.stats import norm
 
+BASE_DIR = Path(__file__).resolve().parent.parent
+DATA_DIR = BASE_DIR / "data"
+
 # 1. data 불러오기
-df = pd.read_csv("./data/titanic.csv")
+df = pd.read_csv(DATA_DIR / "titanic.csv")
 # print(df.describe())
 
 # 2. 왜도로 분포를 확인

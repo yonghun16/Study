@@ -1,6 +1,11 @@
+from pathlib import Path
+
 import pandas as pd
 
-df_titanic = pd.read_csv("./data/titanic.csv")
+BASE_DIR = Path(__file__).resolve().parent.parent
+DATA_DIR = BASE_DIR / "data"
+
+df_titanic = pd.read_csv(DATA_DIR / "titanic.csv")
 
 # print(df_titanic.head())
 # print(df_titanic.info())
