@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
 from sklearn.metrics import accuracy_score
-from sklearn.model_selection import train_test_split
+from sklearn.model_selection import GridSearchCV, train_test_split
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.tree import DecisionTreeClassifier
 
@@ -55,9 +55,35 @@ X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.3, random_state=42
 )
 
-# 11. 모델 학습
-dt_model = DecisionTreeClassifier(random_state=42)
-dt_model.fit(X_train, y_train)
+# 11. 하이퍼파라미터 튜닝 및 모델 학습
+# 탐색할 하이퍼파라미터 값들을 리스트 형태로 채워주어야 합니다.
+param_grid = {
+    "max_depth": [3, 5, 7, 10, None],
+    "min_samples_split": [2, 5, 10],
+    "min_samples_leaf": [1, 2, 4],
+}
+
+# 기본 의사결정 트리 모델 생성
+base_dt = DecisionTreeClassifier(random_state=42)
+
+# GridSearchCV 설정 (cv=5는 5-Fold 교차 검증을 의미)
+grid_search = GridSearchCV(
+    base_dt,
+    param_grid=param_grid,
+    cv=5,
+    scoring="accuracy",
+    n_jobs=-1,  # 모든 CPU 코어를 사용하여 속도 향상
+)
+
+# 튜닝 수행 및 학습
+grid_search.fit(X_train, y_train)
+
+# 최적의 파라미터 결과 출력
+print(f"최적의 하이퍼파라미터: {grid_search.best_params_}")
+print(f"최적 파라미터일 때의 교차 검증 정확도: {grid_search.best_score_:.4f}")
+
+# 가장 성능이 좋았던 최적의 모델을 dt_model로 지정 (이후 12, 13번 과정과 연결)
+dt_model = grid_search.best_estimator_
 
 # 12. 정확도 출력
 y_pred = dt_model.predict(X_test)
