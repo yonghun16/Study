@@ -15,6 +15,8 @@ df = pd.read_csv(DATA_DIR / "iris.csv")
 x = df.drop("species", axis=1)
 y = df.loc[:, "species"]
 
+# [전처리]
+
 # 3. 학습/테스트 데이터 분리
 x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2)
 
