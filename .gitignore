@@ -133,3 +133,4 @@ tags
 [._]*.un~
 
 # End of https://www.toptal.com/developers/gitignore/api/macos,vim
+./Data-AI/NIA/basic_ML/data/cats_dogs/
