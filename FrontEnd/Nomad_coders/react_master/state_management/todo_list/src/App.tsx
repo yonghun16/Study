@@ -1,7 +1,8 @@
 import './App.css'
 
 import { createGlobalStyle } from "styled-components";
-import ToDoList from "./ToDoList";
+import ToDoList from "./components/ToDoList";
+import { RecoilRoot } from "recoil";
 
 const GlobalStyle = createGlobalStyle`
 html, body, div, span, applet, object, iframe,
@@ -71,8 +72,10 @@ function App() {
 
   return (
     <>
-      <GlobalStyle />
-      <ToDoList />
+      <RecoilRoot>
+        <GlobalStyle />
+        <ToDoList />
+      </RecoilRoot>
     </>
   )
 }
