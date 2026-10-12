@@ -87,3 +87,7 @@ coverage/
 # ===== Project specific =====
 cats_dogs/
 .aider*
+
+
+# ===== rust cargo =====
+target/
